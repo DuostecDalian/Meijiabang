@@ -18,6 +18,7 @@
 		28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */; };
 		28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */; };
 		28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */; };
+		8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */; };
 		8F2C4812E7F028403DE29C5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9B107CD7E2BD10693EEB745 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Artist.storyboard; sourceTree = "<group>"; };
 		28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutMe.storyboard; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_NailSearchVC.swift; sourceTree = "<group>"; };
 		A9E86E99881378541282A0B0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C9B107CD7E2BD10693EEB745 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +100,7 @@
 				28D52E881A6CD2CB00C17CF0 /* MainViewController.swift */,
 				28D52E6C1A6CD06200C17CF0 /* Main.storyboard */,
 				28D52E8A1A6CD2EF00C17CF0 /* Search.storyboard */,
+				8BB235BD1A6DF57F003530AA /* ZXY_Start */,
 				28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */,
 				28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */,
 				28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */,
@@ -132,6 +135,22 @@
 				28D52E7D1A6CD06300C17CF0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8BB235BD1A6DF57F003530AA /* ZXY_Start */ = {
+			isa = PBXGroup;
+			children = (
+				8BB235BE1A6DF5ED003530AA /* ZXY_SearchVCS */,
+			);
+			path = ZXY_Start;
+			sourceTree = "<group>";
+		};
+		8BB235BE1A6DF5ED003530AA /* ZXY_SearchVCS */ = {
+			isa = PBXGroup;
+			children = (
+				8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */,
+			);
+			path = ZXY_SearchVCS;
 			sourceTree = "<group>";
 		};
 		B0E5DD56CE408FE1088897C4 /* Frameworks */ = {
@@ -292,6 +311,7 @@
 			files = (
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
+				8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */,
 				28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
