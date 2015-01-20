@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C99d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xAh-fY-uyM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="xAh-fY-uyM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--美甲师-->
         <scene sceneID="0kZ-ho-7lY">
             <objects>
                 <tableViewController id="8yK-Y3-0HK" sceneMemberID="viewController">
@@ -26,7 +26,7 @@
                             <outlet property="delegate" destination="8yK-Y3-0HK" id="HWh-lt-c3m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="JL4-cY-vgS"/>
+                    <navigationItem key="navigationItem" title="美甲师" id="JL4-cY-vgS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7X-tt-azl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -39,6 +39,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qyW-a2-MN4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.97647058819999999" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="8yK-Y3-0HK" kind="relationship" relationship="rootViewController" id="Rag-di-LXn"/>

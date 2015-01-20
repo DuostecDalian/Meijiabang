@@ -18,31 +18,40 @@ class MainViewController: UITabBarController {
         // 搜索
         let SearchStoryboard = UIStoryboard(name: "Search", bundle: nil)
         let SearchVC = SearchStoryboard.instantiateInitialViewController() as UINavigationController
-        SearchVC.tabBarItem.title = "搜索"
-        addChildViewController(SearchVC)
+       
         
         // 首页
-        let HomeStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let HomeStoryboard = UIStoryboard(name: "Home", bundle: nil)
         let HomeVC = HomeStoryboard.instantiateInitialViewController() as UINavigationController
-        HomeVC.tabBarItem.title = "首页"
-        addChildViewController(HomeVC)
+        
         
         // 美甲师
-        let ArtistStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let ArtistStoryboard = UIStoryboard(name: "Artist", bundle: nil)
         let ArtistVC = ArtistStoryboard.instantiateInitialViewController() as UINavigationController
-        ArtistVC.tabBarItem.title = "美甲师"
-        addChildViewController(ArtistVC)
+       
         
         // 晒美甲
         let placeHolderVC = UINavigationController()
-        placeHolderVC.tabBarItem.title = "晒美甲"
-        addChildViewController(placeHolderVC)
+        
         
         // 我的
-        let AboutMeStoryboard = UIStoryboard(name: "Search", bundle: nil)
+        let AboutMeStoryboard = UIStoryboard(name: "AboutMe", bundle: nil)
         let AboutMeVC = AboutMeStoryboard.instantiateInitialViewController() as UINavigationController
-        AboutMeVC.tabBarItem.title = "我的"
-        addChildViewController(AboutMeVC)
+        
+        self.setViewControllers([SearchVC,HomeVC,ArtistVC,placeHolderVC,AboutMeVC], animated: false)
+        let itemPlist: NSArray! = NSArray(contentsOfFile: NSBundle.mainBundle().pathForResource("HomeItemsPList", ofType: "plist")!)
+        self.tabBar.selectedImageTintColor = UIColor(red: 249.0/255.0, green: 97.0/255.0, blue: 104.0/255.0, alpha: 1)
+        
+        for var i = 0 ; i < self.tabBar.items?.count ; i++
+        {
+            var item : UITabBarItem = self.tabBar.items![i] as UITabBarItem
+            var fileItemDic : Dictionary<String,String>  = itemPlist[i] as Dictionary<String,String>
+            item.title = fileItemDic["itemName"]
+            item.selectedImage = UIImage(named: fileItemDic["itemImage"]!)
+        
+            item.image = UIImage(named: fileItemDic["itemUpImage"]!)
+            //item.image         = UIImage(named: fileItemDic[""]))
+        }
     }
 
     override func didReceiveMemoryWarning() {
