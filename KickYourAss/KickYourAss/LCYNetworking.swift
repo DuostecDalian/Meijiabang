@@ -36,7 +36,7 @@ class LCYNetworking {
             
             let date = NSDate()
             let timeStamp = "\(Int(date.timeIntervalSince1970))"
-            let secret = CC_MD5()
+//            let secret = CC_MD5()
             
             manager.POST(absoluteURL, parameters: parameters, success: { (operation, object) -> Void in
                 if let success = success {
