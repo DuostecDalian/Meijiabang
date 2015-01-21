@@ -22,6 +22,7 @@ class ZXY_SearchArtistCell: UITableViewCell {
     @IBOutlet weak var userArtPhotoView: UIView!
     @IBOutlet var userArtPhotoItems: [UIImageView]!
     
+    @IBOutlet weak var conerLbl: UILabel!
     
     
     override func awakeFromNib() {
@@ -29,6 +30,7 @@ class ZXY_SearchArtistCell: UITableViewCell {
         // Initialization code
         self.layerCustomerViewCorner(userProfile, cornerValue: CGRectGetWidth(userProfile.frame)/2)
         self.layerCustomerViewCorner(userProfileEdge, cornerValue: CGRectGetWidth(userProfileEdge.frame)/2)
+        self.layerCustomerViewCorner(conerLbl, cornerValue: CGRectGetWidth(conerLbl.frame)/2)
         self.layerCustomerVCornerBold(favoriteBtn, cornerValue: 5, borderWidth: 1, borderColor:ZXY_AllColor.SEARCH_RED_COLOR)
     }
 
@@ -62,7 +64,7 @@ class ZXY_SearchArtistCell: UITableViewCell {
         }
     }
     
-    func setArtsImage(imagesInfo : [Dictionary<String , String>]) -> Void
+    func setArtsImage(imagesInfo : [ZXYImage]) -> Void
     {
         var imageURLCount : Int = imagesInfo.count
         if(imageURLCount > 3)
@@ -73,7 +75,7 @@ class ZXY_SearchArtistCell: UITableViewCell {
         {
             var currentImageV = userArtPhotoItems[i]
             var currentImageInfo = imagesInfo[i]
-            var imageURL = ZXY_ALLApi.ZXY_MainAPIImage + currentImageInfo["cut_path"]!
+            var imageURL = ZXY_ALLApi.ZXY_MainAPIImage + currentImageInfo.cutPath
             currentImageV.setImageWithURL(NSURL(string: imageURL))
         }
     }
