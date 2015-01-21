@@ -8,6 +8,9 @@
 
 import Foundation
 import UIKit
-class AllColor {
-    
+struct ZXY_AllColor {
+    /**
+    *  主色系粉红色
+    */
+    static let SEARCH_RED_COLOR : UIColor = UIColor(red: 249/255.0, green: 97/255.0, blue: 104.0/255.0, alpha: 1)
 }

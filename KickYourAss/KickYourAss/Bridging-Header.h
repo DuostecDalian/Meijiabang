@@ -8,4 +8,10 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
+<<<<<<< HEAD
 
+=======
+#import <CommonCrypto/CommonDigest.h>
+#import"NSString+Encipher.h"
+#import "DataModels.h"
+>>>>>>> b5b07bdcaa00533a56fefa7dc6ebb1d389479cd1
