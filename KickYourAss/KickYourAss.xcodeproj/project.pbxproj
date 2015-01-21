@@ -18,6 +18,9 @@
 		28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */; };
 		28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */; };
 		28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */; };
+		28D69B8B1A6F53E700F2F145 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */; };
+		28D69B8E1A6F577500F2F145 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8D1A6F577500F2F145 /* Extensions.swift */; };
+		28D69B901A6F755400F2F145 /* AboutMeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */; };
 		8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */; };
 		8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */; };
 		8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */; };
@@ -59,6 +62,9 @@
 		28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Artist.storyboard; sourceTree = "<group>"; };
 		28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutMe.storyboard; sourceTree = "<group>"; };
+		28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		28D69B8D1A6F577500F2F145 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeButtonCell.swift; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_SearchArtistCell.swift; sourceTree = "<group>"; };
 		8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SearchVCImage.xcassets; sourceTree = "<group>"; };
@@ -120,6 +126,8 @@
 		28D52E621A6CD06200C17CF0 /* KickYourAss */ = {
 			isa = PBXGroup;
 			children = (
+				28D69B8C1A6F575400F2F145 /* LCYCommon */,
+				28D69B891A6F53CA00F2F145 /* AboutMe */,
 				28D52E651A6CD06200C17CF0 /* AppDelegate.swift */,
 				28D52E881A6CD2CB00C17CF0 /* MainViewController.swift */,
 				8BB235C71A6E216F003530AA /* MainItemImage.xcassets */,
@@ -161,6 +169,23 @@
 				28D52E7D1A6CD06300C17CF0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28D69B891A6F53CA00F2F145 /* AboutMe */ = {
+			isa = PBXGroup;
+			children = (
+				28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */,
+				28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */,
+			);
+			name = AboutMe;
+			sourceTree = "<group>";
+		};
+		28D69B8C1A6F575400F2F145 /* LCYCommon */ = {
+			isa = PBXGroup;
+			children = (
+				28D69B8D1A6F577500F2F145 /* Extensions.swift */,
+			);
+			name = LCYCommon;
 			sourceTree = "<group>";
 		};
 		8B77F11F1A6E850D002F147E /* FolderOFSearchCell */ = {
@@ -365,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF0F9C21A6E2E83003F376A /* ZXY_SheetViewCell.swift in Sources */,
+				28D69B901A6F755400F2F145 /* AboutMeButtonCell.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
@@ -372,8 +398,10 @@
 				8BF0F9C41A6E2E83003F376A /* ZXY_ViewControllerExtension.swift in Sources */,
 				8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */,
 				8BF0F9C61A6E2F80003F376A /* ZXY_NetHelperOperate.swift in Sources */,
+				28D69B8E1A6F577500F2F145 /* Extensions.swift in Sources */,
 				8BF0F9BF1A6E2E83003F376A /* ZXY_AllPreDefine.swift in Sources */,
 				8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */,
+				28D69B8B1A6F53E700F2F145 /* AboutMeViewController.swift in Sources */,
 				28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
