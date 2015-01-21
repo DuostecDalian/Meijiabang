@@ -21,6 +21,8 @@
 		28D69B8B1A6F53E700F2F145 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */; };
 		28D69B8E1A6F577500F2F145 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8D1A6F577500F2F145 /* Extensions.swift */; };
 		28D69B901A6F755400F2F145 /* AboutMeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */; };
+		28D69B921A6F7FC500F2F145 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B911A6F7FC500F2F145 /* LoginViewController.swift */; };
+		28DC12391A6F98F600E46473 /* LCYNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DC12381A6F98F600E46473 /* LCYNetworking.swift */; };
 		8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */; };
 		8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */; };
 		8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */; };
@@ -47,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		288C943F1A6FA54A009DBFC6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 		28D52E601A6CD06200C17CF0 /* KickYourAss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickYourAss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D52E641A6CD06200C17CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28D52E651A6CD06200C17CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 		28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		28D69B8D1A6F577500F2F145 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeButtonCell.swift; sourceTree = "<group>"; };
+		28D69B911A6F7FC500F2F145 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		28DC12381A6F98F600E46473 /* LCYNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYNetworking.swift; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_SearchArtistCell.swift; sourceTree = "<group>"; };
 		8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SearchVCImage.xcassets; sourceTree = "<group>"; };
@@ -176,6 +181,7 @@
 			children = (
 				28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */,
 				28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */,
+				28D69B911A6F7FC500F2F145 /* LoginViewController.swift */,
 			);
 			name = AboutMe;
 			sourceTree = "<group>";
@@ -184,6 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				28D69B8D1A6F577500F2F145 /* Extensions.swift */,
+				28DC12381A6F98F600E46473 /* LCYNetworking.swift */,
+				288C943F1A6FA54A009DBFC6 /* MyPlayground.playground */,
 			);
 			name = LCYCommon;
 			sourceTree = "<group>";
@@ -392,6 +400,7 @@
 				8BF0F9C21A6E2E83003F376A /* ZXY_SheetViewCell.swift in Sources */,
 				28D69B901A6F755400F2F145 /* AboutMeButtonCell.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
+				28D69B921A6F7FC500F2F145 /* LoginViewController.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
 				8BF0F9C31A6E2E83003F376A /* ZXY_UserInfoDetail.swift in Sources */,
@@ -402,6 +411,7 @@
 				8BF0F9BF1A6E2E83003F376A /* ZXY_AllPreDefine.swift in Sources */,
 				8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */,
 				28D69B8B1A6F53E700F2F145 /* AboutMeViewController.swift in Sources */,
+				28DC12391A6F98F600E46473 /* LCYNetworking.swift in Sources */,
 				28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

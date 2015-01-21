@@ -8,41 +8,43 @@
 
 import UIKit
 
-enum AboutMeButtonCellType: Int {
-    case 我关注的人  = 1
-    case 关注我的人
-    case 消息
-    case 我的图集
-    case 我的订单
-    case 我的评价
-    case 我的收藏
-    case 个人信息
-    case 设置
-    func toString() -> String {
-        switch self {
-        case .我关注的人:
-            return "我关注的人"
-        case .关注我的人:
-            return "关注我的人"
-        case .消息:
-            return "消息"
-        case .我的图集:
-            return "我的图集"
-        case .我的订单:
-            return "我的订单"
-        case .我的评价:
-            return "我的评价"
-        case .我的收藏:
-            return "我的收藏"
-        case .个人信息:
-            return "个人信息"
-        case .设置:
-            return "设置"
-        }
-    }
-}
+
 
 class AboutMeButtonCell: UICollectionViewCell {
+    
+    enum AboutMeButtonCellType: Int {
+        case 我关注的人  = 1
+        case 关注我的人
+        case 消息
+        case 我的图集
+        case 我的订单
+        case 我的评价
+        case 我的收藏
+        case 个人信息
+        case 设置
+        func toString() -> String {
+            switch self {
+            case .我关注的人:
+                return "我关注的人"
+            case .关注我的人:
+                return "关注我的人"
+            case .消息:
+                return "消息"
+            case .我的图集:
+                return "我的图集"
+            case .我的订单:
+                return "我的订单"
+            case .我的评价:
+                return "我的评价"
+            case .我的收藏:
+                return "我的收藏"
+            case .个人信息:
+                return "个人信息"
+            case .设置:
+                return "设置"
+            }
+        }
+    }
     
     var currentType: AboutMeButtonCellType = .我关注的人 {
         didSet {

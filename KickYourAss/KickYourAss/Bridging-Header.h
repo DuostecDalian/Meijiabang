@@ -7,5 +7,5 @@
 //
 #import <MBProgressHUD/MBProgressHUD.h>
 #import <AFNetworking/AFNetworking.h>
-
+#import <AFNetworking/UIImageView+AFNetworking.h>
 
