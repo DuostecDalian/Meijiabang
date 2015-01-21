@@ -20,6 +20,7 @@ class AboutMeViewController: UICollectionViewController {
 //        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        navigationItem.title = "我的"
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,16 +32,23 @@ class AboutMeViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.hidden = true
     }
+    
+    // MARK: - Actions
+    @IBAction func loginButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("showLogin", sender: nil)
+    }
+    
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        navigationController?.navigationBar.hidden = false
     }
-    */
+
 
     // MARK: UICollectionViewDataSource
 
@@ -59,7 +67,7 @@ class AboutMeViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(AboutMeButtonCell.identifier, forIndexPath: indexPath) as AboutMeButtonCell
     
         // Configure the cell
-        cell.currentType = AboutMeButtonCellType(rawValue: indexPath.row + 1)!
+        cell.currentType = AboutMeButtonCell.AboutMeButtonCellType(rawValue: indexPath.row + 1)!
     
         return cell
     }
