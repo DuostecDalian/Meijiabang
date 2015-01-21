@@ -170,8 +170,8 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        println("contentInset -> \(scrollView.contentInset.top)")
-        println("contentOffset -> \(scrollView.contentOffset.y)")
+//        println("contentInset -> \(scrollView.contentInset.top)")
+//        println("contentOffset -> \(scrollView.contentOffset.y)")
         var contentOffY : CGFloat = scrollView.contentOffset.y
         tableConsYToHeader.constant -= contentOffY
         if(tableConsYToHeader.constant < 0)
