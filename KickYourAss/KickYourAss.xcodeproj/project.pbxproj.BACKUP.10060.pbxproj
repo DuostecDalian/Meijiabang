@@ -18,10 +18,16 @@
 		28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */; };
 		28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */; };
 		28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */; };
+<<<<<<< HEAD
 		8B6C1F5A1A6F8C8E006FCF4C /* NSString+Encipher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C1F591A6F8C8E006FCF4C /* NSString+Encipher.m */; };
 		8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C1F5E1A6FA205006FCF4C /* ZXYData.m */; };
 		8B6C1F641A6FA205006FCF4C /* ZXYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C1F601A6FA205006FCF4C /* ZXYImage.m */; };
 		8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C1F621A6FA205006FCF4C /* ZXYSearchBaseModel.m */; };
+=======
+		28D69B8B1A6F53E700F2F145 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */; };
+		28D69B8E1A6F577500F2F145 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8D1A6F577500F2F145 /* Extensions.swift */; };
+		28D69B901A6F755400F2F145 /* AboutMeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */; };
+>>>>>>> 193fddde86d6359a318590d1c26cfd78f33bcc6b
 		8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */; };
 		8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */; };
 		8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */; };
@@ -64,6 +70,9 @@
 		28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Artist.storyboard; sourceTree = "<group>"; };
 		28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutMe.storyboard; sourceTree = "<group>"; };
+		28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
+		28D69B8D1A6F577500F2F145 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeButtonCell.swift; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8B6C1F581A6F8C8E006FCF4C /* NSString+Encipher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Encipher.h"; sourceTree = "<group>"; };
 		8B6C1F591A6F8C8E006FCF4C /* NSString+Encipher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Encipher.m"; sourceTree = "<group>"; };
@@ -135,6 +144,8 @@
 		28D52E621A6CD06200C17CF0 /* KickYourAss */ = {
 			isa = PBXGroup;
 			children = (
+				28D69B8C1A6F575400F2F145 /* LCYCommon */,
+				28D69B891A6F53CA00F2F145 /* AboutMe */,
 				28D52E651A6CD06200C17CF0 /* AppDelegate.swift */,
 				28D52E881A6CD2CB00C17CF0 /* MainViewController.swift */,
 				8BB235C71A6E216F003530AA /* MainItemImage.xcassets */,
@@ -178,6 +189,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		8B6C1F561A6F8C05006FCF4C /* ZXYOCFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +211,23 @@
 				8B6C1F621A6FA205006FCF4C /* ZXYSearchBaseModel.m */,
 			);
 			path = SearchVCModel;
+=======
+		28D69B891A6F53CA00F2F145 /* AboutMe */ = {
+			isa = PBXGroup;
+			children = (
+				28D69B8A1A6F53E700F2F145 /* AboutMeViewController.swift */,
+				28D69B8F1A6F755400F2F145 /* AboutMeButtonCell.swift */,
+			);
+			name = AboutMe;
+			sourceTree = "<group>";
+		};
+		28D69B8C1A6F575400F2F145 /* LCYCommon */ = {
+			isa = PBXGroup;
+			children = (
+				28D69B8D1A6F577500F2F145 /* Extensions.swift */,
+			);
+			name = LCYCommon;
+>>>>>>> 193fddde86d6359a318590d1c26cfd78f33bcc6b
 			sourceTree = "<group>";
 		};
 		8B77F11F1A6E850D002F147E /* FolderOFSearchCell */ = {
@@ -409,6 +438,7 @@
 				8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */,
 				8B6C1F5A1A6F8C8E006FCF4C /* NSString+Encipher.m in Sources */,
 				8BF0F9C21A6E2E83003F376A /* ZXY_SheetViewCell.swift in Sources */,
+				28D69B901A6F755400F2F145 /* AboutMeButtonCell.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
@@ -418,9 +448,15 @@
 				8B6C1F641A6FA205006FCF4C /* ZXYImage.m in Sources */,
 				8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */,
 				8BF0F9C61A6E2F80003F376A /* ZXY_NetHelperOperate.swift in Sources */,
+<<<<<<< HEAD
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */,
+=======
+				28D69B8E1A6F577500F2F145 /* Extensions.swift in Sources */,
+				8BF0F9BF1A6E2E83003F376A /* ZXY_AllPreDefine.swift in Sources */,
+>>>>>>> 193fddde86d6359a318590d1c26cfd78f33bcc6b
 				8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */,
+				28D69B8B1A6F53E700F2F145 /* AboutMeViewController.swift in Sources */,
 				28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

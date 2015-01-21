@@ -3,23 +3,32 @@
 //  KickYourAss
 //
 //  Created by 宇周 on 15/1/20.
-//  Copyright (c) 2015年 Li Chaoyi. All rights reserved.
+//  Copyright (c) 2015年 宇周. All rights reserved.
 //
 
 import UIKit
 import MapKit
+
 
 class ZXY_NailSearchVC: UIViewController {
     let toHeaderMax: CGFloat = 239.0
     var locationManager : CLLocationManager!
     var isMapSpanFirst = true
     private var previousPointY : CGFloat = 0.0
+    private var isDownLoad :  Bool       = false
+    
     
     @IBOutlet weak var tableConsYToHeader: NSLayoutConstraint!
     @IBOutlet weak var targetImage: UIImageView!
     @IBOutlet weak var currentTable: UITableView!
     @IBOutlet weak var littleBoy: UIImageView!
     @IBOutlet weak private var currentMap: MKMapView!
+    
+    private var cityName : String?
+    private var currentPage = 1
+    
+    private var allUserList : ZXYSearchBaseModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.startInitLocationManager()
@@ -95,7 +104,6 @@ class ZXY_NailSearchVC: UIViewController {
         currentMap.setRegion(region, animated: false)
         currentMap.setCenterCoordinate(location, animated: false)
         currentMap.showsUserLocation = false
-        
     }
 
     /*
@@ -108,6 +116,45 @@ class ZXY_NailSearchVC: UIViewController {
     }
     */
 
+}
+
+// MARK: - 地图与定位的相关代理 
+extension ZXY_NailSearchVC
+{
+    func startGetSearchList(location: CLLocationCoordinate2D?) -> Void
+    {
+        if(isDownLoad)
+        {
+            return
+        }
+        else
+        {
+            isDownLoad = true
+        }
+        littleBoy.startAnimating()
+        if(location == nil)
+        {
+            return
+        }
+        var apiString    = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_SearchListAPI
+        var apiParameter : Dictionary<String , String> = ["user_id" : "",
+            "city"    : cityName!,
+            "lng"     : "\(location!.longitude)",
+            "lat"     : "\(location!.latitude)",
+            "p"       : "\(currentPage)",
+        ]
+        ZXY_NetHelperOperate.sharedInstance.startGetDataPost(apiString, parameter: apiParameter, successBlock: {[weak self] (returnDic) -> Void in
+            println("成功")
+            self?.allUserList = ZXYSearchBaseModel(dictionary: returnDic)
+            self?.littleBoy.stopAnimating()
+            self?.isDownLoad = false
+        }) {[weak self] (error) -> Void in
+            println(error)
+            self?.littleBoy.stopAnimating()
+            self?.isDownLoad = false
+        }
+    }
+        
 }
 
 
@@ -134,6 +181,7 @@ extension ZXY_NailSearchVC : MKMapViewDelegate , CLLocationManagerDelegate
         {
             self.setCurrentUserLocation(userLocation: userLocation.coordinate)
             manager.stopUpdatingLocation()
+            self.changeUserLocationToCityName(userLocation)
         }
     }
     
@@ -146,19 +194,67 @@ extension ZXY_NailSearchVC : MKMapViewDelegate , CLLocationManagerDelegate
     
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
         self.startInitLittleBoy()
+        
+        if(mapView.userLocation.location != nil)
+        {
+            self.changeUserLocationToCityName(mapView.userLocation.location)
+        }
+        else
+        {
+            self.changeUserLocationToCityName(CLLocation(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude))
+        }
         targetImage.hidden = false
     }
+    
+    func changeUserLocationToCityName(location : CLLocation?)
+    {
+        var geo : CLGeocoder = CLGeocoder()
+        if let isNil = location
+        {
+            geo.reverseGeocodeLocation(location, completionHandler: {[weak self] (loInfo : [AnyObject]!, error: NSError!) -> Void in
+                if(loInfo == nil)
+                {
+                    return
+                }
+                if(loInfo.count > 0)
+                {
+                    var place: CLPlacemark = loInfo[0] as CLPlacemark
+                    self?.cityName               = place.locality
+                    self?.startGetSearchList(location!.coordinate)
+                }
+            })
+        }
+        else
+        {
+            return
+        }
+
+    }
+    
 }
 
+// MARK: tableView Delegate , DataSource and reloadData
 extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScrollViewDelegate
 {
+    func reloadCurrentTable()
+    {
+//        dispatch_after(DISPATCH_TIME_NOW, dispatch_main() { () -> Void in
+//           self.currentTable.reloadData()
+//        })
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(ZXY_SearchArtistCellID) as ZXY_SearchArtistCell
+        cell.setRateValue(indexPath.row)
+        var currentUser = allUserList!.data[indexPath.row] as ZXYData
+        cell.userName.text = currentUser.nickName as String
+        cell.setRateValue(currentUser.score.toInt()!)
         return cell
+    
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 137
+        return 181
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -166,9 +262,17 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        if let isNil = allUserList
+        {
+            return allUserList!.data.count
+        }
+        else
+        {
+            return 0
+        }
     }
     
+    // MARK: 控制tableView拖拽
     func scrollViewDidScroll(scrollView: UIScrollView) {
 //        println("contentInset -> \(scrollView.contentInset.top)")
 //        println("contentOffset -> \(scrollView.contentOffset.y)")
@@ -248,17 +352,6 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
 //        }
     }
     
-//    override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
-//        var touch : UITouch = touches.anyObject() as UITouch
-//        var point           = touch.locationInView(self.currentTable)
-//        if(CGRectContainsPoint(currentTable.frame, point))
-//        {
-//            tableConsYToHeader.constant-=3
-//            self.view.layoutIfNeeded()
-//        }
-//        
-//    }
-
 }
 
 
