@@ -31,6 +31,7 @@ class ZXY_NailSearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentTable.hidden = true
         self.startInitLocationManager()
         self.startInitLittleBoy()
         self.startInitTargetImage()
@@ -57,7 +58,7 @@ class ZXY_NailSearchVC: UIViewController {
         var images : [UIImage]  = [UIImage(named: "search_personLeft")!, UIImage(named: "search_personCenter")!, UIImage(named: "search_personRight")!]
         littleBoy.animationImages      = images
         littleBoy.animationDuration    = 0.5
-        littleBoy.animationRepeatCount = 5
+        littleBoy.animationRepeatCount = 0
     }
     
     func startInitMapView()
@@ -134,6 +135,7 @@ extension ZXY_NailSearchVC
         littleBoy.startAnimating()
         if(location == nil)
         {
+            self.currentTable.hidden = false
             return
         }
         var apiString    = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_SearchListAPI
@@ -148,10 +150,12 @@ extension ZXY_NailSearchVC
             self?.allUserList = ZXYSearchBaseModel(dictionary: returnDic)
             self?.littleBoy.stopAnimating()
             self?.isDownLoad = false
+            self?.reloadCurrentTable()
         }) {[weak self] (error) -> Void in
             println(error)
             self?.littleBoy.stopAnimating()
             self?.isDownLoad = false
+            self?.reloadCurrentTable()
         }
     }
         
@@ -188,11 +192,20 @@ extension ZXY_NailSearchVC : MKMapViewDelegate , CLLocationManagerDelegate
     
     // MARK: - MapViewDelegate
     func mapView(mapView: MKMapView!, regionWillChangeAnimated animated: Bool) {
+        if(isDownLoad)
+        {
+            return
+        }
+        currentTable.hidden = true
         littleBoy.image = UIImage(named: "search_location")
         targetImage.hidden = true
     }
     
     func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+        if(isDownLoad)
+        {
+            return
+        }
         self.startInitLittleBoy()
         
         if(mapView.userLocation.location != nil)
@@ -214,6 +227,7 @@ extension ZXY_NailSearchVC : MKMapViewDelegate , CLLocationManagerDelegate
             geo.reverseGeocodeLocation(location, completionHandler: {[weak self] (loInfo : [AnyObject]!, error: NSError!) -> Void in
                 if(loInfo == nil)
                 {
+                    self?.currentTable.hidden = false
                     return
                 }
                 if(loInfo.count > 0)
@@ -222,10 +236,15 @@ extension ZXY_NailSearchVC : MKMapViewDelegate , CLLocationManagerDelegate
                     self?.cityName               = place.locality
                     self?.startGetSearchList(location!.coordinate)
                 }
+                else
+                {
+                    self?.currentTable.hidden = false
+                }
             })
         }
         else
         {
+            currentTable.hidden = false
             return
         }
 
@@ -238,9 +257,16 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
 {
     func reloadCurrentTable()
     {
-//        dispatch_after(DISPATCH_TIME_NOW, dispatch_main() { () -> Void in
-//           self.currentTable.reloadData()
-//        })
+        if(currentTable.hidden)
+        {
+            currentTable.hidden = false
+        }
+        
+        if(targetImage.hidden)
+        {
+            targetImage.hidden = false
+        }
+        currentTable.reloadData()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -248,13 +274,62 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         cell.setRateValue(indexPath.row)
         var currentUser = allUserList!.data[indexPath.row] as ZXYData
         cell.userName.text = currentUser.nickName as String
-        cell.setRateValue(currentUser.score.toInt()!)
+        
+        if let isNil = currentUser.score
+        {
+            var scoreFloat : Float = (currentUser.score as NSString).floatValue
+            var scoreInt   : Int   = Int(scoreFloat)
+            cell.setRateValue(scoreInt)
+        }
+        else
+        {
+            cell.setRateValue(0)
+        }
+        if let isNil = currentUser.headImage
+        {
+            var urlString = ZXY_ALLApi.ZXY_MainAPIImage + currentUser.headImage
+            cell.userProfile.setImageWithURL(NSURL(string: urlString))
+        }
+        else
+        {
+            cell.userProfile.image = UIImage(named: "search_personCenter")
+        }
+        
+        cell.userProfileEdge.backgroundColor = self.colorWithIndexPath(indexPath)
+        cell.conerLbl.backgroundColor        = self.colorWithIndexPath(indexPath)
+        if(currentUser.role == "1")
+        {
+            cell.conerLbl.hidden = true
+        }
+        else
+        {
+            cell.conerLbl.hidden = false
+        }
+        
+        if(currentUser.image.count > 0)
+        {
+            cell.userArtPhotoView.hidden = false
+            cell.setArtsImage(currentUser.image as [ZXYImage])
+        }
+        else
+        {
+            cell.userArtPhotoView.hidden = true
+        }
+
         return cell
     
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 181
+        var currentUser = allUserList!.data[indexPath.row] as ZXYData
+        if(currentUser.image.count > 0)
+        {
+            return 181
+        }
+        else
+        {
+            return 181 - 94
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -352,6 +427,25 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
 //        }
     }
     
+    func colorWithIndexPath(indexPath: NSIndexPath) -> UIColor
+    {
+        var currentRow = indexPath.row
+        switch currentRow % 5
+        {
+        case 0:
+            return UIColor.greenColor()
+        case 1:
+            return UIColor.redColor()
+        case 2:
+            return UIColor.orangeColor()
+        case 3:
+            return UIColor.greenColor()
+        case 4:
+            return UIColor.purpleColor()
+        default:
+            return UIColor.greenColor()
+        }
+    }
 }
 
 
