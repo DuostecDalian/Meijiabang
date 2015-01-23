@@ -44,6 +44,7 @@ class ZXY_NetHelperOperate: NSObject {
         
         afnet.responseSerializer = AFJSONResponseSerializer()
         afnet.responseSerializer.acceptableContentTypes = NSSet(object: "text/html")
+        
         if(parameter != nil)
         {
             var sendParameter = parameter

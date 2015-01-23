@@ -12,17 +12,25 @@ import MapKit
 
 class ZXY_NailSearchVC: UIViewController {
     let toHeaderMax: CGFloat = 239.0
-    var locationManager : CLLocationManager!
+    let mapScale   : CLLocationDegrees = 0.001
+    
+    //var locationManager : CLLocationManager!
+    var locService = BMKLocationService()
+    
     var isMapSpanFirst = true
     private var previousPointY : CGFloat = 0.0
+    private var userLocationCoor : CLLocationCoordinate2D?
+    
     private var isDownLoad :  Bool       = false
+    private var isLocationFirst : Bool   = true
+    private var previousTimeStamp  = NSDate().timeIntervalSince1970
     
     
     @IBOutlet weak var tableConsYToHeader: NSLayoutConstraint!
     @IBOutlet weak var targetImage: UIImageView!
     @IBOutlet weak var currentTable: UITableView!
     @IBOutlet weak var littleBoy: UIImageView!
-    @IBOutlet weak private var currentMap: MKMapView!
+    @IBOutlet weak private var currentMap: BMKMapView!
     
     private var cityName : String?
     private var currentPage = 1
@@ -32,6 +40,7 @@ class ZXY_NailSearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentTable.hidden = true
+        currentTable.tableFooterView = UIView(frame: CGRectZero)
         self.startInitLocationManager()
         self.startInitLittleBoy()
         self.startInitTargetImage()
@@ -52,6 +61,23 @@ class ZXY_NailSearchVC: UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        currentMap.viewWillAppear()
+        currentMap.delegate = self
+        
+    }
+    
+    func setMapViewDefault() -> Void
+    {
+        currentMap.showsUserLocation = true
+        currentMap.region  = BMKCoordinateRegion(center: currentMap.centerCoordinate, span: BMKCoordinateSpan(latitudeDelta: mapScale, longitudeDelta: mapScale))
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        currentMap.viewWillDisappear()
+        currentMap.delegate = nil
+    }
+    
     func startInitLittleBoy()
     {
         littleBoy.image = UIImage(named: "search_personCenter")
@@ -69,15 +95,17 @@ class ZXY_NailSearchVC: UIViewController {
        
     func startInitLocationManager()
     {
-        // 判断定位系统有没有授权
-        locationManager          = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        if(locationManager.respondsToSelector("requestWhenInUseAuthorization"))
-        {
-            locationManager.requestWhenInUseAuthorization()
-        }
-
+//        // 判断定位系统有没有授权
+//        locationManager          = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        if(locationManager.respondsToSelector("requestWhenInUseAuthorization"))
+//        {
+//            locationManager.requestWhenInUseAuthorization()
+//        }
+//
+        locService.delegate = self
+        locService.startUserLocationService()
     }
     
     func startInitTargetImage()
@@ -89,17 +117,21 @@ class ZXY_NailSearchVC: UIViewController {
     
     func reFreshLocation()
     {
-        locationManager.startUpdatingLocation()
+        if(userLocationCoor != nil)
+        {
+            self.setCurrentUserLocation(userLocation: userLocationCoor!)
+            self.startGetSearchList(userLocationCoor)
+        }
     }
     
     // 定位用户位置坐标
     private func setCurrentUserLocation(userLocation location: CLLocationCoordinate2D) -> Void
     {
         
-        var region : MKCoordinateRegion = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: currentMap.region.span.latitudeDelta, longitudeDelta: currentMap.region.span.longitudeDelta))
+        var region : BMKCoordinateRegion = BMKCoordinateRegion(center: location, span: BMKCoordinateSpan(latitudeDelta: mapScale, longitudeDelta: mapScale))
         if(isMapSpanFirst)
         {
-            region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.03))
+            region = BMKCoordinateRegion(center: location, span: BMKCoordinateSpan(latitudeDelta: mapScale, longitudeDelta: mapScale))
             isMapSpanFirst = false
         }
         currentMap.setRegion(region, animated: false)
@@ -163,35 +195,58 @@ extension ZXY_NailSearchVC
 
 
 // MARK: - 地图与定位的相关代理
-extension ZXY_NailSearchVC : MKMapViewDelegate , CLLocationManagerDelegate
+extension ZXY_NailSearchVC : BMKMapViewDelegate , BMKLocationServiceDelegate
 {
     // MARK: - CLLocationDelegate
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if(status == CLAuthorizationStatus.AuthorizedWhenInUse)
-        {
-            manager.startUpdatingLocation()
-        }
-        else
-        {
-            self.showAlertEasy("提示", messageContent: "用户定位失败，请在设置中修改应用权限")
-        }
-    }
+//    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+//        if(status == CLAuthorizationStatus.AuthorizedWhenInUse)
+//        {
+//            //currentMap.showsUserLocation = true
+//            manager.startUpdatingLocation()
+//        }
+//        else
+//        {
+//            self.showAlertEasy("提示", messageContent: "用户定位失败，请在设置中修改应用权限")
+//        }
+//    }
+//    
+//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//        var userLocation : CLLocation = locations.last as CLLocation
+//        var eventDate = userLocation.timestamp
+//        var interVal  = eventDate.timeIntervalSinceNow
+//        if(abs(interVal) < 15.0)
+//        {
+//            var bdLocation : NSDictionary = BMKConvertBaiduCoorFrom(userLocation.coordinate, BMK_COORDTYPE_GPS)
+//            var bdUserLocation = BMKCoorDictionaryDecode(bdLocation)
+//            
+//            
+//            self.setCurrentUserLocation(userLocation: bdUserLocation)
+//            manager.stopUpdatingLocation()
+//            self.changeUserLocationToCityName(userLocation)
+//        }
+//    }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        var userLocation : CLLocation = locations.last as CLLocation
-        var eventDate = userLocation.timestamp
-        var interVal  = eventDate.timeIntervalSinceNow
-        if(abs(interVal) < 15.0)
-        {
-            self.setCurrentUserLocation(userLocation: userLocation.coordinate)
-            manager.stopUpdatingLocation()
-            self.changeUserLocationToCityName(userLocation)
-        }
-    }
     
+    func didUpdateBMKUserLocation(userLocation: BMKUserLocation!) {
+        //currentMap.setCenterCoordinate(userLocation.location.coordinate, animated: false)
+        var currentTimeStamp = NSDate().timeIntervalSince1970
+        if(currentTimeStamp - previousTimeStamp > 20)
+        {
+            userLocationCoor = userLocation.location.coordinate
+        }
+        
+        if(isLocationFirst)
+        {
+            self.setCurrentUserLocation(userLocation: userLocation.location.coordinate)
+            self.changeUserLocationToCityName(userLocation.location)
+            isLocationFirst = false
+            userLocationCoor = userLocation.location.coordinate
+        }
+        
+    }
     
     // MARK: - MapViewDelegate
-    func mapView(mapView: MKMapView!, regionWillChangeAnimated animated: Bool) {
+    func mapView(mapView: BMKMapView!, regionWillChangeAnimated animated: Bool) {
         if(isDownLoad)
         {
             return
@@ -201,27 +256,25 @@ extension ZXY_NailSearchVC : MKMapViewDelegate , CLLocationManagerDelegate
         targetImage.hidden = true
     }
     
-    func mapView(mapView: MKMapView!, regionDidChangeAnimated animated: Bool) {
+    func mapViewDidFinishLoading(mapView: BMKMapView!) {
+        print("load---------->")
+        
+    }
+    
+    func mapView(mapView: BMKMapView!, regionDidChangeAnimated animated: Bool) {
         if(isDownLoad)
         {
             return
         }
         self.startInitLittleBoy()
-        
-        if(mapView.userLocation.location != nil)
-        {
-            self.changeUserLocationToCityName(mapView.userLocation.location)
-        }
-        else
-        {
-            self.changeUserLocationToCityName(CLLocation(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude))
-        }
+        self.changeUserLocationToCityName(CLLocation(latitude: mapView.region.center.latitude, longitude: mapView.region.center.longitude))
         targetImage.hidden = false
     }
     
     func changeUserLocationToCityName(location : CLLocation?)
     {
         var geo : CLGeocoder = CLGeocoder()
+        
         if let isNil = location
         {
             geo.reverseGeocodeLocation(location, completionHandler: {[weak self] (loInfo : [AnyObject]!, error: NSError!) -> Void in
@@ -257,6 +310,7 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
 {
     func reloadCurrentTable()
     {
+        currentTable.reloadData()
         if(currentTable.hidden)
         {
             currentTable.hidden = false
@@ -265,8 +319,10 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         if(targetImage.hidden)
         {
             targetImage.hidden = false
+            littleBoy.image = UIImage(named: "search_personCenter")
         }
-        currentTable.reloadData()
+        
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -294,7 +350,9 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         {
             cell.userProfile.image = UIImage(named: "search_personCenter")
         }
-        
+        var artCoor  = self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)
+        var distance = self.distanceCompareCoor(artCoor, userPosition: userLocationCoor)
+        cell.distanceLbl.text = "\(Double(round(100 * distance)/100)) km"
         cell.userProfileEdge.backgroundColor = self.colorWithIndexPath(indexPath)
         cell.conerLbl.backgroundColor        = self.colorWithIndexPath(indexPath)
         if(currentUser.role == "1")
@@ -315,7 +373,7 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         {
             cell.userArtPhotoView.hidden = true
         }
-
+        
         return cell
     
     }
@@ -445,6 +503,37 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         default:
             return UIColor.greenColor()
         }
+    }
+    
+    func distanceCompareCoor(artistPosition : CLLocationCoordinate2D? , userPosition : CLLocationCoordinate2D?) -> Double
+    {
+        if(artistPosition != nil && userPosition != nil)
+        {
+            var artistPot = BMKMapPointForCoordinate(artistPosition!)
+            var userPot   = BMKMapPointForCoordinate(userPosition!)
+            var distance  = BMKMetersBetweenMapPoints(artistPot, userPot)
+            return distance/1000
+        }
+        else
+        {
+            return 0
+        }
+        
+    }
+    
+    func  xYStringToCoor(longitude : String? , latitude: String?) -> CLLocationCoordinate2D?
+    {
+        if(longitude == nil || latitude == nil)
+        {
+            return nil
+        }
+        else
+        {
+            var logFloat = (longitude! as NSString).doubleValue
+            var latFloat = (latitude!  as NSString).doubleValue
+            return CLLocationCoordinate2DMake(latFloat, logFloat)
+        }
+        
     }
 }
 
