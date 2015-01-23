@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-202" y="486"/>
         </scene>
-        <!--Nail SearchVC-->
+        <!--搜索-->
         <scene sceneID="UyB-WA-YWa">
             <objects>
-                <viewController id="zvz-ff-Znt" customClass="ZXY_NailSearchVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="搜索" id="zvz-ff-Znt" customClass="ZXY_NailSearchVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wnC-s4-ADC"/>
                         <viewControllerLayoutGuide type="bottom" id="EZZ-Ff-DcF"/>
@@ -243,7 +243,7 @@
                             <constraint firstAttribute="centerX" secondItem="FZS-zy-YGy" secondAttribute="centerX" id="rYF-28-85U"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aXp-e8-MV1"/>
+                    <navigationItem key="navigationItem" title="搜索" id="aXp-e8-MV1"/>
                     <connections>
                         <outlet property="currentMap" destination="nC2-HC-7y4" id="ncT-Cs-9VF"/>
                         <outlet property="currentTable" destination="FZS-zy-YGy" id="Cab-oN-1cG"/>
