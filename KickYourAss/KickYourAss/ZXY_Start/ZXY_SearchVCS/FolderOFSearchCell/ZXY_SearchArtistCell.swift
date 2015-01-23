@@ -78,6 +78,14 @@ class ZXY_SearchArtistCell: UITableViewCell {
             var imageURL = ZXY_ALLApi.ZXY_MainAPIImage + currentImageInfo.cutPath
             currentImageV.setImageWithURL(NSURL(string: imageURL))
         }
+        for var i = 0 ; i < 3; i++
+        {
+            if (i >= imageURLCount)
+            {
+                var currentImageV = userArtPhotoItems[i]
+                currentImageV.image = nil
+            }
+        }
     }
 
 }

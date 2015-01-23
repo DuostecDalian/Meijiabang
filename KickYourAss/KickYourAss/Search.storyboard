@@ -27,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-202" y="486"/>
         </scene>
-        <!--Nail SearchVC-->
+        <!--搜索-->
         <scene sceneID="UyB-WA-YWa">
             <objects>
-                <viewController id="zvz-ff-Znt" customClass="ZXY_NailSearchVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="搜索" id="zvz-ff-Znt" customClass="ZXY_NailSearchVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wnC-s4-ADC"/>
                         <viewControllerLayoutGuide type="bottom" id="EZZ-Ff-DcF"/>
@@ -39,12 +39,10 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="7Fa-aJ-Hti">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nC2-HC-7y4" customClass="BMKMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="487"/>
-                                <connections>
-                                    <outlet property="delegate" destination="zvz-ff-Znt" id="pg8-74-Jb9"/>
-                                </connections>
-                            </mapView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_personCenter" translatesAutoresizingMaskIntoConstraints="NO" id="FCA-pl-av9">
                                 <rect key="frame" x="286" y="125" width="29" height="34"/>
                             </imageView>
@@ -232,22 +230,22 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FZS-zy-YGy" secondAttribute="trailing" id="98m-uW-JIe"/>
                             <constraint firstItem="FZS-zy-YGy" firstAttribute="top" secondItem="wnC-s4-ADC" secondAttribute="bottom" constant="239" id="9v7-tT-ZHC"/>
+                            <constraint firstAttribute="bottom" secondItem="nC2-HC-7y4" secondAttribute="bottom" id="AmB-0j-knr"/>
                             <constraint firstAttribute="trailing" secondItem="stq-hD-gPL" secondAttribute="trailing" constant="16" id="DDq-Z7-0BU"/>
+                            <constraint firstAttribute="trailing" secondItem="nC2-HC-7y4" secondAttribute="trailing" id="EvL-oh-dWL"/>
                             <constraint firstItem="FCA-pl-av9" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" constant="125" id="Geg-Wa-0Md"/>
+                            <constraint firstItem="nC2-HC-7y4" firstAttribute="leading" secondItem="l7K-0L-ZoU" secondAttribute="leading" id="Ihw-Po-Cgl"/>
                             <constraint firstItem="EZZ-Ff-DcF" firstAttribute="top" secondItem="FZS-zy-YGy" secondAttribute="bottom" id="Q6b-kk-lC2"/>
+                            <constraint firstItem="nC2-HC-7y4" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" id="QYv-Mx-qtT"/>
                             <constraint firstItem="stq-hD-gPL" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" constant="187" id="SJE-bX-CDw"/>
-                            <constraint firstItem="7Fa-aJ-Hti" firstAttribute="leading" secondItem="l7K-0L-ZoU" secondAttribute="leading" id="ZDR-b0-wLx"/>
-                            <constraint firstAttribute="trailing" secondItem="7Fa-aJ-Hti" secondAttribute="trailing" id="bpK-ht-ecS"/>
-                            <constraint firstItem="7Fa-aJ-Hti" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" id="bv4-RL-8Zg"/>
-                            <constraint firstAttribute="bottom" secondItem="7Fa-aJ-Hti" secondAttribute="bottom" id="deo-2z-QqI"/>
                             <constraint firstAttribute="centerX" secondItem="FCA-pl-av9" secondAttribute="centerX" id="hhj-j7-obM"/>
                             <constraint firstItem="FZS-zy-YGy" firstAttribute="leading" secondItem="l7K-0L-ZoU" secondAttribute="leading" id="iO8-kY-pIC"/>
                             <constraint firstAttribute="centerX" secondItem="FZS-zy-YGy" secondAttribute="centerX" id="rYF-28-85U"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aXp-e8-MV1"/>
+                    <navigationItem key="navigationItem" title="搜索" id="aXp-e8-MV1"/>
                     <connections>
-                        <outlet property="currentMap" destination="7Fa-aJ-Hti" id="Jhi-WR-FtG"/>
+                        <outlet property="currentMap" destination="nC2-HC-7y4" id="ncT-Cs-9VF"/>
                         <outlet property="currentTable" destination="FZS-zy-YGy" id="Cab-oN-1cG"/>
                         <outlet property="littleBoy" destination="FCA-pl-av9" id="x78-7U-5fn"/>
                         <outlet property="tableConsYToHeader" destination="9v7-tT-ZHC" id="8xU-OW-Rc0"/>

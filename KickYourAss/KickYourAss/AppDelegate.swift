@@ -10,10 +10,10 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
 
     var window: UIWindow?
-
+    var bmkAuthor : BMKMapManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -22,6 +22,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
+//        bmkAuthor = BMKMapManager()
+//        var result: Bool =  bmkAuthor!.start("SbwxQMHWZzd0kT1cbkTMHtzV", generalDelegate: self)
+//        if(result)
+//        {
+//            println("百度地图授权成功 key is \(ZXY_ConstValue.BDMAPKEY.rawValue)")
+//        }
+//        else
+//        {
+//            println("百度地图授权失败key is \(ZXY_ConstValue.BDMAPKEY.rawValue)")
+//        }
+        bmkAuthor = BMKMapManager()
+        
+       if(( bmkAuthor!.start(ZXY_ConstValue.BDMAPKEY.rawValue, generalDelegate: self)))
+       {
+            println("授权成功")
+       }
+       else
+       {
+            println("授权失败")
+       }
         return true
     }
 
@@ -111,6 +131,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    func onGetNetworkState(iError: Int32) {
+        println(iError)
+    }
+    
+    func onGetPermissionState(iError: Int32) {
+        println(iError)
+    }
 }
 
