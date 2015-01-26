@@ -200,7 +200,6 @@ extension ZXY_NailSearchVC
             "p"       : "\(currentPage)",
         ]
         ZXY_NetHelperOperate.sharedInstance.startGetDataPost(apiString, parameter: apiParameter, successBlock: {[weak self] (returnDic) -> Void in
-            println("成功")
             if(self?.currentPage == 1)
             {
                 self?.allUserList?.removeAllObjects()
@@ -259,12 +258,12 @@ extension ZXY_NailSearchVC : BMKMapViewDelegate , BMKLocationServiceDelegate
     }
     
     func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
-        if(annotation.isKindOfClass(BMKPointAnnotation.self))
+        if(annotation.isKindOfClass(ZXY_BMKAnnotation.self))
         {
             var bdAnnotation  = mapView.dequeueReusableAnnotationViewWithIdentifier("hello")
             if(bdAnnotation == nil)
             {
-                 bdAnnotation = BMKPinAnnotationView(annotation: annotation, reuseIdentifier: "hello")
+                 bdAnnotation = ZXY_BDAnnotationView(annotation: annotation, reuseIdentifier: "hello")
             }
             else
             {
@@ -357,16 +356,26 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
     func reloadCurrentTable()
     {
         currentTable.reloadData()
+        
+        currentMap.removeAnnotations(currentMap.annotations)
+        
         for var i = 0; i < allUserList?.count ;i++
         {
-            var currentUser = allUserList![i] as ZXYData
-            var anno : BMKPointAnnotation = BMKPointAnnotation()
-            anno.coordinate = self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)!
-            currentMap.addAnnotation(anno)
+            if(i < 10)
+            {
+                var currentUser = allUserList![i] as ZXYData
+                
+                var headImage = ZXY_ALLApi.ZXY_MainAPIImage + currentUser.headImage
+                
+                var anno : ZXY_BMKAnnotation = ZXY_BMKAnnotation(location: self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)!, withImgURL: NSURL(string: headImage))
+                anno.coordinate = self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)!
+                println(anno.imgURL?.lastPathComponent)
+                currentMap.addAnnotation(anno)
+            }
         }
         if(currentTable.hidden)
         {
-                        currentTable.hidden = false
+            currentTable.hidden = false
         }
         
         if(targetImage.hidden)

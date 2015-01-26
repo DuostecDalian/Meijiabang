@@ -19,6 +19,7 @@ class ZXY_BMKAnnotation: NSObject , BMKAnnotation{
     {
         self.imgURL = imgURL
         self.coordinate = coordinate
+        println("coordinate is \(coordinate.latitude)")
         super.init()
     }
     
