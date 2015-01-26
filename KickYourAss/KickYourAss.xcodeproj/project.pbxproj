@@ -35,14 +35,6 @@
 		8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */; };
 		8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BB235C11A6DFD8F003530AA /* HomeItemsPList.plist */; };
 		8BB235C81A6E216F003530AA /* MainItemImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB235C71A6E216F003530AA /* MainItemImage.xcassets */; };
-		8BC289FC1A71051A00E3C699 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BC289EC1A71051A00E3C699 /* MJRefresh.bundle */; };
-		8BC289FD1A71051A00E3C699 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289EF1A71051A00E3C699 /* MJRefreshBaseView.m */; };
-		8BC289FE1A71051A00E3C699 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289F11A71051A00E3C699 /* MJRefreshConst.m */; };
-		8BC289FF1A71051A00E3C699 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289F31A71051A00E3C699 /* MJRefreshFooterView.m */; };
-		8BC28A001A71051A00E3C699 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289F51A71051A00E3C699 /* MJRefreshHeaderView.m */; };
-		8BC28A011A71051A00E3C699 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289F71A71051A00E3C699 /* UIScrollView+MJExtension.m */; };
-		8BC28A021A71051A00E3C699 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289F91A71051A00E3C699 /* UIScrollView+MJRefresh.m */; };
-		8BC28A031A71051A00E3C699 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289FB1A71051A00E3C699 /* UIView+MJExtension.m */; };
 		8BC5CC741A71F11900C513DF /* ZXY_BDAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC731A71F11900C513DF /* ZXY_BDAnnotationView.swift */; };
 		8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */; };
 		8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */; };
@@ -107,22 +99,6 @@
 		8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_NailSearchVC.swift; sourceTree = "<group>"; };
 		8BB235C11A6DFD8F003530AA /* HomeItemsPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeItemsPList.plist; sourceTree = "<group>"; };
 		8BB235C71A6E216F003530AA /* MainItemImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainItemImage.xcassets; sourceTree = "<group>"; };
-		8BC289EC1A71051A00E3C699 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
-		8BC289ED1A71051A00E3C699 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
-		8BC289EE1A71051A00E3C699 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
-		8BC289EF1A71051A00E3C699 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
-		8BC289F01A71051A00E3C699 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
-		8BC289F11A71051A00E3C699 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
-		8BC289F21A71051A00E3C699 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
-		8BC289F31A71051A00E3C699 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
-		8BC289F41A71051A00E3C699 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
-		8BC289F51A71051A00E3C699 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
-		8BC289F61A71051A00E3C699 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
-		8BC289F71A71051A00E3C699 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
-		8BC289F81A71051A00E3C699 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
-		8BC289F91A71051A00E3C699 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
-		8BC289FA1A71051A00E3C699 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
-		8BC289FB1A71051A00E3C699 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		8BC5CC731A71F11900C513DF /* ZXY_BDAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BDAnnotationView.swift; sourceTree = "<group>"; };
 		8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BMKAnnotation.swift; sourceTree = "<group>"; };
 		8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEDEDEDET.swift; sourceTree = "<group>"; };
@@ -207,7 +183,6 @@
 		28D52E621A6CD06200C17CF0 /* KickYourAss */ = {
 			isa = PBXGroup;
 			children = (
-				8BC289EB1A71051A00E3C699 /* MJRefresh */,
 				288C944D1A6FB202009DBFC6 /* LCYFiles */,
 				288C944C1A6FABE6009DBFC6 /* LCYCommon */,
 				288C944B1A6FABDB009DBFC6 /* AboutMe */,
@@ -309,29 +284,6 @@
 				8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */,
 			);
 			path = ZXY_SearchVCS;
-			sourceTree = "<group>";
-		};
-		8BC289EB1A71051A00E3C699 /* MJRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				8BC289EC1A71051A00E3C699 /* MJRefresh.bundle */,
-				8BC289ED1A71051A00E3C699 /* MJRefresh.h */,
-				8BC289EE1A71051A00E3C699 /* MJRefreshBaseView.h */,
-				8BC289EF1A71051A00E3C699 /* MJRefreshBaseView.m */,
-				8BC289F01A71051A00E3C699 /* MJRefreshConst.h */,
-				8BC289F11A71051A00E3C699 /* MJRefreshConst.m */,
-				8BC289F21A71051A00E3C699 /* MJRefreshFooterView.h */,
-				8BC289F31A71051A00E3C699 /* MJRefreshFooterView.m */,
-				8BC289F41A71051A00E3C699 /* MJRefreshHeaderView.h */,
-				8BC289F51A71051A00E3C699 /* MJRefreshHeaderView.m */,
-				8BC289F61A71051A00E3C699 /* UIScrollView+MJExtension.h */,
-				8BC289F71A71051A00E3C699 /* UIScrollView+MJExtension.m */,
-				8BC289F81A71051A00E3C699 /* UIScrollView+MJRefresh.h */,
-				8BC289F91A71051A00E3C699 /* UIScrollView+MJRefresh.m */,
-				8BC289FA1A71051A00E3C699 /* UIView+MJExtension.h */,
-				8BC289FB1A71051A00E3C699 /* UIView+MJExtension.m */,
-			);
-			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 		8BC5CC721A71F0F000C513DF /* FolderOFSearchMapAnno */ = {
@@ -467,7 +419,6 @@
 				28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */,
 				28D52E731A6CD06300C17CF0 /* LaunchScreen.xib in Resources */,
 				28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */,
-				8BC289FC1A71051A00E3C699 /* MJRefresh.bundle in Resources */,
 				8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */,
 				28D52E8B1A6CD2EF00C17CF0 /* Search.storyboard in Resources */,
 				28D52E701A6CD06300C17CF0 /* Images.xcassets in Resources */,
@@ -522,7 +473,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				288C944A1A6FABAA009DBFC6 /* LoginViewController.swift in Sources */,
-				8BC28A031A71051A00E3C699 /* UIView+MJExtension.m in Sources */,
 				8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */,
 				8B6C1F5A1A6F8C8E006FCF4C /* NSString+Encipher.m in Sources */,
 				8BF0F9C21A6E2E83003F376A /* ZXY_SheetViewCell.swift in Sources */,
@@ -539,21 +489,15 @@
 				8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */,
 				8BF0F9C61A6E2F80003F376A /* ZXY_NetHelperOperate.swift in Sources */,
 				8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */,
-				8BC28A001A71051A00E3C699 /* MJRefreshHeaderView.m in Sources */,
-				8BC28A011A71051A00E3C699 /* UIScrollView+MJExtension.m in Sources */,
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
-				8BC289FF1A71051A00E3C699 /* MJRefreshFooterView.m in Sources */,
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */,
 				8B6BD0241A70A88B005A2FF1 /* ZXY_ValueConstFile.swift in Sources */,
-				8BC28A021A71051A00E3C699 /* UIScrollView+MJRefresh.m in Sources */,
-				8BC289FD1A71051A00E3C699 /* MJRefreshBaseView.m in Sources */,
 				8B6BD0291A70C2FE005A2FF1 /* ZXY_MMOCFile.mm in Sources */,
 				8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */,
 				288C94461A6FABAA009DBFC6 /* AboutMeButtonCell.swift in Sources */,
 				288C94471A6FABAA009DBFC6 /* AboutMeViewController.swift in Sources */,
 				28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */,
-				8BC289FE1A71051A00E3C699 /* MJRefreshConst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

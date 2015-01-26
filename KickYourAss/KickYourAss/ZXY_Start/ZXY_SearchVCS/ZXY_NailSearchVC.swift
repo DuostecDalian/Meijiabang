@@ -174,7 +174,7 @@ extension ZXY_NailSearchVC
         {
             isDownLoad = true
         }
-        littleBoy.startAnimating()
+        
         if(location == nil)
         {
             if(allUserList?.count == 0)
@@ -185,13 +185,16 @@ extension ZXY_NailSearchVC
             {
                 self.currentTable.hidden = false
             }
+            isDownLoad = false
             return
         }
         
         if(cityName == nil)
         {
+            isDownLoad = false
             return
         }
+        littleBoy.startAnimating()
         var apiString    = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_SearchListAPI
         var apiParameter : Dictionary<String , String> = ["user_id" : "",
             "city"    : cityName!,
