@@ -22,16 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
-//        bmkAuthor = BMKMapManager()
-//        var result: Bool =  bmkAuthor!.start("SbwxQMHWZzd0kT1cbkTMHtzV", generalDelegate: self)
-//        if(result)
-//        {
-//            println("百度地图授权成功 key is \(ZXY_ConstValue.BDMAPKEY.rawValue)")
-//        }
-//        else
-//        {
-//            println("百度地图授权失败key is \(ZXY_ConstValue.BDMAPKEY.rawValue)")
-//        }
         bmkAuthor = BMKMapManager()
         
        if(( bmkAuthor!.start(ZXY_ConstValue.BDMAPKEY.rawValue, generalDelegate: self)))

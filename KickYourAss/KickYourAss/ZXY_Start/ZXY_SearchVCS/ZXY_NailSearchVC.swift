@@ -219,6 +219,8 @@ extension ZXY_NailSearchVC
             self?.isDownLoad = false
             self?.reloadCurrentTable()
         }
+        
+    
     }
 }
 
@@ -254,6 +256,28 @@ extension ZXY_NailSearchVC : BMKMapViewDelegate , BMKLocationServiceDelegate
         currentTable.hidden = true
         littleBoy.image = UIImage(named: "search_location")
         targetImage.hidden = true
+    }
+    
+    func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
+        if(annotation.isKindOfClass(BMKPointAnnotation.self))
+        {
+            var bdAnnotation  = mapView.dequeueReusableAnnotationViewWithIdentifier("hello")
+            if(bdAnnotation == nil)
+            {
+                 bdAnnotation = BMKPinAnnotationView(annotation: annotation, reuseIdentifier: "hello")
+            }
+            else
+            {
+                bdAnnotation.annotation = annotation
+            }
+            
+            return bdAnnotation
+        }
+        else
+        {
+            return nil
+        }
+        
     }
     
     func mapViewDidFinishLoading(mapView: BMKMapView!) {
@@ -333,7 +357,13 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
     func reloadCurrentTable()
     {
         currentTable.reloadData()
-        
+        for var i = 0; i < allUserList?.count ;i++
+        {
+            var currentUser = allUserList![i] as ZXYData
+            var anno : BMKPointAnnotation = BMKPointAnnotation()
+            anno.coordinate = self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)!
+            currentMap.addAnnotation(anno)
+        }
         if(currentTable.hidden)
         {
                         currentTable.hidden = false

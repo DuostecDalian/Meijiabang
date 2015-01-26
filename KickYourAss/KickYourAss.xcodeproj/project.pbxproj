@@ -43,6 +43,9 @@
 		8BC28A011A71051A00E3C699 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289F71A71051A00E3C699 /* UIScrollView+MJExtension.m */; };
 		8BC28A021A71051A00E3C699 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289F91A71051A00E3C699 /* UIScrollView+MJRefresh.m */; };
 		8BC28A031A71051A00E3C699 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BC289FB1A71051A00E3C699 /* UIView+MJExtension.m */; };
+		8BC5CC741A71F11900C513DF /* ZXY_BDAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC731A71F11900C513DF /* ZXY_BDAnnotationView.swift */; };
+		8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */; };
+		8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */; };
 		8BF0F9B61A6E2C57003F376A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF0F9B51A6E2C57003F376A /* MapKit.framework */; };
 		8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0F9B91A6E2E83003F376A /* ZXY_AllColor.swift */; };
 		8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0F9BB1A6E2E83003F376A /* ZXY_SheetView.swift */; };
@@ -120,6 +123,9 @@
 		8BC289F91A71051A00E3C699 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		8BC289FA1A71051A00E3C699 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		8BC289FB1A71051A00E3C699 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		8BC5CC731A71F11900C513DF /* ZXY_BDAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BDAnnotationView.swift; sourceTree = "<group>"; };
+		8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BMKAnnotation.swift; sourceTree = "<group>"; };
+		8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEDEDEDET.swift; sourceTree = "<group>"; };
 		8BF0F9B51A6E2C57003F376A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8BF0F9B71A6E2CDF003F376A /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		8BF0F9B91A6E2E83003F376A /* ZXY_AllColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_AllColor.swift; sourceTree = "<group>"; };
@@ -295,6 +301,7 @@
 		8BB235BE1A6DF5ED003530AA /* ZXY_SearchVCS */ = {
 			isa = PBXGroup;
 			children = (
+				8BC5CC721A71F0F000C513DF /* FolderOFSearchMapAnno */,
 				8B6C1F5B1A6FA1F1006FCF4C /* SearchVCModel */,
 				8B77F11F1A6E850D002F147E /* FolderOFSearchCell */,
 				8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */,
@@ -325,6 +332,16 @@
 				8BC289FB1A71051A00E3C699 /* UIView+MJExtension.m */,
 			);
 			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		8BC5CC721A71F0F000C513DF /* FolderOFSearchMapAnno */ = {
+			isa = PBXGroup;
+			children = (
+				8BC5CC731A71F11900C513DF /* ZXY_BDAnnotationView.swift */,
+				8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */,
+				8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */,
+			);
+			path = FolderOFSearchMapAnno;
 			sourceTree = "<group>";
 		};
 		8BF0F9B81A6E2E83003F376A /* ZXY_ThirdPartyFile */ = {
@@ -515,15 +532,18 @@
 				8BF0F9C31A6E2E83003F376A /* ZXY_UserInfoDetail.swift in Sources */,
 				288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */,
 				8BF0F9C41A6E2E83003F376A /* ZXY_ViewControllerExtension.swift in Sources */,
+				8BC5CC741A71F11900C513DF /* ZXY_BDAnnotationView.swift in Sources */,
 				8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */,
 				288C94491A6FABAA009DBFC6 /* LCYNetworking.swift in Sources */,
 				8B6C1F641A6FA205006FCF4C /* ZXYImage.m in Sources */,
 				8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */,
 				8BF0F9C61A6E2F80003F376A /* ZXY_NetHelperOperate.swift in Sources */,
+				8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */,
 				8BC28A001A71051A00E3C699 /* MJRefreshHeaderView.m in Sources */,
 				8BC28A011A71051A00E3C699 /* UIScrollView+MJExtension.m in Sources */,
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BC289FF1A71051A00E3C699 /* MJRefreshFooterView.m in Sources */,
+				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */,
 				8B6BD0241A70A88B005A2FF1 /* ZXY_ValueConstFile.swift in Sources */,
 				8BC28A021A71051A00E3C699 /* UIScrollView+MJRefresh.m in Sources */,
