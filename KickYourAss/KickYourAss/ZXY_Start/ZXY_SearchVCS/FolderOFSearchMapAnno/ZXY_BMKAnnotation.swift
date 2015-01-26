@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class ZXY_BMKAnnotation: NSObject , BMKAnnotation{
+import MapKit
+class ZXY_BMKAnnotation: NSObject , MKAnnotation{
     
     var coordinate : CLLocationCoordinate2D
     var imgURL     : NSURL?
@@ -17,9 +17,15 @@ class ZXY_BMKAnnotation: NSObject , BMKAnnotation{
     
     init(location coordinate: CLLocationCoordinate2D , withImgURL imgURL : NSURL?)
     {
+        //super.init()
         self.imgURL = imgURL
         self.coordinate = coordinate
-        super.init()
+        
+    }
+    
+    init(location coordinate : CLLocationCoordinate2D) {
+        //super.init()
+        self.coordinate = coordinate
     }
     
     func setCoordinate(newCoordinate: CLLocationCoordinate2D) {

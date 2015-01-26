@@ -123,11 +123,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
     }
     
     func onGetNetworkState(iError: Int32) {
-        println(iError)
+        //println(iError)
     }
     
     func onGetPermissionState(iError: Int32) {
-        println(iError)
+        //println(iError)
     }
 }
 
