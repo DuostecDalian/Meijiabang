@@ -11,7 +11,7 @@ import MapKit
 class ZXY_DAnnotationView: BMKAnnotationView {
 
     private let arrowHeight : CGFloat = 10
-    var titleImg : UIImageView = UIImageView(frame: CGRectMake(1, 1, 58 ,58 ))
+    var titleImg : UIImageView = UIImageView(frame: CGRectMake(0, 4, 58 ,58 ))
     private var backImg : UIImageView!
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
@@ -29,11 +29,12 @@ class ZXY_DAnnotationView: BMKAnnotationView {
     
     override init(annotation: BMKAnnotation!, reuseIdentifier: String!) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        self.frame = CGRectMake(0, 0, 60  , 70)
-        self.backImg = UIImageView(frame: CGRectMake(0, 0, 60, 70))
+        self.frame = CGRectMake(0, 0, 74  , 80)
+        self.backImg = UIImageView(frame: CGRectMake(0, 0, 74, 80))
         backImg.image = UIImage(named: "bubbleMap")
         self.addSubview(backImg)
         self.addSubview(titleImg)
+        titleImg.center = CGPointMake(backImg.center.x, titleImg.center.y)
         //titleImg.backgroundColor = UIColor.blueColor()
         self.backgroundColor = UIColor.clearColor()
         self.layer.masksToBounds = true

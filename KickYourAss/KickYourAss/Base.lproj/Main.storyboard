@@ -9,12 +9,11 @@
         <scene sceneID="cGf-5g-z97">
             <objects>
                 <tabBarController id="8Mo-qb-TKN" customClass="MainViewController" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" backgroundImage="TabBarBackground" id="cIa-ie-CYH">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" backgroundImage="TabBarBackground" id="cIa-ie-CYH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.97647058823529409" green="0.38039215686274508" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="selectedImageTintColor" red="0.97647058819999999" green="0.3803921569" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                 </tabBarController>

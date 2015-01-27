@@ -211,7 +211,7 @@ extension ZXY_NailSearchVC
             "p"       : "\(currentPage)",
         ]
         ZXY_NetHelperOperate.sharedInstance.startGetDataPost(apiString, parameter: apiParameter, successBlock: {[weak self] (returnDic) -> Void in
-            println("成功")
+            
             if(self?.currentPage == 1)
             {
                 self?.allUserList?.removeAllObjects()
@@ -398,8 +398,6 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
         {
             return
         }
-        
-        println("region is  \(location?.coordinate.latitude)    \(location?.coordinate.longitude)")
         if (location != nil)
         {
 //            println("location is not null!")
@@ -480,14 +478,13 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
             {
                 var currentUser : ZXYData = allUserList![i] as ZXYData
                 var headImg: String? = ZXY_ALLApi.ZXY_MainAPIImage + currentUser.headImage
-                println(currentUser.headImage)
                 var coordinatee : CLLocationCoordinate2D?
                 coordinatee = self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)?
                 if(coordinatee == nil)
                 {
                     continue
                 }
-                //var url: NSURL? = NSURL(string: headImg)
+                
                 var anno = ZXY_BMKAnnotation(location: coordinatee!)
                 if(headImg != nil)
                 {
@@ -606,8 +603,6 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
     
     // MARK: 控制tableView拖拽
     func scrollViewDidScroll(scrollView: UIScrollView) {
-//        println("contentInset -> \(scrollView.contentInset.top)")
-//        println("contentOffset -> \(scrollView.contentOffset.y)")
         var contentOffY : CGFloat = scrollView.contentOffset.y
         tableConsYToHeader.constant -= contentOffY
         if(tableConsYToHeader.constant < 0)
