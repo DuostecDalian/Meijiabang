@@ -26,8 +26,8 @@ extension ZXY_LocationRelative
         return BDCoorDe
     }
     
-    func bdToGPS(bdCoor : CLLocationCoordinate2D) -> CLLocationCoordinate2D
-    {
-        BMKMapPointForCoordinate
-    }
+//    func bdToGPS(bdCoor : CLLocationCoordinate2D) -> CLLocationCoordinate2D
+//    {
+//        
+//    }
 }

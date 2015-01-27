@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class ZXY_BMKAnnotation: NSObject , MKAnnotation{
+class ZXY_BMKAnnotation: NSObject , BMKAnnotation{
     
     var coordinate : CLLocationCoordinate2D
     var imgURL     : NSURL?
