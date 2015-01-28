@@ -25,7 +25,7 @@ extension UIColor {
 
 extension UIViewController {
     func alert(message: String) {
-        let alertView = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: nil)
+        let alertView = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: "确定")
         alertView.show()
     }
 }

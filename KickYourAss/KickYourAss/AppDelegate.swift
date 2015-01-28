@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         UINavigationBar.appearance().barTintColor = UIColor.themeRedColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UIToolbar.appearance().tintColor = UIColor.themeRedColor()
         
         bmkAuthor = BMKMapManager()
         
