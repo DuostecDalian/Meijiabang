@@ -71,11 +71,24 @@ extension ZXY_HomeSqureVC : UITableViewDelegate, UITableViewDataSource
         {
             var cell = tableView.dequeueReusableCellWithIdentifier(ZXY_HomeSqTitleCellID) as ZXY_HomeSqTitleCell
             cell.setTitleCellLableAndImg(self.nailNewArr)
+            cell.delegate = self
             return cell
         }
         else
         {
+            var currentSqure : ZXYAlbumSqureRecommendAlbum = nailRecArr[currentRow] as ZXYAlbumSqureRecommendAlbum
             var cell = tableView.dequeueReusableCellWithIdentifier(ZXY_HomeSqContentCellID) as ZXY_HomeSqContentCell
+            var urlString = ZXY_ALLApi.ZXY_MainAPIImage + currentSqure.image.cutPath
+            cell.titleImage.setImageWithURL(NSURL(string: urlString))
+            cell.timeLbl.text = currentSqure.addTime
+            cell.desLbl.text  = currentSqure.recommendAlbumDescription
+            cell.artistNameLbl.text = currentSqure.nickName
+            cell.favNumLbl.text     = currentSqure.agreeCount
+            cell.starNumLbl.text    = currentSqure.collectCount
+            
+            var headString = ZXY_ALLApi.ZXY_MainAPIImage + currentSqure.headImage
+            cell.setUserProfile(NSURL(string: headString))
+            
             return cell
         }
     }
@@ -111,5 +124,40 @@ extension ZXY_HomeSqureVC : UITableViewDelegate, UITableViewDataSource
         {
             return 102
         }
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        var headerV = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
+        headerV.backgroundColor = UIColor.whiteColor()
+        
+        var headerL = UILabel(frame: CGRectMake(10, 5, self.view.frame.size.width - 20, 40))
+        var imageLineB = UIImageView(frame: CGRectMake(0, 0, self.view.frame.size.width, 5))
+        imageLineB.backgroundColor = ZXY_AllColor.SQURE_GRAY_COLOR
+        var imageLine = UIImageView(frame: CGRectMake(0, 49, self.view.frame.size.width, 1))
+        imageLine.image = UIImage(named: "segLine")
+        headerV.addSubview(imageLineB)
+        headerV.addSubview(imageLine)
+        headerL.textColor = ZXY_AllColor.SEARCH_RED_COLOR
+        if(section == 0)
+        {
+            headerL.text = "最新美甲"
+        }
+        else
+        {
+            headerL.text = "推荐美甲"
+        }
+        headerV.addSubview(headerL)
+        return headerV
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+}
+
+extension ZXY_HomeSqureVC : ZXY_HomeSqTitleCellDelegate
+{
+    func clickImageAtIndex(index: Int) {
+        println("用户点击了 \(index)")
     }
 }

@@ -40,5 +40,29 @@ class ZXY_HomeSqContentCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func setUserProfile(profileURL : NSURL?)
+    {
+        var randomColor : UIColor = ZXY_AllColor().startRandomColor()
+        self.profileImg.image = UIImage(named: "search_personCenter")
+        
+        
+        self.profileImg.layer.cornerRadius = CGRectGetWidth(self.profileImg.frame) / 2
+        self.backImg.layer.cornerRadius    = CGRectGetWidth(self.backImg.frame) / 2
+        
+        self.backImg.backgroundColor = randomColor
+        
+        self.isArtistLbl.layer.cornerRadius = CGRectGetWidth(self.isArtistLbl.frame) / 2
+        
+        self.profileImg.layer.masksToBounds = true
+        self.backImg.layer.masksToBounds    = true
+        self.isArtistLbl.layer.masksToBounds = true
+        if(profileURL == nil)
+        {
+            return
+        }
+        self.profileImg.setImageWithURL(profileURL)
+        
+    }
 
 }
