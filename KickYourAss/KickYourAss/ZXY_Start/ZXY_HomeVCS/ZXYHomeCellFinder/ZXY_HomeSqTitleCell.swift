@@ -24,5 +24,45 @@ class ZXY_HomeSqTitleCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func setTitleCellLableAndImg(arr: NSMutableArray)
+    {
+        
+        for var i = 0 ; i < imageName.count ;i++
+        {
+            var label : UILabel = imageName[i]
+            label.text = ""
+            var images : UIImageView = titleImage[i]
+            images.backgroundColor = UIColor.clearColor()
+            images.image = nil
+        }
+        if(arr.count > 4)
+        {
+            for var i = 0 ; i < imageName.count ;i++
+            {
+                var recTemp : ZXYAlbumSqureLastAlbum = arr[i] as ZXYAlbumSqureLastAlbum
+                var label : UILabel = imageName[i]
+                var textString : NSString = recTemp.lastAlbumDescription as NSString
+                label.text = textString.substringToIndex(5)
+                var images : UIImageView = titleImage[i]
+                images.backgroundColor = UIColor.clearColor()
+                var stringURL = ZXY_ALLApi.ZXY_MainAPIImage + recTemp.image.cutPath
+                images.setImageWithURL(NSURL(string: stringURL))
+            }
+        }
+        else
+        {
+            for var i = 0 ; i < arr.count ; i++
+            {
+                var recTemp : ZXYAlbumSqureLastAlbum = arr[i] as ZXYAlbumSqureLastAlbum
+                var label : UILabel = imageName[i]
+                var textString : NSString = recTemp.lastAlbumDescription as NSString
+                label.text = textString.substringToIndex(5)
+                var images : UIImageView = titleImage[i]
+                images.backgroundColor = UIColor.clearColor()
+                var stringURL = ZXY_ALLApi.ZXY_MainAPIImage + recTemp.image.cutPath
+                images.setImageWithURL(NSURL(string: stringURL))
+            }
+        }
+    }
 }

@@ -10,17 +10,40 @@ import UIKit
 
 class ZXY_HomeSqureVC: UIViewController {
 
+    @IBOutlet weak var currentTable: UITableView!
+    private var nailNewArr : NSMutableArray = NSMutableArray()
+    private var nailRecArr : NSMutableArray = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.startDownLoadData()
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func startDownLoadData()
+    {
+        var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_AlbumSquAPI
+        ZXY_NetHelperOperate.sharedInstance.startGetDataPost(urlString, parameter: nil, successBlock: {[weak self] (returnDic) -> Void in
+            var squreBaseData : ZXYAlbumSqureBaseClass = ZXYAlbumSqureBaseClass(dictionary: returnDic)
+            var squreData : ZXYAlbumSqureData    = squreBaseData.data
+            self?.nailRecArr        = NSMutableArray(array: squreData.recommendAlbum)
+            self?.nailNewArr        = NSMutableArray(array: squreData.lastAlbum)
+            self?.reloadTableData()
+        }) { (error) -> Void in
+            println(error)
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -36,12 +59,18 @@ class ZXY_HomeSqureVC: UIViewController {
 
 extension ZXY_HomeSqureVC : UITableViewDelegate, UITableViewDataSource
 {
+    func reloadTableData()
+    {
+        currentTable.reloadData()
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var currentSection = indexPath.section as Int
         var currentRow     = indexPath.row     as Int
         if(currentSection == 0)
         {
             var cell = tableView.dequeueReusableCellWithIdentifier(ZXY_HomeSqTitleCellID) as ZXY_HomeSqTitleCell
+            cell.setTitleCellLableAndImg(self.nailNewArr)
             return cell
         }
         else
@@ -52,7 +81,18 @@ extension ZXY_HomeSqureVC : UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        if(section == 0)
+        {
+            if(nailNewArr.count > 0)
+            {
+                return 1
+            }
+            return 0
+        }
+        else
+        {
+            return nailRecArr.count
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

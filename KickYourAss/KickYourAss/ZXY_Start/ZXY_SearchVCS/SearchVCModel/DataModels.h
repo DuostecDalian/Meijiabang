@@ -12,3 +12,8 @@
 #import "ZXY_AlbumHotImage.h"
 #import "ZXY_AlbumHotAlbumHot.h"
 #import "ZXY_AlbumHotUser.h"
+#import "ZXYAlbumSqureRecommendAlbum.h"
+#import "ZXYAlbumSqureData.h"
+#import "ZXYAlbumSqureImage.h"
+#import "ZXYAlbumSqureLastAlbum.h"
+#import "ZXYAlbumSqureBaseClass.h"
