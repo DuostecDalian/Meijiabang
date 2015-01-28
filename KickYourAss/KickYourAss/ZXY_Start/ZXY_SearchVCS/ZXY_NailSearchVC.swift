@@ -44,7 +44,6 @@ class ZXY_NailSearchVC: UIViewController {
         self.startInitLittleBoy()
         self.startInitTargetImage()
         self.startInitMapView()
-        self.setMapViewDefault()
         // 判断网络连接状态的代理
         self.startCheckNetConnect(whenBegain: { () -> Void in
             
@@ -76,14 +75,7 @@ class ZXY_NailSearchVC: UIViewController {
             self?.currentTable.footerReleaseToRefreshText = "松开加载"
             self?.currentTable.footerRefreshingText    = "正在加载"
             self?.currentPage++
-            if(self?.userLocationCoor != nil)
-            {
-                self?.startPOSTSearchList(self?.userLocationCoor)
-            }
-            else
-            {
-                self?.startPOSTSearchList(self?.currentMap.region.center)
-            }
+            self?.startPOSTSearchList(self?.userLocationCoor)
             println()
         }
     }
@@ -136,12 +128,6 @@ class ZXY_NailSearchVC: UIViewController {
             self.setCurrentUserLocation(userLocation: userLocationCoor!)
             self.startPOSTSearchList(userLocationCoor)
         }
-        else
-        {
-            currentPage = 1
-            self.setCurrentUserLocation(userLocation: currentMap.region.center)
-            self.startPOSTSearchList(currentMap.region.center)
-        }
     }
     
     // 定位用户位置坐标
@@ -188,7 +174,7 @@ extension ZXY_NailSearchVC
         {
             isDownLoad = true
         }
-        
+        littleBoy.startAnimating()
         if(location == nil)
         {
             if(allUserList?.count == 0)
@@ -199,16 +185,13 @@ extension ZXY_NailSearchVC
             {
                 self.currentTable.hidden = false
             }
-            isDownLoad = false
             return
         }
         
         if(cityName == nil)
         {
-            isDownLoad = false
             return
         }
-        littleBoy.startAnimating()
         var apiString    = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_SearchListAPI
         var apiParameter : Dictionary<String , String> = ["user_id" : "",
             "city"    : cityName!,
@@ -249,29 +232,17 @@ extension ZXY_NailSearchVC : BMKMapViewDelegate , BMKLocationServiceDelegate
     func didUpdateBMKUserLocation(userLocation: BMKUserLocation!) {
         //currentMap.setCenterCoordinate(userLocation.location.coordinate, animated: false)
         var currentTimeStamp = NSDate().timeIntervalSince1970
-        println("latitude is \(userLocation.location.coordinate.latitude)   longitude is \(userLocation.location.coordinate.longitude)")
         if(currentTimeStamp - previousTimeStamp > 20)
         {
             userLocationCoor = userLocation.location.coordinate
-            
         }
         
         if(isLocationFirst)
         {
-            userLocationCoor = userLocation.location.coordinate
-            
-            if(userLocationCoor != nil)
-            {
-                self.setCurrentUserLocation(userLocation: userLocation.location.coordinate)
-                self.changeUserLocationToCityName(userLocation.location)
-            }
-            else
-            {
-                self.setCurrentUserLocation(userLocation: currentMap.region.center)
-                self.changeUserLocationToCityName(CLLocation(latitude: currentMap.region.center.latitude, longitude: currentMap.region.center.longitude))
-            }
+            self.setCurrentUserLocation(userLocation: userLocation.location.coordinate)
+            self.changeUserLocationToCityName(userLocation.location)
             isLocationFirst = false
-            
+            userLocationCoor = userLocation.location.coordinate
         }
         
     }
@@ -442,15 +413,7 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
             cell.userProfile.image = UIImage(named: "search_personCenter")
         }
         var artCoor  = self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)
-        var distance : Double
-        if(userLocationCoor != nil)
-        {
-            distance = self.distanceCompareCoor(artCoor, userPosition: userLocationCoor)
-        }
-        else
-        {
-            distance = self.distanceCompareCoor(artCoor, userPosition: currentMap.region.center)
-        }
+        var distance = self.distanceCompareCoor(artCoor, userPosition: userLocationCoor)
         cell.distanceLbl.text = "\(Double(round(100 * distance)/100)) km"
         cell.userProfileEdge.backgroundColor = self.colorWithIndexPath(indexPath)
         cell.conerLbl.backgroundColor        = self.colorWithIndexPath(indexPath)
