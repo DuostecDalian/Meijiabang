@@ -31,4 +31,9 @@ struct ZXY_ALLApi
     *  获取首页部分最热的API
     */
     static let ZXY_AlbumHotAPI              = "Album/album_hot"
+    
+    /**
+    *  获取广场数据 API
+    */
+    static let ZXY_AlbumSquAPI              = "Album/album_square"
 }

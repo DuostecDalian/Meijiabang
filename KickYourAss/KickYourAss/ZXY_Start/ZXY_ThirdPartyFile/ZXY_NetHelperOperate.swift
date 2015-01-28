@@ -44,52 +44,38 @@ class ZXY_NetHelperOperate: NSObject {
         
         afnet.responseSerializer = AFJSONResponseSerializer()
         afnet.responseSerializer.acceptableContentTypes = NSSet(object: "text/html")
-        
+        var sendParameter = Dictionary<String ,AnyObject>()
         if(parameter != nil)
         {
-            var sendParameter = parameter
-            sendParameter!["timestamp"] = stampTime
-            sendParameter!["token"]     = timeStampMD5("meijia"+stampTime)
-            afnet.POST(urlString, parameters: sendParameter, success: { (operation:AFHTTPRequestOperation!, anyObject: AnyObject!) -> Void in
-                    if(success != nil)
-                    {
-                        println(operation.responseString)
-                        var returnData = operation.responseData
-                        var json: AnyObject?       = NSJSONSerialization.JSONObjectWithData(returnData, options: NSJSONReadingOptions.MutableLeaves, error: nil)
-                        var jsonDic : Dictionary<String , AnyObject> = json as Dictionary<String, AnyObject>
-                        success!(returnDic: jsonDic)
-                    }
-                }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                    if(errors != nil)
-                    {
-                        errors!(error:error)
-                    }
-            })
+            sendParameter = parameter!
+            sendParameter["timestamp"] = stampTime
+            sendParameter["token"]     = timeStampMD5("meijia"+stampTime)
         }
         else
         {
-            afnet.GET(urlString, parameters: "", success: { (operation: AFHTTPRequestOperation!, anyObject: AnyObject!) -> Void in
-                
-                if(success != nil)
-                {
-                    var returnData = operation.responseData
-                    var json: AnyObject?       = NSJSONSerialization.JSONObjectWithData(returnData, options: NSJSONReadingOptions.MutableLeaves, error: nil)
-                    var jsonDic : Dictionary<String , AnyObject> = json as Dictionary<String, AnyObject>
-                    success!(returnDic: jsonDic)
-                }
-
-                
-                }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
-                    
-                    if(errors != nil)
-                    {
-                        errors!(error:error)
-                    }
-                    
-            })
+            var stampTime = timeStamp()
+            //var sendParameter = Dictionary<String ,AnyObject>()
+            sendParameter["timestamp"] = stampTime
+            sendParameter["token"]     = timeStampMD5("meijia"+stampTime)
             
         
         }
+        afnet.POST(urlString, parameters: sendParameter, success: { (operation:AFHTTPRequestOperation!, anyObject: AnyObject!) -> Void in
+            if(success != nil)
+            {
+                println(operation.responseString)
+                var returnData = operation.responseData
+                var json: AnyObject?       = NSJSONSerialization.JSONObjectWithData(returnData, options: NSJSONReadingOptions.MutableLeaves, error: nil)
+                var jsonDic : Dictionary<String , AnyObject> = json as Dictionary<String, AnyObject>
+                success!(returnDic: jsonDic)
+            }
+            }, failure: { (operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                if(errors != nil)
+                {
+                    errors!(error:error)
+                }
+        })
+
     }
     
     /**

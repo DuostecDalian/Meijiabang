@@ -17,11 +17,11 @@ class ZXY_HomeMostFashionVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.startCheckNetConnect(whenBegain: { () -> Void in
+//        self.startCheckNetConnect(whenBegain: { () -> Void in
             self.startDownLoadData()
-        }) { () -> Void in
-            
-        }
+//        }) { () -> Void in
+//            
+//        }
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +29,11 @@ class ZXY_HomeMostFashionVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    override func viewDidAppear(animated: Bool) {
+//        super.viewDidAppear(animated)
+//        self.startDownLoadData()
+//    }
     
     func startDownLoadData() -> Void
     {

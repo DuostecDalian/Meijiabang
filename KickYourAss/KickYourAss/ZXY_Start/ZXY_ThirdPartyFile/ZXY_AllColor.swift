@@ -14,6 +14,9 @@ struct ZXY_AllColor {
     */
     static let SEARCH_RED_COLOR : UIColor = UIColor(red: 249/255.0, green: 97/255.0, blue: 104.0/255.0, alpha: 1)
     
+    
+    /// 广场section 头部的灰色
+    static let SQURE_GRAY_COLOR : UIColor = UIColor(red: 234/255.0, green: 234/255.0, blue: 234/255.0, alpha: 1)
     func startRandomColor() -> UIColor
     {
         var randomNum = random() % 5
