@@ -26,4 +26,9 @@ struct ZXY_ALLApi
     *  搜索页面 ： 用户列表相关API
     */
     static let ZXY_SearchListAPI = "UserList/user_list"
+    
+    /**
+    *  获取首页部分最热的API
+    */
+    static let ZXY_AlbumHotAPI              = "Album/album_hot"
 }

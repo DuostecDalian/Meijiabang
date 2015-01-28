@@ -30,7 +30,7 @@
         <!--搜索-->
         <scene sceneID="UyB-WA-YWa">
             <objects>
-                <viewController title="搜索" id="zvz-ff-Znt" customClass="ZXY_NailSearchVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="搜索" automaticallyAdjustsScrollViewInsets="NO" id="zvz-ff-Znt" customClass="ZXY_NailSearchVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wnC-s4-ADC"/>
                         <viewControllerLayoutGuide type="bottom" id="EZZ-Ff-DcF"/>
@@ -230,7 +230,6 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FZS-zy-YGy" secondAttribute="trailing" id="98m-uW-JIe"/>
                             <constraint firstItem="FZS-zy-YGy" firstAttribute="top" secondItem="wnC-s4-ADC" secondAttribute="bottom" constant="239" id="9v7-tT-ZHC"/>
-                            <constraint firstAttribute="bottom" secondItem="nC2-HC-7y4" secondAttribute="bottom" id="AmB-0j-knr"/>
                             <constraint firstAttribute="trailing" secondItem="stq-hD-gPL" secondAttribute="trailing" constant="16" id="DDq-Z7-0BU"/>
                             <constraint firstAttribute="trailing" secondItem="nC2-HC-7y4" secondAttribute="trailing" id="EvL-oh-dWL"/>
                             <constraint firstItem="FCA-pl-av9" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" constant="125" id="Geg-Wa-0Md"/>
@@ -238,12 +237,14 @@
                             <constraint firstItem="EZZ-Ff-DcF" firstAttribute="top" secondItem="FZS-zy-YGy" secondAttribute="bottom" id="Q6b-kk-lC2"/>
                             <constraint firstItem="nC2-HC-7y4" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" id="QYv-Mx-qtT"/>
                             <constraint firstItem="stq-hD-gPL" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" constant="187" id="SJE-bX-CDw"/>
+                            <constraint firstItem="EZZ-Ff-DcF" firstAttribute="bottom" secondItem="nC2-HC-7y4" secondAttribute="bottom" id="VW2-Di-GbT"/>
                             <constraint firstAttribute="centerX" secondItem="FCA-pl-av9" secondAttribute="centerX" id="hhj-j7-obM"/>
                             <constraint firstItem="FZS-zy-YGy" firstAttribute="leading" secondItem="l7K-0L-ZoU" secondAttribute="leading" id="iO8-kY-pIC"/>
                             <constraint firstAttribute="centerX" secondItem="FZS-zy-YGy" secondAttribute="centerX" id="rYF-28-85U"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="搜索" id="aXp-e8-MV1"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="currentMap" destination="nC2-HC-7y4" id="ncT-Cs-9VF"/>
                         <outlet property="currentTable" destination="FZS-zy-YGy" id="Cab-oN-1cG"/>
