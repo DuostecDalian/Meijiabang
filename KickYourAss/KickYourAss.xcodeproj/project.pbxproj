@@ -15,6 +15,8 @@
 		289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A303E1A78A32600B5350C /* RegisterViewController.swift */; };
 		289A30411A78A6E700B5350C /* register_help.html in Resources */ = {isa = PBXBuildFile; fileRef = 289A30401A78A6E700B5350C /* register_help.html */; };
 		289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A30421A78A74400B5350C /* RegisterWebViewController.swift */; };
+		28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C421041A7A251500B1EB5B /* RegisterTextCell.swift */; };
+		28C421071A7A255300B1EB5B /* RegisterButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C421061A7A255300B1EB5B /* RegisterButtonCell.swift */; };
 		28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D52E651A6CD06200C17CF0 /* AppDelegate.swift */; };
 		28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D52E671A6CD06200C17CF0 /* KickYourAss.xcdatamodeld */; };
 		28D52E6E1A6CD06200C17CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E6C1A6CD06200C17CF0 /* Main.storyboard */; };
@@ -101,6 +103,8 @@
 		289A303E1A78A32600B5350C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		289A30401A78A6E700B5350C /* register_help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = register_help.html; sourceTree = "<group>"; };
 		289A30421A78A74400B5350C /* RegisterWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterWebViewController.swift; sourceTree = "<group>"; };
+		28C421041A7A251500B1EB5B /* RegisterTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTextCell.swift; sourceTree = "<group>"; };
+		28C421061A7A255300B1EB5B /* RegisterButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterButtonCell.swift; sourceTree = "<group>"; };
 		28D52E601A6CD06200C17CF0 /* KickYourAss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickYourAss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D52E641A6CD06200C17CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28D52E651A6CD06200C17CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */,
 				288C94441A6FABAA009DBFC6 /* LoginViewController.swift */,
 				289A303E1A78A32600B5350C /* RegisterViewController.swift */,
+				28C421041A7A251500B1EB5B /* RegisterTextCell.swift */,
+				28C421061A7A255300B1EB5B /* RegisterButtonCell.swift */,
 				289A30421A78A74400B5350C /* RegisterWebViewController.swift */,
 			);
 			name = AboutMe;
@@ -696,6 +702,7 @@
 				288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */,
 				8BF0F9C41A6E2E83003F376A /* ZXY_ViewControllerExtension.swift in Sources */,
 				8BA57A7A1A78766100848515 /* ZXYAlbumSqureImage.m in Sources */,
+				28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */,
 				8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */,
 				8BA57A901A78AF5C00848515 /* MJRefreshConst.m in Sources */,
 				8BA57A791A78766100848515 /* ZXYAlbumSqureData.m in Sources */,
@@ -713,6 +720,7 @@
 				8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */,
 				8BF0F9C61A6E2F80003F376A /* ZXY_NetHelperOperate.swift in Sources */,
 				8B46C44B1A775B350093B5DA /* ZXY_HomeSqTitleCell.swift in Sources */,
+				28C421071A7A255300B1EB5B /* RegisterButtonCell.swift in Sources */,
 				289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */,
 				8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */,
 				289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */,

@@ -24,26 +24,37 @@ class LCYNetworking {
     }
     
     func POST(
-        Api: LCYApi,
-        parameters: [String: AnyObject],
+        #Api: LCYApi,
+        parameters: [String: AnyObject]?,
         success: ((object: NSDictionary) -> Void)?,
         fail: (() -> Void)?
         ) {
             let manager = AFHTTPRequestOperationManager()
             manager.responseSerializer = AFJSONResponseSerializer()
+            manager.responseSerializer.acceptableContentTypes = NSSet(array: ["text/html"])
             let absoluteURL = testBaseURL + Api.rawValue
             println("Request: \(absoluteURL)\nwith parameters: \(parameters)")
             
-            let date = NSDate()
-            let timeStamp = "\(Int(date.timeIntervalSince1970))"
-//            let secret = CC_MD5()
-            
-            manager.POST(absoluteURL, parameters: parameters, success: { (operation, object) -> Void in
+            // 带加密参数
+            var finalParameter = parameters ?? [String: AnyObject]()
+            // 时间戳
+            let timeStamp = "\(Int(NSDate().timeIntervalSince1970))"
+            let secret = ("meijia" + timeStamp).md5()
+            finalParameter.extend(
+                [   "token": secret,
+                    "timestamp": timeStamp]
+            )
+            manager.POST(
+                absoluteURL,
+                parameters: finalParameter,
+                success: { (operation, object) -> Void in
                 if let success = success {
+                    println("success in \(absoluteURL) ===> \(operation.responseString)")
                     success(object: object as NSDictionary)
                 }
             }) { (operation, error) -> Void in
                 if let fail = fail {
+                    println("failed in \(absoluteURL) ===> \(error)")
                     fail()
                 }
             }
