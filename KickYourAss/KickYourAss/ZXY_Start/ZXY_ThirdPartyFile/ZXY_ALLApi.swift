@@ -36,4 +36,9 @@ struct ZXY_ALLApi
     *  获取广场数据 API
     */
     static let ZXY_AlbumSquAPI              = "Album/album_square"
+    
+    /**
+    *  美甲师列表接口API
+    */
+    static let ZXY_UserListAPI              = "UserList/tech_list"
 }

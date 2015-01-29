@@ -8,8 +8,8 @@
 
 #import "MJRefreshConst.h"
 #import "MJRefreshHeaderView.h"
-#import "UIView+MJExtension.h"
-#import "UIScrollView+MJExtension.h"
+#import "UIView+Extension.h"
+#import "UIScrollView+Extension.h"
 
 @interface MJRefreshHeaderView()
 // 最后的更新时间
@@ -29,17 +29,17 @@
         UILabel *lastUpdateTimeLabel = [[UILabel alloc] init];
         lastUpdateTimeLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         lastUpdateTimeLabel.font = [UIFont boldSystemFontOfSize:12];
-        lastUpdateTimeLabel.textColor = MJRefreshLabelTextColor;
+        if (self.baseTextColor) {
+            lastUpdateTimeLabel.textColor = self.baseTextColor;
+        } else {
+            lastUpdateTimeLabel.textColor = MJRefreshLabelTextColor;
+        }
         lastUpdateTimeLabel.backgroundColor = [UIColor clearColor];
         lastUpdateTimeLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_lastUpdateTimeLabel = lastUpdateTimeLabel];
         
         // 2.加载时间
-        if(self.dateKey){
-            self.lastUpdateTime = [[NSUserDefaults standardUserDefaults] objectForKey:self.dateKey];
-        } else {
-            self.lastUpdateTime = [[NSUserDefaults standardUserDefaults] objectForKey:MJRefreshHeaderTimeKey];
-        }
+        self.lastUpdateTime = [[NSUserDefaults standardUserDefaults] objectForKey:MJRefreshHeaderTimeKey];
     }
     return _lastUpdateTimeLabel;
 }
@@ -65,8 +65,8 @@
     
     CGFloat statusX = 0;
     CGFloat statusY = 0;
-    CGFloat statusHeight = self.mj_height * 0.5;
-    CGFloat statusWidth = self.mj_width;
+    CGFloat statusHeight = self.height * 0.5;
+    CGFloat statusWidth = self.width;
     // 1.状态标签
     self.statusLabel.frame = CGRectMake(statusX, statusY, statusWidth, statusHeight);
     
@@ -83,7 +83,7 @@
     [super willMoveToSuperview:newSuperview];
     
     // 设置自己的位置和尺寸
-    self.mj_y = - self.mj_height;
+    self.y = - self.height;
 }
 
 #pragma mark - 状态相关
@@ -93,11 +93,7 @@
     _lastUpdateTime = lastUpdateTime;
     
     // 1.归档
-    if(self.dateKey){
-        [[NSUserDefaults standardUserDefaults] setObject:lastUpdateTime forKey:self.dateKey];
-    }   else{
-        [[NSUserDefaults standardUserDefaults] setObject:lastUpdateTime forKey:MJRefreshHeaderTimeKey];
-    }
+    [[NSUserDefaults standardUserDefaults] setObject:lastUpdateTime forKey:MJRefreshHeaderTimeKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     // 2.更新时间
@@ -111,7 +107,7 @@
     
     // 1.获得年月日
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSUInteger unitFlags = NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay |NSCalendarUnitHour |NSCalendarUnitMinute;
+    NSUInteger unitFlags = NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit |NSHourCalendarUnit |NSMinuteCalendarUnit;
     NSDateComponents *cmp1 = [calendar components:unitFlags fromDate:_lastUpdateTime];
     NSDateComponents *cmp2 = [calendar components:unitFlags fromDate:[NSDate date]];
     
@@ -137,7 +133,7 @@
     if (!self.userInteractionEnabled || self.alpha <= 0.01 || self.hidden) return;
 
     // 如果正在刷新，直接返回
-    if (self.state == MJRefreshStateRefreshing || self.endingRefresh) return;
+    if (self.state == MJRefreshStateRefreshing) return;
 
     if ([MJRefreshContentOffset isEqualToString:keyPath]) {
         [self adjustStateWithContentOffset];
@@ -150,7 +146,7 @@
 - (void)adjustStateWithContentOffset
 {
     // 当前的contentOffset
-    CGFloat currentOffsetY = self.scrollView.mj_contentOffsetY;
+    CGFloat currentOffsetY = self.scrollView.contentOffsetY;
     // 头部控件刚好出现的offsetY
     CGFloat happenOffsetY = - self.scrollViewOriginalInset.top;
     
@@ -159,7 +155,7 @@
     
     if (self.scrollView.isDragging) {
         // 普通 和 即将刷新 的临界点
-        CGFloat normal2pullingOffsetY = happenOffsetY - self.mj_height;
+        CGFloat normal2pullingOffsetY = happenOffsetY - self.height;
         
         if (self.state == MJRefreshStateNormal && currentOffsetY < normal2pullingOffsetY) {
             // 转为即将刷新状态
@@ -197,14 +193,7 @@
                 self.lastUpdateTime = [NSDate date];
                 
                 [UIView animateWithDuration:MJRefreshSlowAnimationDuration animations:^{
-#warning 这句代码修复了，top值不断累加的bug
-                    if (self.scrollViewOriginalInset.top == 0) {
-                        self.scrollView.mj_contentInsetTop = 0;
-                    } else if (self.scrollViewOriginalInset.top == self.scrollView.mj_contentInsetTop) {
-                        self.scrollView.mj_contentInsetTop -= self.mj_height;
-                    } else {
-                        self.scrollView.mj_contentInsetTop = self.scrollViewOriginalInset.top;
-                    }
+                    self.scrollView.contentInsetTop = self.scrollViewOriginalInset.top;
                 }];
             } else {
                 // 执行动画
@@ -219,7 +208,7 @@
         {
             // 执行动画
             [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
-                self.arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
+//                self.arrowImage.transform = CGAffineTransformMakeRotation(M_PI);
             }];
 			break;
         }
@@ -229,11 +218,11 @@
             // 执行动画
             [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
                 // 1.增加滚动区域
-                CGFloat top = self.scrollViewOriginalInset.top + self.mj_height;
-                self.scrollView.mj_contentInsetTop = top;
+                CGFloat top = self.scrollViewOriginalInset.top + self.height;
+                self.scrollView.contentInsetTop = top;
                 
                 // 2.设置滚动位置
-                self.scrollView.mj_contentOffsetY = - top;
+                self.scrollView.contentOffsetY = - top;
             }];
 			break;
         }

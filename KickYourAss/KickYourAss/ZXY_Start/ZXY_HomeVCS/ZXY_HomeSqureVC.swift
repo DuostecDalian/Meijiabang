@@ -17,6 +17,15 @@ class ZXY_HomeSqureVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.startDownLoadData()
+        
+        currentTable.addHeaderWithCallback { [weak self] () -> Void in
+            
+            self?.currentTable.headerPullToRefreshText = "下拉刷新"
+            self?.currentTable.headerReleaseToRefreshText = "松开刷新"
+            self?.currentTable.headerRefreshingText    = "正在刷新"
+            self?.startDownLoadData()
+        }
+
         // Do any additional setup after loading the view.
     }
 
@@ -34,14 +43,16 @@ class ZXY_HomeSqureVC: UIViewController {
     func startDownLoadData()
     {
         var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_AlbumSquAPI
-        ZXY_NetHelperOperate.sharedInstance.startGetDataPost(urlString, parameter: nil, successBlock: {[weak self] (returnDic) -> Void in
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: nil, successBlock: {[weak self] (returnDic) -> Void in
             var squreBaseData : ZXYAlbumSqureBaseClass = ZXYAlbumSqureBaseClass(dictionary: returnDic)
             var squreData : ZXYAlbumSqureData    = squreBaseData.data
             self?.nailRecArr        = NSMutableArray(array: squreData.recommendAlbum)
             self?.nailNewArr        = NSMutableArray(array: squreData.lastAlbum)
+            self?.currentTable.headerEndRefreshing()
             self?.reloadTableData()
-        }) { (error) -> Void in
+        }) {[weak self] (error) -> Void in
             println(error)
+            self?.currentTable.headerEndRefreshing()
         }
     }
 
@@ -80,13 +91,17 @@ extension ZXY_HomeSqureVC : UITableViewDelegate, UITableViewDataSource
             var cell = tableView.dequeueReusableCellWithIdentifier(ZXY_HomeSqContentCellID) as ZXY_HomeSqContentCell
             var urlString = ZXY_ALLApi.ZXY_MainAPIImage + currentSqure.image.cutPath
             cell.titleImage.setImageWithURL(NSURL(string: urlString))
-            cell.timeLbl.text = currentSqure.addTime
+            cell.timeLbl.text = self.timeStampToDateString(currentSqure.addTime)
             cell.desLbl.text  = currentSqure.recommendAlbumDescription
             cell.artistNameLbl.text = currentSqure.nickName
             cell.favNumLbl.text     = currentSqure.agreeCount
             cell.starNumLbl.text    = currentSqure.collectCount
             
             var headString = ZXY_ALLApi.ZXY_MainAPIImage + currentSqure.headImage
+            if(currentSqure.headImage.hasPrefix("http"))
+            {
+                headString = currentSqure.headImage
+            }
             cell.setUserProfile(NSURL(string: headString))
             
             return cell
@@ -130,12 +145,13 @@ extension ZXY_HomeSqureVC : UITableViewDelegate, UITableViewDataSource
         var headerV = UIView(frame: CGRectMake(0, 0, self.view.frame.size.width, 50))
         headerV.backgroundColor = UIColor.whiteColor()
         
-        var headerL = UILabel(frame: CGRectMake(10, 5, self.view.frame.size.width - 20, 40))
+        var headerL = UILabel(frame: CGRectMake(10, 7, self.view.frame.size.width - 20, 40))
         var imageLineB = UIImageView(frame: CGRectMake(0, 0, self.view.frame.size.width, 5))
         imageLineB.backgroundColor = ZXY_AllColor.SQURE_GRAY_COLOR
         var imageLine = UIImageView(frame: CGRectMake(0, 49, self.view.frame.size.width, 1))
         imageLine.image = UIImage(named: "segLine")
         headerV.addSubview(imageLineB)
+        
         headerV.addSubview(imageLine)
         headerL.textColor = ZXY_AllColor.SEARCH_RED_COLOR
         if(section == 0)

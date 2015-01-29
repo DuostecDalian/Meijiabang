@@ -36,6 +36,9 @@ typedef enum {
 @property (nonatomic, weak, readonly) UIImageView *arrowImage;
 @property (nonatomic, weak, readonly) UIActivityIndicatorView *activityView;
 
+// icylydia: 文字颜色
+@property (strong, nonatomic) UIColor *baseTextColor;
+// end icylydia
 #pragma mark - 回调
 /**
  *  开始进入刷新状态的监听器
@@ -66,8 +69,6 @@ typedef enum {
 
 #pragma mark - 交给子类去实现 和 调用
 @property (assign, nonatomic) MJRefreshState state;
-/** 处于刷新结束的状态 */
-@property (readonly, getter=isEndingRefresh) BOOL endingRefresh;
 
 /**
  *  文字

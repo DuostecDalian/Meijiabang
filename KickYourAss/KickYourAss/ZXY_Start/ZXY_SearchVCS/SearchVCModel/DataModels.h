@@ -17,3 +17,5 @@
 #import "ZXYAlbumSqureImage.h"
 #import "ZXYAlbumSqureLastAlbum.h"
 #import "ZXYAlbumSqureBaseClass.h"
+#import "ZXYArtistListData.h"
+#import "ZXYArtistListBase.h"

@@ -12,16 +12,31 @@ class ZXY_HomeMostFashionVC: UIViewController {
 
     @IBOutlet weak var currentCollectionV: UICollectionView!
     private var currentPage = 1
-    private var currentAlbumList = NSMutableArray()
+    var currentAlbumList = NSMutableArray()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.startCheckNetConnect(whenBegain: { () -> Void in
-            self.startDownLoadData()
-//        }) { () -> Void in
-//            
-//        }
+
+        
+        
+        currentCollectionV.addFooterWithCallback {[weak self] () -> Void in
+            self?.currentCollectionV.footerPullToRefreshText = "上拉加载更多"
+            self?.currentCollectionV.footerReleaseToRefreshText = "松开加载"
+            self?.currentCollectionV.footerRefreshingText    = "正在加载"
+            self?.currentPage++
+            self?.startDownLoadData()
+        }
+        
+        currentCollectionV.addHeaderWithCallback { [weak self] () -> Void in
+            self?.currentPage = 1
+            self?.currentCollectionV.headerPullToRefreshText = "下拉刷新"
+            self?.currentCollectionV.headerReleaseToRefreshText = "松开刷新"
+            self?.currentCollectionV.headerRefreshingText    = "正在刷新"
+            self?.startDownLoadData()
+        }
+        
+        self.startDownLoadData()
         // Do any additional setup after loading the view.
     }
 
@@ -30,10 +45,7 @@ class ZXY_HomeMostFashionVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        super.viewDidAppear(animated)
-//        self.startDownLoadData()
-//    }
+    
     
     func startDownLoadData() -> Void
     {
@@ -41,7 +53,7 @@ class ZXY_HomeMostFashionVC: UIViewController {
         var stringUrl = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_AlbumHotAPI
         var parameter = ["p": currentPage]
         
-        ZXY_NetHelperOperate.sharedInstance.startGetDataPost(stringUrl, parameter: parameter, successBlock: {[weak self] (returnDic) -> Void in
+        ZXY_NetHelperOperate().startGetDataPost(stringUrl, parameter: parameter, successBlock: {[weak self] (returnDic) -> Void in
             
             var allReturnDic : ZXY_AlbumHotAlbumHot = ZXY_AlbumHotAlbumHot(dictionary: returnDic)
             
@@ -57,7 +69,11 @@ class ZXY_HomeMostFashionVC: UIViewController {
                 self?.currentAlbumList.addObjectsFromArray(allReturnDic.data)
             }
             self?.reloadCurrentCollectionV()
-        }) { (error) -> Void in
+            self?.currentCollectionV.footerEndRefreshing()
+            self?.currentCollectionV.headerEndRefreshing()
+        }) {[weak self] (error) -> Void in
+            self?.currentCollectionV.footerEndRefreshing()
+            self?.currentCollectionV.headerEndRefreshing()
             println(error)
         }
     }
@@ -97,12 +113,16 @@ extension ZXY_HomeMostFashionVC: UICollectionViewDelegate , WaterfallLayoutDeleg
         var currentData : ZXY_AlbumHotData = currentAlbumList[currentRow] as ZXY_AlbumHotData
         
         cell.fashionValue.text = currentData.agreeCount
-        cell.fashionTime.text  = currentData.addTime
+        cell.fashionTime.text  = self.timeStampToDateString(currentData.addTime)
         cell.fashionName.text  = currentData.dataDescription
         cell.artistName.text   = currentData.user.nickName
         
         var profileString : String? = ZXY_ALLApi.ZXY_MainAPIImage + currentData.user.headImage
         var artImage : String?      = ZXY_ALLApi.ZXY_MainAPIImage + currentData.image.cutPath
+        if(currentData.user.headImage.hasPrefix("http"))
+        {
+            profileString = currentData.user.headImage
+        }
         if(artImage != nil)
         {
             cell.setArtImage(NSURL(string: artImage!))
