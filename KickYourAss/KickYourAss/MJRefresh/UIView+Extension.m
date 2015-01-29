@@ -6,77 +6,77 @@
 //  Copyright (c) 2014年 itcast. All rights reserved.
 //
 
-#import "UIView+MJExtension.h"
+#import "UIView+Extension.h"
 
-@implementation UIView (MJExtension)
-- (void)setMj_x:(CGFloat)mj_x
+@implementation UIView (Extension)
+- (void)setX:(CGFloat)x
 {
     CGRect frame = self.frame;
-    frame.origin.x = mj_x;
+    frame.origin.x = x;
     self.frame = frame;
 }
 
-- (CGFloat)mj_x
+- (CGFloat)x
 {
     return self.frame.origin.x;
 }
 
-- (void)setMj_y:(CGFloat)mj_y
+- (void)setY:(CGFloat)y
 {
     CGRect frame = self.frame;
-    frame.origin.y = mj_y;
+    frame.origin.y = y;
     self.frame = frame;
 }
 
-- (CGFloat)mj_y
+- (CGFloat)y
 {
     return self.frame.origin.y;
 }
 
-- (void)setMj_width:(CGFloat)mj_width
+- (void)setWidth:(CGFloat)width
 {
     CGRect frame = self.frame;
-    frame.size.width = mj_width;
+    frame.size.width = width;
     self.frame = frame;
 }
 
-- (CGFloat)mj_width
+- (CGFloat)width
 {
     return self.frame.size.width;
 }
 
-- (void)setMj_height:(CGFloat)mj_height
+- (void)setHeight:(CGFloat)height
 {
     CGRect frame = self.frame;
-    frame.size.height = mj_height;
+    frame.size.height = height;
     self.frame = frame;
 }
 
-- (CGFloat)mj_height
+- (CGFloat)height
 {
     return self.frame.size.height;
 }
 
-- (void)setMj_size:(CGSize)mj_size
+- (void)setSize:(CGSize)size
 {
     CGRect frame = self.frame;
-    frame.size = mj_size;
+    frame.size = size;
     self.frame = frame;
 }
 
-- (CGSize)mj_size
+- (CGSize)size
 {
     return self.frame.size;
 }
 
-- (void)setMj_origin:(CGPoint)mj_origin
+- (void)setOrigin:(CGPoint)origin
 {
     CGRect frame = self.frame;
-    frame.origin = mj_origin;
+    frame.origin = origin;
     self.frame = frame;
 }
 
-- (CGPoint)mj_origin
+- (CGPoint)origin
 {
     return self.frame.origin;
 }

@@ -48,7 +48,7 @@ class ZXY_NailSearchVC: UIViewController {
         self.startInitLittleBoy()
         self.startInitTargetImage()
         
-        search.delegate = self
+        
         
         
         // 判断网络连接状态的代理
@@ -62,11 +62,17 @@ class ZXY_NailSearchVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         currentMap.viewWillAppear()
         currentMap.delegate = self
+        locService.delegate = self
+        search.delegate = self
+        locService.startUserLocationService()
     }
     
     override func viewWillDisappear(animated: Bool) {
         currentMap.viewWillDisappear()
         currentMap.delegate = nil
+        search.delegate = nil
+        locService.delegate = nil
+        locService.stopUserLocationService()
     }
     
     override func didReceiveMemoryWarning() {
@@ -115,8 +121,8 @@ class ZXY_NailSearchVC: UIViewController {
     func startInitLocationManager()
     {
     
-        locService.delegate = self
-        locService.startUserLocationService()
+//        locService.delegate = self
+//        locService.startUserLocationService()
     }
     
     func startInitTargetImage()
@@ -171,10 +177,8 @@ extension ZXY_NailSearchVC
     {
         if(isDownLoad)
         {
-            if(currentTable.footerRefreshing)
-            {
-                currentTable.footerEndRefreshing()
-            }
+            currentTable.footerEndRefreshing()
+            
             return
         }
         else
@@ -241,11 +245,14 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
 {
     func didUpdateBMKUserLocation(userLocation: BMKUserLocation!) {
         var lastLocation : CLLocation = userLocation.location
+        
+        ZXY_UserInfoDetail.sharedInstance.setUserCoordinate("\(lastLocation.coordinate.latitude)", longitude: "\(lastLocation.coordinate.longitude)")
         var currentTimeStamp = NSDate().timeIntervalSince1970
         if(currentTimeStamp - previousTimeStamp > 20)
         {
             userLocationCoor = lastLocation.coordinate
             previousTimeStamp = currentTimeStamp
+            self.changeUserLocationToCityName(lastLocation)
         }
 
         if(isLocationFirst)
@@ -262,37 +269,6 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
     func didFailToLocateUserWithError(error: NSError!) {
         
     }
-//    
-//    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-//        if(status == CLAuthorizationStatus.Authorized)
-//        {
-//            
-//        }
-//        else if (status == CLAuthorizationStatus.Denied)
-//        {
-//            self.showAlertEasy("提示", messageContent: "请允许该应用的定位权限")
-//        }
-//    }
-//    
-//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-//        var lastLocation : CLLocation = locations.last as CLLocation
-//        var currentTimeStamp = NSDate().timeIntervalSince1970
-//        if(currentTimeStamp - previousTimeStamp > 20)
-//        {
-//            userLocationCoor = lastLocation.coordinate
-//            previousTimeStamp = currentTimeStamp
-//        }
-//        
-//        if(isLocationFirst)
-//        {
-//            userLocationCoor = lastLocation.coordinate
-//            self.setCurrentUserLocation(userLocation: lastLocation.coordinate)
-//            self.changeUserLocationToCityName(lastLocation)
-//            isLocationFirst = false
-//            
-//        }
-//
-//    }
     
     
     // MARK: - MapViewDelegate
@@ -305,30 +281,6 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
         littleBoy.image = UIImage(named: "search_location")
         targetImage.hidden = true
     }
-    
-    
-    
-    //func mapView(mapView: MKMapView!, viewForAnnotation annotation: MKAnnotation!) -> MKAnnotationView! {
-//        if(annotation.isKindOfClass(BMKPointAnnotation.self))
-//        {
-//            var bdAnnotation  = mapView.dequeueReusableAnnotationViewWithIdentifier("hello")
-//            if(bdAnnotation == nil)
-//            {
-//                 bdAnnotation = BMKPinAnnotationView(annotation: annotation, reuseIdentifier: "hello")
-//            }
-//            else
-//            {
-//                bdAnnotation.annotation = annotation
-//            }
-//            
-//            return bdAnnotation
-//        }
-//        else
-//        {
-//            return nil
-//        }
-//        
-    //}
     
     func mapView(mapView: BMKMapView!, viewForAnnotation annotation: BMKAnnotation!) -> BMKAnnotationView! {
         if(annotation.isKindOfClass(ZXY_BMKAnnotation.self))
@@ -387,6 +339,7 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
         if(error.value == BMK_SEARCH_NO_ERROR.value)
         {
             cityName = result.addressDetail.city
+            ZXY_UserInfoDetail.sharedInstance.setUserCityName(cityName)
         }
     }
     
@@ -394,70 +347,19 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
     func changeUserLocationToCityName(location : CLLocation?)
     {
         var currentTimeStamp = NSDate().timeIntervalSince1970
-        if(currentTimeStamp - previousTimeStamp < 20)
-        {
-            return
-        }
         if (location != nil)
         {
-//            println("location is not null!")
-//            geo.reverseGeocodeLocation(location, completionHandler: {[weak self] (loInfo : [AnyObject]!, error: NSError!) -> Void in
-//                println("-----------------------")
-//                if(loInfo == nil)
-//                {
-//                    if(self?.allUserList?.count == 0)
-//                    {
-//                        self?.currentTable.hidden = true
-//                    }
-//                    else
-//                    {
-//                        self?.currentTable.hidden = false
-//                    }
-//                    return
-//                }
-//                if(loInfo.count > 0)
-//                {
-//                    var place: CLPlacemark = loInfo[0] as CLPlacemark
-//                    self?.cityName               = place.locality
-//                    self?.currentPage = 1
-//                    self?.startPOSTSearchList(location!.coordinate)
-//                }
-//                else
-//                {
-//                    if(self?.allUserList?.count == 0)
-//                    {
-//                        self?.currentTable.hidden = true
-//                    }
-//                    else
-//                    {
-//                        self?.currentTable.hidden = false
-//                    }
-//                }
-//            })
-//        }
-//        else
-//        {
-//            if(self.allUserList?.count == 0)
-//            {
-//                self.currentTable.hidden = true
-//            }
-//            else
-//            {
-//                self.currentTable.hidden = false
-//            }
-//            return
-//        }
-            var coor  = CLLocationCoordinate2D(latitude: location!.coordinate.latitude, longitude: location!.coordinate.longitude)
             var geoOption  = BMKReverseGeoCodeOption()
-            geoOption.reverseGeoPoint = coor
+            geoOption.reverseGeoPoint = location!.coordinate
+            //search.delegate = self
             var flag : Bool = search.reverseGeoCode(geoOption)
             if(flag)
             {
-            
+                
             }
             else
             {
-                self.showAlertEasy("提示", messageContent: "城市信息获取失败")
+                //self.showAlertEasy("提示", messageContent: "城市信息获取失败")
             }
             
         }
@@ -477,7 +379,12 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
             if(i <= 5)
             {
                 var currentUser : ZXYData = allUserList![i] as ZXYData
+                
                 var headImg: String? = ZXY_ALLApi.ZXY_MainAPIImage + currentUser.headImage
+                if(currentUser.headImage.hasPrefix("http"))
+                {
+                    headImg = currentUser.headImage
+                }
                 var coordinatee : CLLocationCoordinate2D?
                 coordinatee = self.xYStringToCoor(currentUser.longitude, latitude: currentUser.latitude)?
                 if(coordinatee == nil)
@@ -509,10 +416,8 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
             littleBoy.image = UIImage(named: "search_personCenter")
         }
         
-        if(currentTable.footerRefreshing)
-        {
-            currentTable.footerEndRefreshing()
-        }
+        currentTable.footerEndRefreshing()
+        
         if(allUserList?.count == 0)
         {
             currentTable.hidden = true
@@ -526,7 +431,7 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         cell.setRateValue(indexPath.row)
         var currentUser = allUserList![indexPath.row] as ZXYData
         cell.userName.text = currentUser.nickName as String
-        
+        cell.userProfile.image = UIImage(named: "search_personCenter")
         if let isNil = currentUser.score
         {
             var scoreFloat : Float = (currentUser.score as NSString).floatValue
@@ -539,8 +444,16 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         }
         if let isNil = currentUser.headImage
         {
-            var urlString = ZXY_ALLApi.ZXY_MainAPIImage + currentUser.headImage
-            cell.userProfile.setImageWithURL(NSURL(string: urlString))
+            if(currentUser.headImage.hasPrefix("http"))
+            {
+                var urlString =  currentUser.headImage
+                cell.userProfile.setImageWithURL(NSURL(string: urlString))
+            }
+            else
+            {
+                var urlString = ZXY_ALLApi.ZXY_MainAPIImage + currentUser.headImage
+                cell.userProfile.setImageWithURL(NSURL(string: urlString))
+            }
         }
         else
         {

@@ -38,6 +38,8 @@
 		8B46C4581A7791500093B5DA /* ZXY_AlbumHotData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B46C4521A7791500093B5DA /* ZXY_AlbumHotData.m */; };
 		8B46C4591A7791500093B5DA /* ZXY_AlbumHotImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B46C4541A7791500093B5DA /* ZXY_AlbumHotImage.m */; };
 		8B46C45A1A7791500093B5DA /* ZXY_AlbumHotUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B46C4561A7791500093B5DA /* ZXY_AlbumHotUser.m */; };
+		8B6761031A78E462009E667B /* ZXYArtistListBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6761001A78E462009E667B /* ZXYArtistListBase.m */; };
+		8B6761041A78E462009E667B /* ZXYArtistListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6761021A78E462009E667B /* ZXYArtistListData.m */; };
 		8B6AC4661A76467D005CEE8D /* ZXY_LocationRelative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AC4651A76467D005CEE8D /* ZXY_LocationRelative.swift */; };
 		8B6BD0241A70A88B005A2FF1 /* ZXY_ValueConstFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6BD0231A70A88B005A2FF1 /* ZXY_ValueConstFile.swift */; };
 		8B6BD0291A70C2FE005A2FF1 /* ZXY_MMOCFile.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8B6BD0281A70C2FE005A2FF1 /* ZXY_MMOCFile.mm */; };
@@ -53,20 +55,22 @@
 		8BA57A7A1A78766100848515 /* ZXYAlbumSqureImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A731A78766100848515 /* ZXYAlbumSqureImage.m */; };
 		8BA57A7B1A78766100848515 /* ZXYAlbumSqureLastAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A751A78766100848515 /* ZXYAlbumSqureLastAlbum.m */; };
 		8BA57A7C1A78766100848515 /* ZXYAlbumSqureRecommendAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A771A78766100848515 /* ZXYAlbumSqureRecommendAlbum.m */; };
+		8BA57A8E1A78AF5C00848515 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BA57A7E1A78AF5C00848515 /* MJRefresh.bundle */; };
+		8BA57A8F1A78AF5C00848515 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A811A78AF5C00848515 /* MJRefreshBaseView.m */; };
+		8BA57A901A78AF5C00848515 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A831A78AF5C00848515 /* MJRefreshConst.m */; };
+		8BA57A911A78AF5C00848515 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A851A78AF5C00848515 /* MJRefreshFooterView.m */; };
+		8BA57A921A78AF5C00848515 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A871A78AF5C00848515 /* MJRefreshHeaderView.m */; };
+		8BA57A931A78AF5C00848515 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A891A78AF5C00848515 /* UIScrollView+Extension.m */; };
+		8BA57A941A78AF5C00848515 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A8B1A78AF5C00848515 /* UIScrollView+MJRefresh.m */; };
+		8BA57A951A78AF5C00848515 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A8D1A78AF5C00848515 /* UIView+Extension.m */; };
+		8BA57A9B1A78BD5700848515 /* ZXY_NailArtistListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A9A1A78BD5700848515 /* ZXY_NailArtistListVC.swift */; };
+		8BA57A9E1A78BE5A00848515 /* ZXY_ArtistListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA57A9D1A78BE5A00848515 /* ZXY_ArtistListCell.swift */; };
 		8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */; };
 		8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BB235C11A6DFD8F003530AA /* HomeItemsPList.plist */; };
 		8BB235C81A6E216F003530AA /* MainItemImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB235C71A6E216F003530AA /* MainItemImage.xcassets */; };
 		8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */; };
 		8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */; };
 		8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */; };
-		8BDA9FEB1A75FD7200E05A08 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BDA9FDB1A75FD7200E05A08 /* MJRefresh.bundle */; };
-		8BDA9FEC1A75FD7200E05A08 /* MJRefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA9FDE1A75FD7200E05A08 /* MJRefreshBaseView.m */; };
-		8BDA9FED1A75FD7200E05A08 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA9FE01A75FD7200E05A08 /* MJRefreshConst.m */; };
-		8BDA9FEE1A75FD7200E05A08 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA9FE21A75FD7200E05A08 /* MJRefreshFooterView.m */; };
-		8BDA9FEF1A75FD7200E05A08 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA9FE41A75FD7200E05A08 /* MJRefreshHeaderView.m */; };
-		8BDA9FF01A75FD7200E05A08 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA9FE61A75FD7200E05A08 /* UIScrollView+MJExtension.m */; };
-		8BDA9FF11A75FD7200E05A08 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA9FE81A75FD7200E05A08 /* UIScrollView+MJRefresh.m */; };
-		8BDA9FF21A75FD7200E05A08 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BDA9FEA1A75FD7200E05A08 /* UIView+MJExtension.m */; };
 		8BF0F9B61A6E2C57003F376A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF0F9B51A6E2C57003F376A /* MapKit.framework */; };
 		8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0F9B91A6E2E83003F376A /* ZXY_AllColor.swift */; };
 		8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0F9BB1A6E2E83003F376A /* ZXY_SheetView.swift */; };
@@ -110,7 +114,7 @@
 		28D52E881A6CD2CB00C17CF0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		28D52E8A1A6CD2EF00C17CF0 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Search.storyboard; path = ../../Search.storyboard; sourceTree = "<group>"; };
 		28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = ../../Home.storyboard; sourceTree = "<group>"; };
-		28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Artist.storyboard; sourceTree = "<group>"; };
+		28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Artist.storyboard; path = ../../Artist.storyboard; sourceTree = "<group>"; };
 		28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutMe.storyboard; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8B46C43B1A7729A70093B5DA /* ZXY_HomeMostFashionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_HomeMostFashionVC.swift; sourceTree = "<group>"; };
@@ -130,6 +134,10 @@
 		8B46C4541A7791500093B5DA /* ZXY_AlbumHotImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_AlbumHotImage.m; sourceTree = "<group>"; };
 		8B46C4551A7791500093B5DA /* ZXY_AlbumHotUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_AlbumHotUser.h; sourceTree = "<group>"; };
 		8B46C4561A7791500093B5DA /* ZXY_AlbumHotUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_AlbumHotUser.m; sourceTree = "<group>"; };
+		8B6760FF1A78E462009E667B /* ZXYArtistListBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYArtistListBase.h; sourceTree = "<group>"; };
+		8B6761001A78E462009E667B /* ZXYArtistListBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYArtistListBase.m; sourceTree = "<group>"; };
+		8B6761011A78E462009E667B /* ZXYArtistListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYArtistListData.h; sourceTree = "<group>"; };
+		8B6761021A78E462009E667B /* ZXYArtistListData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYArtistListData.m; sourceTree = "<group>"; };
 		8B6AC4651A76467D005CEE8D /* ZXY_LocationRelative.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_LocationRelative.swift; sourceTree = "<group>"; };
 		8B6BD0231A70A88B005A2FF1 /* ZXY_ValueConstFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ValueConstFile.swift; sourceTree = "<group>"; };
 		8B6BD0271A70C2FE005A2FF1 /* ZXY_MMOCFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_MMOCFile.h; sourceTree = "<group>"; };
@@ -156,28 +164,30 @@
 		8BA57A751A78766100848515 /* ZXYAlbumSqureLastAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYAlbumSqureLastAlbum.m; sourceTree = "<group>"; };
 		8BA57A761A78766100848515 /* ZXYAlbumSqureRecommendAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYAlbumSqureRecommendAlbum.h; sourceTree = "<group>"; };
 		8BA57A771A78766100848515 /* ZXYAlbumSqureRecommendAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYAlbumSqureRecommendAlbum.m; sourceTree = "<group>"; };
+		8BA57A7E1A78AF5C00848515 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
+		8BA57A7F1A78AF5C00848515 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
+		8BA57A801A78AF5C00848515 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
+		8BA57A811A78AF5C00848515 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
+		8BA57A821A78AF5C00848515 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
+		8BA57A831A78AF5C00848515 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
+		8BA57A841A78AF5C00848515 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
+		8BA57A851A78AF5C00848515 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
+		8BA57A861A78AF5C00848515 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
+		8BA57A871A78AF5C00848515 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
+		8BA57A881A78AF5C00848515 /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
+		8BA57A891A78AF5C00848515 /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
+		8BA57A8A1A78AF5C00848515 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
+		8BA57A8B1A78AF5C00848515 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
+		8BA57A8C1A78AF5C00848515 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		8BA57A8D1A78AF5C00848515 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		8BA57A9A1A78BD5700848515 /* ZXY_NailArtistListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_NailArtistListVC.swift; sourceTree = "<group>"; };
+		8BA57A9D1A78BE5A00848515 /* ZXY_ArtistListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistListCell.swift; sourceTree = "<group>"; };
 		8BB235BF1A6DF60B003530AA /* ZXY_NailSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_NailSearchVC.swift; sourceTree = "<group>"; };
 		8BB235C11A6DFD8F003530AA /* HomeItemsPList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = HomeItemsPList.plist; sourceTree = "<group>"; };
 		8BB235C71A6E216F003530AA /* MainItemImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainItemImage.xcassets; sourceTree = "<group>"; };
 		8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_DAnnotationView.swift; sourceTree = "<group>"; };
 		8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BMKAnnotation.swift; sourceTree = "<group>"; };
 		8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEDEDEDET.swift; sourceTree = "<group>"; };
-		8BDA9FDB1A75FD7200E05A08 /* MJRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJRefresh.bundle; sourceTree = "<group>"; };
-		8BDA9FDC1A75FD7200E05A08 /* MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefresh.h; sourceTree = "<group>"; };
-		8BDA9FDD1A75FD7200E05A08 /* MJRefreshBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBaseView.h; sourceTree = "<group>"; };
-		8BDA9FDE1A75FD7200E05A08 /* MJRefreshBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshBaseView.m; sourceTree = "<group>"; };
-		8BDA9FDF1A75FD7200E05A08 /* MJRefreshConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshConst.h; sourceTree = "<group>"; };
-		8BDA9FE01A75FD7200E05A08 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
-		8BDA9FE11A75FD7200E05A08 /* MJRefreshFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooterView.h; sourceTree = "<group>"; };
-		8BDA9FE21A75FD7200E05A08 /* MJRefreshFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshFooterView.m; sourceTree = "<group>"; };
-		8BDA9FE31A75FD7200E05A08 /* MJRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshHeaderView.h; sourceTree = "<group>"; };
-		8BDA9FE41A75FD7200E05A08 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
-		8BDA9FE51A75FD7200E05A08 /* UIScrollView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJExtension.h"; sourceTree = "<group>"; };
-		8BDA9FE61A75FD7200E05A08 /* UIScrollView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJExtension.m"; sourceTree = "<group>"; };
-		8BDA9FE71A75FD7200E05A08 /* UIScrollView+MJRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+MJRefresh.h"; sourceTree = "<group>"; };
-		8BDA9FE81A75FD7200E05A08 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
-		8BDA9FE91A75FD7200E05A08 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
-		8BDA9FEA1A75FD7200E05A08 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		8BF0F9B51A6E2C57003F376A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8BF0F9B71A6E2CDF003F376A /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		8BF0F9B91A6E2E83003F376A /* ZXY_AllColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_AllColor.swift; sourceTree = "<group>"; };
@@ -262,8 +272,8 @@
 		28D52E621A6CD06200C17CF0 /* KickYourAss */ = {
 			isa = PBXGroup;
 			children = (
+				8BA57A7D1A78AF5C00848515 /* MJRefresh */,
 				8B46C4431A77313A0093B5DA /* WaterFlowLayout */,
-				8BDA9FDA1A75FD7200E05A08 /* MJRefresh */,
 				288C944D1A6FB202009DBFC6 /* LCYFiles */,
 				288C944C1A6FABE6009DBFC6 /* LCYCommon */,
 				288C944B1A6FABDB009DBFC6 /* AboutMe */,
@@ -275,7 +285,6 @@
 				8BB235C11A6DFD8F003530AA /* HomeItemsPList.plist */,
 				28D52E6C1A6CD06200C17CF0 /* Main.storyboard */,
 				8BB235BD1A6DF57F003530AA /* ZXY_Start */,
-				28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */,
 				28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */,
 				28D52E6F1A6CD06300C17CF0 /* Images.xcassets */,
 				28D52E711A6CD06300C17CF0 /* LaunchScreen.xib */,
@@ -369,6 +378,17 @@
 			path = ZXY_HomeModel;
 			sourceTree = "<group>";
 		};
+		8B6760FE1A78E462009E667B /* ZXYArtistModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B6760FF1A78E462009E667B /* ZXYArtistListBase.h */,
+				8B6761001A78E462009E667B /* ZXYArtistListBase.m */,
+				8B6761011A78E462009E667B /* ZXYArtistListData.h */,
+				8B6761021A78E462009E667B /* ZXYArtistListData.m */,
+			);
+			path = ZXYArtistModel;
+			sourceTree = "<group>";
+		};
 		8B6C1F561A6F8C05006FCF4C /* ZXYOCFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,9 +421,52 @@
 			path = FolderOFSearchCell;
 			sourceTree = "<group>";
 		};
+		8BA57A7D1A78AF5C00848515 /* MJRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				8BA57A7E1A78AF5C00848515 /* MJRefresh.bundle */,
+				8BA57A7F1A78AF5C00848515 /* MJRefresh.h */,
+				8BA57A801A78AF5C00848515 /* MJRefreshBaseView.h */,
+				8BA57A811A78AF5C00848515 /* MJRefreshBaseView.m */,
+				8BA57A821A78AF5C00848515 /* MJRefreshConst.h */,
+				8BA57A831A78AF5C00848515 /* MJRefreshConst.m */,
+				8BA57A841A78AF5C00848515 /* MJRefreshFooterView.h */,
+				8BA57A851A78AF5C00848515 /* MJRefreshFooterView.m */,
+				8BA57A861A78AF5C00848515 /* MJRefreshHeaderView.h */,
+				8BA57A871A78AF5C00848515 /* MJRefreshHeaderView.m */,
+				8BA57A881A78AF5C00848515 /* UIScrollView+Extension.h */,
+				8BA57A891A78AF5C00848515 /* UIScrollView+Extension.m */,
+				8BA57A8A1A78AF5C00848515 /* UIScrollView+MJRefresh.h */,
+				8BA57A8B1A78AF5C00848515 /* UIScrollView+MJRefresh.m */,
+				8BA57A8C1A78AF5C00848515 /* UIView+Extension.h */,
+				8BA57A8D1A78AF5C00848515 /* UIView+Extension.m */,
+			);
+			path = MJRefresh;
+			sourceTree = "<group>";
+		};
+		8BA57A991A78BD3D00848515 /* ZXY_ArtistVCS */ = {
+			isa = PBXGroup;
+			children = (
+				8B6760FE1A78E462009E667B /* ZXYArtistModel */,
+				8BA57A9C1A78BE3E00848515 /* ZXYArtistCell */,
+				8BA57A9A1A78BD5700848515 /* ZXY_NailArtistListVC.swift */,
+				28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */,
+			);
+			path = ZXY_ArtistVCS;
+			sourceTree = "<group>";
+		};
+		8BA57A9C1A78BE3E00848515 /* ZXYArtistCell */ = {
+			isa = PBXGroup;
+			children = (
+				8BA57A9D1A78BE5A00848515 /* ZXY_ArtistListCell.swift */,
+			);
+			path = ZXYArtistCell;
+			sourceTree = "<group>";
+		};
 		8BB235BD1A6DF57F003530AA /* ZXY_Start */ = {
 			isa = PBXGroup;
 			children = (
+				8BA57A991A78BD3D00848515 /* ZXY_ArtistVCS */,
 				8B6C1F561A6F8C05006FCF4C /* ZXYOCFile */,
 				8BF0F9B81A6E2E83003F376A /* ZXY_ThirdPartyFile */,
 				8BB235BE1A6DF5ED003530AA /* ZXY_SearchVCS */,
@@ -433,29 +496,6 @@
 				8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */,
 			);
 			path = FolderOFSearchMapAnno;
-			sourceTree = "<group>";
-		};
-		8BDA9FDA1A75FD7200E05A08 /* MJRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				8BDA9FDB1A75FD7200E05A08 /* MJRefresh.bundle */,
-				8BDA9FDC1A75FD7200E05A08 /* MJRefresh.h */,
-				8BDA9FDD1A75FD7200E05A08 /* MJRefreshBaseView.h */,
-				8BDA9FDE1A75FD7200E05A08 /* MJRefreshBaseView.m */,
-				8BDA9FDF1A75FD7200E05A08 /* MJRefreshConst.h */,
-				8BDA9FE01A75FD7200E05A08 /* MJRefreshConst.m */,
-				8BDA9FE11A75FD7200E05A08 /* MJRefreshFooterView.h */,
-				8BDA9FE21A75FD7200E05A08 /* MJRefreshFooterView.m */,
-				8BDA9FE31A75FD7200E05A08 /* MJRefreshHeaderView.h */,
-				8BDA9FE41A75FD7200E05A08 /* MJRefreshHeaderView.m */,
-				8BDA9FE51A75FD7200E05A08 /* UIScrollView+MJExtension.h */,
-				8BDA9FE61A75FD7200E05A08 /* UIScrollView+MJExtension.m */,
-				8BDA9FE71A75FD7200E05A08 /* UIScrollView+MJRefresh.h */,
-				8BDA9FE81A75FD7200E05A08 /* UIScrollView+MJRefresh.m */,
-				8BDA9FE91A75FD7200E05A08 /* UIView+MJExtension.h */,
-				8BDA9FEA1A75FD7200E05A08 /* UIView+MJExtension.m */,
-			);
-			path = MJRefresh;
 			sourceTree = "<group>";
 		};
 		8BF0F9B81A6E2E83003F376A /* ZXY_ThirdPartyFile */ = {
@@ -577,12 +617,12 @@
 			files = (
 				8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */,
 				28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */,
+				8BA57A8E1A78AF5C00848515 /* MJRefresh.bundle in Resources */,
 				8BB235C81A6E216F003530AA /* MainItemImage.xcassets in Resources */,
 				28D52E6E1A6CD06200C17CF0 /* Main.storyboard in Resources */,
 				28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */,
 				28D52E731A6CD06300C17CF0 /* LaunchScreen.xib in Resources */,
 				28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */,
-				8BDA9FEB1A75FD7200E05A08 /* MJRefresh.bundle in Resources */,
 				8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */,
 				8B46C4421A772C1D0093B5DA /* HomeVCImage.xcassets in Resources */,
 				289A30411A78A6E700B5350C /* register_help.html in Resources */,
@@ -639,30 +679,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				288C944A1A6FABAA009DBFC6 /* LoginViewController.swift in Sources */,
+				8BA57A921A78AF5C00848515 /* MJRefreshHeaderView.m in Sources */,
 				8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */,
+				8BA57A931A78AF5C00848515 /* UIScrollView+Extension.m in Sources */,
+				8BA57A941A78AF5C00848515 /* UIScrollView+MJRefresh.m in Sources */,
 				8B6C1F5A1A6F8C8E006FCF4C /* NSString+Encipher.m in Sources */,
 				8BF0F9C21A6E2E83003F376A /* ZXY_SheetViewCell.swift in Sources */,
+				8BA57A9B1A78BD5700848515 /* ZXY_NailArtistListVC.swift in Sources */,
+				8BA57A9E1A78BE5A00848515 /* ZXY_ArtistListCell.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
-				8BDA9FEF1A75FD7200E05A08 /* MJRefreshHeaderView.m in Sources */,
-				8BDA9FEC1A75FD7200E05A08 /* MJRefreshBaseView.m in Sources */,
+				8BA57A8F1A78AF5C00848515 /* MJRefreshBaseView.m in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
 				8BF0F9C31A6E2E83003F376A /* ZXY_UserInfoDetail.swift in Sources */,
 				8BA57A781A78766100848515 /* ZXYAlbumSqureBaseClass.m in Sources */,
 				288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */,
 				8BF0F9C41A6E2E83003F376A /* ZXY_ViewControllerExtension.swift in Sources */,
-				8BDA9FF11A75FD7200E05A08 /* UIScrollView+MJRefresh.m in Sources */,
 				8BA57A7A1A78766100848515 /* ZXYAlbumSqureImage.m in Sources */,
 				8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */,
+				8BA57A901A78AF5C00848515 /* MJRefreshConst.m in Sources */,
 				8BA57A791A78766100848515 /* ZXYAlbumSqureData.m in Sources */,
 				8B46C4581A7791500093B5DA /* ZXY_AlbumHotData.m in Sources */,
+				8BA57A951A78AF5C00848515 /* UIView+Extension.m in Sources */,
 				8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */,
 				288C94491A6FABAA009DBFC6 /* LCYNetworking.swift in Sources */,
+				8B6761031A78E462009E667B /* ZXYArtistListBase.m in Sources */,
 				8B46C43C1A7729A70093B5DA /* ZXY_HomeMostFashionVC.swift in Sources */,
 				8B6C1F641A6FA205006FCF4C /* ZXYImage.m in Sources */,
 				8B46C4591A7791500093B5DA /* ZXY_AlbumHotImage.m in Sources */,
 				8BA57A7C1A78766100848515 /* ZXYAlbumSqureRecommendAlbum.m in Sources */,
-				8BDA9FEE1A75FD7200E05A08 /* MJRefreshFooterView.m in Sources */,
 				8B46C4571A7791500093B5DA /* ZXY_AlbumHotAlbumHot.m in Sources */,
 				8BA57A7B1A78766100848515 /* ZXYAlbumSqureLastAlbum.m in Sources */,
 				8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */,
@@ -674,19 +719,18 @@
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8B46C43E1A7729C70093B5DA /* ZXY_HomeSqureVC.swift in Sources */,
+				8BA57A911A78AF5C00848515 /* MJRefreshFooterView.m in Sources */,
 				8B46C4491A77324C0093B5DA /* ZXY_HomeMostFashionCell.swift in Sources */,
 				8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */,
 				8B6BD0241A70A88B005A2FF1 /* ZXY_ValueConstFile.swift in Sources */,
 				8B6BD0291A70C2FE005A2FF1 /* ZXY_MMOCFile.mm in Sources */,
 				8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */,
-				8BDA9FED1A75FD7200E05A08 /* MJRefreshConst.m in Sources */,
 				8B46C45A1A7791500093B5DA /* ZXY_AlbumHotUser.m in Sources */,
 				288C94461A6FABAA009DBFC6 /* AboutMeButtonCell.swift in Sources */,
 				288C94471A6FABAA009DBFC6 /* AboutMeViewController.swift in Sources */,
 				8B46C4461A77313A0093B5DA /* WaterfallLayout.m in Sources */,
-				8BDA9FF01A75FD7200E05A08 /* UIScrollView+MJExtension.m in Sources */,
-				8BDA9FF21A75FD7200E05A08 /* UIView+MJExtension.m in Sources */,
 				8B6AC4661A76467D005CEE8D /* ZXY_LocationRelative.swift in Sources */,
+				8B6761041A78E462009E667B /* ZXYArtistListData.m in Sources */,
 				8B46C44D1A775B4F0093B5DA /* ZXY_HomeSqContentCell.swift in Sources */,
 				28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */,
 				8B46C4401A772A0A0093B5DA /* ZXY_HomeContainer.swift in Sources */,

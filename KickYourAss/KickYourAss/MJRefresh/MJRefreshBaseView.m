@@ -8,16 +8,15 @@
 
 #import "MJRefreshBaseView.h"
 #import "MJRefreshConst.h"
-#import "UIView+MJExtension.h"
-#import "UIScrollView+MJExtension.h"
+#import "UIView+Extension.h"
+#import "UIScrollView+Extension.h"
 #import <objc/message.h>
 
 @interface  MJRefreshBaseView()
 {
     __weak UILabel *_statusLabel;
     __weak UIImageView *_arrowImage;
-    __weak UIActivityIndicatorView *_activityView;
-    BOOL _endingRefresh;
+    __weak UIImageView *_activityView;
 }
 @end
 
@@ -46,7 +45,8 @@
 - (UIImageView *)arrowImage
 {
     if (!_arrowImage) {
-        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:MJRefreshSrcName(@"arrow.png")]];
+//        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:MJRefreshSrcName(@"arrow.png")]];
+        UIImageView *arrowImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Red1"]];
         arrowImage.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:_arrowImage = arrowImage];
     }
@@ -56,13 +56,22 @@
 /**
  *  状态标签
  */
-- (UIActivityIndicatorView *)activityView
+- (UIImageView *)activityView
 {
     if (!_activityView) {
-        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        activityView.bounds = self.arrowImage.bounds;
-        activityView.autoresizingMask = self.arrowImage.autoresizingMask;
-        [self addSubview:_activityView = activityView];
+//        UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//        activityView.bounds = self.arrowImage.bounds;
+//        activityView.autoresizingMask = self.arrowImage.autoresizingMask;
+//        [self addSubview:_activityView = activityView];
+        UIImageView *activityView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        UIImage *red1 = [UIImage imageNamed:@"Red1"];
+        UIImage *red2 = [UIImage imageNamed:@"Red2"];
+        activityView.animationImages = @[red1, red2];
+        [activityView sizeToFit];
+        activityView.animationDuration = 0.35;
+        [activityView startAnimating];
+        _activityView = activityView;
+        [self addSubview:_activityView];
     }
     return _activityView;
 }
@@ -86,8 +95,8 @@
     [super layoutSubviews];
     
     // 1.箭头
-    CGFloat arrowX = self.mj_width * 0.5 - 100;
-    self.arrowImage.center = CGPointMake(arrowX, self.mj_height * 0.5);
+    CGFloat arrowX = self.width * 0.5 - 100;
+    self.arrowImage.center = CGPointMake(arrowX, self.height * 0.5);
     
     // 2.指示器
     self.activityView.center = self.arrowImage.center;
@@ -104,14 +113,12 @@
         [newSuperview addObserver:self forKeyPath:MJRefreshContentOffset options:NSKeyValueObservingOptionNew context:nil];
         
         // 设置宽度
-        self.mj_width = newSuperview.mj_width;
+        self.width = newSuperview.width;
         // 设置位置
-        self.mj_x = 0;
+        self.x = 0;
         
         // 记录UIScrollView
         _scrollView = (UIScrollView *)newSuperview;
-        // 设置永远支持垂直弹簧效果
-        _scrollView.alwaysBounceVertical = YES;
         // 记录UIScrollView最开始的contentInset
         _scrollViewOriginalInset = _scrollView.contentInset;
     }
@@ -135,25 +142,12 @@
 #pragma mark 开始刷新
 - (void)beginRefreshing
 {
-    if (self.state == MJRefreshStateRefreshing) {
-        // 回调
-        if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
-            msgSend(msgTarget(self.beginRefreshingTaget), self.beginRefreshingAction, self);
-        }
-        
-        if (self.beginRefreshingCallback) {
-            self.beginRefreshingCallback();
-        }
+    if (self.window) {
+        self.state = MJRefreshStateRefreshing;
     } else {
-        if (self.window) {
-            self.state = MJRefreshStateRefreshing;
-        } else {
-    #warning 不能调用set方法
-            _state = MJRefreshStateWillRefreshing;
-            
-#warning 为了保证在viewWillAppear等方法中也能刷新
-            [self setNeedsDisplay];
-        }
+//#warning 不能调用set方法
+        _state = MJRefreshStateWillRefreshing;
+        [super setNeedsDisplay];
     }
 }
 
@@ -168,6 +162,12 @@
 }
 
 #pragma mark - 设置状态
+//icylydia
+- (void)setBaseTextColor:(UIColor *)baseTextColor{
+    _baseTextColor = baseTextColor;
+    [_statusLabel setTextColor:baseTextColor];
+}
+//end icylydia
 - (void)setPullToRefreshText:(NSString *)pullToRefreshText
 {
     _pullToRefreshText = [pullToRefreshText copy];
@@ -202,7 +202,6 @@
             break;
 	}
 }
-
 - (void)setState:(MJRefreshState)state
 {
     // 0.存储当前的contentInset
@@ -210,54 +209,18 @@
         _scrollViewOriginalInset = self.scrollView.contentInset;
     }
     
-    // 1.一样的就直接返回(暂时不返回)
+    // 1.一样的就直接返回
     if (self.state == state) return;
     
-    // 2.旧状态
-    MJRefreshState oldState = self.state;
-    
-    // 3.存储状态
-    _state = state;
-    
-    // 4.根据状态执行不同的操作
+    // 2.根据状态执行不同的操作
     switch (state) {
 		case MJRefreshStateNormal: // 普通状态
         {
-            if (oldState == MJRefreshStateRefreshing) {
-                // 正在结束刷新
-                _endingRefresh = YES;
-                
-                [UIView animateWithDuration:MJRefreshSlowAnimationDuration * 0.6 animations:^{
-                    self.activityView.alpha = 0.0;
-                } completion:^(BOOL finished) {
-                    // 停止转圈圈
-                    [self.activityView stopAnimating];
-                    
-                    // 恢复alpha
-                    self.activityView.alpha = 1.0;
-                }];
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJRefreshSlowAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{ // 等头部回去
-                    // 显示箭头
-                    self.arrowImage.hidden = NO;
-                    
-                    // 停止转圈圈
-                    [self.activityView stopAnimating];
-                    
-                    // 设置文字
-                    [self settingLabelText];
-                    
-                    // 结束刷新完毕
-                    _endingRefresh = NO;
-                });
-                // 直接返回
-                return;
-            } else {
-                // 显示箭头
-                self.arrowImage.hidden = NO;
-                
-                // 停止转圈圈
-                [self.activityView stopAnimating];
-            }
+            // 显示箭头
+            self.arrowImage.hidden = NO;
+            
+            // 停止转圈圈
+            [self.activityView stopAnimating];
 			break;
         }
             
@@ -273,7 +236,11 @@
             
             // 回调
             if ([self.beginRefreshingTaget respondsToSelector:self.beginRefreshingAction]) {
-                msgSend(msgTarget(self.beginRefreshingTaget), self.beginRefreshingAction, self);
+//                objc_msgSend(self.beginRefreshingTaget, self.beginRefreshingAction);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [self.beginRefreshingTaget performSelector:self.beginRefreshingAction withObject:self];
+#pragma clang diagnostic pop
             }
             
             if (self.beginRefreshingCallback) {
@@ -285,7 +252,10 @@
             break;
 	}
     
-    // 5.设置文字
+    // 3.存储状态
+    _state = state;
+    
+    // 4.设置文字
     [self settingLabelText];
 }
 @end
