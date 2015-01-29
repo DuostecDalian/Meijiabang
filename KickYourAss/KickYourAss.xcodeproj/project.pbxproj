@@ -12,6 +12,9 @@
 		288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94421A6FABAA009DBFC6 /* Extensions.swift */; };
 		288C94491A6FABAA009DBFC6 /* LCYNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94431A6FABAA009DBFC6 /* LCYNetworking.swift */; };
 		288C944A1A6FABAA009DBFC6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94441A6FABAA009DBFC6 /* LoginViewController.swift */; };
+		289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A303E1A78A32600B5350C /* RegisterViewController.swift */; };
+		289A30411A78A6E700B5350C /* register_help.html in Resources */ = {isa = PBXBuildFile; fileRef = 289A30401A78A6E700B5350C /* register_help.html */; };
+		289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A30421A78A74400B5350C /* RegisterWebViewController.swift */; };
 		28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D52E651A6CD06200C17CF0 /* AppDelegate.swift */; };
 		28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 28D52E671A6CD06200C17CF0 /* KickYourAss.xcdatamodeld */; };
 		28D52E6E1A6CD06200C17CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E6C1A6CD06200C17CF0 /* Main.storyboard */; };
@@ -95,6 +98,9 @@
 		288C94431A6FABAA009DBFC6 /* LCYNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYNetworking.swift; sourceTree = "<group>"; };
 		288C94441A6FABAA009DBFC6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		288C94451A6FABAA009DBFC6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		289A303E1A78A32600B5350C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		289A30401A78A6E700B5350C /* register_help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = register_help.html; sourceTree = "<group>"; };
+		289A30421A78A74400B5350C /* RegisterWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterWebViewController.swift; sourceTree = "<group>"; };
 		28D52E601A6CD06200C17CF0 /* KickYourAss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickYourAss.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28D52E641A6CD06200C17CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28D52E651A6CD06200C17CF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,9 +223,12 @@
 		288C944B1A6FABDB009DBFC6 /* AboutMe */ = {
 			isa = PBXGroup;
 			children = (
+				289A30401A78A6E700B5350C /* register_help.html */,
 				288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */,
 				288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */,
 				288C94441A6FABAA009DBFC6 /* LoginViewController.swift */,
+				289A303E1A78A32600B5350C /* RegisterViewController.swift */,
+				289A30421A78A74400B5350C /* RegisterWebViewController.swift */,
 			);
 			name = AboutMe;
 			sourceTree = "<group>";
@@ -616,6 +625,7 @@
 				28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */,
 				8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */,
 				8B46C4421A772C1D0093B5DA /* HomeVCImage.xcassets in Resources */,
+				289A30411A78A6E700B5350C /* register_help.html in Resources */,
 				28D52E8B1A6CD2EF00C17CF0 /* Search.storyboard in Resources */,
 				28D52E701A6CD06300C17CF0 /* Images.xcassets in Resources */,
 			);
@@ -703,7 +713,9 @@
 				8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */,
 				8BF0F9C61A6E2F80003F376A /* ZXY_NetHelperOperate.swift in Sources */,
 				8B46C44B1A775B350093B5DA /* ZXY_HomeSqTitleCell.swift in Sources */,
+				289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */,
 				8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */,
+				289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */,
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8B46C43E1A7729C70093B5DA /* ZXY_HomeSqureVC.swift in Sources */,
