@@ -41,4 +41,19 @@ struct ZXY_ALLApi
     *  美甲师列表接口API
     */
     static let ZXY_UserListAPI              = "UserList/tech_list"
+    
+    /**
+    *  获取用户详细信息
+    */
+    static let ZXY_UserInfoAPI = "User/another_user_Info"
+    
+    /**
+    *  获取用户的图集API
+    */
+    static let ZXY_UserAlbumAPI = "UserList/my_album"
+    
+    /**
+    *  获取用户的评价
+    */
+    static let ZXY_UserCommentAPI = "UserList/order_evalue"
 }

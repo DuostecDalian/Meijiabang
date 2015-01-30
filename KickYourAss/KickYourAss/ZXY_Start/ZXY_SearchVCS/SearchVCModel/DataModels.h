@@ -19,3 +19,11 @@
 #import "ZXYAlbumSqureBaseClass.h"
 #import "ZXYArtistListData.h"
 #import "ZXYArtistListBase.h"
+#import "ZXY_ArtDetailInfoData.h"
+#import "ZXY_ArtDetailInfoBase.h"
+
+#import "ZXY_UserAlbumListData.h"
+#import "ZXY_UserAlbumListBase.h"
+
+#import "ZXY_UserCommentData.h"
+#import "ZXY_UserCommentBase.h"

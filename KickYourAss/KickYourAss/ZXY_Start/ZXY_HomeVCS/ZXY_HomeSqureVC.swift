@@ -10,12 +10,17 @@ import UIKit
 
 class ZXY_HomeSqureVC: UIViewController {
 
+    @IBOutlet weak var backFreshView: UIView!
     @IBOutlet weak var currentTable: UITableView!
     private var nailNewArr : NSMutableArray = NSMutableArray()
     private var nailRecArr : NSMutableArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var tap = UITapGestureRecognizer(target: self, action: Selector("backFreshAction"))
+        tap.numberOfTapsRequired = 1
+        backFreshView.userInteractionEnabled = true
+        backFreshView.addGestureRecognizer(tap)
         self.startDownLoadData()
         
         currentTable.addHeaderWithCallback { [weak self] () -> Void in
@@ -40,6 +45,11 @@ class ZXY_HomeSqureVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func backFreshAction() -> Void
+    {
+        self.startDownLoadData()
+    }
+    
     func startDownLoadData()
     {
         var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_AlbumSquAPI
@@ -49,10 +59,22 @@ class ZXY_HomeSqureVC: UIViewController {
             self?.nailRecArr        = NSMutableArray(array: squreData.recommendAlbum)
             self?.nailNewArr        = NSMutableArray(array: squreData.lastAlbum)
             self?.currentTable.headerEndRefreshing()
+            if(self?.nailRecArr.count == 0 && self?.nailNewArr.count == 0)
+            {
+                self?.currentTable.hidden = true
+            }
+            else
+            {
+                self?.currentTable.hidden = false
+            }
             self?.reloadTableData()
         }) {[weak self] (error) -> Void in
             println(error)
             self?.currentTable.headerEndRefreshing()
+            if(self?.nailRecArr.count == 0 && self?.nailNewArr.count == 0)
+            {
+                self?.currentTable.hidden = true
+            }
         }
     }
 

@@ -10,6 +10,7 @@ import UIKit
 
 class ZXY_HomeMostFashionVC: UIViewController {
 
+    @IBOutlet weak var backFreshView: UIView!
     @IBOutlet weak var currentCollectionV: UICollectionView!
     private var currentPage = 1
     var currentAlbumList = NSMutableArray()
@@ -18,7 +19,10 @@ class ZXY_HomeMostFashionVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        var tap = UITapGestureRecognizer(target: self, action: Selector("backFreshAction"))
+        tap.numberOfTapsRequired = 1
+        backFreshView.userInteractionEnabled = true
+        backFreshView.addGestureRecognizer(tap)
         
         currentCollectionV.addFooterWithCallback {[weak self] () -> Void in
             self?.currentCollectionV.footerPullToRefreshText = "上拉加载更多"
@@ -45,7 +49,11 @@ class ZXY_HomeMostFashionVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func backFreshAction() -> Void
+    {
+        currentPage = 1
+        self.startDownLoadData()
+    }
     
     func startDownLoadData() -> Void
     {
@@ -71,9 +79,24 @@ class ZXY_HomeMostFashionVC: UIViewController {
             self?.reloadCurrentCollectionV()
             self?.currentCollectionV.footerEndRefreshing()
             self?.currentCollectionV.headerEndRefreshing()
+            if(self?.currentAlbumList.count == 0 )
+            {
+                self?.currentCollectionV.hidden = true
+            }
+            else
+            {
+                self?.currentCollectionV.hidden = false
+            }
+
+            
         }) {[weak self] (error) -> Void in
             self?.currentCollectionV.footerEndRefreshing()
             self?.currentCollectionV.headerEndRefreshing()
+            if(self?.currentAlbumList.count == 0 )
+            {
+                self?.currentCollectionV.hidden = true
+            }
+
             println(error)
         }
     }

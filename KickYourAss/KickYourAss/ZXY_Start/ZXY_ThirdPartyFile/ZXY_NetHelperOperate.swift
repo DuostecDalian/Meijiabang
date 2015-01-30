@@ -39,11 +39,14 @@ class ZXY_NetHelperOperate: NSObject {
     func startGetDataPost(urlString: String , parameter: Dictionary<String ,AnyObject>? , successBlock success:((returnDic : Dictionary<String ,AnyObject>)->Void)? , failBlock errors:((error: NSError) -> Void)?)
     {
         var afnet = AFHTTPRequestOperationManager()
+        var ser   = AFHTTPRequestSerializer()
+        ser.timeoutInterval = 20
         var stampTime = timeStamp()
     
         
         afnet.responseSerializer = AFJSONResponseSerializer()
         afnet.responseSerializer.acceptableContentTypes = NSSet(object: "text/html")
+        afnet.requestSerializer  = ser
         var sendParameter = Dictionary<String ,AnyObject>()
         if(parameter != nil)
         {
