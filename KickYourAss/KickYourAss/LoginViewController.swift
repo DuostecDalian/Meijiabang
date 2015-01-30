@@ -58,6 +58,17 @@ class LoginViewController: UIViewController {
             let phoneNumber = phoneNumberTextField.text
             let password = passwordTextField.text
             
+            showHUD()
+            LCYNetworking.sharedInstance.POST(
+                Api: LCYNetworking.LCYApi.UserLogin,
+                parameters: ["user_name": phoneNumber, "password": password],
+                success: { [weak self](object) -> Void in
+                    self?.hideHUD()
+                    return
+            }, fail: { [weak self]() -> Void in
+                self?.hideHUD()
+                return
+            })
         }
         
     }

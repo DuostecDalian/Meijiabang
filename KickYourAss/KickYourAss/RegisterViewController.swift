@@ -9,6 +9,20 @@
 import UIKit
 
 class RegisterViewController: UITableViewController {
+    
+    // 界面状态
+    enum RegisterStatus: Int {
+        case Artist = 0
+        case Normal = 1
+    }
+    private var currentStatus: RegisterStatus = .Normal {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    @IBAction func segmentValueChanged(sender: UISegmentedControl) {
+        currentStatus = RegisterStatus(rawValue: sender.selectedSegmentIndex)!
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

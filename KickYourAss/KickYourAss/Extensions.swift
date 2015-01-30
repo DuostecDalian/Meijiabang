@@ -28,6 +28,12 @@ extension UIViewController {
         let alertView = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: "确定")
         alertView.show()
     }
+    func showHUD() {
+        MBProgressHUD.showHUDAddedTo(view, animated: true)
+    }
+    func hideHUD() {
+        MBProgressHUD.hideHUDForView(view, animated: true)
+    }
 }
 
 extension Dictionary {
