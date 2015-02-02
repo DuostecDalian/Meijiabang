@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--搜索-->
@@ -237,13 +238,14 @@
                             <constraint firstItem="EZZ-Ff-DcF" firstAttribute="top" secondItem="FZS-zy-YGy" secondAttribute="bottom" id="Q6b-kk-lC2"/>
                             <constraint firstItem="nC2-HC-7y4" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" id="QYv-Mx-qtT"/>
                             <constraint firstItem="stq-hD-gPL" firstAttribute="top" secondItem="l7K-0L-ZoU" secondAttribute="top" constant="187" id="SJE-bX-CDw"/>
-                            <constraint firstItem="EZZ-Ff-DcF" firstAttribute="bottom" secondItem="nC2-HC-7y4" secondAttribute="bottom" id="VW2-Di-GbT"/>
+                            <constraint firstItem="nC2-HC-7y4" firstAttribute="bottom" secondItem="l7K-0L-ZoU" secondAttribute="bottomMargin" id="YCP-gg-ebz"/>
                             <constraint firstAttribute="centerX" secondItem="FCA-pl-av9" secondAttribute="centerX" id="hhj-j7-obM"/>
                             <constraint firstItem="FZS-zy-YGy" firstAttribute="leading" secondItem="l7K-0L-ZoU" secondAttribute="leading" id="iO8-kY-pIC"/>
                             <constraint firstAttribute="centerX" secondItem="FZS-zy-YGy" secondAttribute="centerX" id="rYF-28-85U"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="搜索" id="aXp-e8-MV1"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
                         <outlet property="currentMap" destination="nC2-HC-7y4" id="ncT-Cs-9VF"/>

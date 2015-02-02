@@ -28,6 +28,12 @@
 		28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */; };
 		28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */; };
 		28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */; };
+		8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE641A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m */; };
+		8B17CE681A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE661A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m */; };
+		8B17CE6D1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE6A1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m */; };
+		8B17CE6E1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE6C1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m */; };
+		8B17CE741A7B874B002C7F44 /* ZXY_UserCommentBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE711A7B874B002C7F44 /* ZXY_UserCommentBase.m */; };
+		8B17CE751A7B874B002C7F44 /* ZXY_UserCommentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE731A7B874B002C7F44 /* ZXY_UserCommentData.m */; };
 		8B46C43C1A7729A70093B5DA /* ZXY_HomeMostFashionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46C43B1A7729A70093B5DA /* ZXY_HomeMostFashionVC.swift */; };
 		8B46C43E1A7729C70093B5DA /* ZXY_HomeSqureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46C43D1A7729C70093B5DA /* ZXY_HomeSqureVC.swift */; };
 		8B46C4401A772A0A0093B5DA /* ZXY_HomeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46C43F1A772A0A0093B5DA /* ZXY_HomeContainer.swift */; };
@@ -73,6 +79,12 @@
 		8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */; };
 		8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */; };
 		8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */; };
+		8BEEA1941A79F42B0068B520 /* ZXY_ArtistDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA1931A79F42A0068B520 /* ZXY_ArtistDetailVC.swift */; };
+		8BEEA1961A79F4550068B520 /* ArtistDetailStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEA1951A79F4540068B520 /* ArtistDetailStoryBoard.storyboard */; };
+		8BEEA1981A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA1971A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift */; };
+		8BEEA19A1A7A03010068B520 /* ZXY_ArtistCommentTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA1991A7A03010068B520 /* ZXY_ArtistCommentTabVC.swift */; };
+		8BEEA19D1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA19C1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift */; };
+		8BEEA19F1A7A1F8A0068B520 /* artistDetailAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEA19E1A7A1F8A0068B520 /* artistDetailAssets.xcassets */; };
 		8BF0F9B61A6E2C57003F376A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BF0F9B51A6E2C57003F376A /* MapKit.framework */; };
 		8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0F9B91A6E2E83003F376A /* ZXY_AllColor.swift */; };
 		8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF0F9BB1A6E2E83003F376A /* ZXY_SheetView.swift */; };
@@ -121,6 +133,18 @@
 		28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Artist.storyboard; path = ../../Artist.storyboard; sourceTree = "<group>"; };
 		28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutMe.storyboard; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8B17CE631A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_ArtDetailInfoBase.h; sourceTree = "<group>"; };
+		8B17CE641A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_ArtDetailInfoBase.m; sourceTree = "<group>"; };
+		8B17CE651A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_ArtDetailInfoData.h; sourceTree = "<group>"; };
+		8B17CE661A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_ArtDetailInfoData.m; sourceTree = "<group>"; };
+		8B17CE691A7B6F25002C7F44 /* ZXY_UserAlbumListBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_UserAlbumListBase.h; sourceTree = "<group>"; };
+		8B17CE6A1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_UserAlbumListBase.m; sourceTree = "<group>"; };
+		8B17CE6B1A7B6F25002C7F44 /* ZXY_UserAlbumListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_UserAlbumListData.h; sourceTree = "<group>"; };
+		8B17CE6C1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_UserAlbumListData.m; sourceTree = "<group>"; };
+		8B17CE701A7B874B002C7F44 /* ZXY_UserCommentBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_UserCommentBase.h; sourceTree = "<group>"; };
+		8B17CE711A7B874B002C7F44 /* ZXY_UserCommentBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_UserCommentBase.m; sourceTree = "<group>"; };
+		8B17CE721A7B874B002C7F44 /* ZXY_UserCommentData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_UserCommentData.h; sourceTree = "<group>"; };
+		8B17CE731A7B874B002C7F44 /* ZXY_UserCommentData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_UserCommentData.m; sourceTree = "<group>"; };
 		8B46C43B1A7729A70093B5DA /* ZXY_HomeMostFashionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_HomeMostFashionVC.swift; sourceTree = "<group>"; };
 		8B46C43D1A7729C70093B5DA /* ZXY_HomeSqureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_HomeSqureVC.swift; sourceTree = "<group>"; };
 		8B46C43F1A772A0A0093B5DA /* ZXY_HomeContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_HomeContainer.swift; sourceTree = "<group>"; };
@@ -192,6 +216,12 @@
 		8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_DAnnotationView.swift; sourceTree = "<group>"; };
 		8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BMKAnnotation.swift; sourceTree = "<group>"; };
 		8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEDEDEDET.swift; sourceTree = "<group>"; };
+		8BEEA1931A79F42A0068B520 /* ZXY_ArtistDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistDetailVC.swift; sourceTree = "<group>"; };
+		8BEEA1951A79F4540068B520 /* ArtistDetailStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ArtistDetailStoryBoard.storyboard; sourceTree = "<group>"; };
+		8BEEA1971A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistDetailWorksColleVC.swift; sourceTree = "<group>"; };
+		8BEEA1991A7A03010068B520 /* ZXY_ArtistCommentTabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistCommentTabVC.swift; sourceTree = "<group>"; };
+		8BEEA19C1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistDetailCommentCell.swift; sourceTree = "<group>"; };
+		8BEEA19E1A7A1F8A0068B520 /* artistDetailAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = artistDetailAssets.xcassets; sourceTree = "<group>"; };
 		8BF0F9B51A6E2C57003F376A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		8BF0F9B71A6E2CDF003F376A /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		8BF0F9B91A6E2E83003F376A /* ZXY_AllColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_AllColor.swift; sourceTree = "<group>"; };
@@ -278,6 +308,7 @@
 		28D52E621A6CD06200C17CF0 /* KickYourAss */ = {
 			isa = PBXGroup;
 			children = (
+				8BEEA1921A79F4090068B520 /* ArtistDetailFile */,
 				8BA57A7D1A78AF5C00848515 /* MJRefresh */,
 				8B46C4431A77313A0093B5DA /* WaterFlowLayout */,
 				288C944D1A6FB202009DBFC6 /* LCYFiles */,
@@ -324,6 +355,25 @@
 				28D52E7D1A6CD06300C17CF0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8B17CE621A7B5D5E002C7F44 /* artistDetailModel */ = {
+			isa = PBXGroup;
+			children = (
+				8B17CE631A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.h */,
+				8B17CE641A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m */,
+				8B17CE651A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.h */,
+				8B17CE661A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m */,
+				8B17CE691A7B6F25002C7F44 /* ZXY_UserAlbumListBase.h */,
+				8B17CE6A1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m */,
+				8B17CE6B1A7B6F25002C7F44 /* ZXY_UserAlbumListData.h */,
+				8B17CE6C1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m */,
+				8B17CE701A7B874B002C7F44 /* ZXY_UserCommentBase.h */,
+				8B17CE711A7B874B002C7F44 /* ZXY_UserCommentBase.m */,
+				8B17CE721A7B874B002C7F44 /* ZXY_UserCommentData.h */,
+				8B17CE731A7B874B002C7F44 /* ZXY_UserCommentData.m */,
+			);
+			path = artistDetailModel;
 			sourceTree = "<group>";
 		};
 		8B46C43A1A7728220093B5DA /* ZXY_HomeVCS */ = {
@@ -504,6 +554,28 @@
 			path = FolderOFSearchMapAnno;
 			sourceTree = "<group>";
 		};
+		8BEEA1921A79F4090068B520 /* ArtistDetailFile */ = {
+			isa = PBXGroup;
+			children = (
+				8B17CE621A7B5D5E002C7F44 /* artistDetailModel */,
+				8BEEA19B1A7A05890068B520 /* artistdDetailCell */,
+				8BEEA1931A79F42A0068B520 /* ZXY_ArtistDetailVC.swift */,
+				8BEEA1971A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift */,
+				8BEEA1991A7A03010068B520 /* ZXY_ArtistCommentTabVC.swift */,
+				8BEEA1951A79F4540068B520 /* ArtistDetailStoryBoard.storyboard */,
+				8BEEA19E1A7A1F8A0068B520 /* artistDetailAssets.xcassets */,
+			);
+			path = ArtistDetailFile;
+			sourceTree = "<group>";
+		};
+		8BEEA19B1A7A05890068B520 /* artistdDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				8BEEA19C1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift */,
+			);
+			path = artistdDetailCell;
+			sourceTree = "<group>";
+		};
 		8BF0F9B81A6E2E83003F376A /* ZXY_ThirdPartyFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -624,12 +696,14 @@
 				8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */,
 				28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */,
 				8BA57A8E1A78AF5C00848515 /* MJRefresh.bundle in Resources */,
+				8BEEA19F1A7A1F8A0068B520 /* artistDetailAssets.xcassets in Resources */,
 				8BB235C81A6E216F003530AA /* MainItemImage.xcassets in Resources */,
 				28D52E6E1A6CD06200C17CF0 /* Main.storyboard in Resources */,
 				28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */,
 				28D52E731A6CD06300C17CF0 /* LaunchScreen.xib in Resources */,
 				28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */,
 				8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */,
+				8BEEA1961A79F4550068B520 /* ArtistDetailStoryBoard.storyboard in Resources */,
 				8B46C4421A772C1D0093B5DA /* HomeVCImage.xcassets in Resources */,
 				289A30411A78A6E700B5350C /* register_help.html in Resources */,
 				28D52E8B1A6CD2EF00C17CF0 /* Search.storyboard in Resources */,
@@ -685,13 +759,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				288C944A1A6FABAA009DBFC6 /* LoginViewController.swift in Sources */,
+				8BEEA19A1A7A03010068B520 /* ZXY_ArtistCommentTabVC.swift in Sources */,
+				8B17CE6E1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m in Sources */,
 				8BA57A921A78AF5C00848515 /* MJRefreshHeaderView.m in Sources */,
 				8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */,
 				8BA57A931A78AF5C00848515 /* UIScrollView+Extension.m in Sources */,
 				8BA57A941A78AF5C00848515 /* UIScrollView+MJRefresh.m in Sources */,
 				8B6C1F5A1A6F8C8E006FCF4C /* NSString+Encipher.m in Sources */,
+				8B17CE741A7B874B002C7F44 /* ZXY_UserCommentBase.m in Sources */,
 				8BF0F9C21A6E2E83003F376A /* ZXY_SheetViewCell.swift in Sources */,
 				8BA57A9B1A78BD5700848515 /* ZXY_NailArtistListVC.swift in Sources */,
+				8BEEA19D1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift in Sources */,
 				8BA57A9E1A78BE5A00848515 /* ZXY_ArtistListCell.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
@@ -700,6 +778,7 @@
 				8BF0F9C31A6E2E83003F376A /* ZXY_UserInfoDetail.swift in Sources */,
 				8BA57A781A78766100848515 /* ZXYAlbumSqureBaseClass.m in Sources */,
 				288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */,
+				8B17CE751A7B874B002C7F44 /* ZXY_UserCommentData.m in Sources */,
 				8BF0F9C41A6E2E83003F376A /* ZXY_ViewControllerExtension.swift in Sources */,
 				8BA57A7A1A78766100848515 /* ZXYAlbumSqureImage.m in Sources */,
 				28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */,
@@ -717,6 +796,8 @@
 				8BA57A7C1A78766100848515 /* ZXYAlbumSqureRecommendAlbum.m in Sources */,
 				8B46C4571A7791500093B5DA /* ZXY_AlbumHotAlbumHot.m in Sources */,
 				8BA57A7B1A78766100848515 /* ZXYAlbumSqureLastAlbum.m in Sources */,
+				8BEEA1941A79F42B0068B520 /* ZXY_ArtistDetailVC.swift in Sources */,
+				8BEEA1981A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift in Sources */,
 				8B6C1F631A6FA205006FCF4C /* ZXYData.m in Sources */,
 				8BF0F9C61A6E2F80003F376A /* ZXY_NetHelperOperate.swift in Sources */,
 				8B46C44B1A775B350093B5DA /* ZXY_HomeSqTitleCell.swift in Sources */,
@@ -724,15 +805,18 @@
 				289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */,
 				8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */,
 				289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */,
+				8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */,
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8B46C43E1A7729C70093B5DA /* ZXY_HomeSqureVC.swift in Sources */,
+				8B17CE6D1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m in Sources */,
 				8BA57A911A78AF5C00848515 /* MJRefreshFooterView.m in Sources */,
 				8B46C4491A77324C0093B5DA /* ZXY_HomeMostFashionCell.swift in Sources */,
 				8BF0F9BF1A6E2E83003F376A /* ZXY_AllColor.swift in Sources */,
 				8B6BD0241A70A88B005A2FF1 /* ZXY_ValueConstFile.swift in Sources */,
 				8B6BD0291A70C2FE005A2FF1 /* ZXY_MMOCFile.mm in Sources */,
 				8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */,
+				8B17CE681A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m in Sources */,
 				8B46C45A1A7791500093B5DA /* ZXY_AlbumHotUser.m in Sources */,
 				288C94461A6FABAA009DBFC6 /* AboutMeButtonCell.swift in Sources */,
 				288C94471A6FABAA009DBFC6 /* AboutMeViewController.swift in Sources */,

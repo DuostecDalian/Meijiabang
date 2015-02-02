@@ -182,6 +182,13 @@ extension ZXY_NailArtistListVC: UITableViewDelegate , UITableViewDataSource
         return 1
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var story  = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+        var currentArtist : ZXYArtistListData = userListData[indexPath.row] as ZXYArtistListData
+        var vc     = story.instantiateViewControllerWithIdentifier(ZXY_ArtistDetailVCID) as ZXY_ArtistDetailVC
+        vc.setUserID(currentArtist.userId)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
 }
 

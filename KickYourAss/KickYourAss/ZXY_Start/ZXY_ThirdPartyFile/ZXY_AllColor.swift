@@ -17,6 +17,15 @@ struct ZXY_AllColor {
     
     /// 广场section 头部的灰色
     static let SQURE_GRAY_COLOR : UIColor = UIColor(red: 234/255.0, green: 234/255.0, blue: 234/255.0, alpha: 1)
+    
+    /// seg竖线灰色
+    static let VERTICAL_GRAY_COLOR : UIColor = UIColor(red: 155/255.0, green: 155/255.0, blue: 155/255.0, alpha: 1)
+    
+    /**
+    用于获取随机颜色
+    
+    :returns: 随机颜色
+    */
     func startRandomColor() -> UIColor
     {
         var randomNum = random() % 5
