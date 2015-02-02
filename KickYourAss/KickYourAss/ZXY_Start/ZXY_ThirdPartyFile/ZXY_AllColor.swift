@@ -21,6 +21,8 @@ struct ZXY_AllColor {
     /// seg竖线灰色
     static let VERTICAL_GRAY_COLOR : UIColor = UIColor(red: 155/255.0, green: 155/255.0, blue: 155/255.0, alpha: 1)
     
+    /// tabBar上的灰色文字的颜色
+    static let TABBAR_GRAY_COLOR   : UIColor = UIColor(red: 146.0/255.0, green: 146.0/255.0, blue: 146.0/255.0, alpha: 1)
     /**
     用于获取随机颜色
     

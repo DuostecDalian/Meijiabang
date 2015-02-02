@@ -86,7 +86,7 @@ NSString *const kZXY_UserAlbumListBaseData = @"data";
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
 {
     id object = [dict objectForKey:aKey];
-    return [object isEqual:[NSNull null]] ? nil : object;
+    return [object isEqual:[NSNull null]] ? @"" : object;
 }
 
 

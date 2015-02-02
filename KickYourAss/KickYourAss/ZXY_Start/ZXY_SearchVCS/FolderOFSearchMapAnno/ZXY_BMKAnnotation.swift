@@ -9,16 +9,17 @@
 import UIKit
 import MapKit
 class ZXY_BMKAnnotation: NSObject , BMKAnnotation{
-    
+    var userID     : String?
     var coordinate : CLLocationCoordinate2D
     var imgURL     : NSURL?
     
 
     
-    init(location coordinate: CLLocationCoordinate2D , withImgURL imgURL : NSURL?)
+    init(location coordinate: CLLocationCoordinate2D , withImgURL imgURL : NSURL? , andUserID : String)
     {
         //super.init()
         self.imgURL = imgURL
+        self.userID = andUserID
         self.coordinate = coordinate
         
     }
@@ -26,6 +27,11 @@ class ZXY_BMKAnnotation: NSObject , BMKAnnotation{
     init(location coordinate : CLLocationCoordinate2D) {
         //super.init()
         self.coordinate = coordinate
+    }
+    
+    func setUserID(userID : String)
+    {
+        self.userID = userID
     }
     
     func setCoordinate(newCoordinate: CLLocationCoordinate2D) {

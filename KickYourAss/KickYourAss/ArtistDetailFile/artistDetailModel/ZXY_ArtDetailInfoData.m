@@ -119,7 +119,7 @@ NSString *const kZXY_ArtDetailInfoDataIsAttention = @"is_attention";
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
 {
     id object = [dict objectForKey:aKey];
-    return [object isEqual:[NSNull null]] ? nil : object;
+    return [object isEqual:[NSNull null]] ? @"" : object;
 }
 
 

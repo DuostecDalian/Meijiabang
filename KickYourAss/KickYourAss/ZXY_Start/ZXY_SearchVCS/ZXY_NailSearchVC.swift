@@ -299,8 +299,9 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
             if(zxyAnno.imgURL != nil)
             {
                 annoView?.titleImg.setImageWithURL(zxyAnno.imgURL!)
+                
             }
-            
+            annoView?.userID = zxyAnno.userID
             return annoView
         }
         else
@@ -317,6 +318,25 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
             
             return annoView
 
+        }
+    }
+    
+    func mapView(mapView: BMKMapView!, didSelectAnnotationView view: BMKAnnotationView!) {
+        if(view.isKindOfClass(ZXY_DAnnotationView.self))
+        {
+            var annoView = view as ZXY_DAnnotationView
+            var story  = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier(ZXY_ArtistDetailVCID) as ZXY_ArtistDetailVC
+            if(annoView.userID != nil)
+            {
+                vc.setUserID(annoView.userID!)
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            else
+            {
+                return
+            }
+            
         }
     }
     
@@ -399,7 +419,7 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
                     anno.setImgURL(url)
                 }
                 anno.setCoordinate(coordinatee!)
-                
+                anno.setUserID(currentUser.userId)
                 annos.append(anno)
             }
         }
@@ -512,6 +532,15 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         {
             return 0
         }
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var currentArtist = allUserList![indexPath.row] as ZXYData
+        var story  = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+        //var currentArtist : ZXYArtistListData = userListData[indexPath.row] as ZXYArtistListData
+        var vc     = story.instantiateViewControllerWithIdentifier(ZXY_ArtistDetailVCID) as ZXY_ArtistDetailVC
+        vc.setUserID(currentArtist.userId)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: 控制tableView拖拽

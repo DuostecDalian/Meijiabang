@@ -40,7 +40,7 @@ class ZXY_NetHelperOperate: NSObject {
     {
         var afnet = AFHTTPRequestOperationManager()
         var ser   = AFHTTPRequestSerializer()
-        ser.timeoutInterval = 20
+        ser.timeoutInterval = 30
         var stampTime = timeStamp()
     
         

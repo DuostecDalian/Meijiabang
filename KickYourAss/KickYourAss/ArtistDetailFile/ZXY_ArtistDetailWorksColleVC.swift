@@ -11,16 +11,19 @@ let ZXY_ArtistDetailWorksColleVCID = "artistWorkID"
 protocol ZXY_ArtistDetailWorksColleVCDelegate : class , NSObjectProtocol
 {
     func collectionViewDidScroll(collection: UICollectionView)
-    
+    func noDataDownCollection()
+    //func clickItemAt
 }
 
 class ZXY_ArtistDetailWorksColleVC: UIViewController {
 
+    @IBOutlet weak var noNetLbl: UILabel!
     
     @IBOutlet weak var noNetView: UIView!
     
     private var userID : String!
     private var currentPage : Int = 1
+    private var isDownLoad = false
     private var dataForShow : NSMutableArray = NSMutableArray()
     weak var delegate : ZXY_ArtistDetailWorksColleVCDelegate?
     
@@ -30,7 +33,19 @@ class ZXY_ArtistDetailWorksColleVC: UIViewController {
         var tapReload = UITapGestureRecognizer(target: self, action: Selector("startDownLoadAlbum"))
         self.noNetView.addGestureRecognizer(tapReload)
         self.noNetView.userInteractionEnabled = true
+        
         self.startDownLoadAlbum()
+        
+        currentCollection.addFooterWithCallback {[weak self] () -> Void in
+            self?.currentCollection.footerPullToRefreshText = "上拉加载更多"
+            self?.currentCollection.footerReleaseToRefreshText = "松开加载"
+            self?.currentCollection.footerRefreshingText    = "正在加载"
+            self?.currentPage++
+            self?.startDownLoadAlbum()
+        }
+        
+
+
         // Do any additional setup after loading the view.
     }
 
@@ -46,17 +61,14 @@ class ZXY_ArtistDetailWorksColleVC: UIViewController {
     
     func startDownLoadAlbum()
     {
+        if(isDownLoad)
+        {
+            return
+        }
+        isDownLoad = true
         var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_UserAlbumAPI
-        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: ["user_id" : self.userID], successBlock: { [weak self](returnDic) -> Void in
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: ["user_id" : self.userID , "p" : currentPage], successBlock: { [weak self](returnDic) -> Void in
             var arr = ZXY_UserAlbumListBase(dictionary: returnDic).data
-//            if(arr.count == 0)
-//            {
-//                if(self?.currentPage == 0)
-//                {
-//                    self?.currentCollection.hidden = true
-//                    return
-//                }
-//            }
             if(self?.currentPage == 1)
             {
                     self?.dataForShow.removeAllObjects()
@@ -91,15 +103,26 @@ extension ZXY_ArtistDetailWorksColleVC : UICollectionViewDelegate , UICollection
 {
     func reloadCurrentCollection()
     {
-        if(dataForShow.count == 0)
+        isDownLoad = false
+        if(!AFNetworkReachabilityManager.sharedManager().reachable)
         {
-            currentCollection.hidden = true
+            self.noNetLbl.text = "网络不给力，查看下吧！请点击页面重试"
         }
         else
         {
-            currentCollection.hidden = false
+            self.noNetLbl.text = "   未获取到内容    请点击页面重试"
+        }
+        if(dataForShow.count == 0)
+        {
+            currentCollection.backgroundColor = UIColor.clearColor()
+        }
+        else
+        {
+            currentCollection.backgroundColor = UIColor.whiteColor()
         }
         self.currentCollection.reloadData()
+        currentCollection.footerEndRefreshing()
+        currentCollection.headerEndRefreshing()
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -119,11 +142,7 @@ extension ZXY_ArtistDetailWorksColleVC : UICollectionViewDelegate , UICollection
         cell.fashionValue.text = currentData.agreeCount
         cell.fashionTime.text  = self.timeStampToDateString(currentData.addTime)
         cell.fashionName.text  = currentData.dataDescription
-        //cell.artistName.text   = currentData.user.nickName
-        
-        //var profileString : String? = ZXY_ALLApi.ZXY_MainAPIImage + currentData.user.headImage
         var artImage : String?      = ZXY_ALLApi.ZXY_MainAPIImage + currentData.cutPath
-
         if(artImage != nil)
         {
             cell.setArtImage(NSURL(string: artImage!))
@@ -153,7 +172,7 @@ extension ZXY_ArtistDetailWorksColleVC : UICollectionViewDelegate , UICollection
         
         var imgRealHeight = CGFloat(radio) * screenWidths
         
-        return CGSizeMake(screenWidths, imgRealHeight + 57)
+        return CGSizeMake(screenWidths, imgRealHeight + 65)
     }
     
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -161,7 +180,11 @@ extension ZXY_ArtistDetailWorksColleVC : UICollectionViewDelegate , UICollection
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        ZXY_AllColor().startRandomColor()
+        var currentData : ZXY_UserAlbumListData = dataForShow[indexPath.row] as ZXY_UserAlbumListData
+        var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+        var vc    = story.instantiateViewControllerWithIdentifier("nailPictureID") as ZXY_NailPictureVC
+        vc.setAlbumID(currentData.albumId, user_id: "")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {

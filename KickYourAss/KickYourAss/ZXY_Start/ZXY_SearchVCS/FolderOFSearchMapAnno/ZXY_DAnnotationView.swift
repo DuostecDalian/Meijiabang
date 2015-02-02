@@ -13,6 +13,7 @@ class ZXY_DAnnotationView: BMKAnnotationView {
     private let arrowHeight : CGFloat = 10
     var titleImg : UIImageView = UIImageView(frame: CGRectMake(0, 4, 58 ,58 ))
     private var backImg : UIImageView!
+    var userID : String?
     override func drawRect(rect: CGRect) {
         super.drawRect(rect)
         self.drawCircleArrow()
