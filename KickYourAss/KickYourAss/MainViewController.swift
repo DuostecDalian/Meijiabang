@@ -12,7 +12,7 @@ class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.delegate = self
         // Do any additional setup after loading the view.
         
         // 搜索
@@ -70,4 +70,25 @@ class MainViewController: UITabBarController {
     }
     */
 
+}
+
+extension MainViewController : UITabBarControllerDelegate , UITabBarDelegate
+{
+    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+        if(viewController == (tabBarController.viewControllers![3] as UIViewController))
+        {
+            return false
+        }
+        else
+        {
+            return true
+        }
+    }
+    
+    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+         if(viewController == (tabBarController.viewControllers![3] as UIViewController))
+         {
+            self.showAlertEasy("", messageContent: "哈哈 ")
+        }
+    }
 }
