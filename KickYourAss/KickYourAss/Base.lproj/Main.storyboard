@@ -9,7 +9,7 @@
         <scene sceneID="cGf-5g-z97">
             <objects>
                 <tabBarController id="8Mo-qb-TKN" customClass="MainViewController" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" backgroundImage="TabBarBackground" id="cIa-ie-CYH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
