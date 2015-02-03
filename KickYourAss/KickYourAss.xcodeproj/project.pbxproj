@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C151A80BBD400CA073A /* LCYCommon.swift */; };
+		288B0C181A80C26A00CA073A /* ErrorMessage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 288B0C171A80C26A00CA073A /* ErrorMessage.plist */; };
+		288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */; };
 		288C94461A6FABAA009DBFC6 /* AboutMeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */; };
 		288C94471A6FABAA009DBFC6 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */; };
 		288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94421A6FABAA009DBFC6 /* Extensions.swift */; };
@@ -115,6 +118,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		288B0C151A80BBD400CA073A /* LCYCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCommon.swift; sourceTree = "<group>"; };
+		288B0C171A80C26A00CA073A /* ErrorMessage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessage.plist; sourceTree = "<group>"; };
+		288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterArtistDetailViewController.swift; sourceTree = "<group>"; };
 		288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeButtonCell.swift; sourceTree = "<group>"; };
 		288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		288C94421A6FABAA009DBFC6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 				28C421041A7A251500B1EB5B /* RegisterTextCell.swift */,
 				28C421061A7A255300B1EB5B /* RegisterButtonCell.swift */,
 				289A30421A78A74400B5350C /* RegisterWebViewController.swift */,
+				288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */,
 			);
 			name = AboutMe;
 			sourceTree = "<group>";
@@ -296,6 +303,8 @@
 			children = (
 				288C94421A6FABAA009DBFC6 /* Extensions.swift */,
 				288C94431A6FABAA009DBFC6 /* LCYNetworking.swift */,
+				288B0C151A80BBD400CA073A /* LCYCommon.swift */,
+				288B0C171A80C26A00CA073A /* ErrorMessage.plist */,
 			);
 			name = LCYCommon;
 			sourceTree = "<group>";
@@ -693,7 +702,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "宇周";
+				ORGANIZATIONNAME = "多思科技";
 				TargetAttributes = {
 					28D52E5F1A6CD06200C17CF0 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -740,6 +749,7 @@
 				8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */,
 				8BA49BB01A7F3B3F0047EB85 /* tabAttrPlist.plist in Resources */,
 				8BEEA1961A79F4550068B520 /* ArtistDetailStoryBoard.storyboard in Resources */,
+				288B0C181A80C26A00CA073A /* ErrorMessage.plist in Resources */,
 				8B46C4421A772C1D0093B5DA /* HomeVCImage.xcassets in Resources */,
 				289A30411A78A6E700B5350C /* register_help.html in Resources */,
 				28D52E8B1A6CD2EF00C17CF0 /* Search.storyboard in Resources */,
@@ -821,6 +831,8 @@
 				8BA49BC11A7F4C040047EB85 /* ZXY_PictureDetailImages.m in Sources */,
 				28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */,
 				8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */,
+				288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */,
+				288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */,
 				8BA57A901A78AF5C00848515 /* MJRefreshConst.m in Sources */,
 				8BA57A791A78766100848515 /* ZXYAlbumSqureData.m in Sources */,
 				8B46C4581A7791500093B5DA /* ZXY_AlbumHotData.m in Sources */,

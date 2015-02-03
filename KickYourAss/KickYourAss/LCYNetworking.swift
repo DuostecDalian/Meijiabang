@@ -12,6 +12,7 @@ class LCYNetworking {
     
     enum LCYApi: String {
         case UserLogin          = "User/login"
+        case UserRegister       = "User/register"
     }
     
     let testBaseURL = "http://www.meijiab.cn/test/index.php/Api/"
@@ -33,10 +34,10 @@ class LCYNetworking {
             manager.responseSerializer = AFJSONResponseSerializer()
             manager.responseSerializer.acceptableContentTypes = NSSet(array: ["text/html"])
             let absoluteURL = testBaseURL + Api.rawValue
-            println("Request: \(absoluteURL)\nwith parameters: \(parameters)")
             
             // 带加密参数
             var finalParameter = parameters ?? [String: AnyObject]()
+            println("Request: \(absoluteURL)\nwith parameters: \(finalParameter)")
             // 时间戳
             let timeStamp = "\(Int(NSDate().timeIntervalSince1970))"
             let secret = ("meijia" + timeStamp).md5()
