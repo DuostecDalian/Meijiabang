@@ -78,6 +78,8 @@ class ZXY_ArtistDetailVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -142,6 +144,7 @@ class ZXY_ArtistDetailVC: UIViewController {
         var parameter = ["user_id": userID]
         ZXY_NetHelperOperate().startGetDataPost(stringURL, parameter: parameter, successBlock: { [weak self](returnDic) -> Void in
             self?.currentUser = ZXY_ArtDetailInfoBase(dictionary: returnDic).data
+            self?.title = self?.currentUser?.nickName
             self?.setDownSuccessView()
             print("")
         }) { (error) -> Void in
@@ -197,11 +200,16 @@ class ZXY_ArtistDetailVC: UIViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
+//    override func viewWillAppear(animated: Bool) {
+//        super.viewWillAppear(animated)
+//        self.tabBarController?.hidesBottomBarWhenPushed = true
+//        
+//    }
+//    
+//    override func viewWillDisappear(animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        self.tabBarController?.hidesBottomBarWhenPushed = false
+//    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -248,6 +256,16 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
     
     func collectionViewDidScroll(collection: UICollectionView) {
         self.scrollViewDidScroll(collection)
+    }
+    
+    func noDataDownCollection()
+    {
+    
+    }
+    
+    func noDataDownTable()
+    {
+        
     }
     
     func tableViewDidScroll(collection: UITableView) {

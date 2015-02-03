@@ -191,11 +191,27 @@ extension ZXY_HomeSqureVC : UITableViewDelegate, UITableViewDataSource
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if(indexPath.section == 1)
+        {
+            var currentData : ZXYAlbumSqureRecommendAlbum = nailRecArr[indexPath.row] as ZXYAlbumSqureRecommendAlbum
+            var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+            var vc    = story.instantiateViewControllerWithIdentifier("nailPictureID") as ZXY_NailPictureVC
+            vc.setAlbumID(currentData.albumId, user_id: "")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension ZXY_HomeSqureVC : ZXY_HomeSqTitleCellDelegate
 {
     func clickImageAtIndex(index: Int) {
         println("用户点击了 \(index)")
+        var currentData : ZXYAlbumSqureLastAlbum = nailNewArr[index] as ZXYAlbumSqureLastAlbum
+        var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+        var vc    = story.instantiateViewControllerWithIdentifier("nailPictureID") as ZXY_NailPictureVC
+        vc.setAlbumID(currentData.albumId, user_id: "")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

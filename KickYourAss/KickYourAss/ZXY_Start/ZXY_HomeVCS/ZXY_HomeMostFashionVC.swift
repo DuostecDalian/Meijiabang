@@ -188,6 +188,10 @@ extension ZXY_HomeMostFashionVC: UICollectionViewDelegate , WaterfallLayoutDeleg
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        ZXY_AllColor().startRandomColor()
+        var currentData : ZXY_AlbumHotData = currentAlbumList[indexPath.row] as ZXY_AlbumHotData
+        var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+        var vc    = story.instantiateViewControllerWithIdentifier("nailPictureID") as ZXY_NailPictureVC
+        vc.setAlbumID(currentData.albumId, user_id: "")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

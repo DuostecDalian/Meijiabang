@@ -30,6 +30,7 @@ class ZXY_HomeContainer: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        self.title = "首页"
         super.viewDidAppear(animated)
         self.startInitScrollView()
         self.startInitTheVC()

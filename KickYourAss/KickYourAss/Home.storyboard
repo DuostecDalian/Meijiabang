@@ -8,10 +8,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--首页-->
         <scene sceneID="FV0-1h-sz2">
             <objects>
-                <navigationController id="xZH-Is-pej" sceneMemberID="viewController">
+                <navigationController title="首页" id="xZH-Is-pej" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="3HM-J7-UsZ">
@@ -32,10 +32,10 @@
             </objects>
             <point key="canvasLocation" x="-111" y="455"/>
         </scene>
-        <!--Home Container-->
+        <!--首页-->
         <scene sceneID="gvB-Y5-Zfm">
             <objects>
-                <viewController id="dN6-GW-EUs" customClass="ZXY_HomeContainer" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="首页" id="dN6-GW-EUs" customClass="ZXY_HomeContainer" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cnL-V5-LXs"/>
                         <viewControllerLayoutGuide type="bottom" id="6Vg-Zx-bIj"/>
@@ -228,9 +228,9 @@
                                                             <rect key="frame" x="2" y="53" width="290" height="1"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drU-zF-8dN">
-                                                            <rect key="frame" x="233" y="6" width="38" height="11"/>
+                                                            <rect key="frame" x="238" y="6" width="33" height="11"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="38" id="zzN-eY-hpy"/>
+                                                                <constraint firstAttribute="height" constant="11" id="mi3-py-Fhn"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -252,14 +252,14 @@
                                                     <constraints>
                                                         <constraint firstItem="l5H-d7-oDI" firstAttribute="top" secondItem="FAz-Rn-kVC" secondAttribute="bottom" constant="3" id="1Wx-Wq-Zs5"/>
                                                         <constraint firstAttribute="trailing" secondItem="onN-P7-iJ2" secondAttribute="trailing" id="1b8-xI-fCJ"/>
-                                                        <constraint firstItem="FAz-Rn-kVC" firstAttribute="top" secondItem="drU-zF-8dN" secondAttribute="bottom" constant="6" id="1ps-0S-HVM"/>
                                                         <constraint firstAttribute="trailing" secondItem="MNE-9w-CAl" secondAttribute="trailing" id="2A1-z9-A6e"/>
                                                         <constraint firstItem="s5n-Kv-ubE" firstAttribute="leading" secondItem="ZIR-p6-9R2" secondAttribute="trailing" constant="10" id="4BS-Ze-JQm"/>
                                                         <constraint firstItem="EpK-zk-weo" firstAttribute="leading" secondItem="XLn-lm-uhX" secondAttribute="leadingMargin" id="6EF-2R-7pD"/>
                                                         <constraint firstItem="ys0-ZF-m3B" firstAttribute="top" secondItem="l5H-d7-oDI" secondAttribute="bottom" constant="3" id="8XI-nn-WDP"/>
                                                         <constraint firstItem="FAz-Rn-kVC" firstAttribute="leading" secondItem="ys0-ZF-m3B" secondAttribute="leading" id="9iC-e0-0jQ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="drU-zF-8dN" secondAttribute="trailing" constant="21" id="C7V-Mv-dG0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="drU-zF-8dN" secondAttribute="trailing" constant="21" id="DF8-OR-MWy"/>
                                                         <constraint firstItem="V0j-Cd-pWc" firstAttribute="top" secondItem="ys0-ZF-m3B" secondAttribute="bottom" constant="9" id="Dz7-1c-bb5"/>
+                                                        <constraint firstItem="drU-zF-8dN" firstAttribute="top" secondItem="XLn-lm-uhX" secondAttribute="top" constant="6" id="FMf-UO-clu"/>
                                                         <constraint firstItem="FAz-Rn-kVC" firstAttribute="trailing" secondItem="ys0-ZF-m3B" secondAttribute="trailing" id="G0w-VH-G2v"/>
                                                         <constraint firstItem="V0j-Cd-pWc" firstAttribute="leading" secondItem="XLn-lm-uhX" secondAttribute="leading" constant="7" id="ILA-6r-c7e"/>
                                                         <constraint firstItem="FAz-Rn-kVC" firstAttribute="leading" secondItem="XLn-lm-uhX" secondAttribute="leading" constant="2" id="JAb-bG-Fwn"/>
@@ -276,10 +276,10 @@
                                                         <constraint firstItem="FAz-Rn-kVC" firstAttribute="top" secondItem="3v6-cJ-FA1" secondAttribute="bottom" constant="3" id="fxy-gU-b1y"/>
                                                         <constraint firstItem="wmB-Fh-MLU" firstAttribute="top" secondItem="XLn-lm-uhX" secondAttribute="top" constant="84" id="hzN-Hs-zVL"/>
                                                         <constraint firstItem="wmB-Fh-MLU" firstAttribute="leading" secondItem="XLn-lm-uhX" secondAttribute="leading" constant="28" id="iKG-Kd-SzN"/>
-                                                        <constraint firstItem="EpK-zk-weo" firstAttribute="centerY" secondItem="drU-zF-8dN" secondAttribute="centerY" id="mn7-nb-3pu"/>
                                                         <constraint firstItem="EpK-zk-weo" firstAttribute="top" secondItem="XLn-lm-uhX" secondAttribute="top" constant="7" id="nYW-mC-3wM"/>
                                                         <constraint firstAttribute="bottom" secondItem="onN-P7-iJ2" secondAttribute="bottom" id="pqI-Rd-wYq"/>
                                                         <constraint firstItem="3v6-cJ-FA1" firstAttribute="leading" secondItem="EpK-zk-weo" secondAttribute="trailing" constant="6" id="tDs-WL-ova"/>
+                                                        <constraint firstItem="FAz-Rn-kVC" firstAttribute="top" secondItem="drU-zF-8dN" secondAttribute="bottom" constant="6" id="ua4-wg-tSm"/>
                                                         <constraint firstItem="V0j-Cd-pWc" firstAttribute="trailing" secondItem="ZIR-p6-9R2" secondAttribute="trailing" constant="1" id="xAY-VF-HL4"/>
                                                         <constraint firstItem="FAz-Rn-kVC" firstAttribute="top" secondItem="EpK-zk-weo" secondAttribute="bottom" constant="7" id="xf7-jx-qQo"/>
                                                     </constraints>

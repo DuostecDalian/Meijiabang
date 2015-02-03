@@ -56,4 +56,9 @@ struct ZXY_ALLApi
     *  获取用户的评价
     */
     static let ZXY_UserCommentAPI = "UserList/order_evalue"
+    
+    /**
+    *  获取图片详情
+    */
+    static let ZXY_AlbumDetailAPI = "Album/album_detail"
 }

@@ -27,3 +27,8 @@
 
 #import "ZXY_UserCommentData.h"
 #import "ZXY_UserCommentBase.h"
+
+#import "ZXY_PictureDetailBase.h"
+#import "ZXY_PictureDetailData.h"
+#import "ZXY_PictureDetailImages.h"
+#import "ZXY_PictureDetailUser.h"

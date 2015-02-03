@@ -11,12 +11,17 @@ let ZXY_ArtistCommentTabVCID = "artistCommentID"
 protocol ZXY_ArtistCommentTabVCDelegate : class
 {
     func tableViewDidScroll(collection: UITableView)
+    func noDataDownTable()
 }
 class ZXY_ArtistCommentTabVC: UIViewController {
 
     @IBOutlet weak var currentTableV: UITableView!
     
     @IBOutlet weak var noNetView: UIView!
+    
+    @IBOutlet weak var noNetLbl : UILabel!
+    
+    private var isDownload = false
     
     private var dataForShow : NSMutableArray = NSMutableArray()
     
@@ -30,7 +35,16 @@ class ZXY_ArtistCommentTabVC: UIViewController {
         var tapReload = UITapGestureRecognizer(target: self, action: Selector("startDownLoadOrderInfo"))
         self.noNetView.addGestureRecognizer(tapReload)
         self.noNetView.userInteractionEnabled = true
+        
+        self.currentTableV.tableFooterView = UIView(frame: CGRectZero)
         startDownLoadOrderInfo()
+        currentTableV.addFooterWithCallback {[weak self] () -> Void in
+            self?.currentTableV.footerPullToRefreshText = "上拉加载更多"
+            self?.currentTableV.footerReleaseToRefreshText = "松开加载"
+            self?.currentTableV.footerRefreshingText    = "正在加载"
+            self?.currentPage++
+            self?.startDownLoadOrderInfo()
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -46,10 +60,15 @@ class ZXY_ArtistCommentTabVC: UIViewController {
     
     func startDownLoadOrderInfo()
     {
+        if(isDownload)
+        {
+            return
+        }
+        isDownload = true
         var stringURL = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_UserCommentAPI
-        ZXY_NetHelperOperate().startGetDataPost(stringURL, parameter: ["user_id": userID], successBlock: {[weak self] (returnDic) -> Void in
+        ZXY_NetHelperOperate().startGetDataPost(stringURL, parameter: ["user_id": userID , "p" : currentPage], successBlock: {[weak self] (returnDic) -> Void in
             var returnData = ZXY_UserCommentBase(dictionary: returnDic).data
-            if(self?.currentPage == 0)
+            if(self?.currentPage == 1)
             {
                 self?.dataForShow.removeAllObjects()
                 self?.dataForShow.addObjectsFromArray(returnData)
@@ -58,9 +77,11 @@ class ZXY_ArtistCommentTabVC: UIViewController {
             {
                 self?.dataForShow.addObjectsFromArray(returnData)
             }
-            self?.currentTableV.reloadData()
+            self?.reloadDataTable()
+        
         }) {[weak self] (error) -> Void in
             println(error)
+            self?.reloadDataTable()
         }
     }
 
@@ -81,15 +102,27 @@ extension ZXY_ArtistCommentTabVC : UITableViewDataSource , UITableViewDelegate ,
 {
     func reloadDataTable()
     {
-        if(dataForShow.count == 0)
+        isDownload = false
+        if(!AFNetworkReachabilityManager.sharedManager().reachable)
         {
-            currentTableV.hidden = true
+            self.noNetLbl.text = "网络不给力，查看下吧！请点击页面重试"
         }
         else
         {
-            currentTableV.hidden = false
+            self.noNetLbl.text = "   未获取到内容    请点击页面重试"
+        }
+
+        
+        if(dataForShow.count == 0)
+        {
+            currentTableV.backgroundColor = UIColor.clearColor()
+        }
+        else
+        {
+            currentTableV.backgroundColor = UIColor.whiteColor()
         }
         currentTableV.reloadData()
+        currentTableV.footerEndRefreshing()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
