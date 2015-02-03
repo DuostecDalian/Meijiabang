@@ -470,23 +470,36 @@
                                                 <rect key="frame" x="180" y="16" width="240" height="160"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="身份证照片" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hm1-Xw-cDi">
-                                                        <rect key="frame" x="78" y="117" width="85" height="20.5"/>
+                                                        <rect key="frame" x="78" y="117" width="85" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnv-Ra-Ho9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="240" height="160"/>
+                                                        <state key="normal">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="idCardButtonPressed:" destination="GZy-7b-jFq" eventType="touchUpInside" id="Qyi-Ot-osM"/>
+                                                        </connections>
+                                                    </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fQy-jW-MxB">
                                                         <rect key="frame" x="0.0" y="0.0" width="240" height="160"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
+                                                    <constraint firstItem="vnv-Ra-Ho9" firstAttribute="top" secondItem="cXr-TV-5p0" secondAttribute="top" id="3hp-bw-bVr"/>
                                                     <constraint firstItem="fQy-jW-MxB" firstAttribute="leading" secondItem="cXr-TV-5p0" secondAttribute="leading" id="4L8-12-wsH"/>
+                                                    <constraint firstItem="vnv-Ra-Ho9" firstAttribute="leading" secondItem="cXr-TV-5p0" secondAttribute="leading" id="6IF-xb-D4h"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vnv-Ra-Ho9" secondAttribute="bottom" id="Asx-8n-3b6"/>
                                                     <constraint firstAttribute="bottom" secondItem="fQy-jW-MxB" secondAttribute="bottom" id="Czt-Ze-eP2"/>
                                                     <constraint firstAttribute="width" constant="240" id="DsI-vo-zjJ"/>
                                                     <constraint firstItem="fQy-jW-MxB" firstAttribute="top" secondItem="cXr-TV-5p0" secondAttribute="top" id="FCS-TV-7vf"/>
                                                     <constraint firstAttribute="height" constant="160" id="Hle-ig-Y42"/>
                                                     <constraint firstAttribute="bottom" secondItem="hm1-Xw-cDi" secondAttribute="bottom" constant="22" id="Jtu-zh-maP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vnv-Ra-Ho9" secondAttribute="trailing" id="R5H-Dw-geg"/>
                                                     <constraint firstAttribute="trailing" secondItem="fQy-jW-MxB" secondAttribute="trailing" id="ShB-7m-IOk"/>
                                                     <constraint firstAttribute="centerX" secondItem="hm1-Xw-cDi" secondAttribute="centerX" id="eJ2-5q-QLW"/>
                                                 </constraints>
@@ -599,6 +612,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="身份认证" id="wmf-YF-g4s"/>
+                    <connections>
+                        <outlet property="cardImageView" destination="fQy-jW-MxB" id="XWh-4h-Vf4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg0-sQ-dJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

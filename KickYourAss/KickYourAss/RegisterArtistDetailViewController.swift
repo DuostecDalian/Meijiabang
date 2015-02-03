@@ -12,6 +12,13 @@ class RegisterArtistDetailViewController: UIViewController {
     
     var phoneNumber: String!
     var password: String!
+    
+    private var smallImage: UIImage? {
+        didSet {
+            cardImageView.image = smallImage
+        }
+    }
+    @IBOutlet private weak var cardImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +29,12 @@ class RegisterArtistDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Action
+    @IBAction func idCardButtonPressed(sender: AnyObject) {
+        let actionSheet = UIActionSheet(title: nil, delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil, otherButtonTitles: "从照片库选取", "拍照")
+        actionSheet.showInView(view)
     }
     
 
@@ -35,4 +48,31 @@ class RegisterArtistDetailViewController: UIViewController {
     }
     */
 
+}
+
+extension RegisterArtistDetailViewController: UIActionSheetDelegate {
+    func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int) {
+        var sourceType = UIImagePickerControllerSourceType.Camera
+        if buttonIndex == 1 {
+            // 从照片库选
+            sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        } else if buttonIndex == 2 {
+            // 拍照
+            sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            return
+        }
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+}
+
+extension RegisterArtistDetailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        picker.dismissViewControllerAnimated(true, completion: nil)
+        smallImage = UIImage(image: info[UIImagePickerControllerOriginalImage] as UIImage, scaledToFillToSize: CGSize(width: 500.0, height: 500.0))
+    }
 }
