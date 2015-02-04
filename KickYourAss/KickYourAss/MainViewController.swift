@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UITabBarController {
 
+    var picker : UIImagePickerController! = UIImagePickerController()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -72,11 +73,15 @@ class MainViewController: UITabBarController {
 
 }
 
-extension MainViewController : UITabBarControllerDelegate , UITabBarDelegate
+extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDelegate
 {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
         if(viewController == (tabBarController.viewControllers![3] as UIViewController))
         {
+            var story = UIStoryboard(name: "ZXYTakePic", bundle: nil)
+            var vc    = story.instantiateInitialViewController() as ZXY_PictureTakeVC
+            vc.delegate = self
+            vc.presentView()
             return false
         }
         else
@@ -85,10 +90,14 @@ extension MainViewController : UITabBarControllerDelegate , UITabBarDelegate
         }
     }
     
-    func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
-         if(viewController == (tabBarController.viewControllers![3] as UIViewController))
-         {
-            self.showAlertEasy("", messageContent: "哈哈 ")
-        }
+    func clickChoosePictureBtn() {
+        var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
+        
+        ZXY_ImagePickerTableVC().presentZXYImagePicker(currentVC)
     }
+    
+    func clickTakePhotoBtn() {
+        var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
+    }
+    
 }

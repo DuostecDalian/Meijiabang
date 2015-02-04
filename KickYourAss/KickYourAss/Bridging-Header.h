@@ -15,3 +15,4 @@
 #import "ZXY_MMOCFile.h"
 #import "MJRefresh/MJRefresh.h"
 #import "WaterfallLayout.h"
+#import<AssetsLibrary/AssetsLibrary.h>
