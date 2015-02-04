@@ -58,6 +58,7 @@
 		8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */; };
 		8B7B775A1A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */; };
 		8B7B775C1A81DC240004DF84 /* ZXY_ImagePickCoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */; };
+		8B7B77601A8212480004DF84 /* ZXY_ImgPickBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */; };
 		8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */; };
 		8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */; };
 		8BA49BAE1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA49BAD1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift */; };
@@ -200,6 +201,7 @@
 		8B7B77581A81D6520004DF84 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickerCollectionVC.swift; sourceTree = "<group>"; };
 		8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickCoCell.swift; sourceTree = "<group>"; };
+		8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZXY_ImgPickBundle.bundle; sourceTree = "<group>"; };
 		8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ALLApi.swift; sourceTree = "<group>"; };
 		8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SearchVCImage.xcassets; sourceTree = "<group>"; };
 		8BA49BAD1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_NailPictureVC.swift; sourceTree = "<group>"; };
@@ -615,6 +617,7 @@
 		8BE425DD1A80B3C800221AED /* ZXY_ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */,
 				8BE425DE1A80B46300221AED /* ZXY_ImagePickerTableVC.swift */,
 				8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */,
 				8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */,
@@ -770,6 +773,7 @@
 			files = (
 				8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */,
 				28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */,
+				8B7B77601A8212480004DF84 /* ZXY_ImgPickBundle.bundle in Resources */,
 				8BA57A8E1A78AF5C00848515 /* MJRefresh.bundle in Resources */,
 				8BEEA19F1A7A1F8A0068B520 /* artistDetailAssets.xcassets in Resources */,
 				8BB235C81A6E216F003530AA /* MainItemImage.xcassets in Resources */,

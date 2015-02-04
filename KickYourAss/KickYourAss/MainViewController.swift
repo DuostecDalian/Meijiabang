@@ -73,7 +73,7 @@ class MainViewController: UITabBarController {
 
 }
 
-extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDelegate
+extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDelegate , ZXY_ImagePickerDelegate
 {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
         if(viewController == (tabBarController.viewControllers![3] as UIViewController))
@@ -93,11 +93,17 @@ extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDeleg
     func clickChoosePictureBtn() {
         var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
         
-        ZXY_ImagePickerTableVC().presentZXYImagePicker(currentVC)
+        var zxy_imgPick = ZXY_ImagePickerTableVC()
+        zxy_imgPick.setMaxNumOfSelect(1)
+        zxy_imgPick.delegate = self
+        zxy_imgPick.presentZXYImagePicker(currentVC)
     }
     
     func clickTakePhotoBtn() {
         var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
     }
     
+    func ZXY_ImagePicker(imagePicker: ZXY_ImagePickerTableVC, didFinishPicker assetArr: [ALAssetRepresentation]) {
+       var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
+    }
 }

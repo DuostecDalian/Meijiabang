@@ -7,6 +7,10 @@
 //
 
 import UIKit
+protocol ZXY_ImagePickerCollectionVCDelegate : class
+{
+    func selectFinish(allPickImgURL :[ALAssetRepresentation])
+}
 
 class ZXY_ImagePickerCollectionVC: UIViewController {
     struct Static {
@@ -17,6 +21,9 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
     var currentCollection : UICollectionView = UICollectionView(frame: CGRectMake(0, 0, 0, 0), collectionViewLayout: WaterfallLayout())
     var assetGroup : ALAssetsGroup!
     var assetsArr  : [ALAsset] = []
+    var maxNumOfSelect : Int   = 1
+    var assetForSelect : [ALAsset] = []
+    var delegate : ZXY_ImagePickerCollectionVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +38,24 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
         self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: currentCollection, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0))
         self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: currentCollection, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("finishPick"))
         // Do any additional setup after loading the view.
     }
 
+    func finishPick()
+    {
+        var finishImgURL : [ALAssetRepresentation] = []
+        for (index , value) in enumerate(assetForSelect)
+        {
+            finishImgURL.append(value.defaultRepresentation())
+        }
+        self.delegate?.selectFinish(finishImgURL)
+    }
     
+    func setMaxNumOfSelect(maxNum : Int)
+    {
+        self.maxNumOfSelect = maxNum
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -89,16 +110,48 @@ extension ZXY_ImagePickerCollectionVC: UICollectionViewDataSource , UICollection
             cell = ZXY_ImagePickCoCell()
             
         }
+        cell?.hideSelectImg()
         var currentAsset = self.assetsArr[indexPath.row]
         var cgImage      = currentAsset.aspectRatioThumbnail().takeUnretainedValue()
         var currentImg   = UIImage(CGImage: cgImage)
         cell?.currentImageV.image = currentImg
-        
+        if(contains(assetForSelect, currentAsset))
+        {
+            cell?.showSelectImg()
+        }
+        else
+        {
+            cell?.hideSelectImg()
+        }
         return cell!
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        var currentAsset = self.assetsArr[indexPath.row]
+        if(contains(assetForSelect, currentAsset))
+        {
+            for(index, value) in enumerate(assetForSelect)
+            {
+                if(value == currentAsset)
+                {
+                    assetForSelect.removeAtIndex(index)
+                }
+            }
+            currentCollection.reloadItemsAtIndexPaths([indexPath])
+            return
+        }
+
+        if(assetForSelect.count < maxNumOfSelect)
+        {
+            
+            assetForSelect.append(currentAsset)
+            currentCollection.reloadItemsAtIndexPaths([indexPath])
+        }
+        else
+        {
+            var alert  = UIAlertView(title: "提示", message: "最多可以选择 \(maxNumOfSelect) 张图片", delegate: nil, cancelButtonTitle: "确定")
+            alert.show()
+        }
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

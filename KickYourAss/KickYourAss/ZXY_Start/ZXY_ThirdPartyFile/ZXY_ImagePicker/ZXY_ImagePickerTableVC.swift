@@ -7,7 +7,10 @@
 //
 
 import UIKit
-
+protocol ZXY_ImagePickerDelegate : class
+{
+    func ZXY_ImagePicker(imagePicker : ZXY_ImagePickerTableVC , didFinishPicker assetArr:[ALAssetRepresentation]) -> Void
+}
 class ZXY_ImagePickerTableVC: UIViewController {
 
     var currentTable : UITableView = UITableView()
@@ -15,6 +18,9 @@ class ZXY_ImagePickerTableVC: UIViewController {
     var assetLibrary : ALAssetsLibrary? 
     var thisNavi     : UINavigationController?
     var currentVC    : UIViewController!
+    var maxNumOfSelect : Int = 1
+    var delegate : ZXY_ImagePickerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         if(thisNavi == nil)
@@ -27,6 +33,11 @@ class ZXY_ImagePickerTableVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func setMaxNumOfSelect(maxNum : Int)
+    {
+        self.maxNumOfSelect = maxNum
+    }
+    
     func presentZXYImagePicker(vc : UIViewController)
     {
         currentVC = vc
@@ -73,7 +84,7 @@ class ZXY_ImagePickerTableVC: UIViewController {
             {
                 var filter : ALAssetsFilter = ALAssetsFilter.allPhotos()
                 group?.setAssetsFilter(filter)
-                print("numOfAsset  \(group.numberOfAssets())")
+                //print("numOfAsset  \(group.numberOfAssets())")
                 if(group.numberOfAssets() > 0)
                 {
                     self?.assetGroup?.append(group)
@@ -154,7 +165,20 @@ extension ZXY_ImagePickerTableVC : UITableViewDelegate , UITableViewDataSource
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var currentGroup = assetGroup![indexPath.row]
         var coVc = ZXY_ImagePickerCollectionVC()
+        coVc.delegate = self
         coVc.setAssetsArr(currentGroup)
+        coVc.setMaxNumOfSelect(maxNumOfSelect)
         self.navigationController?.pushViewController(coVc, animated: true)
+    }
+}
+
+extension ZXY_ImagePickerTableVC :ZXY_ImagePickerCollectionVCDelegate
+{
+    func selectFinish(allPickImgURL: [ALAssetRepresentation]) {
+        if(self.delegate != nil)
+        {
+            self.delegate?.ZXY_ImagePicker(self, didFinishPicker: allPickImgURL)
+        }
+        self.dissMissZXYImagePicker()
     }
 }
