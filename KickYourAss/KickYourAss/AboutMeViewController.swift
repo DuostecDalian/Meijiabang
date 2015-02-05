@@ -31,6 +31,7 @@ class AboutMeViewController: UICollectionViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.hidden = true
+        navigationController?.toolbarHidden = true
     }
     
     // MARK: - Actions

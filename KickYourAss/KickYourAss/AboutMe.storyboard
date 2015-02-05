@@ -106,12 +106,12 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="abc" id="SWc-F3-LZg">
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="abc" id="SWc-F3-LZg">
                             <rect key="frame" x="0.0" y="64" width="600" height="120"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AboutMeTopBg" translatesAutoresizingMaskIntoConstraints="NO" id="o5B-Bh-AFY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
+                                    <rect key="frame" x="0.0" y="-20" width="600" height="140"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBG-nt-1rn">
                                     <rect key="frame" x="240" y="37" width="120" height="46"/>
@@ -125,7 +125,7 @@
                             </subviews>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="o5B-Bh-AFY" secondAttribute="trailing" id="P3S-zq-tzM"/>
-                                <constraint firstItem="o5B-Bh-AFY" firstAttribute="top" secondItem="SWc-F3-LZg" secondAttribute="top" id="Qf8-wZ-0e1"/>
+                                <constraint firstItem="o5B-Bh-AFY" firstAttribute="top" secondItem="SWc-F3-LZg" secondAttribute="top" constant="-20" id="Qf8-wZ-0e1"/>
                                 <constraint firstItem="o5B-Bh-AFY" firstAttribute="leading" secondItem="SWc-F3-LZg" secondAttribute="leading" id="WSV-gO-kuu"/>
                                 <constraint firstAttribute="centerX" secondItem="fBG-nt-1rn" secondAttribute="centerX" id="a6k-Um-Jgv"/>
                                 <constraint firstAttribute="centerY" secondItem="fBG-nt-1rn" secondAttribute="centerY" id="leX-dy-PdE"/>
