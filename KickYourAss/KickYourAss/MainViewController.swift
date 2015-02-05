@@ -103,7 +103,13 @@ extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDeleg
         var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
     }
     
-    func ZXY_ImagePicker(imagePicker: ZXY_ImagePickerTableVC, didFinishPicker assetArr: [ALAssetRepresentation]) {
-       var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
+    func ZXY_ImagePicker(imagePicker: ZXY_ImagePickerTableVC, didFinishPicker assetArr: [ALAsset]) {
+        var currentVC: UINavigationController = self.viewControllers![self.selectedIndex] as UINavigationController
+        var story = UIStoryboard(name: "ZXYTakePic", bundle: nil)
+        var vc    = story.instantiateViewControllerWithIdentifier("ZXY_AfterPickImgVCID") as ZXY_AfterPickImgVC
+        vc.setAssetArr(assetArr)
+        //currentVC.presentViewController(vc, animated: true) { () -> Void in
+        currentVC.pushViewController(vc, animated: true)
+        //}
     }
 }

@@ -9,7 +9,7 @@
 import UIKit
 protocol ZXY_ImagePickerDelegate : class
 {
-    func ZXY_ImagePicker(imagePicker : ZXY_ImagePickerTableVC , didFinishPicker assetArr:[ALAssetRepresentation]) -> Void
+    func ZXY_ImagePicker(imagePicker : ZXY_ImagePickerTableVC , didFinishPicker assetArr:[ALAsset]) -> Void
 }
 class ZXY_ImagePickerTableVC: UIViewController {
 
@@ -19,7 +19,7 @@ class ZXY_ImagePickerTableVC: UIViewController {
     var thisNavi     : UINavigationController?
     var currentVC    : UIViewController!
     var maxNumOfSelect : Int = 1
-    var delegate : ZXY_ImagePickerDelegate?
+    weak var delegate : ZXY_ImagePickerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,11 +174,13 @@ extension ZXY_ImagePickerTableVC : UITableViewDelegate , UITableViewDataSource
 
 extension ZXY_ImagePickerTableVC :ZXY_ImagePickerCollectionVCDelegate
 {
-    func selectFinish(allPickImgURL: [ALAssetRepresentation]) {
-        if(self.delegate != nil)
-        {
-            self.delegate?.ZXY_ImagePicker(self, didFinishPicker: allPickImgURL)
-        }
-        self.dissMissZXYImagePicker()
+    func selectFinish(allPickImgURL: [ALAsset]) {
+        
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            if(self.delegate != nil)
+            {
+                self.delegate?.ZXY_ImagePicker(self, didFinishPicker: allPickImgURL)
+            }
+        })
     }
 }

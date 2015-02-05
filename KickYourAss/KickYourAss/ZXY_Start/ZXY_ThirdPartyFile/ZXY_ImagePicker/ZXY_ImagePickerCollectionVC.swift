@@ -9,7 +9,7 @@
 import UIKit
 protocol ZXY_ImagePickerCollectionVCDelegate : class
 {
-    func selectFinish(allPickImgURL :[ALAssetRepresentation])
+    func selectFinish(allPickImgURL :[ALAsset])
 }
 
 class ZXY_ImagePickerCollectionVC: UIViewController {
@@ -44,12 +44,12 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
 
     func finishPick()
     {
-        var finishImgURL : [ALAssetRepresentation] = []
-        for (index , value) in enumerate(assetForSelect)
-        {
-            finishImgURL.append(value.defaultRepresentation())
-        }
-        self.delegate?.selectFinish(finishImgURL)
+//        var finishImgURL : [ALAssetRepresentation] = []
+//        for (index , value) in enumerate(assetForSelect)
+//        {
+//            finishImgURL.append(value.defaultRepresentation())
+//        }
+        self.delegate?.selectFinish(assetForSelect)
     }
     
     func setMaxNumOfSelect(maxNum : Int)

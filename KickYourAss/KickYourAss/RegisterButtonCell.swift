@@ -9,6 +9,26 @@
 import UIKit
 
 class RegisterButtonCell: UITableViewCell {
+    
+    var delegate: RegisterButtonCellDelegate?
+    
+    @IBOutlet private weak var doneButton: UIButton!
+    
+    enum CellType: Int{
+        case Artist = 0
+        case Normal
+    }
+    var currentType: CellType = .Artist{
+        didSet {
+            switch currentType {
+            case .Artist:
+                doneButton.setTitle("下一步", forState: UIControlState.Normal)
+            case .Normal:
+                doneButton.setTitle("确认注册", forState: UIControlState.Normal)
+            }
+        }
+    }
+    
     class var identifier: String {
         return "RegisterButtonCellIdentifier"
     }
@@ -24,4 +44,11 @@ class RegisterButtonCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func confirmButtonPressed(sender: AnyObject) {
+        delegate?.registerButtonConfirmed()
+    }
+}
+
+protocol RegisterButtonCellDelegate {
+    func registerButtonConfirmed()
 }

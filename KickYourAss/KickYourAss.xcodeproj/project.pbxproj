@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C151A80BBD400CA073A /* LCYCommon.swift */; };
+		288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */; };
+		288B0C1E1A80DE5200CA073A /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C1D1A80DE5200CA073A /* UIImage+Resize.m */; };
 		288C94461A6FABAA009DBFC6 /* AboutMeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */; };
 		288C94471A6FABAA009DBFC6 /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */; };
 		288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94421A6FABAA009DBFC6 /* Extensions.swift */; };
@@ -96,6 +99,10 @@
 		8BE425DA1A80A42100221AED /* ZXYTakePicAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */; };
 		8BE425DC1A80B09300221AED /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE425DB1A80B09300221AED /* AssetsLibrary.framework */; };
 		8BE425DF1A80B46300221AED /* ZXY_ImagePickerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE425DE1A80B46300221AED /* ZXY_ImagePickerTableVC.swift */; };
+		8BECFF221A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECFF211A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift */; };
+		8BECFF241A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECFF231A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift */; };
+		8BECFF261A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECFF251A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift */; };
+		8BECFF2A1A833430009FFBE3 /* ErrorMessage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BECFF291A833430009FFBE3 /* ErrorMessage.plist */; };
 		8BEEA1941A79F42B0068B520 /* ZXY_ArtistDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA1931A79F42A0068B520 /* ZXY_ArtistDetailVC.swift */; };
 		8BEEA1961A79F4550068B520 /* ArtistDetailStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEA1951A79F4540068B520 /* ArtistDetailStoryBoard.storyboard */; };
 		8BEEA1981A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA1971A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift */; };
@@ -123,6 +130,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		288B0C151A80BBD400CA073A /* LCYCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCommon.swift; sourceTree = "<group>"; };
+		288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterArtistDetailViewController.swift; sourceTree = "<group>"; };
+		288B0C1C1A80DE5200CA073A /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		288B0C1D1A80DE5200CA073A /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeButtonCell.swift; sourceTree = "<group>"; };
 		288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeViewController.swift; sourceTree = "<group>"; };
 		288C94421A6FABAA009DBFC6 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -256,6 +267,10 @@
 		8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZXYTakePicAsset.xcassets; sourceTree = "<group>"; };
 		8BE425DB1A80B09300221AED /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		8BE425DE1A80B46300221AED /* ZXY_ImagePickerTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickerTableVC.swift; sourceTree = "<group>"; };
+		8BECFF211A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PicTakeInputCell.swift; sourceTree = "<group>"; };
+		8BECFF231A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PicTakeImgCell.swift; sourceTree = "<group>"; };
+		8BECFF251A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_AfterPickImgVC.swift; sourceTree = "<group>"; };
+		8BECFF291A833430009FFBE3 /* ErrorMessage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessage.plist; sourceTree = "<group>"; };
 		8BEEA1931A79F42A0068B520 /* ZXY_ArtistDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistDetailVC.swift; sourceTree = "<group>"; };
 		8BEEA1951A79F4540068B520 /* ArtistDetailStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ArtistDetailStoryBoard.storyboard; sourceTree = "<group>"; };
 		8BEEA1971A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistDetailWorksColleVC.swift; sourceTree = "<group>"; };
@@ -295,6 +310,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		288B0C1B1A80DE4B00CA073A /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				288B0C1C1A80DE5200CA073A /* UIImage+Resize.h */,
+				288B0C1D1A80DE5200CA073A /* UIImage+Resize.m */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
 		288C944B1A6FABDB009DBFC6 /* AboutMe */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +330,7 @@
 				28C421041A7A251500B1EB5B /* RegisterTextCell.swift */,
 				28C421061A7A255300B1EB5B /* RegisterButtonCell.swift */,
 				289A30421A78A74400B5350C /* RegisterWebViewController.swift */,
+				288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */,
 			);
 			name = AboutMe;
 			sourceTree = "<group>";
@@ -313,8 +338,11 @@
 		288C944C1A6FABE6009DBFC6 /* LCYCommon */ = {
 			isa = PBXGroup;
 			children = (
+				288B0C1B1A80DE4B00CA073A /* Libs */,
 				288C94421A6FABAA009DBFC6 /* Extensions.swift */,
 				288C94431A6FABAA009DBFC6 /* LCYNetworking.swift */,
+				288B0C151A80BBD400CA073A /* LCYCommon.swift */,
+				8BECFF291A833430009FFBE3 /* ErrorMessage.plist */,
 			);
 			name = LCYCommon;
 			sourceTree = "<group>";
@@ -607,7 +635,9 @@
 		8BE425D21A809E5500221AED /* ZXY_TakePictureVCS */ = {
 			isa = PBXGroup;
 			children = (
+				8BECFF201A83038A009FFBE3 /* ZXY_TakePicCell */,
 				8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */,
+				8BECFF251A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift */,
 				8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */,
 				8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */,
 			);
@@ -623,6 +653,15 @@
 				8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */,
 			);
 			path = ZXY_ImagePicker;
+			sourceTree = "<group>";
+		};
+		8BECFF201A83038A009FFBE3 /* ZXY_TakePicCell */ = {
+			isa = PBXGroup;
+			children = (
+				8BECFF211A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift */,
+				8BECFF231A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift */,
+			);
+			path = ZXY_TakePicCell;
 			sourceTree = "<group>";
 		};
 		8BEEA1921A79F4090068B520 /* ArtistDetailFile */ = {
@@ -736,7 +775,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastUpgradeCheck = 0610;
-				ORGANIZATIONNAME = "宇周";
+				ORGANIZATIONNAME = "多思科技";
 				TargetAttributes = {
 					28D52E5F1A6CD06200C17CF0 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -785,6 +824,7 @@
 				8BE425D61A809E8F00221AED /* ZXYTakePic.storyboard in Resources */,
 				8BA49BB01A7F3B3F0047EB85 /* tabAttrPlist.plist in Resources */,
 				8BEEA1961A79F4550068B520 /* ArtistDetailStoryBoard.storyboard in Resources */,
+				8BECFF2A1A833430009FFBE3 /* ErrorMessage.plist in Resources */,
 				8B46C4421A772C1D0093B5DA /* HomeVCImage.xcassets in Resources */,
 				8BE425DA1A80A42100221AED /* ZXYTakePicAsset.xcassets in Resources */,
 				289A30411A78A6E700B5350C /* register_help.html in Resources */,
@@ -844,7 +884,9 @@
 				288C944A1A6FABAA009DBFC6 /* LoginViewController.swift in Sources */,
 				8BEEA19A1A7A03010068B520 /* ZXY_ArtistCommentTabVC.swift in Sources */,
 				8B17CE6E1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m in Sources */,
+				8BECFF261A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift in Sources */,
 				8BA57A921A78AF5C00848515 /* MJRefreshHeaderView.m in Sources */,
+				8BECFF241A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift in Sources */,
 				8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */,
 				8BA57A931A78AF5C00848515 /* UIScrollView+Extension.m in Sources */,
 				8BA57A941A78AF5C00848515 /* UIScrollView+MJRefresh.m in Sources */,
@@ -868,6 +910,9 @@
 				28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */,
 				8B7B775C1A81DC240004DF84 /* ZXY_ImagePickCoCell.swift in Sources */,
 				8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */,
+				8BECFF221A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift in Sources */,
+				288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */,
+				288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */,
 				8BA57A901A78AF5C00848515 /* MJRefreshConst.m in Sources */,
 				8BA57A791A78766100848515 /* ZXYAlbumSqureData.m in Sources */,
 				8B7B775A1A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift in Sources */,
@@ -899,6 +944,7 @@
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8B46C43E1A7729C70093B5DA /* ZXY_HomeSqureVC.swift in Sources */,
+				288B0C1E1A80DE5200CA073A /* UIImage+Resize.m in Sources */,
 				8B17CE6D1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m in Sources */,
 				8BA57A911A78AF5C00848515 /* MJRefreshFooterView.m in Sources */,
 				8B46C4491A77324C0093B5DA /* ZXY_HomeMostFashionCell.swift in Sources */,

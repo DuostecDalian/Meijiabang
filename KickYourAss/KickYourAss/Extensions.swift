@@ -44,7 +44,16 @@ extension Dictionary {
     */
     mutating func extend(content: Dictionary) {
         for (key, value) in content {
-            self.updateValue(value, forKey: key)
+            updateValue(value, forKey: key)
         }
+    }
+}
+
+extension String {
+    var integerValue: Int{
+        return (self as NSString).integerValue
+    }
+    func forceBridge() -> NSString {
+        return self as NSString
     }
 }
