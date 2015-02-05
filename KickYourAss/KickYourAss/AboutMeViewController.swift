@@ -35,6 +35,7 @@ class AboutMeViewController: UICollectionViewController {
     
     // MARK: - Actions
     @IBAction func loginButtonPressed(sender: AnyObject) {
+        println("user id  = \(LCYCommon.sharedInstance.userInfo?.userID)")
         performSegueWithIdentifier("showLogin", sender: nil)
     }
     

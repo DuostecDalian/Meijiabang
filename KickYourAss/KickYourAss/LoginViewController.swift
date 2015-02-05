@@ -63,6 +63,13 @@ class LoginViewController: UIViewController {
                 Api: LCYNetworking.LCYApi.UserLogin,
                 parameters: ["user_name": phoneNumber, "password": password],
                 success: { [weak self](object) -> Void in
+                    let retrieved = CYMJUserLoginBase.modelObjectWithDictionary(object)
+                    if retrieved.result == 1000 {
+                        LCYCommon.sharedInstance.login(retrieved.data.userId, nickName: retrieved.data.nickName, role: retrieved.data.role)
+                        self?.navigationController?.popToRootViewControllerAnimated(true)
+                    } else {
+                        self?.alert(LCYCommon.sharedInstance.errorMessage(retrieved.result))
+                    }
                     self?.hideHUD()
                     return
             }, fail: { [weak self]() -> Void in
@@ -70,7 +77,6 @@ class LoginViewController: UIViewController {
                 return
             })
         }
-        
     }
     
 

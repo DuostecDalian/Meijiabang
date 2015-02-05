@@ -18,6 +18,8 @@
 		289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A303E1A78A32600B5350C /* RegisterViewController.swift */; };
 		289A30411A78A6E700B5350C /* register_help.html in Resources */ = {isa = PBXBuildFile; fileRef = 289A30401A78A6E700B5350C /* register_help.html */; };
 		289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A30421A78A74400B5350C /* RegisterWebViewController.swift */; };
+		289FC4D01A83391200F2A38E /* CYMJUserLoginBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 289FC4CD1A83391200F2A38E /* CYMJUserLoginBase.m */; };
+		289FC4D11A83391200F2A38E /* CYMJUserLoginData.m in Sources */ = {isa = PBXBuildFile; fileRef = 289FC4CF1A83391200F2A38E /* CYMJUserLoginData.m */; };
 		28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C421041A7A251500B1EB5B /* RegisterTextCell.swift */; };
 		28C421071A7A255300B1EB5B /* RegisterButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C421061A7A255300B1EB5B /* RegisterButtonCell.swift */; };
 		28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D52E651A6CD06200C17CF0 /* AppDelegate.swift */; };
@@ -143,6 +145,11 @@
 		289A303E1A78A32600B5350C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		289A30401A78A6E700B5350C /* register_help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = register_help.html; sourceTree = "<group>"; };
 		289A30421A78A74400B5350C /* RegisterWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterWebViewController.swift; sourceTree = "<group>"; };
+		289FC4CB1A83391200F2A38E /* CYMJUserLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserLogin.h; sourceTree = "<group>"; };
+		289FC4CC1A83391200F2A38E /* CYMJUserLoginBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserLoginBase.h; sourceTree = "<group>"; };
+		289FC4CD1A83391200F2A38E /* CYMJUserLoginBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJUserLoginBase.m; sourceTree = "<group>"; };
+		289FC4CE1A83391200F2A38E /* CYMJUserLoginData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserLoginData.h; sourceTree = "<group>"; };
+		289FC4CF1A83391200F2A38E /* CYMJUserLoginData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJUserLoginData.m; sourceTree = "<group>"; };
 		28C421041A7A251500B1EB5B /* RegisterTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterTextCell.swift; sourceTree = "<group>"; };
 		28C421061A7A255300B1EB5B /* RegisterButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterButtonCell.swift; sourceTree = "<group>"; };
 		28D52E601A6CD06200C17CF0 /* KickYourAss.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KickYourAss.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,6 +329,7 @@
 		288C944B1A6FABDB009DBFC6 /* AboutMe */ = {
 			isa = PBXGroup;
 			children = (
+				289FC4CA1A83390700F2A38E /* Model */,
 				289A30401A78A6E700B5350C /* register_help.html */,
 				288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */,
 				288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */,
@@ -352,6 +360,18 @@
 			children = (
 			);
 			path = LCYFiles;
+			sourceTree = "<group>";
+		};
+		289FC4CA1A83390700F2A38E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				289FC4CB1A83391200F2A38E /* CYMJUserLogin.h */,
+				289FC4CC1A83391200F2A38E /* CYMJUserLoginBase.h */,
+				289FC4CD1A83391200F2A38E /* CYMJUserLoginBase.m */,
+				289FC4CE1A83391200F2A38E /* CYMJUserLoginData.h */,
+				289FC4CF1A83391200F2A38E /* CYMJUserLoginData.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		28D52E571A6CD06200C17CF0 = {
@@ -886,6 +906,7 @@
 				8B17CE6E1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m in Sources */,
 				8BECFF261A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift in Sources */,
 				8BA57A921A78AF5C00848515 /* MJRefreshHeaderView.m in Sources */,
+				289FC4D01A83391200F2A38E /* CYMJUserLoginBase.m in Sources */,
 				8BECFF241A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift in Sources */,
 				8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */,
 				8BA57A931A78AF5C00848515 /* UIScrollView+Extension.m in Sources */,
@@ -898,6 +919,7 @@
 				8BA57A9E1A78BE5A00848515 /* ZXY_ArtistListCell.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
+				289FC4D11A83391200F2A38E /* CYMJUserLoginData.m in Sources */,
 				8BA57A8F1A78AF5C00848515 /* MJRefreshBaseView.m in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
 				8BF0F9C31A6E2E83003F376A /* ZXY_UserInfoDetail.swift in Sources */,

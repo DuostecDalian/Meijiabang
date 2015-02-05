@@ -22,6 +22,8 @@ class LCYCommon {
     
     enum UserDefaultKeys: String {
         case UserID = "kDefaultUserID"
+        case NickName = "kDefaultNickname"
+        case Role = "kDefaultRole"
     }
     
     class var sharedInstance: LCYCommon {
@@ -31,12 +33,35 @@ class LCYCommon {
         return Singleton.instance
     }
     
-    var userID: String? {
-        return userDefault.objectForKey(UserDefaultKeys.UserID.rawValue) as? String
+    class LCYUser {
+        let userID: String
+        let nickName: String?
+        let role: String
+        init(userID: String, nickName: String?, role: String) {
+            self.userID = userID
+            self.nickName = nickName
+            self.role = role
+        }
     }
     
-    func login(userID: String?) {
+    var userInfo: LCYUser? {
+        let userID = userDefault.objectForKey(UserDefaultKeys.UserID.rawValue) as? String
+        let nickName = userDefault.objectForKey(UserDefaultKeys.NickName.rawValue) as? String
+        let role = userDefault.objectForKey(UserDefaultKeys.Role.rawValue) as? String
+        if userID != nil && role != nil {
+            return LCYUser(userID: userID!, nickName: nickName, role: role!)
+        } else {
+            return nil
+        }
+    }
+//    var userID: String? {
+//        return userDefault.objectForKey(UserDefaultKeys.UserID.rawValue) as? String
+//    }
+    
+    func login(userID: String?, nickName: String?, role: String?) {
         userDefault.setObject(userID, forKey: UserDefaultKeys.UserID.rawValue)
+        userDefault.setObject(nickName, forKey: UserDefaultKeys.NickName.rawValue)
+        userDefault.setObject(role, forKey: UserDefaultKeys.Role.rawValue)
         userDefault.synchronize()
     }
     
@@ -51,5 +76,9 @@ class LCYCommon {
         } else {
             return "未知错误😓"
         }
+    }
+    
+    func errorMessage(code: Double?) -> String {
+        return errorMessage(code != nil ? Int(code!) : nil)
     }
 }
