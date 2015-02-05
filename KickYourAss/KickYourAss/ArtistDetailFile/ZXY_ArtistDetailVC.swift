@@ -14,6 +14,7 @@ class ZXY_ArtistDetailVC: UIViewController {
     
     @IBOutlet var rateItem: [UIImageView]!
     
+    @IBOutlet weak var isAttenBtn: UIButton!
     
     
     
@@ -63,6 +64,7 @@ class ZXY_ArtistDetailVC: UIViewController {
     
     private var currentUser   : ZXY_ArtDetailInfoData?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.startInitSeg()
@@ -105,10 +107,11 @@ class ZXY_ArtistDetailVC: UIViewController {
             currentScroll.addSubview(artCollection!.view)
             currentScroll.addSubview(artComment!.view)
         }
+        self.setDownSuccessView()
 
     }
     
-    func setUserID(userID : NSString)
+    func setUserID(userID : NSString )
     {
         self.userID = userID
     }
@@ -141,7 +144,13 @@ class ZXY_ArtistDetailVC: UIViewController {
     func startDownLoadDataList()
     {
         var stringURL = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_UserInfoAPI
-        var parameter = ["user_id": userID]
+        var myUserID : String? = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUserID == nil)
+        {
+            myUserID = ""
+        }
+        var parameter = ["user_id": userID , "my_user_id" : myUserID]
+        
         ZXY_NetHelperOperate().startGetDataPost(stringURL, parameter: parameter, successBlock: { [weak self](returnDic) -> Void in
             self?.currentUser = ZXY_ArtDetailInfoBase(dictionary: returnDic).data
             self?.title = self?.currentUser?.nickName
@@ -175,6 +184,17 @@ class ZXY_ArtistDetailVC: UIViewController {
                 self.numOfAlbum.text    = currentUser?.albumCount
                 self.numOfPay.text      = currentUser?.attention
                 self.numOfComplete.text      = currentUser?.orderCount
+            }
+            if(currentUser?.isAttention == 1)
+            {
+                isAttenBtn.setImage(UIImage(named: "artistPay_down"), forState: UIControlState.Normal)
+                isAttenBtn.setImage(UIImage(named: "artistPay_down"), forState: UIControlState.Highlighted)
+                
+            }
+            else
+            {
+                isAttenBtn.setImage(UIImage(named: "artistPay_up"), forState: UIControlState.Normal)
+                isAttenBtn.setImage(UIImage(named: "artistPay_up"), forState: UIControlState.Highlighted)
             }
             var tempValue = (currentUser!.score as NSString).integerValue
             if(tempValue >= rateItem.count)
@@ -252,6 +272,20 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
             scrollView.contentOffset.y = 0
         }
 
+    }
+    
+    func clickItem(albumID: String) {
+        var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+        var vc    = story.instantiateViewControllerWithIdentifier("nailPictureID") as ZXY_NailPictureVC
+        if(currentUser == nil)
+        {
+            vc.setAlbumID(albumID, user_id: "")
+        }
+        else
+        {
+            vc.setAlbumID(albumID, user_id: "", currentUser: currentUser!)
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func collectionViewDidScroll(collection: UICollectionView) {
@@ -337,4 +371,49 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
             self.filterSeg.selectedSegmentIndex = 1
         }
     }
+    
+    @IBAction func attenAction(sender: AnyObject) {
+        var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_ChangeStatusAtten
+        var myUserID : String? = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUserID == nil)
+        {
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
+        var changeUserID = userID
+        var controlID    = ""
+        if(currentUser?.isAttention == 1)
+        {
+            controlID = "2"
+        }
+        else
+        {
+            controlID = "1"
+        }
+        var parameter :Dictionary<String , AnyObject> = ["control" : controlID , "user_id" : (myUserID! as NSString).integerValue , "attention_user_id": (changeUserID as NSString).integerValue]
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: parameter, successBlock: { [weak self] (returnDic) -> Void in
+            var currentNum : Int = 0
+            var t = self?.currentUser?.byAttention
+            var numString : NSString = NSString(string: t!)
+            if(self?.currentUser!.isAttention == 1)
+            {
+                self?.currentUser!.isAttention = 2
+                currentNum = numString.integerValue - 1
+            }
+            else
+            {
+                self?.currentUser!.isAttention = 1
+                currentNum = numString.integerValue + 1
+            }
+            self?.currentUser!.byAttention = "\(currentNum)"
+            self?.setDownSuccessView()
+            }) { (error) -> Void in
+                
+        }
+
+    }
+    
 }

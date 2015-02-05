@@ -173,4 +173,21 @@ extension UIViewController
         var dateString = formatter.stringFromDate(dates)
         return dateString
     }
+    
+    func layerCustomerViewCorner(customerV : UIView , cornerValue: CGFloat) -> Void
+    {
+        
+        customerV.layer.cornerRadius  = cornerValue
+        customerV.layer.masksToBounds = true
+    }
+    
+    func layerCustomerVCornerBold(customerV : UIView , cornerValue: CGFloat , borderWidth: CGFloat , borderColor: UIColor)
+    {
+        customerV.layer.cornerRadius  = cornerValue
+        customerV.layer.masksToBounds = true
+        
+        customerV.layer.borderWidth = borderWidth
+        customerV.layer.borderColor = borderColor.CGColor
+    }
+
 }

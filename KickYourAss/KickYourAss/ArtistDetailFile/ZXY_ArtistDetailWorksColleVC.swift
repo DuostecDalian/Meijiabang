@@ -12,6 +12,7 @@ protocol ZXY_ArtistDetailWorksColleVCDelegate : class , NSObjectProtocol
 {
     func collectionViewDidScroll(collection: UICollectionView)
     func noDataDownCollection()
+    func clickItem(albumID : String )
     //func clickItemAt
 }
 
@@ -172,7 +173,7 @@ extension ZXY_ArtistDetailWorksColleVC : UICollectionViewDelegate , UICollection
         
         var imgRealHeight = CGFloat(radio) * screenWidths
         
-        return CGSizeMake(screenWidths, imgRealHeight + 65)
+        return CGSizeMake(screenWidths, imgRealHeight + 70)
     }
     
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -180,11 +181,9 @@ extension ZXY_ArtistDetailWorksColleVC : UICollectionViewDelegate , UICollection
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
         var currentData : ZXY_UserAlbumListData = dataForShow[indexPath.row] as ZXY_UserAlbumListData
-        var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
-        var vc    = story.instantiateViewControllerWithIdentifier("nailPictureID") as ZXY_NailPictureVC
-        vc.setAlbumID(currentData.albumId, user_id: "")
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.delegate?.clickItem(currentData.albumId)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {

@@ -8,6 +8,12 @@
 
 import UIKit
 let ZXY_SearchArtistCellID = "ZXY_SearchArtistCellID"
+
+protocol ZXY_SearchArtistCellDelegate : class
+{
+    func attensionBtnClick(currentFlag : ZXYData)
+}
+
 class ZXY_SearchArtistCell: UITableViewCell {
 
     @IBOutlet weak var userProfile: UIImageView!
@@ -24,6 +30,9 @@ class ZXY_SearchArtistCell: UITableViewCell {
     
     @IBOutlet weak var conerLbl: UILabel!
     
+    private var currentUser : ZXYData!
+    
+    weak var delegate : ZXY_SearchArtistCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -85,6 +94,32 @@ class ZXY_SearchArtistCell: UITableViewCell {
                 var currentImageV = userArtPhotoItems[i]
                 currentImageV.image = nil
             }
+        }
+    }
+    
+    @IBAction func clickAttensionAction(sender: AnyObject) {
+        self.delegate.attensionBtnClick(currentUser)
+    }
+    
+    
+    func setIsAttensionFlag(user : ZXYData)
+    {
+        currentUser = user
+        if(currentUser.isAttention == 1)
+        {
+            favoriteBtn.setTitle("已关注", forState: UIControlState.Normal)
+            favoriteBtn.setTitle("已关注", forState: UIControlState.Highlighted)
+            favoriteBtn.setTitleColor(ZXY_AllColor.TABBAR_GRAY_COLOR, forState: UIControlState.Normal)
+            favoriteBtn.setTitleColor(ZXY_AllColor.TABBAR_GRAY_COLOR, forState: UIControlState.Highlighted)
+            self.layerCustomerVCornerBold(favoriteBtn, cornerValue: 5, borderWidth: 1, borderColor:ZXY_AllColor.TABBAR_GRAY_COLOR)
+        }
+        else
+        {
+            favoriteBtn.setTitle("关注", forState: UIControlState.Normal)
+            favoriteBtn.setTitle("关注", forState: UIControlState.Highlighted)
+            favoriteBtn.setTitleColor(ZXY_AllColor.SEARCH_RED_COLOR, forState: UIControlState.Normal)
+            favoriteBtn.setTitleColor(ZXY_AllColor.SEARCH_RED_COLOR, forState: UIControlState.Highlighted)
+            self.layerCustomerVCornerBold(favoriteBtn, cornerValue: 5, borderWidth: 1, borderColor:ZXY_AllColor.SEARCH_RED_COLOR)
         }
     }
 

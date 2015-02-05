@@ -15,12 +15,12 @@ struct ZXY_ALLApi
     /**
     *  用于获取非图片数据的主要API
     */
-    static let ZXY_MainAPI      = "http://www.meijiab.cn/admin/index.php/Api/"
+    static let ZXY_MainAPI      = "http://www.meijiab.cn/test/index.php/Api/"
     
     /**
     *  用于获取图片的主要HOST_Image_API
     */
-    static let ZXY_MainAPIImage = "http://www.meijiab.cn/admin/"
+    static let ZXY_MainAPIImage = "http://www.meijiab.cn/test/"
     
     /**
     *  搜索页面 ： 用户列表相关API
@@ -61,4 +61,9 @@ struct ZXY_ALLApi
     *  获取图片详情
     */
     static let ZXY_AlbumDetailAPI = "Album/album_detail"
+    
+    /**
+    *  更改用户的关注状态
+    */
+    static let ZXY_ChangeStatusAtten = "User/attention"
 }
