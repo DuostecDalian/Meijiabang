@@ -574,6 +574,9 @@
                                                         <integer key="value" value="4"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="doneButtonPressed:" destination="GZy-7b-jFq" eventType="touchUpInside" id="lZo-ia-VaD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.94999998809999997" alpha="1" colorSpace="calibratedWhite"/>
@@ -614,6 +617,8 @@
                     <navigationItem key="navigationItem" title="身份认证" id="wmf-YF-g4s"/>
                     <connections>
                         <outlet property="cardImageView" destination="fQy-jW-MxB" id="XWh-4h-Vf4"/>
+                        <outlet property="cardNumberTextField" destination="paH-ox-Amg" id="OlA-WJ-Di7"/>
+                        <outlet property="nameTextField" destination="uDG-6p-MCO" id="dqX-nm-fe9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tg0-sQ-dJU" userLabel="First Responder" sceneMemberID="firstResponder"/>

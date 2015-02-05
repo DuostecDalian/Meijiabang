@@ -19,13 +19,15 @@ class RegisterArtistDetailViewController: UIViewController {
         }
     }
     @IBOutlet private weak var cardImageView: UIImageView!
-
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var cardNumberTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,17 +39,64 @@ class RegisterArtistDetailViewController: UIViewController {
         actionSheet.showInView(view)
     }
     
-
+    @IBAction func doneButtonPressed(sender: UIButton) {
+        func checkVaid() -> Bool{
+            // 验证照片
+            if smallImage == nil {
+                alert("请您上传身份证照片")
+                return false
+            }
+            // 验证真实姓名
+            if countElements(nameTextField.text) == 0 {
+                alert("请输入您的真实姓名")
+                return false
+            }
+            // 验证身份证号
+            let regx = "^[1-9]\\d{5}[1-9]\\d{3}((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d{3}(\\d|x|X)$"
+            let predicate = NSPredicate(format: "SELF MATCHES %@", argumentArray: [regx])
+            if !predicate.evaluateWithObject(cardNumberTextField.text) {
+                alert("请输入正确的身份证号码")
+                return false
+            }
+            return true
+        }
+        
+        if checkVaid() {
+            showHUD()
+            // 上传各种信息
+            let parameter = [
+                "user_name": phoneNumber,
+                "password": password,
+                "ident_code": cardNumberTextField.text,
+                "real_name": nameTextField.text,
+                "role": "2"
+            ]
+            let imageData = UIImageJPEGRepresentation(smallImage, 0.95)
+            LCYNetworking.sharedInstance.POSTImage(
+                Api: LCYNetworking.LCYApi.UserRegister,
+                parameters: parameter,
+                imageData: [imageData],
+                fileKey: "Filedata",
+                success: {[weak self] (object) -> Void in
+                    self?.hideHUD()
+                    return
+                }, fail: { [weak self]() -> Void in
+                    self?.hideHUD()
+                    return
+            })
+        }
+    }
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
 
 extension RegisterArtistDetailViewController: UIActionSheetDelegate {
