@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C151A80BBD400CA073A /* LCYCommon.swift */; };
-		288B0C181A80C26A00CA073A /* ErrorMessage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 288B0C171A80C26A00CA073A /* ErrorMessage.plist */; };
 		288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */; };
 		288B0C1E1A80DE5200CA073A /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C1D1A80DE5200CA073A /* UIImage+Resize.m */; };
 		288C94461A6FABAA009DBFC6 /* AboutMeButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */; };
@@ -60,6 +59,9 @@
 		8B6C1F641A6FA205006FCF4C /* ZXYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C1F601A6FA205006FCF4C /* ZXYImage.m */; };
 		8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B6C1F621A6FA205006FCF4C /* ZXYSearchBaseModel.m */; };
 		8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */; };
+		8B7B775A1A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */; };
+		8B7B775C1A81DC240004DF84 /* ZXY_ImagePickCoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */; };
+		8B7B77601A8212480004DF84 /* ZXY_ImgPickBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */; };
 		8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */; };
 		8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */; };
 		8BA49BAE1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA49BAD1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift */; };
@@ -92,6 +94,15 @@
 		8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */; };
 		8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */; };
 		8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */; };
+		8BE425D41A809E7C00221AED /* ZXY_PictureTakeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */; };
+		8BE425D61A809E8F00221AED /* ZXYTakePic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */; };
+		8BE425DA1A80A42100221AED /* ZXYTakePicAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */; };
+		8BE425DC1A80B09300221AED /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE425DB1A80B09300221AED /* AssetsLibrary.framework */; };
+		8BE425DF1A80B46300221AED /* ZXY_ImagePickerTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE425DE1A80B46300221AED /* ZXY_ImagePickerTableVC.swift */; };
+		8BECFF221A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECFF211A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift */; };
+		8BECFF241A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECFF231A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift */; };
+		8BECFF261A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BECFF251A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift */; };
+		8BECFF2A1A833430009FFBE3 /* ErrorMessage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BECFF291A833430009FFBE3 /* ErrorMessage.plist */; };
 		8BEEA1941A79F42B0068B520 /* ZXY_ArtistDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA1931A79F42A0068B520 /* ZXY_ArtistDetailVC.swift */; };
 		8BEEA1961A79F4550068B520 /* ArtistDetailStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEA1951A79F4540068B520 /* ArtistDetailStoryBoard.storyboard */; };
 		8BEEA1981A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEA1971A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift */; };
@@ -120,7 +131,6 @@
 
 /* Begin PBXFileReference section */
 		288B0C151A80BBD400CA073A /* LCYCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCommon.swift; sourceTree = "<group>"; };
-		288B0C171A80C26A00CA073A /* ErrorMessage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessage.plist; sourceTree = "<group>"; };
 		288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterArtistDetailViewController.swift; sourceTree = "<group>"; };
 		288B0C1C1A80DE5200CA073A /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		288B0C1D1A80DE5200CA073A /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -198,6 +208,11 @@
 		8B6C1F611A6FA205006FCF4C /* ZXYSearchBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXYSearchBaseModel.h; sourceTree = "<group>"; };
 		8B6C1F621A6FA205006FCF4C /* ZXYSearchBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXYSearchBaseModel.m; sourceTree = "<group>"; };
 		8B77F1201A6E852C002F147E /* ZXY_SearchArtistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_SearchArtistCell.swift; sourceTree = "<group>"; };
+		8B7B77571A81D6520004DF84 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		8B7B77581A81D6520004DF84 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickerCollectionVC.swift; sourceTree = "<group>"; };
+		8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickCoCell.swift; sourceTree = "<group>"; };
+		8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZXY_ImgPickBundle.bundle; sourceTree = "<group>"; };
 		8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ALLApi.swift; sourceTree = "<group>"; };
 		8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SearchVCImage.xcassets; sourceTree = "<group>"; };
 		8BA49BAD1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_NailPictureVC.swift; sourceTree = "<group>"; };
@@ -247,6 +262,15 @@
 		8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_DAnnotationView.swift; sourceTree = "<group>"; };
 		8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BMKAnnotation.swift; sourceTree = "<group>"; };
 		8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEDEDEDET.swift; sourceTree = "<group>"; };
+		8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PictureTakeVC.swift; sourceTree = "<group>"; };
+		8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZXYTakePic.storyboard; sourceTree = "<group>"; };
+		8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZXYTakePicAsset.xcassets; sourceTree = "<group>"; };
+		8BE425DB1A80B09300221AED /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		8BE425DE1A80B46300221AED /* ZXY_ImagePickerTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickerTableVC.swift; sourceTree = "<group>"; };
+		8BECFF211A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PicTakeInputCell.swift; sourceTree = "<group>"; };
+		8BECFF231A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PicTakeImgCell.swift; sourceTree = "<group>"; };
+		8BECFF251A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_AfterPickImgVC.swift; sourceTree = "<group>"; };
+		8BECFF291A833430009FFBE3 /* ErrorMessage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessage.plist; sourceTree = "<group>"; };
 		8BEEA1931A79F42A0068B520 /* ZXY_ArtistDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistDetailVC.swift; sourceTree = "<group>"; };
 		8BEEA1951A79F4540068B520 /* ArtistDetailStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ArtistDetailStoryBoard.storyboard; sourceTree = "<group>"; };
 		8BEEA1971A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ArtistDetailWorksColleVC.swift; sourceTree = "<group>"; };
@@ -270,6 +294,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE425DC1A80B09300221AED /* AssetsLibrary.framework in Frameworks */,
 				8BF0F9B61A6E2C57003F376A /* MapKit.framework in Frameworks */,
 				8F2C4812E7F028403DE29C5A /* libPods.a in Frameworks */,
 			);
@@ -317,7 +342,7 @@
 				288C94421A6FABAA009DBFC6 /* Extensions.swift */,
 				288C94431A6FABAA009DBFC6 /* LCYNetworking.swift */,
 				288B0C151A80BBD400CA073A /* LCYCommon.swift */,
-				288B0C171A80C26A00CA073A /* ErrorMessage.plist */,
+				8BECFF291A833430009FFBE3 /* ErrorMessage.plist */,
 			);
 			name = LCYCommon;
 			sourceTree = "<group>";
@@ -574,6 +599,7 @@
 		8BB235BD1A6DF57F003530AA /* ZXY_Start */ = {
 			isa = PBXGroup;
 			children = (
+				8BE425D21A809E5500221AED /* ZXY_TakePictureVCS */,
 				8BA57A991A78BD3D00848515 /* ZXY_ArtistVCS */,
 				8B6C1F561A6F8C05006FCF4C /* ZXYOCFile */,
 				8BF0F9B81A6E2E83003F376A /* ZXY_ThirdPartyFile */,
@@ -606,6 +632,38 @@
 			path = FolderOFSearchMapAnno;
 			sourceTree = "<group>";
 		};
+		8BE425D21A809E5500221AED /* ZXY_TakePictureVCS */ = {
+			isa = PBXGroup;
+			children = (
+				8BECFF201A83038A009FFBE3 /* ZXY_TakePicCell */,
+				8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */,
+				8BECFF251A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift */,
+				8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */,
+				8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */,
+			);
+			path = ZXY_TakePictureVCS;
+			sourceTree = "<group>";
+		};
+		8BE425DD1A80B3C800221AED /* ZXY_ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */,
+				8BE425DE1A80B46300221AED /* ZXY_ImagePickerTableVC.swift */,
+				8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */,
+				8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */,
+			);
+			path = ZXY_ImagePicker;
+			sourceTree = "<group>";
+		};
+		8BECFF201A83038A009FFBE3 /* ZXY_TakePicCell */ = {
+			isa = PBXGroup;
+			children = (
+				8BECFF211A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift */,
+				8BECFF231A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift */,
+			);
+			path = ZXY_TakePicCell;
+			sourceTree = "<group>";
+		};
 		8BEEA1921A79F4090068B520 /* ArtistDetailFile */ = {
 			isa = PBXGroup;
 			children = (
@@ -636,6 +694,7 @@
 		8BF0F9B81A6E2E83003F376A /* ZXY_ThirdPartyFile */ = {
 			isa = PBXGroup;
 			children = (
+				8BE425DD1A80B3C800221AED /* ZXY_ImagePicker */,
 				8BF0F9B91A6E2E83003F376A /* ZXY_AllColor.swift */,
 				8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */,
 				8B6BD0231A70A88B005A2FF1 /* ZXY_ValueConstFile.swift */,
@@ -652,6 +711,7 @@
 		B0E5DD56CE408FE1088897C4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BE425DB1A80B09300221AED /* AssetsLibrary.framework */,
 				8BF0F9B51A6E2C57003F376A /* MapKit.framework */,
 				C9B107CD7E2BD10693EEB745 /* libPods.a */,
 			);
@@ -752,6 +812,7 @@
 			files = (
 				8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */,
 				28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */,
+				8B7B77601A8212480004DF84 /* ZXY_ImgPickBundle.bundle in Resources */,
 				8BA57A8E1A78AF5C00848515 /* MJRefresh.bundle in Resources */,
 				8BEEA19F1A7A1F8A0068B520 /* artistDetailAssets.xcassets in Resources */,
 				8BB235C81A6E216F003530AA /* MainItemImage.xcassets in Resources */,
@@ -760,10 +821,12 @@
 				28D52E731A6CD06300C17CF0 /* LaunchScreen.xib in Resources */,
 				28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */,
 				8BB235C21A6DFD8F003530AA /* HomeItemsPList.plist in Resources */,
+				8BE425D61A809E8F00221AED /* ZXYTakePic.storyboard in Resources */,
 				8BA49BB01A7F3B3F0047EB85 /* tabAttrPlist.plist in Resources */,
 				8BEEA1961A79F4550068B520 /* ArtistDetailStoryBoard.storyboard in Resources */,
-				288B0C181A80C26A00CA073A /* ErrorMessage.plist in Resources */,
+				8BECFF2A1A833430009FFBE3 /* ErrorMessage.plist in Resources */,
 				8B46C4421A772C1D0093B5DA /* HomeVCImage.xcassets in Resources */,
+				8BE425DA1A80A42100221AED /* ZXYTakePicAsset.xcassets in Resources */,
 				289A30411A78A6E700B5350C /* register_help.html in Resources */,
 				28D52E8B1A6CD2EF00C17CF0 /* Search.storyboard in Resources */,
 				28D52E701A6CD06300C17CF0 /* Images.xcassets in Resources */,
@@ -821,7 +884,9 @@
 				288C944A1A6FABAA009DBFC6 /* LoginViewController.swift in Sources */,
 				8BEEA19A1A7A03010068B520 /* ZXY_ArtistCommentTabVC.swift in Sources */,
 				8B17CE6E1A7B6F25002C7F44 /* ZXY_UserAlbumListData.m in Sources */,
+				8BECFF261A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift in Sources */,
 				8BA57A921A78AF5C00848515 /* MJRefreshHeaderView.m in Sources */,
+				8BECFF241A8303C7009FFBE3 /* ZXY_PicTakeImgCell.swift in Sources */,
 				8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */,
 				8BA57A931A78AF5C00848515 /* UIScrollView+Extension.m in Sources */,
 				8BA57A941A78AF5C00848515 /* UIScrollView+MJRefresh.m in Sources */,
@@ -843,16 +908,20 @@
 				8BA57A7A1A78766100848515 /* ZXYAlbumSqureImage.m in Sources */,
 				8BA49BC11A7F4C040047EB85 /* ZXY_PictureDetailImages.m in Sources */,
 				28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */,
+				8B7B775C1A81DC240004DF84 /* ZXY_ImagePickCoCell.swift in Sources */,
 				8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */,
+				8BECFF221A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift in Sources */,
 				288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */,
 				288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */,
 				8BA57A901A78AF5C00848515 /* MJRefreshConst.m in Sources */,
 				8BA57A791A78766100848515 /* ZXYAlbumSqureData.m in Sources */,
+				8B7B775A1A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift in Sources */,
 				8B46C4581A7791500093B5DA /* ZXY_AlbumHotData.m in Sources */,
 				8BA57A951A78AF5C00848515 /* UIView+Extension.m in Sources */,
 				8BA49BB21A7F40690047EB85 /* ZXY_PictureHeaderCell.swift in Sources */,
 				8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */,
 				288C94491A6FABAA009DBFC6 /* LCYNetworking.swift in Sources */,
+				8BE425D41A809E7C00221AED /* ZXY_PictureTakeVC.swift in Sources */,
 				8B6761031A78E462009E667B /* ZXYArtistListBase.m in Sources */,
 				8B46C43C1A7729A70093B5DA /* ZXY_HomeMostFashionVC.swift in Sources */,
 				8B6C1F641A6FA205006FCF4C /* ZXYImage.m in Sources */,
@@ -869,6 +938,7 @@
 				28C421071A7A255300B1EB5B /* RegisterButtonCell.swift in Sources */,
 				289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */,
 				8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */,
+				8BE425DF1A80B46300221AED /* ZXY_ImagePickerTableVC.swift in Sources */,
 				289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */,
 				8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */,
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
@@ -922,6 +992,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				28D52E6D1A6CD06200C17CF0 /* Base */,
+				8B7B77571A81D6520004DF84 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -930,6 +1001,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				28D52E721A6CD06300C17CF0 /* Base */,
+				8B7B77581A81D6520004DF84 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
