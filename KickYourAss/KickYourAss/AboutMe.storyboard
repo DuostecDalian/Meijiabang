@@ -149,7 +149,7 @@
         <!--登录-->
         <scene sceneID="Nx6-JZ-jAr">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="dhD-j2-9ox" customClass="LoginViewController" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" hidesBottomBarWhenPushed="YES" id="dhD-j2-9ox" customClass="LoginViewController" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xSa-R4-42u"/>
                         <viewControllerLayoutGuide type="bottom" id="rMa-UF-UOx"/>
