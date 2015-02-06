@@ -23,6 +23,8 @@ class ZXY_NailPictureVC: UIViewController {
     private var userID : String? = ""
     private var albumID : String? = ""
     private var dataForTable : ZXY_PictureDetailBase?
+    private var currentUser : ZXY_ArtDetailInfoData?
+    
     
     @IBOutlet weak var noDataView: UIView!
     
@@ -79,11 +81,26 @@ class ZXY_NailPictureVC: UIViewController {
         }
     }
     
+    func setAlbumID(album_id : String! , user_id : String? , currentUser : ZXY_ArtDetailInfoData)
+    {
+        albumID = album_id
+        if(user_id != nil)
+        {
+            self.userID = user_id
+        }
+        self.currentUser = currentUser
+    }
+    
     func startDownLoadData()
     {
         MBProgressHUD().show(true)
         var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_AlbumDetailAPI
-        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: ["user_id": self.userID! ,"album_id": albumID!], successBlock: {[weak self] (returnDic) -> Void in
+        var myUID = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUID == nil)
+        {
+            myUID = ""
+        }
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: ["user_id": myUID! ,"album_id": albumID!], successBlock: {[weak self] (returnDic) -> Void in
             MBProgressHUD().hide(true)
             self?.dataForTable = ZXY_PictureDetailBase(dictionary: returnDic)
             self?.reloadCurrentTable()
@@ -162,11 +179,42 @@ extension ZXY_NailPictureVC : UITabBarDelegate
     }
     
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
-        
+        if(item == firstItem)
+        {
+            self.userActionFavorite()
+        }
+        else if(item == secondItem)
+        {
+            self.userActionCollection()
+        }
+        else
+        {
+            
+        }
+    }
+    
+    func userActionFavorite()
+    {
+        var isAgree   = dataForTable!.data.isAgree
+        if(Int(isAgree) == 0)
+        {
+            
+        }
+        else
+        {
+            
+            
+        }
+
+    }
+    
+    func userActionCollection()
+    {
+    
     }
 }
 
-extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource
+extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_PictureHeaderCellDelegate
 {
     
     func reloadCurrentTable()
@@ -207,10 +255,28 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource
             if(dataForTable != nil)
             {
                 var userInfo : ZXY_PictureDetailUser = dataForTable!.data.user
-                
+                cell.delegate = self
                 cell.nameLbl.text = userInfo.nickName
                 cell.albumNameLbl.text = "图集\(userInfo.albumCount)"
                 cell.attenNumLbl.text  = "关注\(userInfo.byAttention)"
+                
+                if(dataForTable?.data.isAtten == 1)
+                {
+                    cell.attenBtn.setTitle("已关注", forState: UIControlState.Normal)
+                    cell.attenBtn.setTitle("已关注", forState: UIControlState.Highlighted)
+                    cell.attenBtn.setTitleColor(ZXY_AllColor.TABBAR_GRAY_COLOR, forState: UIControlState.Normal)
+                    cell.attenBtn.setTitleColor(ZXY_AllColor.TABBAR_GRAY_COLOR, forState: UIControlState.Highlighted)
+                    self.layerCustomerVCornerBold(cell.attenBtn, cornerValue: 5, borderWidth: 1, borderColor:ZXY_AllColor.TABBAR_GRAY_COLOR)
+                }
+                else
+                {
+                    cell.attenBtn.setTitle("关注", forState: UIControlState.Normal)
+                    cell.attenBtn.setTitle("关注", forState: UIControlState.Highlighted)
+                    cell.attenBtn.setTitleColor(ZXY_AllColor.SEARCH_RED_COLOR, forState: UIControlState.Normal)
+                    cell.attenBtn.setTitleColor(ZXY_AllColor.SEARCH_RED_COLOR, forState: UIControlState.Highlighted)
+                    self.layerCustomerVCornerBold(cell.attenBtn, cornerValue: 5, borderWidth: 1, borderColor:ZXY_AllColor.SEARCH_RED_COLOR)
+                }
+                
                 var urlString = ZXY_ALLApi.ZXY_MainAPIImage + userInfo.headImage
                 if(userInfo.headImage.hasPrefix("http"))
                 {
@@ -275,5 +341,59 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    func clickIsAttensionBtn() {
+        var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_ChangeStatusAtten
+        var myUserID : String? = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUserID == nil)
+        {
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
+        var changeUserID = dataForTable?.data.user.userId
+        var controlID    = ""
+        if(dataForTable?.data.isAtten == 1)
+        {
+            controlID = "2"
+        }
+        else
+        {
+            controlID = "1"
+        }
+        var parameter :Dictionary<String , AnyObject> = ["control" : controlID , "user_id" : (myUserID! as NSString).integerValue , "attention_user_id": (changeUserID! as NSString).integerValue]
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: parameter, successBlock: { [weak self] (returnDic) -> Void in
+            var currentNum : Int = 0
+            if(self?.dataForTable?.data!.isAtten == 1)
+            {
+                if(self?.currentUser != nil)
+                {
+                    self?.currentUser!.isAttention = 2
+                    var t = self?.currentUser?.byAttention
+                    var tString = NSString(string: t!)
+                    self?.currentUser?.byAttention = "\(tString.integerValue - 1)"
+                }
+                self?.dataForTable?.data!.isAtten = 2
+            }
+            else
+            {
+                if(self?.currentUser != nil)
+                {
+                    self?.currentUser!.isAttention = 1
+                    //s//elf?.currentUser!.isAttention = 2
+                    var t = self?.currentUser?.byAttention
+                    var tString = NSString(string: t!)
+                    self?.currentUser?.byAttention = "\(tString.integerValue + 1)"
+                }
+                self?.dataForTable?.data!.isAtten = 1
+            }
+            self?.currentTable.reloadData()
+            }) { (error) -> Void in
+                
+        }
+
     }
 }

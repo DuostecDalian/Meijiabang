@@ -139,6 +139,9 @@
                             <constraint firstAttribute="bottom" secondItem="jSb-6m-krT" secondAttribute="bottom" id="yB6-U1-bOn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentCollectionV" destination="jSb-6m-krT" id="kGi-Y7-deb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEm-fL-FNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

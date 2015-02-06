@@ -206,9 +206,14 @@ extension ZXY_NailSearchVC
             return
         }
         littleBoy.startAnimating()
+        var userID : String? = LCYCommon.sharedInstance.userInfo?.userID
+        if(userID == nil)
+        {
+            userID = ""
+        }
         var locations = ZXY_LocationRelative.sharedInstance.gpsToBD(location!)
         var apiString    = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_SearchListAPI
-        var apiParameter : Dictionary<String , String> = ["user_id" : "",
+        var apiParameter : Dictionary<String , String> = ["user_id" : userID!,
             "city"    : cityName!,
             "lng"     : "\(locations.longitude)",
             "lat"     : "\(locations.latitude)",
@@ -388,7 +393,7 @@ extension ZXY_NailSearchVC :  BMKMapViewDelegate , BMKLocationServiceDelegate , 
 }
 
 // MARK: tableView Delegate , DataSource and reloadData
-extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScrollViewDelegate
+extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScrollViewDelegate ,ZXY_SearchArtistCellDelegate
 {
     func reloadCurrentTable()
     {
@@ -452,6 +457,8 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         var currentUser = allUserList![indexPath.row] as ZXYData
         cell.userName.text = currentUser.nickName as String
         cell.userProfile.image = UIImage(named: "search_personCenter")
+        cell.setIsAttensionFlag(currentUser)
+        cell.delegate = self
         if let isNil = currentUser.score
         {
             var scoreFloat : Float = (currentUser.score as NSString).floatValue
@@ -542,6 +549,45 @@ extension ZXY_NailSearchVC : UITableViewDelegate , UITableViewDataSource , UIScr
         vc.setUserID(currentArtist.userId)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func attensionBtnClick(currentFlag: ZXYData) {
+        var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_ChangeStatusAtten
+        var userID : String? = LCYCommon.sharedInstance.userInfo?.userID
+        if(userID == nil)
+        {
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
+        var changeUserID = currentFlag.userId
+        var controlID    = ""
+        if(currentFlag.isAttention == 1)
+        {
+            controlID = "2"
+        }
+        else
+        {
+            controlID = "1"
+        }
+        var parameter :Dictionary<String , AnyObject> = ["control" : controlID , "user_id" : (userID! as NSString).integerValue , "attention_user_id": (changeUserID as NSString).integerValue]
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: parameter, successBlock: { [weak self] (returnDic) -> Void in
+            if(currentFlag.isAttention == 1)
+            {
+                currentFlag.isAttention = 2
+            }
+            else
+            {
+                currentFlag.isAttention = 1
+            }
+            self?.currentTable.reloadData()
+
+        }) { (error) -> Void in
+            
+        }
+    }
+    
     
     // MARK: 控制tableView拖拽
     func scrollViewDidScroll(scrollView: UIScrollView) {

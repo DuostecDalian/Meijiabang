@@ -11,10 +11,17 @@ import UIKit
 class ZXY_AfterPickImgVC: UIViewController {
 
     @IBOutlet weak var currentCollectionV: UICollectionView!
+    var isBarHidden = false
     var assetsArr : [ALAsset]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if(self.navigationController!.navigationBar.hidden)
+        {
+            isBarHidden = true
+        }
+        self.navigationController?.navigationBar.hidden = false
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "提交", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("submitAction"))
         // Do any additional setup after loading the view.
     }
 
@@ -23,9 +30,22 @@ class ZXY_AfterPickImgVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func submitAction()
+    {
+        
+    }
+    
     func setAssetArr(assArr : [ALAsset])
     {
         self.assetsArr = assArr
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if(isBarHidden)
+        {
+            self.navigationController?.navigationBar.hidden = true
+        }
     }
 
     /*

@@ -8,6 +8,10 @@
 
 import UIKit
 let ZXY_PictureHeaderCellID = "ZXY_PictureHeaderCellID"
+protocol ZXY_PictureHeaderCellDelegate : class
+{
+    func clickIsAttensionBtn()
+}
 class ZXY_PictureHeaderCell: UITableViewCell {
 
     @IBOutlet weak var backImg: UIImageView!
@@ -24,6 +28,7 @@ class ZXY_PictureHeaderCell: UITableViewCell {
     
     @IBOutlet weak var attenBtn: UIButton!
     
+    weak var delegate : ZXY_PictureHeaderCellDelegate!
     
     
     
@@ -59,7 +64,12 @@ class ZXY_PictureHeaderCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        
     }
+    
+    @IBAction func clickAttenBtn(sender: AnyObject) {
+        self.delegate.clickIsAttensionBtn()
+    }
+    
 
 }
