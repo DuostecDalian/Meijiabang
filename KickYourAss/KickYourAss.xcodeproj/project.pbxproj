@@ -15,6 +15,9 @@
 		288C94481A6FABAA009DBFC6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94421A6FABAA009DBFC6 /* Extensions.swift */; };
 		288C94491A6FABAA009DBFC6 /* LCYNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94431A6FABAA009DBFC6 /* LCYNetworking.swift */; };
 		288C944A1A6FABAA009DBFC6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288C94441A6FABAA009DBFC6 /* LoginViewController.swift */; };
+		288CFB6D1A84CB310010E95A /* AboutMeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CFB6C1A84CB310010E95A /* AboutMeHeaderView.swift */; };
+		288CFB731A84CD790010E95A /* CYMJUserInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 288CFB701A84CD790010E95A /* CYMJUserInfoBase.m */; };
+		288CFB741A84CD790010E95A /* CYMJUserInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 288CFB721A84CD790010E95A /* CYMJUserInfoData.m */; };
 		289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A303E1A78A32600B5350C /* RegisterViewController.swift */; };
 		289A30411A78A6E700B5350C /* register_help.html in Resources */ = {isa = PBXBuildFile; fileRef = 289A30401A78A6E700B5350C /* register_help.html */; };
 		289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289A30421A78A74400B5350C /* RegisterWebViewController.swift */; };
@@ -142,6 +145,12 @@
 		288C94431A6FABAA009DBFC6 /* LCYNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYNetworking.swift; sourceTree = "<group>"; };
 		288C94441A6FABAA009DBFC6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		288C94451A6FABAA009DBFC6 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		288CFB6C1A84CB310010E95A /* AboutMeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutMeHeaderView.swift; sourceTree = "<group>"; };
+		288CFB6E1A84CD790010E95A /* CYMJUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserInfo.h; sourceTree = "<group>"; };
+		288CFB6F1A84CD790010E95A /* CYMJUserInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserInfoBase.h; sourceTree = "<group>"; };
+		288CFB701A84CD790010E95A /* CYMJUserInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJUserInfoBase.m; sourceTree = "<group>"; };
+		288CFB711A84CD790010E95A /* CYMJUserInfoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserInfoData.h; sourceTree = "<group>"; };
+		288CFB721A84CD790010E95A /* CYMJUserInfoData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJUserInfoData.m; sourceTree = "<group>"; };
 		289A303E1A78A32600B5350C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		289A30401A78A6E700B5350C /* register_help.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = register_help.html; sourceTree = "<group>"; };
 		289A30421A78A74400B5350C /* RegisterWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterWebViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +341,7 @@
 				289FC4CA1A83390700F2A38E /* Model */,
 				289A30401A78A6E700B5350C /* register_help.html */,
 				288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */,
+				288CFB6C1A84CB310010E95A /* AboutMeHeaderView.swift */,
 				288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */,
 				288C94441A6FABAA009DBFC6 /* LoginViewController.swift */,
 				289A303E1A78A32600B5350C /* RegisterViewController.swift */,
@@ -370,6 +380,11 @@
 				289FC4CD1A83391200F2A38E /* CYMJUserLoginBase.m */,
 				289FC4CE1A83391200F2A38E /* CYMJUserLoginData.h */,
 				289FC4CF1A83391200F2A38E /* CYMJUserLoginData.m */,
+				288CFB6E1A84CD790010E95A /* CYMJUserInfo.h */,
+				288CFB6F1A84CD790010E95A /* CYMJUserInfoBase.h */,
+				288CFB701A84CD790010E95A /* CYMJUserInfoBase.m */,
+				288CFB711A84CD790010E95A /* CYMJUserInfoData.h */,
+				288CFB721A84CD790010E95A /* CYMJUserInfoData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -917,10 +932,12 @@
 				8BA57A9B1A78BD5700848515 /* ZXY_NailArtistListVC.swift in Sources */,
 				8BEEA19D1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift in Sources */,
 				8BA57A9E1A78BE5A00848515 /* ZXY_ArtistListCell.swift in Sources */,
+				288CFB6D1A84CB310010E95A /* AboutMeHeaderView.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
 				289FC4D11A83391200F2A38E /* CYMJUserLoginData.m in Sources */,
 				8BA57A8F1A78AF5C00848515 /* MJRefreshBaseView.m in Sources */,
+				288CFB731A84CD790010E95A /* CYMJUserInfoBase.m in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
 				8BF0F9C31A6E2E83003F376A /* ZXY_UserInfoDetail.swift in Sources */,
 				8BA57A781A78766100848515 /* ZXYAlbumSqureBaseClass.m in Sources */,
@@ -963,6 +980,7 @@
 				8BE425DF1A80B46300221AED /* ZXY_ImagePickerTableVC.swift in Sources */,
 				289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */,
 				8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */,
+				288CFB741A84CD790010E95A /* CYMJUserInfoData.m in Sources */,
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8B46C43E1A7729C70093B5DA /* ZXY_HomeSqureVC.swift in Sources */,

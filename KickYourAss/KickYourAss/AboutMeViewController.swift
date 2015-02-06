@@ -9,7 +9,20 @@
 import UIKit
 
 class AboutMeViewController: UICollectionViewController {
-
+    
+    
+    private weak var aboutMeHeader: AboutMeHeaderView?
+    
+    private var userInfo: CYMJUserInfoData? {
+        didSet {
+            if let userInfo = userInfo {
+                aboutMeHeader?.registerButton.hidden = true
+            } else {
+                aboutMeHeader?.registerButton.hidden = false
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +34,8 @@ class AboutMeViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.title = "我的"
+        
+        refreshHeader()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +55,29 @@ class AboutMeViewController: UICollectionViewController {
         performSegueWithIdentifier("showLogin", sender: nil)
     }
     
+    func refreshHeader() {
+        if let userID = LCYCommon.sharedInstance.userInfo?.userID {
+            let parameter = [
+                "user_id" : userID
+            ]
+            LCYNetworking.sharedInstance.POST(
+                Api: LCYNetworking.LCYApi.UserInfo,
+                parameters: parameter,
+                success: { [weak self](object) -> Void in
+                    let retrieved = CYMJUserInfoBase.modelObjectWithDictionary(object)
+                    if retrieved.result == 1000 {
+                        // 正确
+                        self?.userInfo = retrieved.data
+                    } else {
+                        self?.alert(LCYCommon.sharedInstance.errorMessage(retrieved.result))
+                    }
+                    return
+            }, fail: { [weak self]() -> Void in
+                self?.alertNetworkFailed()
+                return
+            })
+        }
+    }
 
 
     // MARK: - Navigation
@@ -75,7 +113,8 @@ class AboutMeViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "abc", forIndexPath: indexPath) as UICollectionReusableView
+        let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "aboutMeHeaderCell", forIndexPath: indexPath) as AboutMeHeaderView
+        aboutMeHeader = reusableView
         return reusableView
     }
 

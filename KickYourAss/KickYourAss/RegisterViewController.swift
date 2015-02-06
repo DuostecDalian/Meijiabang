@@ -53,7 +53,7 @@ class RegisterViewController: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.toolbarHidden = false
+        navigationController?.toolbarHidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,6 +111,7 @@ class RegisterViewController: UITableViewController {
                             // 注册成功
                             let userID = object["data"] as Int
                             LCYCommon.sharedInstance.login("\(userID)", nickName: nil, role: "1")
+                            (self?.navigationController?.viewControllers.first as? AboutMeViewController)?.refreshHeader()
                             self?.navigationController?.popToRootViewControllerAnimated(true)
                         } else {
                             // 注册失败
@@ -119,6 +120,7 @@ class RegisterViewController: UITableViewController {
                         self?.hideHUD()
                         return
                     }, fail: { [weak self]() -> Void in
+                        self?.alertNetworkFailed()
                         self?.hideHUD()
                         return
                 })

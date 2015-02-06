@@ -34,6 +34,9 @@ extension UIViewController {
     func hideHUD() {
         MBProgressHUD.hideHUDForView(view, animated: true)
     }
+    func alertNetworkFailed() {
+        alert("您的网络状态不佳")
+    }
 }
 
 extension Dictionary {
