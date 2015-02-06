@@ -23,6 +23,10 @@ struct ZXY_ALLApi
     static let ZXY_MainAPIImage = "http://www.meijiab.cn/test/"
     
     /**
+    *  分享主要的URL 后跟 albumID值
+    */
+    static let ZXY_ShareMainAPI = "http://www.meijiab.cn/test/index.php/Home/Home/index/album_id/"
+    /**
     *  搜索页面 ： 用户列表相关API
     */
     static let ZXY_SearchListAPI = "UserList/user_list"
@@ -66,4 +70,14 @@ struct ZXY_ALLApi
     *  更改用户的关注状态
     */
     static let ZXY_ChangeStatusAtten = "User/attention"
+    
+    /**
+    *  更改用户的点赞状态
+    */
+    static let ZXY_ChangeStatusFavor = "Album/album_agree"
+    
+    /**
+    *  更改用户的收藏状态
+    */
+    static let ZXY_ChangeStatusCollec = "Album/album_collect"
 }

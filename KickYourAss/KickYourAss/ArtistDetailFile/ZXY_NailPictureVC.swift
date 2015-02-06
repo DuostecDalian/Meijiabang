@@ -24,7 +24,7 @@ class ZXY_NailPictureVC: UIViewController {
     private var albumID : String? = ""
     private var dataForTable : ZXY_PictureDetailBase?
     private var currentUser : ZXY_ArtDetailInfoData?
-    
+    private var lagImgV : UIImageView?
     
     @IBOutlet weak var noDataView: UIView!
     
@@ -154,27 +154,51 @@ extension ZXY_NailPictureVC : UITabBarDelegate
 
             }
             
-            if(Int(isCollect) == 0)
+            var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+            if(myUserID == nil)
             {
-                secondItem.selectedImage = UIImage(named: "star_red")
-                secondItem.image         = UIImage(named: "star_red")
-                secondItem.title         = "收藏"
+                myUserID = ""
+            }
+                
+            if(myUserID == dataForTable?.data.user.userId)
+            {
+                secondItem.selectedImage = UIImage(named: "share_red")
+                secondItem.image         = UIImage(named: "share_red")
+                secondItem.title         = "分享"
                 secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Selected)
                 secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Normal)
+                thirdItem.selectedImage = UIImage(named: "editRed_up")
+                thirdItem.image = UIImage(named: "editRed_up")
+                thirdItem.title         = "操作"
+                thirdItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Selected)
+                thirdItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Normal)
             }
             else
             {
-                secondItem.selectedImage = UIImage(named: "star_gray")
-                secondItem.image         = UIImage(named: "star_gray")
-                secondItem.title         = "已收藏"
-                secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.TABBAR_GRAY_COLOR], forState: UIControlState.Selected)
-                secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.TABBAR_GRAY_COLOR], forState: UIControlState.Normal)
+            
+                if(Int(isCollect) == 0)
+                {
+                                    secondItem.selectedImage = UIImage(named: "star_red")
+                    secondItem.image         = UIImage(named: "star_red")
+                    secondItem.title         = "收藏"
+                    secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Selected)
+                    secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Normal)
+                }
+                else
+                {
+                    secondItem.selectedImage = UIImage(named: "star_gray")
+                    secondItem.image         = UIImage(named: "star_gray")
+                    secondItem.title         = "已收藏"
+                    secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.TABBAR_GRAY_COLOR], forState: UIControlState.Selected)
+                    secondItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.TABBAR_GRAY_COLOR], forState: UIControlState.Normal)
+                }
+                thirdItem.selectedImage = UIImage(named: "share_red")
+                thirdItem.image = UIImage(named: "share_red")
+                thirdItem.title         = "分享"
+                thirdItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Selected)
+                thirdItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Normal)
             }
-            thirdItem.selectedImage = UIImage(named: "share_red")
-            thirdItem.image = UIImage(named: "share_red")
-            thirdItem.title         = "分享"
-            thirdItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Selected)
-            thirdItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Normal)
+            
         }
     }
     
@@ -189,20 +213,49 @@ extension ZXY_NailPictureVC : UITabBarDelegate
         }
         else
         {
-            
+            self.userActionShare()
         }
     }
     
     func userActionFavorite()
     {
         var isAgree   = dataForTable!.data.isAgree
-        if(Int(isAgree) == 0)
+        var control   = 1
+        if(isAgree == 0)
         {
-            
+            control = 1
         }
         else
         {
-            
+            control = 2
+        }
+        
+        var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUserID == nil)
+        {
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+
+        
+        var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_ChangeStatusFavor
+        var _albumID = dataForTable!.data.albumId
+        var parameter : Dictionary<String , AnyObject> = ["status" : control , "album_id": _albumID ,"user_id": myUserID!]
+        
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter:parameter , successBlock: {[weak self] (returnDic) -> Void in
+            var isAgree   = self?.dataForTable!.data.isAgree
+            if(isAgree == 1)
+            {
+                self?.dataForTable!.data.isAgree = 0
+            }
+            else
+            {
+                self?.dataForTable!.data.isAgree = 1
+            }
+            self?.startReloadTabItem()
+        }) { (error) -> Void in
             
         }
 
@@ -210,11 +263,65 @@ extension ZXY_NailPictureVC : UITabBarDelegate
     
     func userActionCollection()
     {
-    
+        var isAgree   = dataForTable!.data.isCollect
+        var control   = 1
+        if(isAgree == 0)
+        {
+            control = 1
+        }
+        else
+        {
+            control = 2
+        }
+        
+        var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUserID == nil)
+        {
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
+        
+        var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_ChangeStatusCollec
+        var _albumID = dataForTable!.data.albumId
+        var parameter : Dictionary<String , AnyObject> = ["status" : control , "album_id": _albumID ,"user_id": myUserID!]
+        
+        ZXY_NetHelperOperate().startGetDataPost(urlString, parameter:parameter , successBlock: {[weak self] (returnDic) -> Void in
+            var isAgree   = self?.dataForTable!.data.isCollect
+            if(isAgree == 1)
+            {
+                self?.dataForTable!.data.isCollect = 0
+            }
+            else
+            {
+                self?.dataForTable!.data.isCollect = 1
+            }
+            self?.startReloadTabItem()
+            }) { (error) -> Void in
+                
+        }
+
     }
+    
+    func userActionShare()
+    {
+        if(lagImgV?.image == nil)
+        {
+            return
+        }
+        var urlString = ZXY_ALLApi.ZXY_ShareMainAPI + albumID!
+        var nibSizeImg = UIImage(image: lagImgV?.image, scaledToFitToSize: CGSizeMake(50, 50))
+        UMSocialWechatHandler.setWXAppId(ZXY_ConstValue.WXAPPKEY.rawValue, appSecret: ZXY_ConstValue.WXAPPSECURITY.rawValue, url: urlString)
+        UMSocialQQHandler.setQQWithAppId(ZXY_ConstValue.QQAPPID.rawValue, appKey: ZXY_ConstValue.QQAPPKEY.rawValue, url: urlString)
+        UMSocialSnsService.presentSnsIconSheetView(self, appKey: ZXY_ConstValue.UMAPPKEY.rawValue, shareText: "美甲邦上的美甲真心不错，快来看看哟！", shareImage: nibSizeImg, shareToSnsNames: [UMShareToSina,UMShareToTencent,UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline], delegate: self)
+    }
+    
+    
 }
 
-extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_PictureHeaderCellDelegate
+extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_PictureHeaderCellDelegate , UMSocialUIDelegate
 {
     
     func reloadCurrentTable()
@@ -294,6 +401,7 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
                 var userInfo : ZXY_PictureDetailImages = dataForTable!.data.images[0] as ZXY_PictureDetailImages
                 var urlString = ZXY_ALLApi.ZXY_MainAPIImage + userInfo.imagePath
                 cell.imgBig.setImageWithURL(NSURL(string: urlString))
+                lagImgV = cell.imgBig
             }
             return cell
         }
@@ -396,4 +504,13 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
         }
 
     }
+    
+    func didCloseUIViewController(fromViewControllerType: UMSViewControllerType) {
+        
+    }
+    
+    func didFinishGetUMSocialDataInViewController(response: UMSocialResponseEntity!) {
+        self.showAlertEasy("提示", messageContent: "\(response.message)")
+    }
+    
 }
