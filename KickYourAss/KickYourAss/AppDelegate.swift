@@ -17,8 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
     var bmkAuthor : BMKMapManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         
+        // Override point for customization after application launch.
+        UMSocialData.setAppKey(ZXY_ConstValue.UMAPPKEY.rawValue)
+        UMSocialData.openLog(true)
         UINavigationBar.appearance().barTintColor = UIColor.themeRedColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()

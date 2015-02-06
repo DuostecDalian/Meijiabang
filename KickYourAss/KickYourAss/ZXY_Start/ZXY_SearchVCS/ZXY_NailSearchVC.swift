@@ -42,6 +42,7 @@ class ZXY_NailSearchVC: UIViewController {
         super.viewDidLoad()
         tableConsYToHeader.constant = CGFloat(self.view.frame.size.height / 2.0)
         toHeaderMax        = CGFloat(self.view.frame.size.height / 2.0)
+        self.setNaviBarRightImage("search_btn")
         self.startInitMapView()
         self.startInitTable()
         self.startInitLocationManager()
@@ -57,6 +58,10 @@ class ZXY_NailSearchVC: UIViewController {
         }) { () -> Void in
             
         }
+    }
+    
+    override func rightNaviButtonAction() {
+        self.performSegueWithIdentifier("toSerchArtist", sender: nil)
     }
     
     override func viewWillAppear(animated: Bool) {

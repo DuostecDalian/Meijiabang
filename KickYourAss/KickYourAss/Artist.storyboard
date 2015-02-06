@@ -66,7 +66,7 @@
                                                             <rect key="frame" x="88" y="3" width="14" height="25"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="152" id="Aot-aq-Esc"/>
                                                     </constraints>

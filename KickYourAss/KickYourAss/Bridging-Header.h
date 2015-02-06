@@ -17,8 +17,10 @@
 #import "WaterfallLayout.h"
 
 #import<AssetsLibrary/AssetsLibrary.h>
-
-
+#import<UMengSocial/UMSocial.h>
+#import <UMengSocial/UMSocialWechatHandler.h>
+#import <UMengSocial/UMSocialQQHandler.h>
+#import <UMengSocial/UMSocialSinaHandler.h>
 
 // ⬇️ 超逸专区
 #import "UIImage+Resize.h"
