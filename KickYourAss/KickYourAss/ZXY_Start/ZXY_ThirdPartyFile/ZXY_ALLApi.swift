@@ -80,4 +80,9 @@ struct ZXY_ALLApi
     *  更改用户的收藏状态
     */
     static let ZXY_ChangeStatusCollec = "Album/album_collect"
+    
+    /**
+    *  添加图集
+    */
+    static let ZXY_SubmitAlbumAPI     = "Album/add_album"
 }

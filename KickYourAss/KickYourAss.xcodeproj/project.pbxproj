@@ -66,6 +66,7 @@
 		8B7B775C1A81DC240004DF84 /* ZXY_ImagePickCoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */; };
 		8B7B77601A8212480004DF84 /* ZXY_ImgPickBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */; };
 		8B82B8FF1A6F67080086A13B /* ZXY_ALLApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */; };
+		8B9128B61A8870BE004DC921 /* NailArtistListAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B9128B51A8870BE004DC921 /* NailArtistListAsset.xcassets */; };
 		8BA44E541A6E38DA00B12151 /* SearchVCImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */; };
 		8BA49BAE1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA49BAD1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift */; };
 		8BA49BB01A7F3B3F0047EB85 /* tabAttrPlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BA49BAF1A7F3B3F0047EB85 /* tabAttrPlist.plist */; };
@@ -97,6 +98,7 @@
 		8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */; };
 		8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */; };
 		8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */; };
+		8BCACBA41A88910400B01D94 /* ZXY_PickImgPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCACBA31A88910400B01D94 /* ZXY_PickImgPictureVC.swift */; };
 		8BE425D41A809E7C00221AED /* ZXY_PictureTakeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */; };
 		8BE425D61A809E8F00221AED /* ZXYTakePic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */; };
 		8BE425DA1A80A42100221AED /* ZXYTakePicAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */; };
@@ -223,6 +225,7 @@
 		8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickCoCell.swift; sourceTree = "<group>"; };
 		8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZXY_ImgPickBundle.bundle; sourceTree = "<group>"; };
 		8B82B8FE1A6F67080086A13B /* ZXY_ALLApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ALLApi.swift; sourceTree = "<group>"; };
+		8B9128B51A8870BE004DC921 /* NailArtistListAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NailArtistListAsset.xcassets; sourceTree = "<group>"; };
 		8BA44E531A6E38DA00B12151 /* SearchVCImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SearchVCImage.xcassets; sourceTree = "<group>"; };
 		8BA49BAD1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_NailPictureVC.swift; sourceTree = "<group>"; };
 		8BA49BAF1A7F3B3F0047EB85 /* tabAttrPlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tabAttrPlist.plist; sourceTree = "<group>"; };
@@ -271,6 +274,7 @@
 		8BC5CC731A71F11900C513DF /* ZXY_DAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_DAnnotationView.swift; sourceTree = "<group>"; };
 		8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BMKAnnotation.swift; sourceTree = "<group>"; };
 		8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEDEDEDET.swift; sourceTree = "<group>"; };
+		8BCACBA31A88910400B01D94 /* ZXY_PickImgPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PickImgPictureVC.swift; sourceTree = "<group>"; };
 		8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PictureTakeVC.swift; sourceTree = "<group>"; };
 		8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZXYTakePic.storyboard; sourceTree = "<group>"; };
 		8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZXYTakePicAsset.xcassets; sourceTree = "<group>"; };
@@ -606,6 +610,7 @@
 				8BA57A9C1A78BE3E00848515 /* ZXYArtistCell */,
 				8BA57A9A1A78BD5700848515 /* ZXY_NailArtistListVC.swift */,
 				28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */,
+				8B9128B51A8870BE004DC921 /* NailArtistListAsset.xcassets */,
 			);
 			path = ZXY_ArtistVCS;
 			sourceTree = "<group>";
@@ -661,6 +666,7 @@
 				8BECFF201A83038A009FFBE3 /* ZXY_TakePicCell */,
 				8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */,
 				8BECFF251A83051B009FFBE3 /* ZXY_AfterPickImgVC.swift */,
+				8BCACBA31A88910400B01D94 /* ZXY_PickImgPictureVC.swift */,
 				8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */,
 				8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */,
 			);
@@ -802,6 +808,7 @@
 				TargetAttributes = {
 					28D52E5F1A6CD06200C17CF0 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = ER62D3UHDE;
 					};
 					28D52E771A6CD06300C17CF0 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -840,6 +847,7 @@
 				8BEEA19F1A7A1F8A0068B520 /* artistDetailAssets.xcassets in Resources */,
 				8BB235C81A6E216F003530AA /* MainItemImage.xcassets in Resources */,
 				28D52E6E1A6CD06200C17CF0 /* Main.storyboard in Resources */,
+				8B9128B61A8870BE004DC921 /* NailArtistListAsset.xcassets in Resources */,
 				28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */,
 				28D52E731A6CD06300C17CF0 /* LaunchScreen.xib in Resources */,
 				28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */,
@@ -971,6 +979,7 @@
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
 				8B46C43E1A7729C70093B5DA /* ZXY_HomeSqureVC.swift in Sources */,
 				288B0C1E1A80DE5200CA073A /* UIImage+Resize.m in Sources */,
+				8BCACBA41A88910400B01D94 /* ZXY_PickImgPictureVC.swift in Sources */,
 				8B17CE6D1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m in Sources */,
 				8BA57A911A78AF5C00848515 /* MJRefreshFooterView.m in Sources */,
 				8B46C4491A77324C0093B5DA /* ZXY_HomeMostFashionCell.swift in Sources */,
@@ -1120,10 +1129,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KickYourAss/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KickYourAss/Bridging-Header.h";
 			};
 			name = Debug;
@@ -1134,10 +1146,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = KickYourAss/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KickYourAss/Bridging-Header.h";
 			};
 			name = Release;

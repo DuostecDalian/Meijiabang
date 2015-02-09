@@ -43,7 +43,7 @@ class ZXY_ImagePickerTableVC: UIViewController {
         currentVC = vc
         if(thisNavi == nil)
         {
-                self.thisNavi = UINavigationController(rootViewController: self)
+            self.thisNavi = UINavigationController(rootViewController: self)
         }
 
         vc.presentViewController(self.thisNavi!, animated: true) {[weak self] () -> Void in

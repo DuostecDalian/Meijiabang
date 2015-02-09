@@ -114,6 +114,7 @@ class ZXY_SearchArtistVC: UIViewController {
                     println(error)
                     self?.isDownLoad = false
                     self?.reloadCurrentTable()
+                    
             }
         }
 
@@ -126,6 +127,8 @@ extension ZXY_SearchArtistVC : UITableViewDelegate , UITableViewDataSource , ZXY
 {
     func reloadCurrentTable()
     {
+        currentTable.footerEndRefreshing()
+        currentTable.headerEndRefreshing()
         currentTable.reloadData()
     }
     

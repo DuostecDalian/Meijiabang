@@ -7,6 +7,32 @@
 //
 
 import UIKit
+enum ZXY_OrderStatus : Int
+{
+    
+    case OrderStatusFasion = 1
+    case OrderStatusNearBy = 2
+    case OrderStatusRateRank = 3
+    case OrderStatusArts     = 4
+    
+    func titleForOrderStatus(var status : ZXY_OrderStatus) -> String
+    {
+        switch status
+        {
+        case .OrderStatusNearBy :
+            return "附近"
+        case .OrderStatusFasion :
+            return "热门"
+        case .OrderStatusArts :
+            return "作品"
+        case .OrderStatusRateRank:
+            return "评价"
+        default :
+            return "热门"
+        }
+    }
+}
+
 
 class ZXY_NailArtistListVC: UIViewController {
 
@@ -17,6 +43,16 @@ class ZXY_NailArtistListVC: UIViewController {
     private var isDown = false
     private var userCityForFail = "大连市"
     private var currentPage     : Int = 1
+    private var currentOrderStatus : ZXY_OrderStatus = .OrderStatusNearBy
+    
+    @IBOutlet var changeStatusBtn: [UIButton]!
+    
+    
+    @IBOutlet weak var rightBtn : UIButton!
+    
+    @IBOutlet weak var controlView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.currentTable.tableFooterView = UIView(frame: CGRectZero)
@@ -36,6 +72,7 @@ class ZXY_NailArtistListVC: UIViewController {
             self?.startGetArtistListData()
         }
         startGetArtistListData()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: self.rightBtn)
     }
     
     
@@ -73,7 +110,7 @@ class ZXY_NailArtistListVC: UIViewController {
                 "user_id" : "" ,
                 "lng" : log! ,
                 "lat" : lat!   ,
-                "control" : "1" ,
+                "control" : "\(currentOrderStatus.rawValue)" ,
                 "p"       : "\(currentPage)"
             ]
             
@@ -224,5 +261,85 @@ extension ZXY_NailArtistListVC
         }
         
     }
+    
+    @IBAction func ClickRightBtnAction(sender: AnyObject)
+    {
+        var btn : UIButton = sender as UIButton
+        
+        if(btn.selected)
+        {
+            btn.selected = false
+            hideControlView()
+        }
+        else
+        {
+            btn.selected = true
+            showControlView()
+        }
+    }
+    
+    func showControlView()
+    {
+        UIView.animateWithDuration(0.2, animations: {[weak self] () -> Void in
+            self?.controlView.alpha = 1
+            return
+        })
+    }
+    
+    func hideControlView()
+    {
+        UIView.animateWithDuration(0.2, animations: {[weak self] () -> Void in
+            self?.controlView.alpha = 0
+            return
+        })
+    }
+    
+    @IBAction func changeOrderStatusAction(sender: AnyObject) {
+        var currentBtn : UIButton = sender as UIButton
+        for (index , value) in enumerate(changeStatusBtn)
+        {
+            if(value == currentBtn)
+            {
+                switch index
+                {
+                case 0 :
+                    currentOrderStatus = ZXY_OrderStatus.OrderStatusFasion
+                case 1 :
+                    currentOrderStatus = ZXY_OrderStatus.OrderStatusNearBy
+                case 2 :
+                    currentOrderStatus = ZXY_OrderStatus.OrderStatusRateRank
+                case 3 :
+                    currentOrderStatus = ZXY_OrderStatus.OrderStatusArts
+                default:
+                    currentOrderStatus = ZXY_OrderStatus.OrderStatusFasion
+                }
+                currentPage = 1
+                self.startGetArtistListData()
+                self.hideControlView()
+                self.startReloadRightBtn()
+                self.rightBtn.selected = false
+                return
+            }
+        }
+    }
+    
+    func startReloadRightBtn()
+    {
+        switch currentOrderStatus
+        {
+        case ZXY_OrderStatus.OrderStatusFasion :
+            rightBtn.setTitle("热门", forState: UIControlState.Normal)
+        case ZXY_OrderStatus.OrderStatusNearBy :
+            rightBtn.setTitle("附近", forState: UIControlState.Normal)
+        case ZXY_OrderStatus.OrderStatusRateRank :
+            rightBtn.setTitle("评价", forState: UIControlState.Normal)
+        case ZXY_OrderStatus.OrderStatusArts :
+            rightBtn.setTitle("作品", forState: UIControlState.Normal)
+        default :
+            rightBtn.setTitle("热门", forState: UIControlState.Normal)
+            
+        }
+    }
+    
 
 }

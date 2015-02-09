@@ -154,10 +154,63 @@
                                     <outlet property="delegate" destination="U0w-3S-jn9" id="XBU-gh-rMd"/>
                                 </connections>
                             </tableView>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2s-mY-prS">
+                                <rect key="frame" x="548" y="0.0" width="48" height="127"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bg6-rz-jSt">
+                                        <rect key="frame" x="2" y="41" width="46" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="附近" backgroundImage="btnCenter">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeOrderStatusAction:" destination="U0w-3S-jn9" eventType="touchUpInside" id="Ics-9K-i7R"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49y-ir-Y19">
+                                        <rect key="frame" x="2" y="70" width="46" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="评价" backgroundImage="btnCenter">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeOrderStatusAction:" destination="U0w-3S-jn9" eventType="touchUpInside" id="MiQ-DH-WeE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDO-Vq-3Jb">
+                                        <rect key="frame" x="2" y="99" width="46" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="作品" backgroundImage="btnBottom">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeOrderStatusAction:" destination="U0w-3S-jn9" eventType="touchUpInside" id="a92-22-5Og"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yA9-1E-77L">
+                                        <rect key="frame" x="2" y="8" width="46" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                        <state key="normal" title="热门" backgroundImage="btnUpper">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="changeOrderStatusAction:" destination="U0w-3S-jn9" eventType="touchUpInside" id="Q6W-0G-yj7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="127" id="R1v-A5-guU"/>
+                                    <constraint firstAttribute="width" constant="48" id="v3O-3S-e9L"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ub3-Dt-hdd" secondAttribute="trailing" id="1uZ-lW-H0H"/>
+                            <constraint firstItem="c2s-mY-prS" firstAttribute="top" secondItem="9Jv-o6-0PV" secondAttribute="top" id="CJb-dV-6SC"/>
+                            <constraint firstAttribute="trailing" secondItem="c2s-mY-prS" secondAttribute="trailing" constant="4" id="Jih-I0-vhv"/>
                             <constraint firstAttribute="bottom" secondItem="ub3-Dt-hdd" secondAttribute="bottom" id="VDF-fu-Bzm"/>
                             <constraint firstItem="ub3-Dt-hdd" firstAttribute="top" secondItem="9Jv-o6-0PV" secondAttribute="top" id="VTD-YM-amw"/>
                             <constraint firstItem="ub3-Dt-hdd" firstAttribute="leading" secondItem="9Jv-o6-0PV" secondAttribute="leading" id="sve-O4-Pk1"/>
@@ -167,12 +220,66 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="controlView" destination="c2s-mY-prS" id="XTz-LL-gHg"/>
                         <outlet property="currentTable" destination="ub3-Dt-hdd" id="eTN-sh-gCy"/>
+                        <outlet property="rightBtn" destination="LJJ-AW-DVt" id="N1F-X3-3bn"/>
+                        <outletCollection property="changeStatusBtn" destination="yA9-1E-77L" collectionClass="NSMutableArray" id="ESO-ca-K6N"/>
+                        <outletCollection property="changeStatusBtn" destination="Bg6-rz-jSt" collectionClass="NSMutableArray" id="pwI-uv-eOM"/>
+                        <outletCollection property="changeStatusBtn" destination="49y-ir-Y19" collectionClass="NSMutableArray" id="JNV-R0-ATd"/>
+                        <outletCollection property="changeStatusBtn" destination="GDO-Vq-3Jb" collectionClass="NSMutableArray" id="dml-2C-ZWr"/>
                     </connections>
                 </viewController>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LJJ-AW-DVt">
+                    <rect key="frame" x="0.0" y="0.0" width="57" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <inset key="titleEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="附近" image="arrowDown">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="arrowUp"/>
+                    <connections>
+                        <action selector="ClickRightBtnAction:" destination="U0w-3S-jn9" eventType="touchUpInside" id="gNq-XC-4dH"/>
+                    </connections>
+                </button>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrV-CF-YJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="323" y="446"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XbQ-vw-rTD">
+            <objects>
+                <viewController id="JLy-HQ-JBA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="F1c-nU-Kjo"/>
+                        <viewControllerLayoutGuide type="bottom" id="e7J-ie-fv6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JNs-43-M9b">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcw-RL-4d7">
+                                <rect key="frame" x="137" y="89" width="57" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="titleEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="热门" image="arrowDown">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="arrowUp"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.3921568627" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="200"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5w-DS-7xJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="798" y="166"/>
         </scene>
         <!--美甲师-->
         <scene sceneID="0kZ-ho-7lY">
@@ -285,6 +392,15 @@
                     <navigationItem key="navigationItem" title="美甲师" id="JL4-cY-vgS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y7X-tt-azl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pR5-o3-OM6">
+                    <rect key="frame" x="0.0" y="0.0" width="57" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <inset key="titleEdgeInsets" minX="-50" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="热门" image="arrowUp">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </objects>
             <point key="canvasLocation" x="-308" y="-366"/>
         </scene>
@@ -315,6 +431,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowDown" width="20" height="11"/>
+        <image name="arrowUp" width="20" height="11"/>
+        <image name="btnBottom" width="46" height="28"/>
+        <image name="btnCenter" width="46" height="28"/>
+        <image name="btnUpper" width="46" height="31"/>
         <image name="heart_red" width="20" height="20"/>
         <image name="nailartist_down" width="14" height="25"/>
         <image name="search_personCenter" width="29" height="34"/>

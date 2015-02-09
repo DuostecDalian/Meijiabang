@@ -60,7 +60,7 @@
         <!--After Pick ImgVC-->
         <scene sceneID="fe4-KX-aPJ">
             <objects>
-                <viewController restorationIdentifier="ZXY_AfterPickImgVCID" storyboardIdentifier="ZXY_AfterPickImgVCID" id="apE-wf-jtu" customClass="ZXY_AfterPickImgVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="ZXY_AfterPickImgVCID" storyboardIdentifier="ZXY_AfterPickImgVCID" hidesBottomBarWhenPushed="YES" id="apE-wf-jtu" customClass="ZXY_AfterPickImgVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r1y-tg-QSz"/>
                         <viewControllerLayoutGuide type="bottom" id="cXd-g4-PXb"/>
@@ -105,7 +105,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PicTakeInputCell" id="05m-Aa-KEk" customClass="ZXY_PicTakeInputCell" customModule="KickYourAss" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="98"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="131"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="Bha-nO-Use">
@@ -141,16 +141,17 @@
                     </view>
                     <connections>
                         <outlet property="currentCollectionV" destination="jSb-6m-krT" id="kGi-Y7-deb"/>
+                        <segue destination="r11-Up-N3L" kind="show" identifier="toPicture" id="32b-e0-YV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEm-fL-FNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="862" y="155"/>
         </scene>
-        <!--View Controller-->
+        <!--Pick Img PictureVC-->
         <scene sceneID="SYv-ty-ALG">
             <objects>
-                <viewController id="r11-Up-N3L" sceneMemberID="viewController">
+                <viewController restorationIdentifier="pictureVCID" storyboardIdentifier="pictureVCID" hidesBottomBarWhenPushed="YES" id="r11-Up-N3L" customClass="ZXY_PickImgPictureVC" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="10g-C6-Qvd"/>
                         <viewControllerLayoutGuide type="bottom" id="L2e-6s-sW0"/>
@@ -158,12 +159,26 @@
                     <view key="view" contentMode="scaleToFill" id="gi8-Bu-21a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Njj-QS-Dct">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Njj-QS-Dct" firstAttribute="leading" secondItem="gi8-Bu-21a" secondAttribute="leading" id="0oe-bO-g3U"/>
+                            <constraint firstAttribute="bottom" secondItem="Njj-QS-Dct" secondAttribute="bottom" id="3Ah-aF-b9I"/>
+                            <constraint firstItem="Njj-QS-Dct" firstAttribute="top" secondItem="gi8-Bu-21a" secondAttribute="top" id="cZ5-4Y-9BP"/>
+                            <constraint firstAttribute="trailing" secondItem="Njj-QS-Dct" secondAttribute="trailing" id="goI-PB-dCE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentImgV" destination="Njj-QS-Dct" id="DH7-kZ-eGh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdJ-h5-U26" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1533" y="155"/>
+            <point key="canvasLocation" x="1570" y="155"/>
         </scene>
     </scenes>
     <resources>
