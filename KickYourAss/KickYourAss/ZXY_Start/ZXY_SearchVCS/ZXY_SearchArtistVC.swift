@@ -87,13 +87,13 @@ class ZXY_SearchArtistVC: UIViewController {
         
             var apiString    = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_SearchListAPI
             var coor : Dictionary<String , String?>?     = ZXY_UserInfoDetail.sharedInstance.getUserCoordinate()
-            var lat  = coor!["latitude"]!
-            var log  = coor!["longitude"]!
-            var apiParameter : Dictionary<String , String> = ["user_id" : "",
+            var lat : String!  = coor!["latitude"]!
+            var log : String!  = coor!["longitude"]!
+            var apiParameter : Dictionary<String , AnyObject> = ["user_id" : "",
                 "city"    : cityNameTemp!,
-                "lng"     : "\(log)",
-                "lat"     : "\(lat)",
-                "p"       : "\(currentPage)",
+                "lng"     : log,
+                "lat"     : lat,
+                "p"       : currentPage,
                 "nick_name" : searchText.text
             ]
             ZXY_NetHelperOperate.sharedInstance.startGetDataPost(apiString, parameter: apiParameter, successBlock: {[weak self] (returnDic) -> Void in
@@ -119,16 +119,7 @@ class ZXY_SearchArtistVC: UIViewController {
 
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+   
 }
 
 extension ZXY_SearchArtistVC : UITableViewDelegate , UITableViewDataSource , ZXY_SearchArtistCellDelegate

@@ -209,10 +209,33 @@ extension ZXY_NailPictureVC : UITabBarDelegate
         }
         else if(item == secondItem)
         {
+            var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+            if(myUserID == nil)
+            {
+                myUserID = ""
+            }
+            
+            if(myUserID == dataForTable?.data.user.userId)
+            {
+                self.userActionShare()
+                return
+            }
             self.userActionCollection()
         }
         else
         {
+            var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+            if(myUserID == nil)
+            {
+                myUserID = ""
+            }
+            
+            if(myUserID == dataForTable?.data.user.userId)
+            {
+                self.userActionEdit()
+                return
+            }
+
             self.userActionShare()
         }
     }
@@ -318,10 +341,17 @@ extension ZXY_NailPictureVC : UITabBarDelegate
         UMSocialSnsService.presentSnsIconSheetView(self, appKey: ZXY_ConstValue.UMAPPKEY.rawValue, shareText: "美甲邦上的美甲真心不错，快来看看哟！", shareImage: nibSizeImg, shareToSnsNames: [UMShareToSina,UMShareToTencent,UMShareToQzone,UMShareToQQ,UMShareToWechatSession,UMShareToWechatTimeline], delegate: self)
     }
     
+    func userActionEdit()
+    {
+        var zxySheet : ZXY_SheetView = ZXY_SheetView(zxyTitle: nil, cancelBtn: "取消", andMessage: "修改介绍","删除图集")
+        zxySheet.delegate = self
+        zxySheet.showSheet(self.view)
+    }
+    
     
 }
 
-extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_PictureHeaderCellDelegate , UMSocialUIDelegate
+extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_PictureHeaderCellDelegate , UMSocialUIDelegate , ZXY_SheetViewDelegate
 {
     
     func reloadCurrentTable()
@@ -347,6 +377,10 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
             noDataView.hidden = true
         }
         currentTable.reloadData()
+    }
+    
+    func clickItemAtIndex(sheetView: ZXY_SheetView, index: Int) {
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

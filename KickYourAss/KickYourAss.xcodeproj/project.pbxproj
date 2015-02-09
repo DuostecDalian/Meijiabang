@@ -760,7 +760,6 @@
 				FFBD3CDCA6A69C1EC5103E1E /* Check Pods Manifest.lock */,
 				28D52E5C1A6CD06200C17CF0 /* Sources */,
 				28D52E5D1A6CD06200C17CF0 /* Frameworks */,
-				8B9C9DC31A84ADC200FD1DBE /* Export Sketch Assets */,
 				28D52E5E1A6CD06200C17CF0 /* Resources */,
 				97475077D4843A4E7A348FE4 /* Copy Pods Resources */,
 			);
@@ -867,20 +866,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8B9C9DC31A84ADC200FD1DBE /* Export Sketch Assets */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Export Sketch Assets";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# AppIcon\nsketchtool export artboards \"$PROJECT_DIR\"/\"Graphics Resources/AppIcon.sketch\" --output=\"$PROJECT_DIR\"/\"$PROJECT_NAME\"/Images.xcassets/AppIcon.appiconset --formats=\"png\"\n\n# LaunchImage\nsketchtool export artboards \"$PROJECT_DIR\"/\"Graphics Resources/LaunchImage.sketch\" --output=\"$PROJECT_DIR\"/\"$PROJECT_NAME\"/Images.xcassets/LaunchImage.launchimage --formats=\"png\"";
-		};
 		97475077D4843A4E7A348FE4 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
