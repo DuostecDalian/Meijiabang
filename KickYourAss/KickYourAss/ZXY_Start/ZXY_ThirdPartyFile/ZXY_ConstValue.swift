@@ -22,12 +22,12 @@ enum ZXY_ConstValue : String
     /**
     *  微信分享security
     */
-    case WXAPPSECURITY = " "
+    case WXAPPSECURITY = "ffb392a78a454ba6b3fcc08b9222f5ac"
  
     /**
     *  微信分享key
     */
-    case WXAPPKEY = ""
+    case WXAPPKEY = "wxf29e68a4f9693ced"
     /**
     *  QQ分享Key
     */

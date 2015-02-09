@@ -15,17 +15,17 @@ struct ZXY_ALLApi
     /**
     *  用于获取非图片数据的主要API
     */
-    static let ZXY_MainAPI      = "http://www.meijiab.cn/test/index.php/Api/"
+    static let ZXY_MainAPI      = "http://www.meijiab.cn/admin/index.php/Api/"
     
     /**
     *  用于获取图片的主要HOST_Image_API
     */
-    static let ZXY_MainAPIImage = "http://www.meijiab.cn/test/"
+    static let ZXY_MainAPIImage = "http://www.meijiab.cn/admin/"
     
     /**
     *  分享主要的URL 后跟 albumID值
     */
-    static let ZXY_ShareMainAPI = "http://www.meijiab.cn/test/index.php/Home/Home/index/album_id/"
+    static let ZXY_ShareMainAPI = "http://www.meijiab.cn/admin/index.php/Home/Home/index/album_id/"
     /**
     *  搜索页面 ： 用户列表相关API
     */
