@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.hidden = false
+
     }
     
     // MARK: - Actions
@@ -66,6 +67,7 @@ class LoginViewController: UIViewController {
                     let retrieved = CYMJUserLoginBase.modelObjectWithDictionary(object)
                     if retrieved.result == 1000 {
                         LCYCommon.sharedInstance.login(retrieved.data.userId, nickName: retrieved.data.nickName, role: retrieved.data.role)
+                        (self?.navigationController?.viewControllers.first as? AboutMeViewController)?.refreshHeader()
                         self?.navigationController?.popToRootViewControllerAnimated(true)
                     } else {
                         self?.alert(LCYCommon.sharedInstance.errorMessage(retrieved.result))

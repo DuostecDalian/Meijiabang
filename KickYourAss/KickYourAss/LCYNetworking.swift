@@ -17,6 +17,7 @@ class LCYNetworking {
     }
     
     let testBaseURL = "http://www.meijiab.cn/admin/index.php/Api/"
+    let testImageURL = "http://www.meijiab.cn/admin/"
     
     class var sharedInstance: LCYNetworking {
         struct Singleton {
