@@ -16,7 +16,7 @@ class LCYNetworking {
         case UserInfo           = "User/userInfo"
     }
     
-    let testBaseURL = "http://www.meijiab.cn/test/index.php/Api/"
+    let testBaseURL = "http://www.meijiab.cn/admin/index.php/Api/"
     
     class var sharedInstance: LCYNetworking {
         struct Singleton {
