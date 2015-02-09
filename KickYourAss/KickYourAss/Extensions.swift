@@ -34,6 +34,12 @@ extension UIViewController {
     func hideHUD() {
         MBProgressHUD.hideHUDForView(view, animated: true)
     }
+    func alertNetworkFailed() {
+        alert("您的网络状态不佳")
+    }
+    func alertLoginNeeded() {
+        alert("请您先登录")
+    }
 }
 
 extension Dictionary {
@@ -55,5 +61,45 @@ extension String {
     }
     func forceBridge() -> NSString {
         return self as NSString
+    }
+    /**
+    将图片的相对路径转换为绝对路径
+    
+    :returns: 图片的绝对路径
+    */
+    func toAbsoluteImagePath() -> String {
+        return LCYNetworking.sharedInstance.testImageURL + self
+    }
+    /**
+    坑爹的服务器返回的所有null都是字符串“null”
+    
+    :returns: 如果是字符串“null”，转换成nil。
+    */
+    func checkNull() -> String? {
+        return self == "null" ? nil : self
+    }
+}
+
+extension Double {
+    func decimalFormat(count: Int) -> String {
+        return NSString(format: "%.\(count)f", self)
+    }
+}
+
+extension UIView {
+    var roundedCorner: Bool {
+        set {
+            if newValue {
+                let radius = min(bounds.width, bounds.height) / 2.0
+                layer.cornerRadius = radius
+                layer.masksToBounds = true
+            } else {
+                layer.masksToBounds = false
+                layer.cornerRadius = 0.0
+            }
+        }
+        get {
+            return layer.cornerRadius != 0
+        }
     }
 }

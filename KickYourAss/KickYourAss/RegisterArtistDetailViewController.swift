@@ -76,11 +76,21 @@ class RegisterArtistDetailViewController: UIViewController {
                 Api: LCYNetworking.LCYApi.UserRegister,
                 parameters: parameter,
                 imageData: [imageData],
-                fileKey: "Filedata",
+                fileKey: "Filedata[]",
                 success: {[weak self] (object) -> Void in
+                    let result = object["result"] as? Int
+                    if result == 1000 {
+                        let userID = object["data"] as Int
+                        LCYCommon.sharedInstance.login("\(userID)", nickName: nil, role: "2")
+                        (self?.navigationController?.viewControllers.first as? AboutMeViewController)?.refreshHeader()
+                        self?.navigationController?.popToRootViewControllerAnimated(true)
+                    } else {
+                        self?.alert(LCYCommon.sharedInstance.errorMessage(result))
+                    }
                     self?.hideHUD()
                     return
                 }, fail: { [weak self]() -> Void in
+                    self?.alertNetworkFailed()
                     self?.hideHUD()
                     return
             })

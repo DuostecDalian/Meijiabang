@@ -66,7 +66,10 @@ class LCYCommon {
     }
     
     func logout() {
-        userDefault.setNilValueForKey(UserDefaultKeys.UserID.rawValue)
+//        userDefault.setNilValueForKey(UserDefaultKeys.UserID.rawValue)
+        userDefault.removeObjectForKey(UserDefaultKeys.UserID.rawValue)
+        userDefault.removeObjectForKey(UserDefaultKeys.NickName.rawValue)
+        userDefault.removeObjectForKey(UserDefaultKeys.Role.rawValue)
         userDefault.synchronize()
     }
     

@@ -9,7 +9,25 @@
 import UIKit
 
 class AboutMeViewController: UICollectionViewController {
-
+    
+    
+    private weak var aboutMeHeader: AboutMeHeaderView?
+    
+    private var userInfo: CYMJUserInfoData? {
+        didSet {
+            if let userInfo = userInfo {
+                aboutMeHeader?.registerButton.hidden = true
+                aboutMeHeader?.userInfoView.hidden = false
+                aboutMeHeader?.nickNameLabel.text = userInfo.nickName.checkNull()
+                aboutMeHeader?.score = userInfo.score.forceBridge().doubleValue
+                aboutMeHeader?.avatarPath = userInfo.headImage.toAbsoluteImagePath()
+            } else {
+                aboutMeHeader?.registerButton.hidden = false
+                aboutMeHeader?.userInfoView.hidden = true
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +39,8 @@ class AboutMeViewController: UICollectionViewController {
 
         // Do any additional setup after loading the view.
         navigationItem.title = "我的"
+        
+        refreshHeader()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,12 +54,45 @@ class AboutMeViewController: UICollectionViewController {
         navigationController?.toolbarHidden = true
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if LCYCommon.sharedInstance.userInfo != nil {
+            aboutMeHeader?.registerButton.hidden = true
+        }
+    }
+    
     // MARK: - Actions
     @IBAction func loginButtonPressed(sender: AnyObject) {
         println("user id  = \(LCYCommon.sharedInstance.userInfo?.userID)")
         performSegueWithIdentifier("showLogin", sender: nil)
     }
     
+    func refreshHeader() {
+        if let userID = LCYCommon.sharedInstance.userInfo?.userID {
+            aboutMeHeader?.registerButton.hidden = true
+            let parameter = [
+                "user_id" : userID
+            ]
+            LCYNetworking.sharedInstance.POST(
+                Api: LCYNetworking.LCYApi.UserInfo,
+                parameters: parameter,
+                success: { [weak self](object) -> Void in
+                    let retrieved = CYMJUserInfoBase.modelObjectWithDictionary(object)
+                    if retrieved.result == 1000 {
+                        // 正确
+                        self?.userInfo = retrieved.data
+                    } else {
+                        self?.alert(LCYCommon.sharedInstance.errorMessage(retrieved.result))
+                    }
+                    return
+            }, fail: { [weak self]() -> Void in
+                self?.alertNetworkFailed()
+                return
+            })
+        } else {
+            userInfo = nil
+        }
+    }
 
 
     // MARK: - Navigation
@@ -49,6 +102,18 @@ class AboutMeViewController: UICollectionViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         navigationController?.navigationBar.hidden = false
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "showProfile":
+                let destination = segue.destinationViewController as ICYProfileViewController
+                destination.userInfo = userInfo
+            case "showSetting":
+                let destination = segue.destinationViewController as SettingViewController
+                destination.userInfo = userInfo
+            default:
+                break
+            }
+        }
     }
 
 
@@ -75,11 +140,40 @@ class AboutMeViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "abc", forIndexPath: indexPath) as UICollectionReusableView
+        let reusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "aboutMeHeaderCell", forIndexPath: indexPath) as AboutMeHeaderView
+        aboutMeHeader = reusableView
         return reusableView
     }
 
     // MARK: UICollectionViewDelegate
+    
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row {
+        case 7:
+            if let info = LCYCommon.sharedInstance.userInfo {
+                if userInfo != nil {
+                    performSegueWithIdentifier("showProfile", sender: nil)
+                } else {
+                    alert("未能获取用户数据")
+                }
+            } else {
+                alertLoginNeeded()
+            }
+        case 8:
+            // 设置
+            if LCYCommon.sharedInstance.userInfo != nil {
+                if userInfo != nil {
+                    performSegueWithIdentifier("showSetting", sender: nil)
+                } else {
+                    alert("未能获取用户数据")
+                }
+            } else {
+                alertLoginNeeded()
+            }
+        default:
+            break
+        }
+    }
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking

@@ -26,6 +26,7 @@
 #import "UIImage+Resize.h"
 
 #import "CYMJUserLogin.h"
+#import "CYMJUserInfo.h"
 
 // ⬆️ 超逸专区
 
