@@ -110,6 +110,8 @@ class AboutMeViewController: UICollectionViewController {
             case "showSetting":
                 let destination = segue.destinationViewController as SettingViewController
                 destination.userInfo = userInfo
+            case "showCare":
+                let destination = segue.destinationViewController as LCYCareViewController
             default:
                 break
             }
@@ -149,6 +151,8 @@ class AboutMeViewController: UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row {
+        case 0:
+            performSegueWithIdentifier("showCare", sender: nil)
         case 7:
             if let info = LCYCommon.sharedInstance.userInfo {
                 if userInfo != nil {

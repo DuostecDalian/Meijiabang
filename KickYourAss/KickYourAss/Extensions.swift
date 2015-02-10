@@ -40,6 +40,9 @@ extension UIViewController {
     func alertLoginNeeded() {
         alert("请您先登录")
     }
+    func alertWithErrorCode(code: Double) {
+        alert(LCYCommon.sharedInstance.errorMessage(code))
+    }
 }
 
 extension Dictionary {
@@ -57,10 +60,13 @@ extension Dictionary {
 
 extension String {
     var integerValue: Int{
-        return (self as NSString).integerValue
+        return forceBridge().integerValue
+    }
+    var doubleValue: Double {
+        return forceBridge().doubleValue
     }
     func forceBridge() -> NSString {
-        return self as NSString
+        return self
     }
     /**
     将图片的相对路径转换为绝对路径
