@@ -18,7 +18,7 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
     }
     
     var isFirst : Bool = true
-    var currentCollection : UICollectionView = UICollectionView(frame: CGRectMake(0, 0, 0, 0), collectionViewLayout: WaterfallLayout())
+    var currentCollection : UICollectionView = UICollectionView(frame: CGRectMake(0, 0, 0, 0), collectionViewLayout: UICollectionViewFlowLayout())
     var assetGroup : ALAssetsGroup!
     var assetsArr  : [ALAsset] = []
     var maxNumOfSelect : Int   = 1
@@ -39,16 +39,22 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
         self.view.addConstraint(NSLayoutConstraint(item: self.view, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: currentCollection, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "完成", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("finishPick"))
+        var group : dispatch_group_t = dispatch_group_create()
+        var queue : dispatch_queue_t = dispatch_queue_create("com.dustec.MeijiaOc", DISPATCH_QUEUE_SERIAL)
+//        dispatch_group_async(group, queue) {[weak self] () -> Void in
+//            self?.toBackThread()
+//            return
+//        }
+//        
+//        dispatch_group_notify(group, dispatch_get_main_queue()) {[weak self] () -> Void in
+//            self?.currentCollection.reloadData()
+//            return
+//        }
         // Do any additional setup after loading the view.
     }
 
     func finishPick()
     {
-//        var finishImgURL : [ALAssetRepresentation] = []
-//        for (index , value) in enumerate(assetForSelect)
-//        {
-//            finishImgURL.append(value.defaultRepresentation())
-//        }
         self.delegate?.selectFinish(assetForSelect)
     }
     
@@ -65,6 +71,11 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
     func setAssetsArr(assetsArr : ALAssetsGroup)
     {
         self.assetGroup = assetsArr
+        toBackThread()
+    }
+
+    func toBackThread()
+    {
         var assetEnumBlock : ALAssetsGroupEnumerationResultsBlock = {[weak self] (asset, index, stop) -> Void in
             if(asset != nil)
             {
@@ -73,9 +84,8 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
         }
         var filter : ALAssetsFilter = ALAssetsFilter.allPhotos()
         assetGroup.enumerateAssetsUsingBlock(assetEnumBlock)
-        
     }
-
+    
     /*
     // MARK: - Navigation
 
@@ -88,15 +98,12 @@ class ZXY_ImagePickerCollectionVC: UIViewController {
 
 }
 
-extension ZXY_ImagePickerCollectionVC: UICollectionViewDataSource , UICollectionViewDelegate , WaterfallLayoutDelegate
+extension ZXY_ImagePickerCollectionVC: UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout
 {
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, sizeForItemAtIndexPath indexPath: NSIndexPath!) -> CGSize {
-        var currentAsset = self.assetsArr[indexPath.row]
-        var cgImage      = currentAsset.aspectRatioThumbnail().takeUnretainedValue()
-        var currentImg   = UIImage(CGImage: cgImage)
-        var ratio        = currentImg!.size.height / currentImg!.size.width
-        var imageHe      = ratio * (self.view.frame.size.width - 20)/2
-        return CGSizeMake((self.view.frame.size.width - 20)/2, imageHe)
+        var imageHe      = UIScreen.mainScreen().bounds
+        var width        = (imageHe.width - 40)/4
+        return CGSizeMake(width , width)
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -112,7 +119,7 @@ extension ZXY_ImagePickerCollectionVC: UICollectionViewDataSource , UICollection
         }
         cell?.hideSelectImg()
         var currentAsset = self.assetsArr[indexPath.row]
-        var cgImage      = currentAsset.aspectRatioThumbnail().takeUnretainedValue()
+        var cgImage      = currentAsset.thumbnail().takeUnretainedValue()
         var currentImg   = UIImage(CGImage: cgImage)
         cell?.currentImageV.image = currentImg
         if(contains(assetForSelect, currentAsset))
@@ -138,6 +145,15 @@ extension ZXY_ImagePickerCollectionVC: UICollectionViewDataSource , UICollection
                 }
             }
             currentCollection.reloadItemsAtIndexPaths([indexPath])
+            //currentCollection.reloadData()
+            if(assetForSelect.count == 0)
+            {
+                self.navigationItem.rightBarButtonItem?.enabled = false
+            }
+            else
+            {
+                self.navigationItem.rightBarButtonItem?.enabled = true
+            }
             return
         }
 
@@ -145,7 +161,17 @@ extension ZXY_ImagePickerCollectionVC: UICollectionViewDataSource , UICollection
         {
             
             assetForSelect.append(currentAsset)
+            if(assetForSelect.count == 0)
+            {
+                self.navigationItem.rightBarButtonItem?.enabled = false
+            }
+            else
+            {
+                self.navigationItem.rightBarButtonItem?.enabled = true
+            }
+
             currentCollection.reloadItemsAtIndexPaths([indexPath])
+            //currentCollection.reloadData()
         }
         else
         {
@@ -162,7 +188,7 @@ extension ZXY_ImagePickerCollectionVC: UICollectionViewDataSource , UICollection
         return 1
     }
     
-    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: UICollectionViewLayout!, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets{
         return UIEdgeInsetsMake(5, 5, 5, 5)
     }
     

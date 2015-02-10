@@ -10,8 +10,10 @@ import UIKit
 
 class ZXY_AfterPickImgVC: UIViewController {
 
+    let maxNumOfPhoto = 1
     @IBOutlet weak var currentCollectionV: UICollectionView!
     var isBarHidden = false
+    var desTxt      : UITextView?
     var assetsArr : [ALAsset]? = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,30 @@ class ZXY_AfterPickImgVC: UIViewController {
     
     func submitAction()
     {
+        if(desTxt?.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0)
+        {
+            self.showAlertEasy("提示", messageContent: "介绍不能为空")
+            return
+        }
         
+        if(self.assetsArr?.count == 0)
+        {
+            self.showAlertEasy("提示", messageContent: "您未选择照片")
+            return
+        }
+        
+        var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_SubmitAlbumAPI
+        
+        var userID    = LCYCommon.sharedInstance.userInfo?.userID
+        
+        if(userID == nil)
+        {
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        var parameter : Dictionary<String , AnyObject?> = ["user_id": userID , "description" : desTxt?.text ]
     }
     
     func setAssetArr(assArr : [ALAsset])
@@ -94,6 +119,7 @@ extension ZXY_AfterPickImgVC : UICollectionViewDelegate, UICollectionViewDataSou
         cell.inputText.layer.borderWidth  = 1
         cell.inputText.layer.masksToBounds = true
         cell.inputText.layer.borderColor  = ZXY_AllColor.SEARCH_RED_COLOR.CGColor
+        desTxt = cell.inputText
         return cell
     }
     
@@ -126,4 +152,81 @@ extension ZXY_AfterPickImgVC : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: screenWidth, height: 130)
     }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        var currentRow = indexPath.row
+        
+        if(self.assetsArr != nil)
+        {
+            if(currentRow == self.assetsArr?.count)
+            {
+                if(self.assetsArr?.count == maxNumOfPhoto)
+                {
+                    self.showAlertEasy("提示", messageContent: "最多只能选择一张图片")
+                }
+                else
+                {
+                    var story = UIStoryboard(name: "ZXYTakePic", bundle: nil)
+                    var vc    = story.instantiateInitialViewController() as ZXY_PictureTakeVC
+                    vc.delegate = self
+                    vc.presentView()
+                }
+            }
+            else
+            {
+                var currentAsset = self.assetsArr![currentRow]
+                var currentpresent = currentAsset.defaultRepresentation()
+                var cgIMG = currentpresent.fullResolutionImage().takeUnretainedValue()
+                var img      = UIImage(CGImage: cgIMG)
+                self.showItemInMain(img!)
+            }
+        }
+        else
+        {
+            
+        }
+
+    }
+    
+    func showItemInMain(img : UIImage)
+    {
+        var story : UIStoryboard = UIStoryboard(name: "ZXYTakePic", bundle: nil)
+        var vc    : ZXY_PickImgPictureVC = story.instantiateViewControllerWithIdentifier("pictureVCID") as ZXY_PickImgPictureVC
+        vc.delegate = self
+        vc.setCurrentImage(img)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension ZXY_AfterPickImgVC : ZXY_PickImgPictureVCDelegate , ZXY_ImagePickerDelegate , ZXY_PictureTakeDelegate
+{
+    func deletePhoto() {
+        assetsArr?.removeAll(keepCapacity: false)
+        currentCollectionV.reloadData()
+    }
+    
+    func clickChoosePictureBtn() {
+        
+        
+        var zxy_imgPick = ZXY_ImagePickerTableVC()
+        zxy_imgPick.setMaxNumOfSelect(1)
+        zxy_imgPick.delegate = self
+        zxy_imgPick.presentZXYImagePicker(self)
+    }
+    
+    func clickTakePhotoBtn() {
+        
+    }
+    
+    func ZXY_ImagePicker(imagePicker: ZXY_ImagePickerTableVC, didFinishPicker assetArr: [ALAsset]) {
+        
+       for (index , value) in enumerate(assetArr)
+       {
+            self.assetsArr?.append(value)
+        }
+        
+        self.currentCollectionV.reloadData()
+        
+    }
+
 }

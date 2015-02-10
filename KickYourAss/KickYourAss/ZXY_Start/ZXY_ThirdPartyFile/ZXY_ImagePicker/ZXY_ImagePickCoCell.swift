@@ -14,6 +14,8 @@ class ZXY_ImagePickCoCell: UICollectionViewCell {
     override var reuseIdentifier: String { return "zxy_Collection" }
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+
     }
     
     override init() {
@@ -27,6 +29,7 @@ class ZXY_ImagePickCoCell: UICollectionViewCell {
         currentImageV.setTranslatesAutoresizingMaskIntoConstraints(false)
         currentImageV.backgroundColor = UIColor.clearColor()
         selectImageV.backgroundColor  = UIColor.clearColor()
+        currentImageV.clipsToBounds = true
         var pathBundle = NSBundle(path: NSBundle.mainBundle().pathForResource("ZXY_ImgPickBundle", ofType: "bundle")!)
         var pathImg    = pathBundle?.pathForResource("zxy_imagePickImg", ofType: "png")
         selectImageV.image = UIImage(contentsOfFile: pathImg!)
@@ -41,12 +44,12 @@ class ZXY_ImagePickCoCell: UICollectionViewCell {
         self.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: currentImageV, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 0))
         self.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: currentImageV, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0))
         
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: selectImageV, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 10))
-        self.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: selectImageV, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: -10))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Trailing, relatedBy: NSLayoutRelation.Equal, toItem: selectImageV, attribute: NSLayoutAttribute.Trailing, multiplier: 1, constant: 5))
+        self.addConstraint(NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: selectImageV, attribute: NSLayoutAttribute.Top, multiplier: 1, constant: -5))
         
         selectImageV.addConstraint(NSLayoutConstraint(item: selectImageV, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 30))
         selectImageV.addConstraint(NSLayoutConstraint(item: selectImageV, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 30))
-    }
+            }
     
     func showSelectImg()
     {
