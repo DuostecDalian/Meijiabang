@@ -109,3 +109,19 @@ extension UIView {
         }
     }
 }
+
+extension UITableView {
+    var hideExtraSeprator: Bool {
+        set {
+            if newValue {
+                let emptyView = UIView(frame: CGRectZero)
+                tableFooterView = emptyView
+            } else {
+                tableFooterView = nil
+            }
+        }
+        get {
+            return tableFooterView != nil
+        }
+    }
+}

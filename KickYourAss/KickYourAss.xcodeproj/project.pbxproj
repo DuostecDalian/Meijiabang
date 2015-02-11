@@ -13,6 +13,7 @@
 		286C4C6D1A8882D5009983D0 /* ICYProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C4C6C1A8882D5009983D0 /* ICYProfileViewController.swift */; };
 		286C4C6F1A8882E8009983D0 /* ICYProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C4C6E1A8882E8009983D0 /* ICYProfileCell.swift */; };
 		286C4C711A8884B9009983D0 /* ICYProfileAvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C4C701A8884B9009983D0 /* ICYProfileAvatarCell.swift */; };
+		2884A0081A8AF27A00716769 /* LCYCareBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2884A0071A8AF27A00716769 /* LCYCareBaseViewController.swift */; };
 		288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C151A80BBD400CA073A /* LCYCommon.swift */; };
 		288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */; };
 		288B0C1E1A80DE5200CA073A /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C1D1A80DE5200CA073A /* UIImage+Resize.m */; };
@@ -164,6 +165,7 @@
 		286C4C6C1A8882D5009983D0 /* ICYProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICYProfileViewController.swift; sourceTree = "<group>"; };
 		286C4C6E1A8882E8009983D0 /* ICYProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICYProfileCell.swift; sourceTree = "<group>"; };
 		286C4C701A8884B9009983D0 /* ICYProfileAvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICYProfileAvatarCell.swift; sourceTree = "<group>"; };
+		2884A0071A8AF27A00716769 /* LCYCareBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCareBaseViewController.swift; sourceTree = "<group>"; };
 		288B0C151A80BBD400CA073A /* LCYCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCommon.swift; sourceTree = "<group>"; };
 		288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterArtistDetailViewController.swift; sourceTree = "<group>"; };
 		288B0C1C1A80DE5200CA073A /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			children = (
 				28B9CCB11A8A01DB00421D66 /* Model */,
 				280E8A0F1A89F07300C04865 /* LCYCareViewController.swift */,
+				2884A0071A8AF27A00716769 /* LCYCareBaseViewController.swift */,
 				28B9CCAD1A89FC5400421D66 /* LCYCareArtistViewController.swift */,
 				28B9CCB91A8A03BE00421D66 /* LCYCareArtistCell.swift */,
 				28B9CCAF1A89FC6300421D66 /* LCYCareNormalViewController.swift */,
@@ -1112,6 +1115,7 @@
 				8BF0F9C11A6E2E83003F376A /* ZXY_SheetView.swift in Sources */,
 				8B17CE681A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m in Sources */,
 				8B46C45A1A7791500093B5DA /* ZXY_AlbumHotUser.m in Sources */,
+				2884A0081A8AF27A00716769 /* LCYCareBaseViewController.swift in Sources */,
 				288C94461A6FABAA009DBFC6 /* AboutMeButtonCell.swift in Sources */,
 				8B80219E1A89E14400F4C890 /* ZXY_DateVC.swift in Sources */,
 				288C94471A6FABAA009DBFC6 /* AboutMeViewController.swift in Sources */,

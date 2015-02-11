@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LCYCareNormalViewController: UITableViewController {
+class LCYCareNormalViewController: LCYCareBaseViewController {
+    
+    private var dataInfo = [CYMJUserListAtListData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +20,7 @@ class LCYCareNormalViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        tableView.contentInset = UIEdgeInsets(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
-        tableView.scrollIndicatorInsets = UIEdgeInsets(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,30 +31,61 @@ class LCYCareNormalViewController: UITableViewController {
         super.viewWillAppear(animated)
         
     }
+    
+    // MARK: - Action
+    override func reload() {
+        if let userID = LCYCommon.sharedInstance.userInfo?.userID {
+            let parameter = [
+                "user_id": userID,
+                "role": "1"
+            ]
+            LCYNetworking.sharedInstance.POST(
+                Api: LCYNetworking.LCYApi.UserListAtList,
+                parameters: parameter,
+                success: { [weak self](object) -> Void in
+                    let retrieved = CYMJUserListAtListBase.modelObjectWithDictionary(object)
+                    if retrieved.result == 1000 {
+                        self?.dataInfo.extend(retrieved.data as [CYMJUserListAtListData])
+                        self?.tableView.reloadData()
+                    } else {
+                        self?.alertWithErrorCode(retrieved.result)
+                    }
+                    return
+            },
+                fail: { () -> Void in
+                return
+            })
+        }
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return dataInfo.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(LCYCareNormalCell.identifier, forIndexPath: indexPath) as LCYCareNormalCell
 
         // Configure the cell...
+        let data = dataInfo[indexPath.row]
+        cell.nickNameLabel.text = data.nickName
+        cell.albumLabel.text = "图集" + data.albumCount
+        cell.careLabel.text = "关注" + data.byAttention
+        cell.completedOrder.text = "完成订单" + data.orderCount2
+        cell.markCount = data.score.doubleValue
+        cell.imagePath = data.headImage.toAbsoluteImagePath()
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
