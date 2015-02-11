@@ -11,9 +11,12 @@
 class LCYNetworking {
     
     enum LCYApi: String {
-        case UserLogin          = "User/login"
-        case UserRegister       = "User/register"
-        case UserInfo           = "User/userInfo"
+        case UserLogin              = "User/login"
+        case UserRegister           = "User/register"
+        case UserInfo               = "User/userInfo"
+        
+        case UserListAtList         = "UserList/attention_list"
+        case UserListAtList2        = "UserList/attention_list2"
     }
     
     let testBaseURL = "http://www.meijiab.cn/admin/index.php/Api/"
