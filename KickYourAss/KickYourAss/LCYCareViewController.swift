@@ -11,7 +11,22 @@ import UIKit
 class LCYCareViewController: UIPageViewController {
     
     @IBOutlet private weak var icySegmentedControl: UISegmentedControl!
+    
+    private weak var artistVC: UIViewController?
+    private weak var normalVC: UIViewController?
+    
     @IBAction func segmentChanged(sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            let currentVC = viewControllers.first as UIViewController
+            if let previous = dataSource?.pageViewController(self, viewControllerBeforeViewController: currentVC) {
+                setViewControllers([previous], direction: UIPageViewControllerNavigationDirection.Reverse, animated: true, completion: nil)
+            }
+        } else {
+            let currentVC = viewControllers.first as UIViewController
+            if let next = dataSource?.pageViewController(self, viewControllerAfterViewController: currentVC) {
+                setViewControllers([next], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -19,6 +34,7 @@ class LCYCareViewController: UIPageViewController {
 
         // Do any additional setup after loading the view.
         let firstViewController = storyboard?.instantiateViewControllerWithIdentifier("careArtist") as LCYCareArtistViewController
+        artistVC = firstViewController
         setViewControllers([firstViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         delegate = self
         dataSource = self
@@ -45,18 +61,35 @@ class LCYCareViewController: UIPageViewController {
 extension LCYCareViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         if viewController is LCYCareNormalViewController {
-            let previousViewController = storyboard?.instantiateViewControllerWithIdentifier("careArtist") as? LCYCareArtistViewController
-            return previousViewController
+            if let artVC = artistVC {
+                return artVC
+            } else {
+                let previousViewController = storyboard?.instantiateViewControllerWithIdentifier("careArtist") as? LCYCareArtistViewController
+                artistVC = previousViewController
+                return previousViewController
+            }
         }else {
             return nil
         }
     }
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         if viewController is LCYCareArtistViewController {
-            let nextViewController = storyboard?.instantiateViewControllerWithIdentifier("careNormal") as? LCYCareNormalViewController
-            return nextViewController
+            if let norVC = normalVC {
+                return norVC
+            } else {
+                let nextViewController = storyboard?.instantiateViewControllerWithIdentifier("careNormal") as? LCYCareNormalViewController
+                normalVC = nextViewController
+                return nextViewController
+            }
         } else {
             return nil
+        }
+    }
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+        if pageViewController.viewControllers.first is LCYCareArtistViewController {
+            icySegmentedControl.selectedSegmentIndex = 0
+        } else {
+            icySegmentedControl.selectedSegmentIndex = 1
         }
     }
 }

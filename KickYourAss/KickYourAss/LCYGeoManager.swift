@@ -49,7 +49,7 @@ class LCYGeoManager: NSObject {
 
 extension LCYGeoManager: CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        println("updating---->")
+//        println("updating---->")
         if let location = (locations.first as? CLLocation) {
             manager.stopUpdatingLocation()
             if !successCalled {

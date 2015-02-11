@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LCYCareArtistViewController: UITableViewController {
+class LCYCareArtistViewController: LCYCareBaseViewController {
     
     private var info = [CYMJUserListAtListData]()
     
@@ -21,8 +21,7 @@ class LCYCareArtistViewController: UITableViewController {
             self.distance = distance ?? "未知"
         }
     }
-    private let geoManager = LCYGeoManager()
-    private var location: CLLocation?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,20 +31,9 @@ class LCYCareArtistViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        tableView.contentInset = UIEdgeInsets(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
-        tableView.scrollIndicatorInsets = UIEdgeInsets(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
         
         
-        
-        geoManager.getLocation({
-            [weak self](location) -> Void in
-            self?.location = location
-            self?.reload()
-            }, fail: {
-                [weak self]() -> Void in
-                self?.alert("未能获取地理位置信息")
-                return
-        })
+
         
     }
     
@@ -57,7 +45,7 @@ class LCYCareArtistViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
     
-    func reload() {
+    override func reload() {
         if let userID = LCYCommon.sharedInstance.userInfo?.userID {
             let parameter = [
                 "user_id": userID,
