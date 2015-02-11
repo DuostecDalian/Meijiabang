@@ -40,6 +40,11 @@ class ZXY_NailPictureVC: UIViewController {
         self.begainInit()
         self.startDownLoadData()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.reloadCurrentTable()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,22 +62,14 @@ class ZXY_NailPictureVC: UIViewController {
         let attrBarArr = NSArray(contentsOfFile: NSBundle.mainBundle().pathForResource("tabAttrPlist", ofType: "plist")!)
         for var i = 0; i < self.tabBarItems.count ;i++
         {
-//            var currentAttr : Dictionary<String , String>  = attrBarArr![i] as Dictionary<String , String>
-//            var selectImageN = currentAttr["selectImage"]
-//            var imageN       = currentAttr["image"]
-//            var titleN       = currentAttr["title"]
-//            var selectTitleN = currentAttr["selectTitle"]
             var currentItem = tabBarItems[i]
-//            currentItem.title = titleN
-//            currentItem.image = UIImage(named: imageN!)
-//            currentItem.selectedImage = UIImage(named: selectImageN!)
             currentItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.SEARCH_RED_COLOR], forState: UIControlState.Selected)
             currentItem.setTitleTextAttributes([NSForegroundColorAttributeName : ZXY_AllColor.TABBAR_GRAY_COLOR], forState: UIControlState.Normal)
             
         }
     }
     
-    func setAlbumID(album_id : String! , user_id : String?)
+    func setAlbumID(album_id : String? , user_id : String?)
     {
         albumID = album_id
         if(user_id != nil)
@@ -81,7 +78,7 @@ class ZXY_NailPictureVC: UIViewController {
         }
     }
     
-    func setAlbumID(album_id : String! , user_id : String? , currentUser : ZXY_ArtDetailInfoData)
+    func setAlbumID(album_id : String? , user_id : String? , currentUser : ZXY_ArtDetailInfoData)
     {
         albumID = album_id
         if(user_id != nil)
@@ -93,6 +90,11 @@ class ZXY_NailPictureVC: UIViewController {
     
     func startDownLoadData()
     {
+        if(albumID == nil)
+        {
+            self.reloadCurrentTable()
+            return
+        }
         MBProgressHUD().show(true)
         var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_AlbumDetailAPI
         var myUID = LCYCommon.sharedInstance.userInfo?.userID
@@ -132,7 +134,7 @@ extension ZXY_NailPictureVC : UITabBarDelegate
     {
         if(dataForTable != nil)
         {
-            self.currentTabBar.hidden = false
+            //self.currentTabBar.hidden = false
             var isAgree   = dataForTable!.data.isAgree
             var isCollect = dataForTable!.data.isCollect
             
@@ -160,7 +162,7 @@ extension ZXY_NailPictureVC : UITabBarDelegate
                 myUserID = ""
             }
                 
-            if(myUserID == dataForTable?.data.user.userId)
+            if(myUserID == dataForTable?.data?.user?.userId)
             {
                 secondItem.selectedImage = UIImage(named: "share_red")
                 secondItem.image         = UIImage(named: "share_red")
@@ -215,7 +217,7 @@ extension ZXY_NailPictureVC : UITabBarDelegate
                 myUserID = ""
             }
             
-            if(myUserID == dataForTable?.data.user.userId)
+            if(myUserID == dataForTable?.data?.user?.userId)
             {
                 self.userActionShare()
                 return
@@ -356,12 +358,25 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
     
     func reloadCurrentTable()
     {
+        if(dataForTable?.result != 1000)
+        {
+            currentTable.hidden = true
+            noDataView.hidden = false
+            currentTabBar.hidden = true
+            return
+
+        }
+        else
+        {
+            currentTabBar.hidden = false
+        }
         if(dataForTable == nil || dataForTable?.data == nil)
         {
             
             
             currentTable.hidden = true
             noDataView.hidden = false
+            return
             
         }
         else
@@ -380,7 +395,36 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
     }
     
     func clickItemAtIndex(sheetView: ZXY_SheetView, index: Int) {
-        
+        if(index == 0)
+        {
+            var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+            var vc    = story.instantiateViewControllerWithIdentifier("ZXY_ChangeCommentVCID") as ZXY_ChangeCommentVC
+            vc.setAlbumID(dataForTable)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if (index == 1)
+        {
+            if(albumID == nil)
+            {
+                return
+            }
+            else
+            {
+                MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+                var urlString = ZXY_ALLApi.ZXY_MainAPI + ZXY_ALLApi.ZXY_DeleteAlbumAPI
+                ZXY_NetHelperOperate().startGetDataPost(urlString, parameter: ["album_id" : albumID!], successBlock: {[weak self] (returnDic) -> Void in
+                    MBProgressHUD.hideAllHUDsForView(self?.view, animated: true)
+                    self?.navigationController!.popViewControllerAnimated(true)
+                    return
+                }, failBlock: {[weak self] (error) -> Void in
+                    println(error)
+                    MBProgressHUD.hideAllHUDsForView(self?.view, animated: true)
+
+                    self?.showAlertEasy("提示", messageContent: "删除图集失败")
+                    return
+                })
+            }
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -395,6 +439,10 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
             let cell = tableView.dequeueReusableCellWithIdentifier(ZXY_PictureHeaderCellID) as ZXY_PictureHeaderCell
             if(dataForTable != nil)
             {
+                if(dataForTable?.data == nil || dataForTable?.data?.user == nil )
+                {
+                    return cell
+                }
                 var userInfo : ZXY_PictureDetailUser = dataForTable!.data.user
                 cell.delegate = self
                 cell.nameLbl.text = userInfo.nickName
@@ -430,7 +478,7 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
         else if (currentRow == 1)
         {
             let cell = tableView.dequeueReusableCellWithIdentifier(ZXY_PictureImageCellID) as ZXY_PictureImageCell
-            if(dataForTable?.data.images.count > 0)
+            if(dataForTable?.data?.images?.count > 0)
             {
                 var userInfo : ZXY_PictureDetailImages = dataForTable!.data.images[0] as ZXY_PictureDetailImages
                 var urlString = ZXY_ALLApi.ZXY_MainAPIImage + userInfo.imagePath
@@ -444,7 +492,7 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
             let cell = tableView.dequeueReusableCellWithIdentifier(ZXY_PictureFootterCellID) as ZXY_PictureFootterCell
             if(dataForTable != nil)
             {
-                var currentInfo = dataForTable!.data.dataDescription
+                var currentInfo = dataForTable!.data?.dataDescription?
                 cell.desLbl.text     = currentInfo
             }
             
@@ -461,7 +509,7 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
         }
         else if(currentRow == 1)
         {
-            if(dataForTable?.data.images.count > 0)
+            if(dataForTable?.data?.images?.count > 0)
             {
                 var userInfo : ZXY_PictureDetailImages = dataForTable!.data.images[0] as ZXY_PictureDetailImages
                 var height   = (userInfo.height as NSString).floatValue
@@ -478,6 +526,10 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(dataForTable == nil)
+        {
+            return 0
+        }
         return 3
     }
     
@@ -496,7 +548,7 @@ extension ZXY_NailPictureVC : UITableViewDelegate , UITableViewDataSource ,ZXY_P
             return
         }
         
-        var changeUserID = dataForTable?.data.user.userId
+        var changeUserID = dataForTable?.data?.user?.userId
         var controlID    = ""
         if(dataForTable?.data.isAtten == 1)
         {

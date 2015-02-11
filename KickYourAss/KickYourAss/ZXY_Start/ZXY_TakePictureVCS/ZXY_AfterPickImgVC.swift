@@ -13,10 +13,13 @@ class ZXY_AfterPickImgVC: UIViewController {
     let maxNumOfPhoto = 1
     @IBOutlet weak var currentCollectionV: UICollectionView!
     var isBarHidden = false
+    var isPhoto     = false
     var desTxt      : UITextView?
-    var assetsArr : [ALAsset]? = []
+    var photoImg  : [UIImage]? = []
+    //private var currentProgress : MBProgressHUD!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         if(self.navigationController!.navigationBar.hidden)
         {
             isBarHidden = true
@@ -40,7 +43,7 @@ class ZXY_AfterPickImgVC: UIViewController {
             return
         }
         
-        if(self.assetsArr?.count == 0)
+        if(self.photoImg?.count == 0)
         {
             self.showAlertEasy("提示", messageContent: "您未选择照片")
             return
@@ -55,14 +58,44 @@ class ZXY_AfterPickImgVC: UIViewController {
             var story  = UIStoryboard(name: "AboutMe", bundle: nil)
             var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
             self.navigationController?.pushViewController(vc, animated: true)
+            return
         }
         
-        var parameter : Dictionary<String , AnyObject?> = ["user_id": userID , "description" : desTxt?.text ]
+        var dataArr : [NSData] = []
+        photoImg!.map({(tempImg : UIImage) -> Void in
+            var scaleImg = UIImage(image: tempImg, scaledToFitToSize: CGSizeMake(400, 800))
+            var imgData = UIImageJPEGRepresentation(scaleImg, 0.8)
+            dataArr.append(imgData)
+            return
+        })
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        var parameter : Dictionary<String , AnyObject> = ["user_id": userID! , "description" : desTxt!.text ]
+        ZXY_NetHelperOperate().startPostImg(urlString, parameter: parameter, imgData: dataArr, fileKey: "Filedata[]", success: {[weak self] (returnDic) -> Void in
+            "Hello"
+            MBProgressHUD.hideHUDForView(self?.view, animated: true)
+            self?.navigationController?.popToRootViewControllerAnimated(true)
+            return
+        }) { [weak self](failError) -> Void in
+            println(failError)
+            MBProgressHUD.hideHUDForView(self?.view, animated: true)
+        }
     }
     
-    func setAssetArr(assArr : [ALAsset])
+    
+    
+    func setPhoto(img : [UIImage])
     {
-        self.assetsArr = assArr
+        photoImg = img
+        
+    }
+    
+    func setAssetArr(assArr : [ALAsset]!)
+    {
+        for (index , value) in enumerate(assArr)
+        {
+            var tempImg = self.AlssetToUIImage(value)
+            photoImg?.append(tempImg)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -91,13 +124,14 @@ extension ZXY_AfterPickImgVC : UICollectionViewDelegate, UICollectionViewDataSou
         var currentRow = indexPath.row
         var currentSection = indexPath.section
         var cell = collectionView.dequeueReusableCellWithReuseIdentifier(ZXY_PicTakeImgCellID, forIndexPath: indexPath) as ZXY_PicTakeImgCell
-        if(self.assetsArr != nil)
+        
+        if(self.photoImg != nil)
         {
-            if(currentRow < self.assetsArr!.count)
+            if(currentRow < self.photoImg!.count)
             {
-                var currentAsset = self.assetsArr![currentRow]
-                var cgImg        = currentAsset.thumbnail()
-                cell.cellImg.image = UIImage(CGImage: cgImg.takeUnretainedValue())
+                var currentAsset = self.photoImg![currentRow]
+                
+                cell.cellImg.image = currentAsset
             }
             else
             {
@@ -124,9 +158,13 @@ extension ZXY_AfterPickImgVC : UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(self.assetsArr != nil)
+        if(isPhoto)
         {
-            return self.assetsArr!.count + 1
+            return 2
+        }
+        if(self.photoImg != nil)
+        {
+            return self.photoImg!.count + 1
         }
         else
         {
@@ -156,11 +194,11 @@ extension ZXY_AfterPickImgVC : UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         var currentRow = indexPath.row
         
-        if(self.assetsArr != nil)
+        if(self.photoImg != nil)
         {
-            if(currentRow == self.assetsArr?.count)
+            if(currentRow == self.photoImg?.count)
             {
-                if(self.assetsArr?.count == maxNumOfPhoto)
+                if(self.photoImg?.count == maxNumOfPhoto)
                 {
                     self.showAlertEasy("提示", messageContent: "最多只能选择一张图片")
                 }
@@ -174,11 +212,9 @@ extension ZXY_AfterPickImgVC : UICollectionViewDelegate, UICollectionViewDataSou
             }
             else
             {
-                var currentAsset = self.assetsArr![currentRow]
-                var currentpresent = currentAsset.defaultRepresentation()
-                var cgIMG = currentpresent.fullResolutionImage().takeUnretainedValue()
-                var img      = UIImage(CGImage: cgIMG)
-                self.showItemInMain(img!)
+                var currentAsset = self.photoImg![currentRow]
+                //var img = self.AlssetToUIImage(currentAsset)
+                self.showItemInMain(currentAsset)
             }
         }
         else
@@ -198,10 +234,10 @@ extension ZXY_AfterPickImgVC : UICollectionViewDelegate, UICollectionViewDataSou
     }
 }
 
-extension ZXY_AfterPickImgVC : ZXY_PickImgPictureVCDelegate , ZXY_ImagePickerDelegate , ZXY_PictureTakeDelegate
+extension ZXY_AfterPickImgVC : ZXY_PickImgPictureVCDelegate , ZXY_ImagePickerDelegate , ZXY_PictureTakeDelegate , UIImagePickerControllerDelegate , UINavigationControllerDelegate
 {
     func deletePhoto() {
-        assetsArr?.removeAll(keepCapacity: false)
+        photoImg?.removeAll(keepCapacity: false)
         currentCollectionV.reloadData()
     }
     
@@ -215,18 +251,42 @@ extension ZXY_AfterPickImgVC : ZXY_PickImgPictureVCDelegate , ZXY_ImagePickerDel
     }
     
     func clickTakePhotoBtn() {
-        
+        var photoPicker = UIImagePickerController()
+        photoPicker.sourceType = UIImagePickerControllerSourceType.Camera
+        photoPicker.delegate = self
+        self.presentViewController(photoPicker, animated: true) { () -> Void in
+            
+        }
+
     }
     
     func ZXY_ImagePicker(imagePicker: ZXY_ImagePickerTableVC, didFinishPicker assetArr: [ALAsset]) {
         
        for (index , value) in enumerate(assetArr)
        {
-            self.assetsArr?.append(value)
-        }
+            var tempImg = self.AlssetToUIImage(value)
+            photoImg?.append(tempImg)
+
+       }
         
         self.currentCollectionV.reloadData()
         
     }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        picker.dismissViewControllerAnimated(true, completion: {[weak self] () -> Void in
+            self?.photoImg?.append(image)
+            self?.currentCollectionV.reloadData()
+            
+        })
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
+
 
 }

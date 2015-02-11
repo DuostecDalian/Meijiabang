@@ -162,7 +162,7 @@ class ZXY_SheetView: UIView {
         {
             return
         }
-        UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
+        UIView.animateWithDuration(1, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {[weak self] () -> Void in
             self?.imgBack?.alpha = 0
             if var isNil = self?._parentView
             {

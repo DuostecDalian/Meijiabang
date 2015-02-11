@@ -81,6 +81,57 @@ class ZXY_NetHelperOperate: NSObject {
 
     }
     
+    func startPostImg(urlSring : String , parameter : Dictionary<String , AnyObject>? ,imgData: [NSData] , fileKey: String , success:((returnDic : Dictionary<String , AnyObject>) -> Void)? , failure:((failError : NSError) -> Void)?)
+    {
+        var afnet = AFHTTPRequestOperationManager()
+        var ser   = AFHTTPRequestSerializer()
+        ser.timeoutInterval = 30
+        afnet.responseSerializer = AFJSONResponseSerializer()
+        afnet.responseSerializer.acceptableContentTypes = NSSet(object: "text/html")
+        afnet.requestSerializer  = ser
+        afnet.requestSerializer  = ser
+        var stampTime = timeStamp()
+        var sendParameter = Dictionary<String ,AnyObject>()
+        if(parameter != nil)
+        {
+            sendParameter = parameter!
+            sendParameter["timestamp"] = stampTime
+            sendParameter["token"]     = timeStampMD5("meijia"+stampTime)
+        }
+        else
+        {
+            var stampTime = timeStamp()
+            //var sendParameter = Dictionary<String ,AnyObject>()
+            sendParameter["timestamp"] = stampTime
+            sendParameter["token"]     = timeStampMD5("meijia"+stampTime)
+        }
+        afnet.POST(urlSring, parameters: sendParameter, constructingBodyWithBlock: { (formData) -> Void in
+            
+            imgData.map({
+                formData.appendPartWithFileData($0, name: fileKey, fileName: "tiancailcy.jpg", mimeType: "image/jpeg")
+            })
+            return
+            
+        }, success: { (operation, anyObject) -> Void in
+            println(operation.responseString)
+            if(success != nil)
+            {
+                var returnData = operation.responseData
+                var json: AnyObject?       = NSJSONSerialization.JSONObjectWithData(returnData, options: NSJSONReadingOptions.MutableLeaves, error: nil)
+                var jsonDic : Dictionary<String , AnyObject> = json as Dictionary<String, AnyObject>
+                success!(returnDic: jsonDic)
+            }
+        }) { (operation, error) -> Void in
+            if(failure != nil)
+            {
+                failure!(failError:error)
+            }
+
+        }
+
+
+    }
+    
     /**
     获取时间戳
     
