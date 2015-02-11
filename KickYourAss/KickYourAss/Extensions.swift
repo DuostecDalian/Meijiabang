@@ -43,6 +43,13 @@ extension UIViewController {
     func alertWithErrorCode(code: Double) {
         alert(LCYCommon.sharedInstance.errorMessage(code))
     }
+    var networkFailedBlock: (() -> ()) {
+        return {
+            [weak self] in
+            self?.alertNetworkFailed()
+            return
+        }
+    }
 }
 
 extension Dictionary {
@@ -83,6 +90,14 @@ extension String {
     */
     func checkNull() -> String? {
         return self == "null" ? nil : self
+    }
+    
+    func stringFromTimeStamp(#format: String) -> String {
+        let timeInterval = doubleValue
+        let date = NSDate(timeIntervalSince1970: timeInterval)
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = format
+        return formatter.stringFromDate(date)
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  LCYOrderBaseViewController.swift
+//  LCYMyCommentViewController.swift
 //  KickYourAss
 //
 //  Created by eagle on 15/2/11.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class LCYOrderBaseViewController: UITableViewController {
+class LCYMyCommentViewController: UITableViewController {
+    
+    private var dataInfo = [CYMJUserListOrderEvaData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +20,7 @@ class LCYOrderBaseViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        tableView.contentInset = UIEdgeInsets(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
-        tableView.scrollIndicatorInsets = UIEdgeInsets(top: 64.0, left: 0.0, bottom: 0.0, right: 0.0)
-        
         tableView.hideExtraSeprator = true
-        
         reload()
     }
 
@@ -31,9 +29,28 @@ class LCYOrderBaseViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Actions
     func reload() {
-        // 仅仅用于子类重写
+        let parameter = [
+            "user_id": LCYCommon.sharedInstance.userInfo!.userID,
+            "p": "1"
+        ]
+        LCYNetworking.sharedInstance.POST(
+            Api: LCYNetworking.LCYApi.UserListOrderEva,
+            parameters: parameter,
+            success: { [weak self](object) -> Void in
+                let retrieved = CYMJUserListOrderEvaBase.modelObjectWithDictionary(object)
+                if retrieved.result == 1000 {
+                    self?.dataInfo.removeAll(keepCapacity: false)
+                    self?.dataInfo.extend(retrieved.data as [CYMJUserListOrderEvaData])
+                    self?.tableView.reloadData()
+                } else {
+                    self?.alertWithErrorCode(retrieved.result)
+                }
+                return
+            }) { [weak self]() -> Void in
+                self?.alertNetworkFailed()
+                return
+        }
     }
 
     // MARK: - Table view data source
@@ -41,24 +58,28 @@ class LCYOrderBaseViewController: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return dataInfo.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(LCYMyCommentTableViewCell.identifier, forIndexPath: indexPath) as LCYMyCommentTableViewCell
 
         // Configure the cell...
-
+        let data = dataInfo[indexPath.row]
+        cell.nickNameLabel.text = data.nickName
+        cell.imagePath = data.headImage?.toAbsoluteImagePath()
+        cell.markCount = data.score.doubleValue
+        cell.contentLabel.text = data.comment
+        cell.timeLabel.text = data.ctime.stringFromTimeStamp(format: "yyyy-MM-dd HH:mm:ss")
+        
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

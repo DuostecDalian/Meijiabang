@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<string>等待接受</string>
+	<key>2</key>
+	<string>顾客取消</string>
+	<key>3</key>
+	<string>美甲师拒绝</string>
+	<key>4</key>
+	<string>美甲师接受</string>
+	<key>5</key>
+	<string>美甲师取消</string>
+	<key>6</key>
+	<string>顾客取消</string>
+	<key>7</key>
+	<string>完成</string>
+	<key>8</key>
+	<string>用户删除订单</string>
+	<key>9</key>
+	<string>美甲师删除订单</string>
+</dict>
+</plist>
