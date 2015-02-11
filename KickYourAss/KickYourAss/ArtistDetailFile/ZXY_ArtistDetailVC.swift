@@ -16,8 +16,10 @@ class ZXY_ArtistDetailVC: UIViewController {
     
     @IBOutlet weak var isAttenBtn: UIButton!
     
+    @IBOutlet weak var currentTool: UIToolbar!
     
     
+    @IBOutlet weak var heightOfTab: NSLayoutConstraint!
     
     
     
@@ -196,6 +198,13 @@ class ZXY_ArtistDetailVC: UIViewController {
                 isAttenBtn.setImage(UIImage(named: "artistPay_up"), forState: UIControlState.Normal)
                 isAttenBtn.setImage(UIImage(named: "artistPay_up"), forState: UIControlState.Highlighted)
             }
+            
+            if(currentUser?.role! == "1")
+            {
+                self.heightOfTab.constant = 0
+                self.currentTool.hidden = true
+            }
+            
             var tempValue = (currentUser!.score as NSString).integerValue
             if(tempValue >= rateItem.count)
             {
@@ -416,4 +425,34 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
 
     }
     
+    @IBAction func toDataVC(sender : AnyObject)
+    {
+        if(userID == nil)
+        {
+            return
+        }
+
+        var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+        
+        if(myUserID == nil)
+        {
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        else
+        {
+            self.performSegueWithIdentifier("toDateVC", sender: userID)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if(segue.identifier == "toDateVC")
+        {
+            var vc : ZXY_DateVC = segue.destinationViewController as ZXY_DateVC
+            vc.setUserID(userID)
+            
+        }
+    }
 }

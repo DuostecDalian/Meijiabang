@@ -189,5 +189,37 @@ extension UIViewController
         customerV.layer.borderWidth = borderWidth
         customerV.layer.borderColor = borderColor.CGColor
     }
+    
+    func AlssetToUIImage(currentSet :  ALAsset) -> UIImage
+    {
+        var alPresent = currentSet.defaultRepresentation()
+        var cgIMG  : CGImageRef   =  alPresent.fullResolutionImage().takeUnretainedValue() as CGImageRef
+        var ori  : ALAssetOrientation? = alPresent.orientation()
+        var imgOri : UIImageOrientation = UIImageOrientation.Up
+        if(ori != nil)
+        {
+            switch ori!
+            {
+            case ALAssetOrientation.Down :
+                imgOri = UIImageOrientation.Down
+            case ALAssetOrientation.Left :
+                imgOri = UIImageOrientation.Left
+            case ALAssetOrientation.Right :
+                imgOri = UIImageOrientation.Right
+            case ALAssetOrientation.DownMirrored :
+                imgOri = UIImageOrientation.DownMirrored
+            case ALAssetOrientation.LeftMirrored :
+                imgOri = UIImageOrientation.LeftMirrored
+            case ALAssetOrientation.RightMirrored :
+                imgOri = UIImageOrientation.RightMirrored
+            case ALAssetOrientation.UpMirrored :
+                imgOri = UIImageOrientation.UpMirrored
+            default:
+                imgOri = UIImageOrientation.Up
+            }
+        }
+        var uiImg = UIImage(CGImage: cgIMG, scale: 1, orientation: imgOri)
+        return uiImg!
+    }
 
 }

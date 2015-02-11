@@ -85,4 +85,14 @@ struct ZXY_ALLApi
     *  添加图集
     */
     static let ZXY_SubmitAlbumAPI     = "Album/add_album"
+    
+    /**
+    *  删除图集
+    */
+    static let ZXY_DeleteAlbumAPI     = "Album/album_delete"
+    
+    /**
+    *  修改图集描述信息
+    */
+    static let ZXY_ModifyAlbumAPI     = "Album/modify_content"
 }

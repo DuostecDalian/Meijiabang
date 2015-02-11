@@ -73,7 +73,7 @@ class MainViewController: UITabBarController {
 
 }
 
-extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDelegate , ZXY_ImagePickerDelegate
+extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDelegate , ZXY_ImagePickerDelegate , UINavigationControllerDelegate,UIImagePickerControllerDelegate
 {
     func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
         if(viewController == (tabBarController.viewControllers![3] as UIViewController))
@@ -101,6 +101,12 @@ extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDeleg
     
     func clickTakePhotoBtn() {
         var currentVC: UIViewController = self.viewControllers![self.selectedIndex] as UIViewController
+        var photoPicker = UIImagePickerController()
+        photoPicker.sourceType = UIImagePickerControllerSourceType.Camera
+        photoPicker.delegate = self
+        currentVC.presentViewController(photoPicker, animated: true) { () -> Void in
+            
+        }
     }
     
     func ZXY_ImagePicker(imagePicker: ZXY_ImagePickerTableVC, didFinishPicker assetArr: [ALAsset]) {
@@ -111,5 +117,22 @@ extension MainViewController : UITabBarControllerDelegate , ZXY_PictureTakeDeleg
         //currentVC.presentViewController(vc, animated: true) { () -> Void in
         currentVC.pushViewController(vc, animated: true)
         //}
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+            var currentVC: UINavigationController = self.viewControllers![self.selectedIndex] as UINavigationController
+            var story = UIStoryboard(name: "ZXYTakePic", bundle: nil)
+            var vc    = story.instantiateViewControllerWithIdentifier("ZXY_AfterPickImgVCID") as ZXY_AfterPickImgVC
+            vc.setPhoto([image])
+            currentVC.pushViewController(vc, animated: true)
+        })
+        
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        picker.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
     }
 }
