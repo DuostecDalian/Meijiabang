@@ -12,8 +12,18 @@ class LCYCareViewController: UIPageViewController {
     
     @IBOutlet private weak var icySegmentedControl: UISegmentedControl!
     
-    private weak var artistVC: UIViewController?
-    private weak var normalVC: UIViewController?
+    private weak var artistVC: LCYCareBaseViewController? {
+        didSet {
+            artistVC?.iCareFlag = iCareFlag
+        }
+    }
+    private weak var normalVC: LCYCareBaseViewController? {
+        didSet {
+            normalVC?.iCareFlag = iCareFlag
+        }
+    }
+    
+    var iCareFlag = true
     
     @IBAction func segmentChanged(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -43,6 +53,11 @@ class LCYCareViewController: UIPageViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.translucent = true
     }
     
 

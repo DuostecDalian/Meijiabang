@@ -12,6 +12,8 @@ class LCYCareBaseViewController: UITableViewController {
     
     let geoManager = LCYGeoManager()
     var location: CLLocation?
+    
+    var iCareFlag = true
 
     override func viewDidLoad() {
         super.viewDidLoad()

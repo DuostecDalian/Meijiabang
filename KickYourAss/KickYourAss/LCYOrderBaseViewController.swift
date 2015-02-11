@@ -1,16 +1,14 @@
 //
-//  LCYCareNormalViewController.swift
+//  LCYOrderBaseViewController.swift
 //  KickYourAss
 //
-//  Created by eagle on 15/2/10.
+//  Created by eagle on 15/2/11.
 //  Copyright (c) 2015年 多思科技. All rights reserved.
 //
 
 import UIKit
 
-class LCYCareNormalViewController: LCYCareBaseViewController {
-    
-    private var dataInfo = [CYMJUserListAtListData]()
+class LCYOrderBaseViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,43 +18,11 @@ class LCYCareNormalViewController: LCYCareBaseViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
-    // MARK: - Action
-    override func reload() {
-        if let userID = LCYCommon.sharedInstance.userInfo?.userID {
-            let parameter = [
-                "user_id": userID,
-                "role": "1"
-            ]
-            let API = iCareFlag ? LCYNetworking.LCYApi.UserListAtList : LCYNetworking.LCYApi.UserListAtList2
-            LCYNetworking.sharedInstance.POST(
-                Api: API,
-                parameters: parameter,
-                success: { [weak self](object) -> Void in
-                    let retrieved = CYMJUserListAtListBase.modelObjectWithDictionary(object)
-                    if retrieved.result == 1000 {
-                        self?.dataInfo.extend(retrieved.data as [CYMJUserListAtListData])
-                        self?.tableView.reloadData()
-                    } else {
-                        self?.alertWithErrorCode(retrieved.result)
-                    }
-                    return
-            },
-                fail: { () -> Void in
-                return
-            })
-        }
     }
 
     // MARK: - Table view data source
@@ -64,38 +30,24 @@ class LCYCareNormalViewController: LCYCareBaseViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return dataInfo.count
+        return 0
     }
 
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(LCYCareNormalCell.identifier, forIndexPath: indexPath) as LCYCareNormalCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
 
         // Configure the cell...
-        let data = dataInfo[indexPath.row]
-        cell.nickNameLabel.text = data.nickName
-        cell.albumLabel.text = "图集" + data.albumCount
-        cell.careLabel.text = "关注" + data.byAttention
-        cell.completedOrder.text = "完成订单" + data.orderCount2
-        cell.markCount = data.score.doubleValue
-        cell.imagePath = data.headImage?.toAbsoluteImagePath()
 
         return cell
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let data = dataInfo[indexPath.row]
-        let toStoryboard = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
-        let toViewController = toStoryboard.instantiateViewControllerWithIdentifier(ZXY_ArtistDetailVCID) as ZXY_ArtistDetailVC
-        toViewController.setUserID(data.userId)
-        navigationController?.navigationBar.translucent = false
-        navigationController?.pushViewController(toViewController, animated: true)
-    }
+    */
 
     /*
     // Override to support conditional editing of the table view.

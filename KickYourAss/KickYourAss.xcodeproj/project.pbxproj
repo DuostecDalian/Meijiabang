@@ -14,6 +14,8 @@
 		286C4C6F1A8882E8009983D0 /* ICYProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C4C6E1A8882E8009983D0 /* ICYProfileCell.swift */; };
 		286C4C711A8884B9009983D0 /* ICYProfileAvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286C4C701A8884B9009983D0 /* ICYProfileAvatarCell.swift */; };
 		2884A0081A8AF27A00716769 /* LCYCareBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2884A0071A8AF27A00716769 /* LCYCareBaseViewController.swift */; };
+		2884A00E1A8B402600716769 /* LCYOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2884A00D1A8B402600716769 /* LCYOrderViewController.swift */; };
+		2884A0101A8B432800716769 /* LCYOrderBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2884A00F1A8B432800716769 /* LCYOrderBaseViewController.swift */; };
 		288B0C161A80BBD400CA073A /* LCYCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C151A80BBD400CA073A /* LCYCommon.swift */; };
 		288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */; };
 		288B0C1E1A80DE5200CA073A /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 288B0C1D1A80DE5200CA073A /* UIImage+Resize.m */; };
@@ -164,6 +166,8 @@
 		286C4C6E1A8882E8009983D0 /* ICYProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICYProfileCell.swift; sourceTree = "<group>"; };
 		286C4C701A8884B9009983D0 /* ICYProfileAvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICYProfileAvatarCell.swift; sourceTree = "<group>"; };
 		2884A0071A8AF27A00716769 /* LCYCareBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCareBaseViewController.swift; sourceTree = "<group>"; };
+		2884A00D1A8B402600716769 /* LCYOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYOrderViewController.swift; sourceTree = "<group>"; };
+		2884A00F1A8B432800716769 /* LCYOrderBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYOrderBaseViewController.swift; sourceTree = "<group>"; };
 		288B0C151A80BBD400CA073A /* LCYCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCommon.swift; sourceTree = "<group>"; };
 		288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterArtistDetailViewController.swift; sourceTree = "<group>"; };
 		288B0C1C1A80DE5200CA073A /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -399,6 +403,15 @@
 			name = Setting;
 			sourceTree = "<group>";
 		};
+		2884A00C1A8B400F00716769 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				2884A00D1A8B402600716769 /* LCYOrderViewController.swift */,
+				2884A00F1A8B432800716769 /* LCYOrderBaseViewController.swift */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
 		288B0C1B1A80DE4B00CA073A /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,9 +426,9 @@
 			children = (
 				289FC4CA1A83390700F2A38E /* Model */,
 				289A30401A78A6E700B5350C /* register_help.html */,
+				288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */,
 				288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */,
 				288CFB6C1A84CB310010E95A /* AboutMeHeaderView.swift */,
-				288C94411A6FABAA009DBFC6 /* AboutMeViewController.swift */,
 				288C94441A6FABAA009DBFC6 /* LoginViewController.swift */,
 				289A303E1A78A32600B5350C /* RegisterViewController.swift */,
 				28C421041A7A251500B1EB5B /* RegisterTextCell.swift */,
@@ -423,6 +436,7 @@
 				289A30421A78A74400B5350C /* RegisterWebViewController.swift */,
 				288B0C191A80D3FF00CA073A /* RegisterArtistDetailViewController.swift */,
 				280E8A0E1A89F00900C04865 /* Care */,
+				2884A00C1A8B400F00716769 /* Order */,
 				286C4C671A887AA3009983D0 /* Setting */,
 			);
 			name = AboutMe;
@@ -1034,6 +1048,7 @@
 				8BA57A9B1A78BD5700848515 /* ZXY_NailArtistListVC.swift in Sources */,
 				8BEEA19D1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift in Sources */,
 				8BA57A9E1A78BE5A00848515 /* ZXY_ArtistListCell.swift in Sources */,
+				2884A0101A8B432800716769 /* LCYOrderBaseViewController.swift in Sources */,
 				288CFB6D1A84CB310010E95A /* AboutMeHeaderView.swift in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
@@ -1087,6 +1102,7 @@
 				289A303F1A78A32600B5350C /* RegisterViewController.swift in Sources */,
 				8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */,
 				8BE425DF1A80B46300221AED /* ZXY_ImagePickerTableVC.swift in Sources */,
+				2884A00E1A8B402600716769 /* LCYOrderViewController.swift in Sources */,
 				289A30431A78A74400B5350C /* RegisterWebViewController.swift in Sources */,
 				8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */,
 				288CFB741A84CD790010E95A /* CYMJUserInfoData.m in Sources */,

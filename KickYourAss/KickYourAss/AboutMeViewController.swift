@@ -40,6 +40,8 @@ class AboutMeViewController: UICollectionViewController {
         // Do any additional setup after loading the view.
         navigationItem.title = "我的"
         
+        navigationController?.interactivePopGestureRecognizer.enabled = false
+        
         refreshHeader()
     }
 
@@ -52,6 +54,7 @@ class AboutMeViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.hidden = true
         navigationController?.toolbarHidden = true
+        navigationController?.navigationBar.translucent = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -112,6 +115,7 @@ class AboutMeViewController: UICollectionViewController {
                 destination.userInfo = userInfo
             case "showCare":
                 let destination = segue.destinationViewController as LCYCareViewController
+                destination.iCareFlag = sender as? Bool ?? true
             default:
                 break
             }
@@ -150,9 +154,26 @@ class AboutMeViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if LCYCommon.sharedInstance.userInfo == nil {
+            alertLoginNeeded()
+            return
+        }
         switch indexPath.row {
         case 0:
-            performSegueWithIdentifier("showCare", sender: nil)
+            performSegueWithIdentifier("showCare", sender: true)
+        case 1:
+            performSegueWithIdentifier("showCare", sender: false)
+        case 3:
+            let storyBoard = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+            let collection = storyBoard.instantiateViewControllerWithIdentifier(ZXY_ArtistDetailWorksColleVCID) as ZXY_ArtistDetailWorksColleVC
+            collection.setCurrentUserID(LCYCommon.sharedInstance.userInfo!.userID)
+            collection.hidesBottomBarWhenPushed = true
+            collection.navigationItem.title = "我的图集"
+            navigationController?.navigationBar.translucent = false
+            navigationController?.navigationBar.hidden = false
+            navigationController?.pushViewController(collection, animated: true)
+        case 4:
+            performSegueWithIdentifier("showOrder", sender: nil)
         case 7:
             if let info = LCYCommon.sharedInstance.userInfo {
                 if userInfo != nil {
