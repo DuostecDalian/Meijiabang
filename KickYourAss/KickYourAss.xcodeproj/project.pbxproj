@@ -120,6 +120,8 @@
 		8BC5CC761A71F16900C513DF /* ZXY_BMKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */; };
 		8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */; };
 		8BCACBA41A88910400B01D94 /* ZXY_PickImgPictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCACBA31A88910400B01D94 /* ZXY_PickImgPictureVC.swift */; };
+		8BD218431A8AF49D00DDF441 /* ZXY_ChangeDateInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD218421A8AF49D00DDF441 /* ZXY_ChangeDateInfoCell.swift */; };
+		8BD218451A8AF4B000DDF441 /* ZXY_ChangeUserSexCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD218441A8AF4B000DDF441 /* ZXY_ChangeUserSexCell.swift */; };
 		8BE425D41A809E7C00221AED /* ZXY_PictureTakeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */; };
 		8BE425D61A809E8F00221AED /* ZXYTakePic.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */; };
 		8BE425DA1A80A42100221AED /* ZXYTakePicAsset.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */; };
@@ -323,6 +325,8 @@
 		8BC5CC751A71F16900C513DF /* ZXY_BMKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_BMKAnnotation.swift; sourceTree = "<group>"; };
 		8BC5CC771A71F22100C513DF /* DEDEDEDET.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEDEDEDET.swift; sourceTree = "<group>"; };
 		8BCACBA31A88910400B01D94 /* ZXY_PickImgPictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PickImgPictureVC.swift; sourceTree = "<group>"; };
+		8BD218421A8AF49D00DDF441 /* ZXY_ChangeDateInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ChangeDateInfoCell.swift; sourceTree = "<group>"; };
+		8BD218441A8AF4B000DDF441 /* ZXY_ChangeUserSexCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ChangeUserSexCell.swift; sourceTree = "<group>"; };
 		8BE425D31A809E7C00221AED /* ZXY_PictureTakeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_PictureTakeVC.swift; sourceTree = "<group>"; };
 		8BE425D51A809E8F00221AED /* ZXYTakePic.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZXYTakePic.storyboard; sourceTree = "<group>"; };
 		8BE425D91A80A42100221AED /* ZXYTakePicAsset.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ZXYTakePicAsset.xcassets; sourceTree = "<group>"; };
@@ -815,6 +819,8 @@
 				8BA49BB31A7F419A0047EB85 /* ZXY_PictureImageCell.swift */,
 				8BA49BB51A7F41B70047EB85 /* ZXY_PictureFootterCell.swift */,
 				8B80219F1A89E95500F4C890 /* ZXY_DateVCCell.swift */,
+				8BD218421A8AF49D00DDF441 /* ZXY_ChangeDateInfoCell.swift */,
+				8BD218441A8AF4B000DDF441 /* ZXY_ChangeUserSexCell.swift */,
 			);
 			path = artistdDetailCell;
 			sourceTree = "<group>";
@@ -1036,6 +1042,7 @@
 				28D52E891A6CD2CB00C17CF0 /* MainViewController.swift in Sources */,
 				289FC4D11A83391200F2A38E /* CYMJUserLoginData.m in Sources */,
 				8BA57A8F1A78AF5C00848515 /* MJRefreshBaseView.m in Sources */,
+				8BD218431A8AF49D00DDF441 /* ZXY_ChangeDateInfoCell.swift in Sources */,
 				286C4C6B1A887ECF009983D0 /* SettingCell.swift in Sources */,
 				288CFB731A84CD790010E95A /* CYMJUserInfoBase.m in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
@@ -1110,6 +1117,7 @@
 				288C94471A6FABAA009DBFC6 /* AboutMeViewController.swift in Sources */,
 				28B9CCB81A8A01E200421D66 /* CYMJUserListAtListData.m in Sources */,
 				8B46C4461A77313A0093B5DA /* WaterfallLayout.m in Sources */,
+				8BD218451A8AF4B000DDF441 /* ZXY_ChangeUserSexCell.swift in Sources */,
 				8BA49BBF1A7F4C040047EB85 /* ZXY_PictureDetailBase.m in Sources */,
 				8B6AC4661A76467D005CEE8D /* ZXY_LocationRelative.swift in Sources */,
 				286C4C711A8884B9009983D0 /* ICYProfileAvatarCell.swift in Sources */,

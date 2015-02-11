@@ -15,8 +15,8 @@ class ZXY_DateVC: UIViewController {
     private var titleList : [Dictionary<String , AnyObject>]!
     private var dataUserID : String!
     private var nameText : String?
-    private var sexText  : String?
-    private var dateTime : String?
+    private var sexFlag  : Int?
+    private var dateTime : Int?
     private var dateAddress : String?
     private var customPhone : String?
     
@@ -66,10 +66,13 @@ class ZXY_DateVC: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        if(segue == "toDateInfoVC")
+        if(segue.identifier == "toDateInfoVC")
         {
-            var tagID = sender as Int
-            
+            //var tagID = sender as Int
+            var vc    = segue.destinationViewController as ZXY_DateChangeInfoVC
+            vc.delegate = self
+            var parameter = sender as Dictionary<String , AnyObject>
+            vc.setCurrentTypeDic(parameter)
         }
     }
     
@@ -106,7 +109,7 @@ extension ZXY_DateVC : UITableViewDelegate , UITableViewDataSource
             self.showTimePicker()
             return
         }
-        self.performSegueWithIdentifier("toDateInfoVC", sender: currentTitle["tag"])
+        self.performSegueWithIdentifier("toDateInfoVC", sender: currentTitle)
     }
     
     func showTimePicker()
@@ -127,10 +130,22 @@ extension ZXY_DateVC : UITableViewDelegate , UITableViewDataSource
     
 }
 
-extension ZXY_DateVC
+extension ZXY_DateVC : ZXY_DateChangeInfoVCDelegate
 {
     
     @IBAction func datePickChange(sender: AnyObject) {
+        var picker        = sender as UIDatePicker
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm"
+        var currentDate   = picker.date as NSDate
+        var dateString    = dateFormatter.stringFromDate(currentDate)
+        var currentTitle = titleList[2] as Dictionary<String , AnyObject>
+        var titleString  = currentTitle["title"] as String
+        valueList?.extend([titleString : dateString])
+        currentTable.reloadData()
+        var stamp = currentDate.timeIntervalSince1970
+        dateTime  = Int(stamp)
+        println("timeStamp is \(dateTime)")
     }
     
     
@@ -145,5 +160,13 @@ extension ZXY_DateVC
             self?.datePickerView.removeFromSuperview()
             return
         }
+    }
+    
+    func afterChange(sendKey: String, andValue sendValue: String) {
+        valueList?.extend([sendKey : sendValue])
+    }
+    
+    func changeSex(sexFlag: Int) {
+        self.sexFlag = sexFlag
     }
 }
