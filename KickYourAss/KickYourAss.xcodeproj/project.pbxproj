@@ -82,6 +82,18 @@
 		8B7B775A1A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */; };
 		8B7B775C1A81DC240004DF84 /* ZXY_ImagePickCoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */; };
 		8B7B77601A8212480004DF84 /* ZXY_ImgPickBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */; };
+		8B7F3DD71A8C3BD600594506 /* OrderStatus.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B7F3DD61A8C3BD600594506 /* OrderStatus.plist */; };
+		8B7F3DE91A8C3C1500594506 /* CYMJOrderListBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DDA1A8C3C1500594506 /* CYMJOrderListBase.m */; };
+		8B7F3DEA1A8C3C1500594506 /* CYMJOrderListData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DDC1A8C3C1500594506 /* CYMJOrderListData.m */; };
+		8B7F3DEB1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DDF1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m */; };
+		8B7F3DEC1A8C3C1500594506 /* CYMJUserListOrderEvaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE11A8C3C1500594506 /* CYMJUserListOrderEvaData.m */; };
+		8B7F3DED1A8C3C1500594506 /* LCYMyCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE21A8C3C1500594506 /* LCYMyCommentTableViewCell.swift */; };
+		8B7F3DEE1A8C3C1500594506 /* LCYMyCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE31A8C3C1500594506 /* LCYMyCommentViewController.swift */; };
+		8B7F3DEF1A8C3C1500594506 /* LCYOrderBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE41A8C3C1500594506 /* LCYOrderBaseViewController.swift */; };
+		8B7F3DF01A8C3C1500594506 /* LCYOrderFromMeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE51A8C3C1500594506 /* LCYOrderFromMeCell.swift */; };
+		8B7F3DF11A8C3C1500594506 /* LCYOrderFromMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE61A8C3C1500594506 /* LCYOrderFromMeViewController.swift */; };
+		8B7F3DF21A8C3C1500594506 /* LCYOrderToMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE71A8C3C1500594506 /* LCYOrderToMeViewController.swift */; };
+		8B7F3DF31A8C3C1500594506 /* LCYOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F3DE81A8C3C1500594506 /* LCYOrderViewController.swift */; };
 		8B80219C1A89D0CD00F4C890 /* ZXY_ChangeCommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80219B1A89D0CD00F4C890 /* ZXY_ChangeCommentVC.swift */; };
 		8B80219E1A89E14400F4C890 /* ZXY_DateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80219D1A89E14400F4C890 /* ZXY_DateVC.swift */; };
 		8B8021A01A89E95500F4C890 /* ZXY_DateVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B80219F1A89E95500F4C890 /* ZXY_DateVCCell.swift */; };
@@ -538,6 +550,24 @@
 		8B7B77591A81D8670004DF84 /* ZXY_ImagePickerCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickerCollectionVC.swift; sourceTree = "<group>"; };
 		8B7B775B1A81DC230004DF84 /* ZXY_ImagePickCoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ImagePickCoCell.swift; sourceTree = "<group>"; };
 		8B7B775F1A8212480004DF84 /* ZXY_ImgPickBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZXY_ImgPickBundle.bundle; sourceTree = "<group>"; };
+		8B7F3DD61A8C3BD600594506 /* OrderStatus.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OrderStatus.plist; sourceTree = "<group>"; };
+		8B7F3DD81A8C3C1500594506 /* CYMJOrderList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJOrderList.h; sourceTree = "<group>"; };
+		8B7F3DD91A8C3C1500594506 /* CYMJOrderListBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJOrderListBase.h; sourceTree = "<group>"; };
+		8B7F3DDA1A8C3C1500594506 /* CYMJOrderListBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJOrderListBase.m; sourceTree = "<group>"; };
+		8B7F3DDB1A8C3C1500594506 /* CYMJOrderListData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJOrderListData.h; sourceTree = "<group>"; };
+		8B7F3DDC1A8C3C1500594506 /* CYMJOrderListData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJOrderListData.m; sourceTree = "<group>"; };
+		8B7F3DDD1A8C3C1500594506 /* CYMJUserListOrderEva.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserListOrderEva.h; sourceTree = "<group>"; };
+		8B7F3DDE1A8C3C1500594506 /* CYMJUserListOrderEvaBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserListOrderEvaBase.h; sourceTree = "<group>"; };
+		8B7F3DDF1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJUserListOrderEvaBase.m; sourceTree = "<group>"; };
+		8B7F3DE01A8C3C1500594506 /* CYMJUserListOrderEvaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJUserListOrderEvaData.h; sourceTree = "<group>"; };
+		8B7F3DE11A8C3C1500594506 /* CYMJUserListOrderEvaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJUserListOrderEvaData.m; sourceTree = "<group>"; };
+		8B7F3DE21A8C3C1500594506 /* LCYMyCommentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYMyCommentTableViewCell.swift; sourceTree = "<group>"; };
+		8B7F3DE31A8C3C1500594506 /* LCYMyCommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYMyCommentViewController.swift; sourceTree = "<group>"; };
+		8B7F3DE41A8C3C1500594506 /* LCYOrderBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYOrderBaseViewController.swift; sourceTree = "<group>"; };
+		8B7F3DE51A8C3C1500594506 /* LCYOrderFromMeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYOrderFromMeCell.swift; sourceTree = "<group>"; };
+		8B7F3DE61A8C3C1500594506 /* LCYOrderFromMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYOrderFromMeViewController.swift; sourceTree = "<group>"; };
+		8B7F3DE71A8C3C1500594506 /* LCYOrderToMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYOrderToMeViewController.swift; sourceTree = "<group>"; };
+		8B7F3DE81A8C3C1500594506 /* LCYOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYOrderViewController.swift; sourceTree = "<group>"; };
 		8B80219B1A89D0CD00F4C890 /* ZXY_ChangeCommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_ChangeCommentVC.swift; sourceTree = "<group>"; };
 		8B80219D1A89E14400F4C890 /* ZXY_DateVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_DateVC.swift; sourceTree = "<group>"; };
 		8B80219F1A89E95500F4C890 /* ZXY_DateVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXY_DateVCCell.swift; sourceTree = "<group>"; };
@@ -1036,6 +1066,23 @@
 		288C944B1A6FABDB009DBFC6 /* AboutMe */ = {
 			isa = PBXGroup;
 			children = (
+				8B7F3DD81A8C3C1500594506 /* CYMJOrderList.h */,
+				8B7F3DD91A8C3C1500594506 /* CYMJOrderListBase.h */,
+				8B7F3DDA1A8C3C1500594506 /* CYMJOrderListBase.m */,
+				8B7F3DDB1A8C3C1500594506 /* CYMJOrderListData.h */,
+				8B7F3DDC1A8C3C1500594506 /* CYMJOrderListData.m */,
+				8B7F3DDD1A8C3C1500594506 /* CYMJUserListOrderEva.h */,
+				8B7F3DDE1A8C3C1500594506 /* CYMJUserListOrderEvaBase.h */,
+				8B7F3DDF1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m */,
+				8B7F3DE01A8C3C1500594506 /* CYMJUserListOrderEvaData.h */,
+				8B7F3DE11A8C3C1500594506 /* CYMJUserListOrderEvaData.m */,
+				8B7F3DE21A8C3C1500594506 /* LCYMyCommentTableViewCell.swift */,
+				8B7F3DE31A8C3C1500594506 /* LCYMyCommentViewController.swift */,
+				8B7F3DE41A8C3C1500594506 /* LCYOrderBaseViewController.swift */,
+				8B7F3DE51A8C3C1500594506 /* LCYOrderFromMeCell.swift */,
+				8B7F3DE61A8C3C1500594506 /* LCYOrderFromMeViewController.swift */,
+				8B7F3DE71A8C3C1500594506 /* LCYOrderToMeViewController.swift */,
+				8B7F3DE81A8C3C1500594506 /* LCYOrderViewController.swift */,
 				289FC4CA1A83390700F2A38E /* Model */,
 				289A30401A78A6E700B5350C /* register_help.html */,
 				288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */,
@@ -1062,6 +1109,7 @@
 				28B9CCBD1A8A0E1A00421D66 /* LCYGeoManager.swift */,
 				288B0C151A80BBD400CA073A /* LCYCommon.swift */,
 				8BECFF291A833430009FFBE3 /* ErrorMessage.plist */,
+				8B7F3DD61A8C3BD600594506 /* OrderStatus.plist */,
 			);
 			name = LCYCommon;
 			sourceTree = "<group>";
@@ -2409,6 +2457,7 @@
 				8BD21B601A8B4F2C00DDF441 /* group_participant_add@2x.png in Resources */,
 				8BD21B001A8B4F0D00DDF441 /* chatBar_more_camera@2x.png in Resources */,
 				8BD21AF11A8B4F0D00DDF441 /* chatBar_recordSelected.png in Resources */,
+				8B7F3DD71A8C3BD600594506 /* OrderStatus.plist in Resources */,
 				8BD21ABC1A8B4F0D00DDF441 /* VoiceSearchFeedback018@2x.png in Resources */,
 				8BD21AAF1A8B4F0D00DDF441 /* VoiceSearchFeedback012.png in Resources */,
 				8BD21AF41A8B4F0D00DDF441 /* chatBar_recordSelectedBg@2x.png in Resources */,
@@ -2549,9 +2598,11 @@
 				8BEEA19D1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift in Sources */,
 				8BD2194E1A8B4DE300DDF441 /* UIResponder+Router.m in Sources */,
 				8BA57A9E1A78BE5A00848515 /* ZXY_ArtistListCell.swift in Sources */,
+				8B7F3DEB1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m in Sources */,
 				8BD218991A8B4D7700DDF441 /* EMChatTimeCell.m in Sources */,
 				288CFB6D1A84CB310010E95A /* AboutMeHeaderView.swift in Sources */,
 				8BD2190D1A8B4DA200DDF441 /* EMSDWebImageManager.m in Sources */,
+				8B7F3DF11A8C3C1500594506 /* LCYOrderFromMeViewController.swift in Sources */,
 				8BD219351A8B4DAB00DDF441 /* THProgressView.m in Sources */,
 				8BD219061A8B4DA200DDF441 /* MWZoomingScrollView.m in Sources */,
 				8B77F1211A6E852C002F147E /* ZXY_SearchArtistCell.swift in Sources */,
@@ -2584,9 +2635,11 @@
 				8BA57A7A1A78766100848515 /* ZXYAlbumSqureImage.m in Sources */,
 				8BA49BC11A7F4C040047EB85 /* ZXY_PictureDetailImages.m in Sources */,
 				8BD219101A8B4DA200DDF441 /* NSData+EMImageContentType.m in Sources */,
+				8B7F3DEC1A8C3C1500594506 /* CYMJUserListOrderEvaData.m in Sources */,
 				28C421051A7A251500B1EB5B /* RegisterTextCell.swift in Sources */,
 				8B7B775C1A81DC240004DF84 /* ZXY_ImagePickCoCell.swift in Sources */,
 				8BC5CC741A71F11900C513DF /* ZXY_DAnnotationView.swift in Sources */,
+				8B7F3DEF1A8C3C1500594506 /* LCYOrderBaseViewController.swift in Sources */,
 				286C4C6F1A8882E8009983D0 /* ICYProfileCell.swift in Sources */,
 				8BECFF221A8303AB009FFBE3 /* ZXY_PicTakeInputCell.swift in Sources */,
 				288B0C1A1A80D3FF00CA073A /* RegisterArtistDetailViewController.swift in Sources */,
@@ -2602,6 +2655,7 @@
 				8BA57A951A78AF5C00848515 /* UIView+Extension.m in Sources */,
 				8BA49BB21A7F40690047EB85 /* ZXY_PictureHeaderCell.swift in Sources */,
 				8BB235C01A6DF60B003530AA /* ZXY_NailSearchVC.swift in Sources */,
+				8B7F3DF01A8C3C1500594506 /* LCYOrderFromMeCell.swift in Sources */,
 				8B195F671A849D26004D6BC0 /* ZXY_SearchArtistVC.swift in Sources */,
 				8BD2191A1A8B4DA200DDF441 /* PSTCollectionViewCell.m in Sources */,
 				8BD2188F1A8B4D7700DDF441 /* DXFaceView.m in Sources */,
@@ -2614,6 +2668,7 @@
 				8BD2188D1A8B4D7700DDF441 /* LocationViewController.m in Sources */,
 				28B9CCB01A89FC6300421D66 /* LCYCareNormalViewController.swift in Sources */,
 				8BD218981A8B4D7700DDF441 /* EMChatVideoBubbleView.m in Sources */,
+				8B7F3DF31A8C3C1500594506 /* LCYOrderViewController.swift in Sources */,
 				8BD219501A8B4DE300DDF441 /* UIViewController+HUD.m in Sources */,
 				8B46C43C1A7729A70093B5DA /* ZXY_HomeMostFashionVC.swift in Sources */,
 				8B6C1F641A6FA205006FCF4C /* ZXYImage.m in Sources */,
@@ -2626,7 +2681,9 @@
 				8BEEA1941A79F42B0068B520 /* ZXY_ArtistDetailVC.swift in Sources */,
 				8BD219191A8B4DA200DDF441 /* PSTCollectionView.m in Sources */,
 				8BEEA1981A7A02E10068B520 /* ZXY_ArtistDetailWorksColleVC.swift in Sources */,
+				8B7F3DF21A8C3C1500594506 /* LCYOrderToMeViewController.swift in Sources */,
 				8BD219091A8B4DA200DDF441 /* EMSDWebImageCompat.m in Sources */,
+				8B7F3DE91A8C3C1500594506 /* CYMJOrderListBase.m in Sources */,
 				8BD2194D1A8B4DE300DDF441 /* NSString+Valid.m in Sources */,
 				8BD2188A1A8B4D7700DDF441 /* ChatViewController+Category.m in Sources */,
 				8BD218FF1A8B4DA200DDF441 /* MWCaptionView.m in Sources */,
@@ -2638,6 +2695,7 @@
 				28B9CCB71A8A01E200421D66 /* CYMJUserListAtListBase.m in Sources */,
 				8BD219071A8B4DA200DDF441 /* DACircularProgressView.m in Sources */,
 				8B46C44B1A775B350093B5DA /* ZXY_HomeSqTitleCell.swift in Sources */,
+				8B7F3DED1A8C3C1500594506 /* LCYMyCommentTableViewCell.swift in Sources */,
 				8BD218961A8B4D7700DDF441 /* EMChatLocationBubbleView.m in Sources */,
 				8BD2189B1A8B4D7700DDF441 /* EMChatViewCell.m in Sources */,
 				8BA49BC21A7F4C040047EB85 /* ZXY_PictureDetailUser.m in Sources */,
@@ -2693,6 +2751,7 @@
 				8BD218451A8AF4B000DDF441 /* ZXY_ChangeUserSexCell.swift in Sources */,
 				8BD2190E1A8B4DA200DDF441 /* EMSDWebImagePrefetcher.m in Sources */,
 				8BD219151A8B4DA200DDF441 /* UIImageView+EMHighlightedWebCache.m in Sources */,
+				8B7F3DEE1A8C3C1500594506 /* LCYMyCommentViewController.swift in Sources */,
 				8BA49BBF1A7F4C040047EB85 /* ZXY_PictureDetailBase.m in Sources */,
 				8BD2189D1A8B4D7700DDF441 /* MessageModelManager.m in Sources */,
 				8BD2189E1A8B4D7700DDF441 /* MessageReadManager.m in Sources */,
@@ -2704,6 +2763,7 @@
 				8BD2188C1A8B4D7700DDF441 /* ConvertToCommonEmoticonsHelper.m in Sources */,
 				8B6761041A78E462009E667B /* ZXYArtistListData.m in Sources */,
 				8B46C44D1A775B4F0093B5DA /* ZXY_HomeSqContentCell.swift in Sources */,
+				8B7F3DEA1A8C3C1500594506 /* CYMJOrderListData.m in Sources */,
 				8BD219051A8B4DA200DDF441 /* MWTapDetectingView.m in Sources */,
 				28D52E661A6CD06200C17CF0 /* AppDelegate.swift in Sources */,
 				8BA49BAE1A7F22EC0047EB85 /* ZXY_NailPictureVC.swift in Sources */,
