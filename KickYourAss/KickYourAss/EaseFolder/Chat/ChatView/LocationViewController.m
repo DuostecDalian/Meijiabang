@@ -60,7 +60,7 @@ static LocationViewController *defaultLocation = nil;
 {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"location.messageType", @"location message");
+    self.title = @"位置信息";
     
     UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
     [backButton setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];

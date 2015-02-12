@@ -447,6 +447,62 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
         }
     }
     
+    @IBAction func startToChat(sender: AnyObject) {
+        if(currentUser == nil)
+        {
+            return
+        }
+        var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUserID == nil)
+        {
+            
+            var story  = UIStoryboard(name: "AboutMe", bundle: nil)
+            var vc     = story.instantiateViewControllerWithIdentifier("login") as UIViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+        
+        
+        
+        if(myUserID == userID)
+        {
+            self.showAlertEasy("提示", messageContent: "不能同自己聊天")
+            return
+        }
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(myUserID, password: "12345678", completion: { (loginInfo, error) -> Void in
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            var chatView = ChatViewController(chatter: self.userID, isGroup: false)
+            chatView.title = self.title
+            if(self.currentUser != nil)
+            {
+               var stringURL =  ZXY_ALLApi.ZXY_MainAPIImage + self.currentUser!.headImage
+                if(self.currentUser!.headImage.hasPrefix("http"))
+                {
+                    stringURL = self.currentUser!.headImage
+                }
+                chatView.imgURLTo = stringURL
+            }
+
+            LCYCommon.sharedInstance.getUserDetailInfo({ (userDetail) -> Void in
+                println(userDetail.headImage)
+                var stringURLs =  ZXY_ALLApi.ZXY_MainAPIImage + userDetail.headImage
+                if(userDetail.headImage.hasPrefix("http"))
+                {
+                    stringURLs = userDetail.headImage
+                }
+                chatView.imgURLMy = stringURLs
+                }, failBlock: { () -> Void in
+                    println("failed")
+                    return
+            })
+            
+            self.navigationController?.pushViewController(chatView, animated: true)
+        }, onQueue: nil)
+        
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "toDateVC")
         {

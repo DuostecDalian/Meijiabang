@@ -15,13 +15,15 @@
 #import "ZXY_MMOCFile.h"
 #import "MJRefresh/MJRefresh.h"
 #import "WaterfallLayout.h"
-
+#import <EasemobSDK/EaseMobHeaders.h>
+#import <EasemobSDK/EaseMob.h>
+#import<EasemobSDK/EMErrorDefs.h>
 #import<AssetsLibrary/AssetsLibrary.h>
 #import<UMengSocial/UMSocial.h>
 #import <UMengSocial/UMSocialWechatHandler.h>
 #import <UMengSocial/UMSocialQQHandler.h>
 #import <UMengSocial/UMSocialSinaHandler.h>
-
+#import "ChatViewController.h"
 #import <UIKit/UIKit.h>
 // ⬇️ 超逸专区
 #import "UIImage+Resize.h"
