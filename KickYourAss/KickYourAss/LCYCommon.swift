@@ -95,6 +95,8 @@ class LCYCommon {
                         failBlock?()
                         return
                 })
+            } else {
+                failBlock?()
             }
         }
     }

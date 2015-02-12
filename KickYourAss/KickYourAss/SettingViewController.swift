@@ -118,9 +118,9 @@ class SettingViewController: UITableViewController {
         case 1:
             switch indexPath.row {
             case 0:
-                break
+                performSegueWithIdentifier("showVersion", sender: nil)
             case 1:
-                break
+                performSegueWithIdentifier("showWeb", sender: nil)
             case 2:
                 break
             default:

@@ -718,6 +718,8 @@
                     <navigationItem key="navigationItem" title="设置" id="4hj-nw-Qzt"/>
                     <connections>
                         <segue destination="ijw-DW-43V" kind="show" identifier="modifyPassword" id="6tv-4F-P49"/>
+                        <segue destination="Lfb-GG-nF6" kind="show" identifier="showWeb" id="DY9-aq-J8r"/>
+                        <segue destination="lQh-tP-DLE" kind="show" identifier="showVersion" id="aFH-XJ-n80"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFC-hK-L2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1295,7 +1297,7 @@
                         <viewControllerLayoutGuide type="top" id="cBJ-CJ-Wm9"/>
                         <viewControllerLayoutGuide type="bottom" id="uMG-lX-dTm"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3d6-NV-RSe">
+                    <view key="view" contentMode="scaleToFill" id="3d6-NV-RSe" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1399,6 +1401,9 @@
                             <constraint firstItem="aRf-FV-4IA" firstAttribute="leading" secondItem="3d6-NV-RSe" secondAttribute="leading" constant="16" id="px5-3W-OL6"/>
                             <constraint firstAttribute="trailing" secondItem="NXW-1U-fWa" secondAttribute="trailing" constant="16" id="sug-wd-uPb"/>
                         </constraints>
+                        <connections>
+                            <action selector="backgroundTapped:" destination="ijw-DW-43V" eventType="touchUpInside" id="tje-RE-xqo"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="修改密码" id="pt8-Ae-61t">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="m99-DL-RC5">
@@ -1419,6 +1424,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Duz-3T-Tag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3443" y="1770"/>
+        </scene>
+        <!--Version View Controller-->
+        <scene sceneID="Hjh-Qq-1ZM">
+            <objects>
+                <viewController id="lQh-tP-DLE" customClass="LCYVersionViewController" customModule="KickYourAss" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MXN-gY-gbd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ki3-90-0ew"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6sJ-nQ-Y7c">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright ©20142015 Duostec All Rights Reserved" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgI-hb-uUz">
+                                <rect key="frame" x="146" y="576" width="308" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="多思科技 版权所有" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K1-y1-TSW">
+                                <rect key="frame" x="246" y="552" width="108" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s256_mzl" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-Z1-uqo">
+                                <rect key="frame" x="265" y="235" width="70" height="70"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号：1.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPN-h3-dHN">
+                                <rect key="frame" x="265" y="313" width="71" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MPN-h3-dHN" firstAttribute="top" secondItem="bUb-Z1-uqo" secondAttribute="bottom" constant="8" id="1Bg-tP-chH"/>
+                            <constraint firstAttribute="centerY" secondItem="bUb-Z1-uqo" secondAttribute="centerY" constant="30" id="GrM-T4-uAk"/>
+                            <constraint firstAttribute="centerX" secondItem="RgI-hb-uUz" secondAttribute="centerX" id="ZJE-Cz-1jD"/>
+                            <constraint firstAttribute="centerX" secondItem="0K1-y1-TSW" secondAttribute="centerX" id="ZfO-CM-8xG"/>
+                            <constraint firstItem="Ki3-90-0ew" firstAttribute="top" secondItem="RgI-hb-uUz" secondAttribute="bottom" constant="8" id="dRI-kl-qoR"/>
+                            <constraint firstItem="RgI-hb-uUz" firstAttribute="top" secondItem="0K1-y1-TSW" secondAttribute="bottom" constant="8" id="wpG-Za-7YN"/>
+                            <constraint firstAttribute="centerX" secondItem="bUb-Z1-uqo" secondAttribute="centerX" id="wsj-CK-vgR"/>
+                            <constraint firstAttribute="centerX" secondItem="MPN-h3-dHN" secondAttribute="centerX" id="xht-If-xu4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="versionLabel" destination="MPN-h3-dHN" id="Bll-KL-AYQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LYD-Zv-RiV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4262" y="2122"/>
         </scene>
         <!--我的收藏-->
         <scene sceneID="YUj-EF-b5l">
@@ -1746,7 +1805,11 @@
         <image name="heart_red" width="20" height="20"/>
         <image name="loginPassword" width="40" height="40"/>
         <image name="loginUser" width="40" height="40"/>
+        <image name="s256_mzl" width="70" height="70"/>
         <image name="statusNew" width="25" height="50"/>
         <image name="textFieldBottomGray" width="5" height="3"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="DY9-aq-J8r"/>
+    </inferredMetricsTieBreakers>
 </document>

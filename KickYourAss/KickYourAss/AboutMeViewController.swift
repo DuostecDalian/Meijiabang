@@ -41,6 +41,7 @@ class AboutMeViewController: UICollectionViewController {
         navigationItem.title = "我的"
         
         navigationController?.interactivePopGestureRecognizer.enabled = false
+        navigationController?.interactivePopGestureRecognizer.delegate = self
         
         refreshHeader()
     }
@@ -241,5 +242,15 @@ extension AboutMeViewController: UICollectionViewDelegateFlowLayout{
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: screenWidth, height: screenWidth / 320.0 * 200.0)
+    }
+}
+
+extension AboutMeViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == navigationController?.interactivePopGestureRecognizer {
+            return false
+        } else {
+            return true
+        }
     }
 }

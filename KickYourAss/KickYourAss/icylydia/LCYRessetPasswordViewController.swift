@@ -36,14 +36,44 @@ class LCYRessetPasswordViewController: UIViewController {
     }
 
     @IBAction func checkMarkPressed(sender: AnyObject) {
-        LCYCommon.sharedInstance.getUserDetailInfo({ (userDetail) -> Void in
-            println(userDetail.headImage)
-        }, failBlock: { () -> Void in
-            println("failed")
-            return
-        })
+        let oldPass = originalPasswordTextField.text ?? ""
+        let newPass = newPasswordTextField.text ?? ""
+        let newPass2 = confirmPasswordTextField.text ?? ""
+        func checkValid() -> Bool {
+            if countElements(oldPass) == 0 {
+                alert("请输入原始密码")
+                return false
+            }
+            if countElements(oldPass) < 6 {
+                alert("请输入6位以上的原始密码")
+                return false
+            }
+            if countElements(newPass) == 0 {
+                alert("请输入新密码")
+                return false
+            }
+            if countElements(newPass) < 6 {
+                alert("新密码至少要6位")
+                return false
+            }
+            if newPass != newPass2 {
+                alert("两次输入密码不一致")
+                return false
+            }
+            return true
+        }
+        if checkValid() {
+            let parameter = [
+                ""
+            ]
+        }
     }
     
+    @IBAction func backgroundTapped(sender: AnyObject) {
+        originalPasswordTextField.resignFirstResponder()
+        newPasswordTextField.resignFirstResponder()
+        confirmPasswordTextField.resignFirstResponder()
+    }
     /*
     // MARK: - Navigation
 
