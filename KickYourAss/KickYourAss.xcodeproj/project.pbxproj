@@ -1066,23 +1066,7 @@
 		288C944B1A6FABDB009DBFC6 /* AboutMe */ = {
 			isa = PBXGroup;
 			children = (
-				8B7F3DD81A8C3C1500594506 /* CYMJOrderList.h */,
-				8B7F3DD91A8C3C1500594506 /* CYMJOrderListBase.h */,
-				8B7F3DDA1A8C3C1500594506 /* CYMJOrderListBase.m */,
-				8B7F3DDB1A8C3C1500594506 /* CYMJOrderListData.h */,
-				8B7F3DDC1A8C3C1500594506 /* CYMJOrderListData.m */,
-				8B7F3DDD1A8C3C1500594506 /* CYMJUserListOrderEva.h */,
-				8B7F3DDE1A8C3C1500594506 /* CYMJUserListOrderEvaBase.h */,
-				8B7F3DDF1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m */,
-				8B7F3DE01A8C3C1500594506 /* CYMJUserListOrderEvaData.h */,
-				8B7F3DE11A8C3C1500594506 /* CYMJUserListOrderEvaData.m */,
-				8B7F3DE21A8C3C1500594506 /* LCYMyCommentTableViewCell.swift */,
-				8B7F3DE31A8C3C1500594506 /* LCYMyCommentViewController.swift */,
-				8B7F3DE41A8C3C1500594506 /* LCYOrderBaseViewController.swift */,
-				8B7F3DE51A8C3C1500594506 /* LCYOrderFromMeCell.swift */,
-				8B7F3DE61A8C3C1500594506 /* LCYOrderFromMeViewController.swift */,
-				8B7F3DE71A8C3C1500594506 /* LCYOrderToMeViewController.swift */,
-				8B7F3DE81A8C3C1500594506 /* LCYOrderViewController.swift */,
+				28D5B5E21A8C439A005C87D5 /* Order */,
 				289FC4CA1A83390700F2A38E /* Model */,
 				289A30401A78A6E700B5350C /* register_help.html */,
 				288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */,
@@ -1222,6 +1206,38 @@
 				28D52E7D1A6CD06300C17CF0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28D5B5E21A8C439A005C87D5 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				28D5B5E31A8C43A0005C87D5 /* Model */,
+				8B7F3DE21A8C3C1500594506 /* LCYMyCommentTableViewCell.swift */,
+				8B7F3DE31A8C3C1500594506 /* LCYMyCommentViewController.swift */,
+				8B7F3DE41A8C3C1500594506 /* LCYOrderBaseViewController.swift */,
+				8B7F3DE51A8C3C1500594506 /* LCYOrderFromMeCell.swift */,
+				8B7F3DE61A8C3C1500594506 /* LCYOrderFromMeViewController.swift */,
+				8B7F3DE71A8C3C1500594506 /* LCYOrderToMeViewController.swift */,
+				8B7F3DE81A8C3C1500594506 /* LCYOrderViewController.swift */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		28D5B5E31A8C43A0005C87D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B7F3DD81A8C3C1500594506 /* CYMJOrderList.h */,
+				8B7F3DD91A8C3C1500594506 /* CYMJOrderListBase.h */,
+				8B7F3DDA1A8C3C1500594506 /* CYMJOrderListBase.m */,
+				8B7F3DDB1A8C3C1500594506 /* CYMJOrderListData.h */,
+				8B7F3DDC1A8C3C1500594506 /* CYMJOrderListData.m */,
+				8B7F3DDD1A8C3C1500594506 /* CYMJUserListOrderEva.h */,
+				8B7F3DDE1A8C3C1500594506 /* CYMJUserListOrderEvaBase.h */,
+				8B7F3DDF1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m */,
+				8B7F3DE01A8C3C1500594506 /* CYMJUserListOrderEvaData.h */,
+				8B7F3DE11A8C3C1500594506 /* CYMJUserListOrderEvaData.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		8B17CE621A7B5D5E002C7F44 /* artistDetailModel */ = {
