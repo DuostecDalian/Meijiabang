@@ -64,6 +64,11 @@ class ZXY_NailSearchVC: UIViewController {
         self.performSegueWithIdentifier("toSerchArtist", sender: nil)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        currentMap.frame = self.view.frame
+    }
+    
     override func viewWillAppear(animated: Bool) {
         currentMap.viewWillAppear()
         currentMap.delegate = self

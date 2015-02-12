@@ -448,6 +448,10 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
     }
     
     @IBAction func startToChat(sender: AnyObject) {
+        if(currentUser == nil)
+        {
+            return
+        }
         var myUserID = LCYCommon.sharedInstance.userInfo?.userID
         if(myUserID == nil)
         {
@@ -457,6 +461,8 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
             self.navigationController?.pushViewController(vc, animated: true)
             return
         }
+        
+        
         
         if(myUserID == userID)
         {
@@ -477,6 +483,20 @@ extension ZXY_ArtistDetailVC : UIScrollViewDelegate , ZXY_ArtistCommentTabVCDele
                 }
                 chatView.imgURLTo = stringURL
             }
+
+            LCYCommon.sharedInstance.getUserDetailInfo({ (userDetail) -> Void in
+                println(userDetail.headImage)
+                var stringURLs =  ZXY_ALLApi.ZXY_MainAPIImage + userDetail.headImage
+                if(userDetail.headImage.hasPrefix("http"))
+                {
+                    stringURLs = userDetail.headImage
+                }
+                chatView.imgURLMy = stringURLs
+                }, failBlock: { () -> Void in
+                    println("failed")
+                    return
+            })
+            
             self.navigationController?.pushViewController(chatView, animated: true)
         }, onQueue: nil)
         

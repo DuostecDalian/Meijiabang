@@ -135,7 +135,7 @@
     [backButton setImage:[UIImage imageNamed:@"back.png"] forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    [self.navigationItem setLeftBarButtonItem:backItem];
+    //[self.navigationItem setLeftBarButtonItem:backItem];
     
     if (_isChatGroup) {
         UIButton *detailButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
@@ -381,7 +381,7 @@
             if(model.isSender)
             {
                 NSLog(@"sender---------------->0");
-                model.headImageURL = [NSURL URLWithString:@"http://g.hiphotos.baidu.com/image/pic/item/91ef76c6a7efce1bfb34d808ad51f3deb58f65d0.jpg"];
+                model.headImageURL = self.imgURLMy;
             }
             else
             {

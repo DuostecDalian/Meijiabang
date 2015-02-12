@@ -183,7 +183,17 @@ extension ZXY_ArtistDetailWorksColleVC : UICollectionViewDelegate , UICollection
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         var currentData : ZXY_UserAlbumListData = dataForShow[indexPath.row] as ZXY_UserAlbumListData
-        self.delegate?.clickItem(currentData.albumId)
+        if(self.delegate != nil)
+        {
+            self.delegate?.clickItem(currentData.albumId)
+        }
+        else
+        {
+            var story = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+            var vc    = story.instantiateViewControllerWithIdentifier("nailPictureID") as ZXY_NailPictureVC
+            vc.setAlbumID(currentData.albumId, user_id: "")
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
