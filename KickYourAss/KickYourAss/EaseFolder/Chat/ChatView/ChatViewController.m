@@ -14,7 +14,7 @@
 
 #import <MediaPlayer/MediaPlayer.h>
 #import <MobileCoreServices/MobileCoreServices.h>
-//#import
+
 #import "SRRefreshView.h"
 #import "DXChatBarMoreView.h"
 #import "DXRecordView.h"
@@ -82,7 +82,7 @@
         
         //根据接收者的username获取当前会话的管理者
         _conversation = [[EaseMob sharedInstance].chatManager conversationForChatter:chatter isGroup:_isChatGroup];
-        [_conversation markMessagesAsRead:YES];
+        [_conversation markAllMessagesAsRead:YES];
     }
     
     return self;
@@ -174,7 +174,7 @@
     [super viewWillDisappear:animated];
     
     // 设置当前conversation的所有message为已读
-    [_conversation markMessagesAsRead:YES];
+    [_conversation markAllMessagesAsRead:YES];
     [[EaseMob sharedInstance].deviceManager disableProximitySensor];
     
 }
@@ -378,6 +378,15 @@
         }
         else{
             MessageModel *model = (MessageModel *)obj;
+            if(model.isSender)
+            {
+                NSLog(@"sender---------------->0");
+                model.headImageURL = [NSURL URLWithString:@"http://g.hiphotos.baidu.com/image/pic/item/91ef76c6a7efce1bfb34d808ad51f3deb58f65d0.jpg"];
+            }
+            else
+            {
+                model.headImageURL = [NSURL URLWithString:self.imgURLTo];
+            }
             NSString *cellIdentifier = [EMChatViewCell cellIdentifierForMessageModel:model];
             EMChatViewCell *cell = (EMChatViewCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
             if (cell == nil) {
@@ -640,7 +649,7 @@
 - (void)reloadTableViewDataWithMessage:(EMMessage *)message{
     __weak ChatViewController *weakSelf = self;
     dispatch_async(_messageQueue, ^{
-        if ([weakSelf.conversation.chatter isEqualToString:message.conversation.chatter])
+        if ([weakSelf.conversation.chatter isEqualToString:message.conversationChatter])
         {
             for (int i = 0; i < weakSelf.dataSource.count; i ++) {
                 id object = [weakSelf.dataSource objectAtIndex:i];
@@ -697,7 +706,7 @@
 
 -(void)didReceiveMessage:(EMMessage *)message
 {
-    if ([_conversation.chatter isEqualToString:message.conversation.chatter]) {
+    if ([_conversation.chatter isEqualToString:message.conversationChatter]) {
         [self addMessage:message];
         [_messages addObject:message];
     }
@@ -705,7 +714,7 @@
 
 -(void)didReceiveCmdMessage:(EMMessage *)message
 {
-    if ([_conversation.chatter isEqualToString:message.conversation.chatter]) {
+    if ([_conversation.chatter isEqualToString:message.conversationChatter]) {
         [self showHint:NSLocalizedString(@"receiveCmd", @"receive cmd message")];
     }
 }
@@ -728,7 +737,7 @@
     [_chatToolBar cancelTouchRecord];
     
     // 设置当前conversation的所有message为已读
-    [_conversation markMessagesAsRead:YES];
+    [_conversation markAllMessagesAsRead:YES];
     
     [self stopAudioPlaying];
 }
@@ -869,11 +878,11 @@
          if (!error) {
              [self sendAudioMessage:aChatVoice];
          }else{
-//             if (error.code == EMErrorAudioRecordNotStarted) {
-//                 [self showHint:error.domain yOffset:-40];
-//             } else {
-//                 [self showHint:error.domain];
-//             }
+             if (error.code == EMErrorAudioRecordNotStarted) {
+                 [self showHint:error.domain yOffset:-40];
+             } else {
+                 [self showHint:error.domain];
+             }
          }
          
      } onQueue:nil];
@@ -1088,10 +1097,10 @@
 - (void)showRoomContact:(id)sender
 {
     [self.view endEditing:YES];
-//    if (_isChatGroup) {
+    if (_isChatGroup) {
 //        ChatGroupDetailViewController *detailController = [[ChatGroupDetailViewController alloc] initWithGroupId:_chatter];
 //        [self.navigationController pushViewController:detailController animated:YES];
-//    }
+    }
 }
 
 - (void)removeAllMessages:(id)sender
@@ -1170,7 +1179,7 @@
     [_chatToolBar cancelTouchRecord];
     
     // 设置当前conversation的所有message为已读
-    [_conversation markMessagesAsRead:YES];
+    [_conversation markAllMessagesAsRead:YES];
 }
 
 #pragma mark - send message

@@ -28,6 +28,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         
         bmkAuthor = BMKMapManager()
         
+        EaseMob.sharedInstance().registerSDKWithAppKey("duostec#meijiabang", apnsCertName: "duostecIOSDev")
+        EaseMob.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        var myUserID = LCYCommon.sharedInstance.userInfo?.userID
+        if(myUserID == nil)
+        {
+            
+            
+            
+        }
+        else
+        {
+            EaseMob.sharedInstance().chatManager.asyncLoginWithUsername(myUserID, password: "12345678", completion: { (loginInfo, error) -> Void in
+                
+                }, onQueue: nil)
+        }
+        
+        
+        if(application.respondsToSelector(Selector("registerForRemoteNotifications")))
+        {
+            application.registerForRemoteNotifications()
+            var notiType = UIUserNotificationType.Badge | UIUserNotificationType.Alert | UIUserNotificationType.Sound
+            var settings = UIUserNotificationSettings(forTypes: notiType, categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        else
+        {
+            var notiType = UIRemoteNotificationType.Badge | UIRemoteNotificationType.Alert | UIRemoteNotificationType.Sound
+            application.registerForRemoteNotificationTypes(notiType)
+        }
+        
        if(( bmkAuthor!.start(ZXY_ConstValue.BDMAPKEY.rawValue, generalDelegate: self)))
        {
             println("授权成功")
@@ -39,30 +70,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,BMKGeneralDelegate{
         return true
     }
 
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        println("收到消息")
+        EaseMob.sharedInstance().application(application, didReceiveRemoteNotification: userInfo)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        EaseMob.sharedInstance().applicationWillResignActive(application)
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        EaseMob.sharedInstance().applicationDidEnterBackground(application)
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        application.applicationIconBadgeNumber = 0
+        EaseMob.sharedInstance().applicationWillEnterForeground(application)
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        application.applicationIconBadgeNumber = 0
+        EaseMob.sharedInstance().applicationDidBecomeActive(application)
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        EaseMob.sharedInstance().applicationWillTerminate(application)
         self.saveContext()
     }
 
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        EaseMob.sharedInstance().application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        EaseMob.sharedInstance().application(application, didFailToRegisterForRemoteNotificationsWithError: error)
+        println(error)
+    }
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
