@@ -54,6 +54,7 @@
 		28D5B5E91A8C4562005C87D5 /* LCYCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5E81A8C4562005C87D5 /* LCYCollectionCell.swift */; };
 		28D5B5EF1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5EC1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m */; };
 		28D5B5F01A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5EE1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m */; };
+		28D5B5F31A8C826F005C87D5 /* LCYRessetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5F21A8C826F005C87D5 /* LCYRessetPasswordViewController.swift */; };
 		8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE641A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m */; };
 		8B17CE681A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE661A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m */; };
 		8B17CE6D1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE6A1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m */; };
@@ -505,6 +506,7 @@
 		28D5B5EC1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJAlbumMyCollectionBase.m; sourceTree = "<group>"; };
 		28D5B5ED1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJAlbumMyCollectionData.h; sourceTree = "<group>"; };
 		28D5B5EE1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJAlbumMyCollectionData.m; sourceTree = "<group>"; };
+		28D5B5F21A8C826F005C87D5 /* LCYRessetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYRessetPasswordViewController.swift; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8B17CE631A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_ArtDetailInfoBase.h; sourceTree = "<group>"; };
 		8B17CE641A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_ArtDetailInfoBase.m; sourceTree = "<group>"; };
@@ -1247,6 +1249,7 @@
 		28D5B5E41A8C44B7005C87D5 /* icylydia */ = {
 			isa = PBXGroup;
 			children = (
+				28D5B5F11A8C825D005C87D5 /* ResetPassword */,
 				28D5B5E51A8C44CC005C87D5 /* MyCollection */,
 			);
 			path = icylydia;
@@ -1264,6 +1267,14 @@
 				28D5B5E81A8C4562005C87D5 /* LCYCollectionCell.swift */,
 			);
 			name = MyCollection;
+			sourceTree = "<group>";
+		};
+		28D5B5F11A8C825D005C87D5 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				28D5B5F21A8C826F005C87D5 /* LCYRessetPasswordViewController.swift */,
+			);
+			name = ResetPassword;
 			sourceTree = "<group>";
 		};
 		8B17CE621A7B5D5E002C7F44 /* artistDetailModel */ = {
@@ -2728,6 +2739,7 @@
 				8B7F3DF21A8C3C1500594506 /* LCYOrderToMeViewController.swift in Sources */,
 				8BD219091A8B4DA200DDF441 /* EMSDWebImageCompat.m in Sources */,
 				8B7F3DE91A8C3C1500594506 /* CYMJOrderListBase.m in Sources */,
+				28D5B5F31A8C826F005C87D5 /* LCYRessetPasswordViewController.swift in Sources */,
 				8BD2194D1A8B4DE300DDF441 /* NSString+Valid.m in Sources */,
 				8BD2188A1A8B4D7700DDF441 /* ChatViewController+Category.m in Sources */,
 				8BD218FF1A8B4DA200DDF441 /* MWCaptionView.m in Sources */,

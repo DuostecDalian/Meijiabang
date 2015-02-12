@@ -18,17 +18,18 @@ class LCYCommon {
             newMap[key.integerValue] = value
         }
         return newMap
-    }()
+        }()
     
     private lazy var orderStatusMap: [String: String] = {
         let mapFile = NSBundle.mainBundle().pathForResource("OrderStatus", ofType: "plist")!
         return NSDictionary(contentsOfFile: mapFile) as [String: String]
-    }()
+        }()
     
     enum UserDefaultKeys: String {
         case UserID = "kDefaultUserID"
         case NickName = "kDefaultNickname"
         case Role = "kDefaultRole"
+        case UserDetail = "kDefaultUserDetail"
     }
     
     class var sharedInstance: LCYCommon {
@@ -59,9 +60,53 @@ class LCYCommon {
             return nil
         }
     }
-//    var userID: String? {
-//        return userDefault.objectForKey(UserDefaultKeys.UserID.rawValue) as? String
-//    }
+    //    var userID: String? {
+    //        return userDefault.objectForKey(UserDefaultKeys.UserID.rawValue) as? String
+    //    }
+    
+    private var userDetail: CYMJUserInfoData? {
+        if let info = userDefault.objectForKey(UserDefaultKeys.UserDetail.rawValue) as? NSDictionary {
+            return CYMJUserInfoData.modelObjectWithDictionary(info)
+        } else {
+            return nil
+        }
+    }
+    typealias UserDetailSuccessBlock = ((userDetail: CYMJUserInfoData) -> Void)?
+    typealias UserDetailFailBlock = (() -> Void)?
+    func getUserDetailInfo(successBlock: UserDetailSuccessBlock, failBlock: UserDetailFailBlock) {
+        if let userDetail = userDetail {
+            successBlock?(userDetail: userDetail)
+        } else {
+            if let userID = userInfo?.userID {
+                let parameter = ["user_id": userID]
+                LCYNetworking.sharedInstance.POST(
+                    Api: LCYNetworking.LCYApi.UserInfo,
+                    parameters: parameter,
+                    success: { [unowned self](object) -> Void in
+                        let retrieved = CYMJUserInfoBase.modelObjectWithDictionary(object)
+                        if retrieved.result == 1000 {
+                            self.setUserDetailInfo(retrieved.data)
+                            successBlock?(userDetail: retrieved.data)
+                        } else {
+                            failBlock?()
+                        }
+                        return
+                    }, fail: { () -> Void in
+                        failBlock?()
+                        return
+                })
+            }
+        }
+    }
+    
+    func setUserDetailInfo(info: CYMJUserInfoData?) {
+        if let info = info {
+            userDefault.setObject(info.dictionaryRepresentation(), forKey: UserDefaultKeys.UserDetail.rawValue)
+        } else {
+            userDefault.removeObjectForKey(UserDefaultKeys.UserDetail.rawValue)
+        }
+        userDefault.synchronize()
+    }
     
     func login(userID: String?, nickName: String?, role: String?) {
         userDefault.setObject(userID, forKey: UserDefaultKeys.UserID.rawValue)
@@ -71,10 +116,11 @@ class LCYCommon {
     }
     
     func logout() {
-//        userDefault.setNilValueForKey(UserDefaultKeys.UserID.rawValue)
+        //        userDefault.setNilValueForKey(UserDefaultKeys.UserID.rawValue)
         userDefault.removeObjectForKey(UserDefaultKeys.UserID.rawValue)
         userDefault.removeObjectForKey(UserDefaultKeys.NickName.rawValue)
         userDefault.removeObjectForKey(UserDefaultKeys.Role.rawValue)
+        setUserDetailInfo(nil)
         userDefault.synchronize()
     }
     
@@ -93,4 +139,10 @@ class LCYCommon {
     func orderStatus(code: String) -> String {
         return orderStatusMap[code] ?? "未知状态😓"
     }
+}
+
+enum Gender: Int {
+    case Male = 1
+    case Female = 2
+    case Unknown = 9
 }
