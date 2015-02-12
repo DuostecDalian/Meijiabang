@@ -14,6 +14,10 @@
 
 @interface ChatViewController : UIViewController
 
+@property (nonatomic) NSString *imgURLTo;
+@property (nonatomic) NSString *imgURLMy;
+
 - (instancetype)initWithChatter:(NSString *)chatter isGroup:(BOOL)isGroup;
+
 - (void)reloadData;
 @end

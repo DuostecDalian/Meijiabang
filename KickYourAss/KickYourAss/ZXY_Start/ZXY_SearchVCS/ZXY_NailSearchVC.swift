@@ -13,7 +13,7 @@ import MapKit
 class ZXY_NailSearchVC: UIViewController {
     var toHeaderMax: CGFloat = 239.0
     let mapScale   : CLLocationDegrees = 0.001
-    
+    var isFirst = true
     var locService = BMKLocationService()
     //var anno: ZXY_BMKAnnotation?
     var annos : [ZXY_BMKAnnotation]! = []
@@ -62,6 +62,19 @@ class ZXY_NailSearchVC: UIViewController {
     
     override func rightNaviButtonAction() {
         self.performSegueWithIdentifier("toSerchArtist", sender: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if(isFirst)
+        {
+            currentMap.frame = self.view.frame
+            isFirst = false
+        }
+        else
+        {
+        
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
