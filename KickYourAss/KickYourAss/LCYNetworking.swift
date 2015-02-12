@@ -14,6 +14,7 @@ class LCYNetworking {
         case UserLogin              = "User/login"
         case UserRegister           = "User/register"
         case UserInfo               = "User/userInfo"
+        case UserRePass             = "User/rePass"
         
         case UserListAtList         = "UserList/attention_list"
         case UserListAtList2        = "UserList/attention_list2"
