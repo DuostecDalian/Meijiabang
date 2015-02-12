@@ -176,6 +176,8 @@ class AboutMeViewController: UICollectionViewController {
             performSegueWithIdentifier("showOrder", sender: nil)
         case 5:
             performSegueWithIdentifier("showComment", sender: nil)
+        case 6:
+            performSegueWithIdentifier("showCollection", sender: nil)
         case 7:
             if let info = LCYCommon.sharedInstance.userInfo {
                 if userInfo != nil {
