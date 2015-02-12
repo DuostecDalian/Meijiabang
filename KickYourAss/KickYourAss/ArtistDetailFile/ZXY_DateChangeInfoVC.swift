@@ -91,6 +91,12 @@ extension ZXY_DateChangeInfoVC : UITableViewDelegate ,UITableViewDataSource
         {
             var cell = tableView.dequeueReusableCellWithIdentifier(ZXY_ChangeDateInfoCellID) as ZXY_ChangeDateInfoCell
             self.infoText = cell.infoText
+            var flag   = currentDic["tag"] as Int
+            if(flag == 4)
+            {
+                self.infoText?.keyboardType = UIKeyboardType.NumberPad
+            }
+
             return cell
         }
         else

@@ -22,6 +22,7 @@
 #import <UMengSocial/UMSocialQQHandler.h>
 #import <UMengSocial/UMSocialSinaHandler.h>
 
+#import <UIKit/UIKit.h>
 // ⬇️ 超逸专区
 #import "UIImage+Resize.h"
 

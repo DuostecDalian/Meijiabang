@@ -90,7 +90,7 @@
                                                         <constraint firstAttribute="width" constant="20" id="pjr-jy-iuY"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_personCenter" translatesAutoresizingMaskIntoConstraints="NO" id="ucm-ql-p1A">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search_personCenter" translatesAutoresizingMaskIntoConstraints="NO" id="ucm-ql-p1A">
                                                     <rect key="frame" x="10" y="18" width="61" height="61"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
