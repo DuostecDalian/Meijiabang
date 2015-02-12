@@ -95,4 +95,9 @@ struct ZXY_ALLApi
     *  修改图集描述信息
     */
     static let ZXY_ModifyAlbumAPI     = "Album/modify_content"
+    
+    /**
+    *  增加订单
+    */
+    static let ZXY_AddOrderAPI        = "Order/order_add"
 }

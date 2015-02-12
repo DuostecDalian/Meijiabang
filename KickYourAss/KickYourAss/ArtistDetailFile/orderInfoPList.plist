@@ -7,30 +7,40 @@
 		<string>顾客姓名</string>
 		<key>tag</key>
 		<integer>0</integer>
+		<key>warn</key>
+		<string>请填写顾客姓名</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>性别</string>
 		<key>tag</key>
 		<integer>1</integer>
+		<key>warn</key>
+		<string>请选择性别</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>预约时间</string>
 		<key>tag</key>
 		<integer>2</integer>
+		<key>warn</key>
+		<string>请选择预约时间</string>
 	</dict>
 	<dict>
 		<key>title</key>
-		<string>预约时间</string>
+		<string>预约地点</string>
 		<key>tag</key>
 		<integer>3</integer>
+		<key>warn</key>
+		<string>请填写预约地点</string>
 	</dict>
 	<dict>
 		<key>title</key>
 		<string>顾客电话</string>
 		<key>tag</key>
 		<integer>4</integer>
+		<key>warn</key>
+		<string>请填写顾客电话</string>
 	</dict>
 </array>
 </plist>
