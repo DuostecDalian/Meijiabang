@@ -17,6 +17,9 @@ class LCYNetworking {
         
         case UserListAtList         = "UserList/attention_list"
         case UserListAtList2        = "UserList/attention_list2"
+        case UserListOrderEva       = "UserList/order_evalue"
+        
+        case OrderList              = "Order/order_list"
     }
     
     let testBaseURL = "http://www.meijiab.cn/admin/index.php/Api/"

@@ -51,8 +51,9 @@ class LCYCareArtistViewController: LCYCareBaseViewController {
                 "user_id": userID,
                 "role": "2"
             ]
+            let API = iCareFlag ? LCYNetworking.LCYApi.UserListAtList : LCYNetworking.LCYApi.UserListAtList2
             LCYNetworking.sharedInstance.POST(
-                Api: LCYNetworking.LCYApi.UserListAtList,
+                Api: API,
                 parameters: parameter,
                 success: {
                     [weak self](object) -> Void in
@@ -110,12 +111,21 @@ class LCYCareArtistViewController: LCYCareBaseViewController {
         let data = dataInfo[indexPath.row].info
         cell.nickNameLabel.text = data.nickName
         cell.artworkCountLabel.text = "作品：" + data.albumCount
-        cell.imagePath = data.headImage.toAbsoluteImagePath()
+        cell.imagePath = data.headImage?.toAbsoluteImagePath()
         cell.starCountLabel.text = data.byAttention
         cell.markCount = data.score.doubleValue
         cell.distanceLabel.text = dataInfo[indexPath.row].distance
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let data = dataInfo[indexPath.row].info
+        let toStoryboard = UIStoryboard(name: "ArtistDetailStoryBoard", bundle: nil)
+        let toViewController = toStoryboard.instantiateViewControllerWithIdentifier(ZXY_ArtistDetailVCID) as ZXY_ArtistDetailVC
+        toViewController.setUserID(data.userId)
+        navigationController?.navigationBar.translucent = false
+        navigationController?.pushViewController(toViewController, animated: true)
     }
     
     /*

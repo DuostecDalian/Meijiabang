@@ -20,6 +20,11 @@ class LCYCommon {
         return newMap
     }()
     
+    private lazy var orderStatusMap: [String: String] = {
+        let mapFile = NSBundle.mainBundle().pathForResource("OrderStatus", ofType: "plist")!
+        return NSDictionary(contentsOfFile: mapFile) as [String: String]
+    }()
+    
     enum UserDefaultKeys: String {
         case UserID = "kDefaultUserID"
         case NickName = "kDefaultNickname"
@@ -83,5 +88,9 @@ class LCYCommon {
     
     func errorMessage(code: Double?) -> String {
         return errorMessage(code != nil ? Int(code!) : nil)
+    }
+    
+    func orderStatus(code: String) -> String {
+        return orderStatusMap[code] ?? "未知状态😓"
     }
 }
