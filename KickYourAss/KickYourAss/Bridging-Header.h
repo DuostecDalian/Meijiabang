@@ -35,6 +35,7 @@
 
 #import "CYMJOrderList.h"
 #import "CYMJUserListOrderEva.h"
+#import "CYMJAlbumMyCollection.h"
 
 // ⬆️ 超逸专区
 

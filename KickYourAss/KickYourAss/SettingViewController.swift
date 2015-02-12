@@ -104,6 +104,32 @@ class SettingViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                break
+            case 1:
+                performSegueWithIdentifier("modifyPassword", sender: nil)
+            default:
+                break
+            }
+        case 1:
+            switch indexPath.row {
+            case 0:
+                break
+            case 1:
+                break
+            case 2:
+                break
+            default:
+                break
+            }
+        default:
+            break
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

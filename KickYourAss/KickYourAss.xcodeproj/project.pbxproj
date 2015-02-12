@@ -50,6 +50,11 @@
 		28D52E8D1A6CD2F700C17CF0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */; };
 		28D52E8F1A6CD2FE00C17CF0 /* Artist.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */; };
 		28D52E911A6CD31000C17CF0 /* AboutMe.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */; };
+		28D5B5E71A8C44E6005C87D5 /* LCYCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5E61A8C44E6005C87D5 /* LCYCollectionViewController.swift */; };
+		28D5B5E91A8C4562005C87D5 /* LCYCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5E81A8C4562005C87D5 /* LCYCollectionCell.swift */; };
+		28D5B5EF1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5EC1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m */; };
+		28D5B5F01A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5EE1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m */; };
+		28D5B5F31A8C826F005C87D5 /* LCYRessetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D5B5F21A8C826F005C87D5 /* LCYRessetPasswordViewController.swift */; };
 		8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE641A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m */; };
 		8B17CE681A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE661A7B5D5E002C7F44 /* ZXY_ArtDetailInfoData.m */; };
 		8B17CE6D1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B17CE6A1A7B6F25002C7F44 /* ZXY_UserAlbumListBase.m */; };
@@ -495,6 +500,14 @@
 		28D52E8C1A6CD2F700C17CF0 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Home.storyboard; path = ../../Home.storyboard; sourceTree = "<group>"; };
 		28D52E8E1A6CD2FE00C17CF0 /* Artist.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Artist.storyboard; path = ../../Artist.storyboard; sourceTree = "<group>"; };
 		28D52E901A6CD31000C17CF0 /* AboutMe.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutMe.storyboard; sourceTree = "<group>"; };
+		28D5B5E61A8C44E6005C87D5 /* LCYCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCollectionViewController.swift; sourceTree = "<group>"; };
+		28D5B5E81A8C4562005C87D5 /* LCYCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYCollectionCell.swift; sourceTree = "<group>"; };
+		28D5B5EA1A8C4A95005C87D5 /* CYMJAlbumMyCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJAlbumMyCollection.h; sourceTree = "<group>"; };
+		28D5B5EB1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJAlbumMyCollectionBase.h; sourceTree = "<group>"; };
+		28D5B5EC1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJAlbumMyCollectionBase.m; sourceTree = "<group>"; };
+		28D5B5ED1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYMJAlbumMyCollectionData.h; sourceTree = "<group>"; };
+		28D5B5EE1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYMJAlbumMyCollectionData.m; sourceTree = "<group>"; };
+		28D5B5F21A8C826F005C87D5 /* LCYRessetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LCYRessetPasswordViewController.swift; sourceTree = "<group>"; };
 		807E525D3342A9D8C53DE769 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8B17CE631A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXY_ArtDetailInfoBase.h; sourceTree = "<group>"; };
 		8B17CE641A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXY_ArtDetailInfoBase.m; sourceTree = "<group>"; };
@@ -1068,23 +1081,7 @@
 		288C944B1A6FABDB009DBFC6 /* AboutMe */ = {
 			isa = PBXGroup;
 			children = (
-				8B7F3DD81A8C3C1500594506 /* CYMJOrderList.h */,
-				8B7F3DD91A8C3C1500594506 /* CYMJOrderListBase.h */,
-				8B7F3DDA1A8C3C1500594506 /* CYMJOrderListBase.m */,
-				8B7F3DDB1A8C3C1500594506 /* CYMJOrderListData.h */,
-				8B7F3DDC1A8C3C1500594506 /* CYMJOrderListData.m */,
-				8B7F3DDD1A8C3C1500594506 /* CYMJUserListOrderEva.h */,
-				8B7F3DDE1A8C3C1500594506 /* CYMJUserListOrderEvaBase.h */,
-				8B7F3DDF1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m */,
-				8B7F3DE01A8C3C1500594506 /* CYMJUserListOrderEvaData.h */,
-				8B7F3DE11A8C3C1500594506 /* CYMJUserListOrderEvaData.m */,
-				8B7F3DE21A8C3C1500594506 /* LCYMyCommentTableViewCell.swift */,
-				8B7F3DE31A8C3C1500594506 /* LCYMyCommentViewController.swift */,
-				8B7F3DE41A8C3C1500594506 /* LCYOrderBaseViewController.swift */,
-				8B7F3DE51A8C3C1500594506 /* LCYOrderFromMeCell.swift */,
-				8B7F3DE61A8C3C1500594506 /* LCYOrderFromMeViewController.swift */,
-				8B7F3DE71A8C3C1500594506 /* LCYOrderToMeViewController.swift */,
-				8B7F3DE81A8C3C1500594506 /* LCYOrderViewController.swift */,
+				28D5B5E21A8C439A005C87D5 /* Order */,
 				289FC4CA1A83390700F2A38E /* Model */,
 				289A30401A78A6E700B5350C /* register_help.html */,
 				288C94401A6FABAA009DBFC6 /* AboutMeButtonCell.swift */,
@@ -1114,13 +1111,6 @@
 				8B7F3DD61A8C3BD600594506 /* OrderStatus.plist */,
 			);
 			name = LCYCommon;
-			sourceTree = "<group>";
-		};
-		288C944D1A6FB202009DBFC6 /* LCYFiles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LCYFiles;
 			sourceTree = "<group>";
 		};
 		289FC4CA1A83390700F2A38E /* Model */ = {
@@ -1179,9 +1169,9 @@
 				8BEEA1921A79F4090068B520 /* ArtistDetailFile */,
 				8BA57A7D1A78AF5C00848515 /* MJRefresh */,
 				8B46C4431A77313A0093B5DA /* WaterFlowLayout */,
-				288C944D1A6FB202009DBFC6 /* LCYFiles */,
 				288C944C1A6FABE6009DBFC6 /* LCYCommon */,
 				288C944B1A6FABDB009DBFC6 /* AboutMe */,
+				28D5B5E41A8C44B7005C87D5 /* icylydia */,
 				288C94451A6FABAA009DBFC6 /* MyPlayground.playground */,
 				8B6C1F5C1A6FA205006FCF4C /* DataModels.h */,
 				28D52E651A6CD06200C17CF0 /* AppDelegate.swift */,
@@ -1225,6 +1215,69 @@
 				28D52E7D1A6CD06300C17CF0 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28D5B5E21A8C439A005C87D5 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				28D5B5E31A8C43A0005C87D5 /* Model */,
+				8B7F3DE21A8C3C1500594506 /* LCYMyCommentTableViewCell.swift */,
+				8B7F3DE31A8C3C1500594506 /* LCYMyCommentViewController.swift */,
+				8B7F3DE41A8C3C1500594506 /* LCYOrderBaseViewController.swift */,
+				8B7F3DE51A8C3C1500594506 /* LCYOrderFromMeCell.swift */,
+				8B7F3DE61A8C3C1500594506 /* LCYOrderFromMeViewController.swift */,
+				8B7F3DE71A8C3C1500594506 /* LCYOrderToMeViewController.swift */,
+				8B7F3DE81A8C3C1500594506 /* LCYOrderViewController.swift */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		28D5B5E31A8C43A0005C87D5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B7F3DD81A8C3C1500594506 /* CYMJOrderList.h */,
+				8B7F3DD91A8C3C1500594506 /* CYMJOrderListBase.h */,
+				8B7F3DDA1A8C3C1500594506 /* CYMJOrderListBase.m */,
+				8B7F3DDB1A8C3C1500594506 /* CYMJOrderListData.h */,
+				8B7F3DDC1A8C3C1500594506 /* CYMJOrderListData.m */,
+				8B7F3DDD1A8C3C1500594506 /* CYMJUserListOrderEva.h */,
+				8B7F3DDE1A8C3C1500594506 /* CYMJUserListOrderEvaBase.h */,
+				8B7F3DDF1A8C3C1500594506 /* CYMJUserListOrderEvaBase.m */,
+				8B7F3DE01A8C3C1500594506 /* CYMJUserListOrderEvaData.h */,
+				8B7F3DE11A8C3C1500594506 /* CYMJUserListOrderEvaData.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		28D5B5E41A8C44B7005C87D5 /* icylydia */ = {
+			isa = PBXGroup;
+			children = (
+				28D5B5F11A8C825D005C87D5 /* ResetPassword */,
+				28D5B5E51A8C44CC005C87D5 /* MyCollection */,
+			);
+			path = icylydia;
+			sourceTree = "<group>";
+		};
+		28D5B5E51A8C44CC005C87D5 /* MyCollection */ = {
+			isa = PBXGroup;
+			children = (
+				28D5B5EA1A8C4A95005C87D5 /* CYMJAlbumMyCollection.h */,
+				28D5B5EB1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.h */,
+				28D5B5EC1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m */,
+				28D5B5ED1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.h */,
+				28D5B5EE1A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m */,
+				28D5B5E61A8C44E6005C87D5 /* LCYCollectionViewController.swift */,
+				28D5B5E81A8C4562005C87D5 /* LCYCollectionCell.swift */,
+			);
+			name = MyCollection;
+			sourceTree = "<group>";
+		};
+		28D5B5F11A8C825D005C87D5 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				28D5B5F21A8C826F005C87D5 /* LCYRessetPasswordViewController.swift */,
+			);
+			name = ResetPassword;
 			sourceTree = "<group>";
 		};
 		8B17CE621A7B5D5E002C7F44 /* artistDetailModel */ = {
@@ -2598,6 +2651,7 @@
 				8B6C1F5A1A6F8C8E006FCF4C /* NSString+Encipher.m in Sources */,
 				8B17CE741A7B874B002C7F44 /* ZXY_UserCommentBase.m in Sources */,
 				8BD219311A8B4DA600DDF441 /* SRSlimeView.m in Sources */,
+				28D5B5E71A8C44E6005C87D5 /* LCYCollectionViewController.swift in Sources */,
 				8BF0F9C21A6E2E83003F376A /* ZXY_SheetViewCell.swift in Sources */,
 				8BA57A9B1A78BD5700848515 /* ZXY_NailArtistListVC.swift in Sources */,
 				8BEEA19D1A7A05BE0068B520 /* ZXY_ArtistDetailCommentCell.swift in Sources */,
@@ -2618,6 +2672,7 @@
 				8BD218431A8AF49D00DDF441 /* ZXY_ChangeDateInfoCell.swift in Sources */,
 				286C4C6B1A887ECF009983D0 /* SettingCell.swift in Sources */,
 				8BD219221A8B4DA200DDF441 /* PSTGridLayoutItem.m in Sources */,
+				28D5B5EF1A8C4A95005C87D5 /* CYMJAlbumMyCollectionBase.m in Sources */,
 				288CFB731A84CD790010E95A /* CYMJUserInfoBase.m in Sources */,
 				28D52E691A6CD06200C17CF0 /* KickYourAss.xcdatamodeld in Sources */,
 				8BD2191F1A8B4DA200DDF441 /* PSTCollectionViewLayout.m in Sources */,
@@ -2689,6 +2744,7 @@
 				8B7F3DF21A8C3C1500594506 /* LCYOrderToMeViewController.swift in Sources */,
 				8BD219091A8B4DA200DDF441 /* EMSDWebImageCompat.m in Sources */,
 				8B7F3DE91A8C3C1500594506 /* CYMJOrderListBase.m in Sources */,
+				28D5B5F31A8C826F005C87D5 /* LCYRessetPasswordViewController.swift in Sources */,
 				8BD2194D1A8B4DE300DDF441 /* NSString+Valid.m in Sources */,
 				8BD2188A1A8B4D7700DDF441 /* ChatViewController+Category.m in Sources */,
 				8BD218FF1A8B4DA200DDF441 /* MWCaptionView.m in Sources */,
@@ -2701,6 +2757,7 @@
 				8BD219071A8B4DA200DDF441 /* DACircularProgressView.m in Sources */,
 				8B46C44B1A775B350093B5DA /* ZXY_HomeSqTitleCell.swift in Sources */,
 				8B7F3DED1A8C3C1500594506 /* LCYMyCommentTableViewCell.swift in Sources */,
+				28D5B5F01A8C4A95005C87D5 /* CYMJAlbumMyCollectionData.m in Sources */,
 				8BD218961A8B4D7700DDF441 /* EMChatLocationBubbleView.m in Sources */,
 				8BD2189B1A8B4D7700DDF441 /* EMChatViewCell.m in Sources */,
 				8BA49BC21A7F4C040047EB85 /* ZXY_PictureDetailUser.m in Sources */,
@@ -2718,6 +2775,7 @@
 				8B17CE671A7B5D5E002C7F44 /* ZXY_ArtDetailInfoBase.m in Sources */,
 				288CFB741A84CD790010E95A /* CYMJUserInfoData.m in Sources */,
 				8BD2188B1A8B4D7700DDF441 /* ChatViewController.m in Sources */,
+				28D5B5E91A8C4562005C87D5 /* LCYCollectionCell.swift in Sources */,
 				8BD219691A8B4E1F00DDF441 /* EMRemarkImageView.m in Sources */,
 				8B6C1F651A6FA205006FCF4C /* ZXYSearchBaseModel.m in Sources */,
 				8BC5CC781A71F22100C513DF /* DEDEDEDET.swift in Sources */,
