@@ -71,9 +71,19 @@ class LCYRessetPasswordViewController: UIViewController {
             LCYNetworking.sharedInstance.POST(
                 Api: LCYNetworking.LCYApi.UserRePass,
                 parameters: parameter,
-                success: { (object) -> Void in
+                success: { [weak self](object) -> Void in
+                    if let result = object["result"] as? Double{
+                        if result == 1000 {
+                            self?.navigationController?.popToRootViewControllerAnimated(true)
+                        } else {
+                            self?.alertWithErrorCode(result)
+                        }
+                    } else {
+                        self?.alertWithErrorCode(0)
+                    }
                     return
-            }, fail: { () -> Void in
+            }, fail: { [weak self]() -> Void in
+                self?.alertNetworkFailed()
                 return
             })
         }
